@@ -726,11 +726,12 @@
                                       </div>
                                     {%- else -%}
                                       <span class="mobile-facets__highlight"></span>
-                                      {{- 'square.svg' | inline_asset_content -}}
-                                      {{- 'icon-checkmark.svg' | inline_asset_content -}}
                                     {%- endif %}
 
                                     {{ text_value }}
+                                     <span class="filter-checkbox">
+                                    <span class="filter-checkbox-inner"></span>
+                                  </span>
                                   </label>
                                 {% endif %}
                               </li>
