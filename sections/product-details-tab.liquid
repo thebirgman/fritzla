@@ -43,8 +43,8 @@
                     />
                 {% else %}
                     <img
-                        src="{{ tabs[0].image | image_url: width: 800 }}"
-                        alt="{{ tabs[0].image.alt | escape }}"
+                        src="{{ tabs.first.image | image_url: width: 800 }}"
+                        alt="{{tabs.first.image.alt | escape }}"
                         class="product-details-tab__image"
                         loading="lazy"
                     />
