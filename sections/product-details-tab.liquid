@@ -106,23 +106,82 @@
   display: block;
 }
 
+.product-details-tab {
+    padding: 150px 0;
+}
+
+.product-details-tab__text {
+    font-size: 14px;
+}
+
+.product-details-tab__tab-button {
+    font-size: 14px;
+    display: block;
+    /* border: 0; */
+    width: fit-content;
+}
+
+.product-details-tab__tab-button.is-active {
+    /* text-decoration: underline; */
+}
+
+.product-details-tab__tabs {
+}
+.product-details-tab {
+    padding: 150px 0;
+}
+
+.product-details-tab__text {
+    font-size: 14px;
+}
+
+.product-details-tab__tab-button {
+    font-size: 14px;
+    display: block;
+    /* border: 0; */
+    width: fit-content;
+}
+
+.product-details-tab__tab-button.is-active {
+    /* text-decoration: underline; */
+}
+
+.product-details-tab__tabs {gap: 30px;}
+
+.metafield-rich_text_field p {
+    margin-top: 0;
+    font-weight: 400;
+}
+
+.product-details-tab__flex {
+    align-items: center;
+    gap: 40px;
+}
+
+.product-details-tab__text {
+    max-width: 300px;
+}
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".product-details-tab__tab-button");
-    const contents = document.querySelectorAll(".product-details-tab__content-block");
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".product-details-tab__tab-button");
+  const contents = document.querySelectorAll(".product-details-tab__content-block");
+  const images = document.querySelectorAll(".product-details-tab__image-block");
 
-    buttons.forEach((button, index) => {
-      button.addEventListener("click", function () {
-        buttons.forEach(btn => btn.classList.remove("is-active"));
-        contents.forEach(content => content.classList.remove("is-active"));
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("is-active"));
+      contents.forEach(c => c.classList.remove("is-active"));
+      images.forEach(i => i.classList.remove("is-active"));
 
-        button.classList.add("is-active");
-        contents[index].classList.add("is-active");
-      });
+      button.classList.add("is-active");
+      contents[index].classList.add("is-active");
+      images[index].classList.add("is-active");
     });
   });
+});
+
 </script>
 
 {% schema %}
