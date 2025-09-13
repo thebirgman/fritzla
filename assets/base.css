@@ -3872,3 +3872,7 @@ summary.list-menu__item a {
     box-sizing: border-box;
   }
 }
+
+* {
+  letter-spacing: 0;
+}
