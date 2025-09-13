@@ -1728,3 +1728,47 @@ summary.mobile-facets__summary.focus-inset {
  .mobile-facets__arrow svg{
      transition: .2s ease-in-out;
  }
+
+
+ @media screen and (max-width: 768px) {
+.mobile-facets__details[open]  .mobile-facets__arrow svg{
+    transform: rotate(45deg);
+}
+
+ .mobile-facets__arrow svg{
+     transition: .2s ease-in-out;
+ }
+
+div .facets-container-drawer {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mobile-facets__open-label {
+    letter-spacing: 0;
+}
+
+facet-remove.active-facets__button-wrapper {
+    margin-left: 0;
+}
+
+.active-facets.active-facets-mobile {
+    margin: 0;
+}
+
+aside#main-collection-filters {
+    padding: 0 20px;
+}
+
+ul#product-grid {
+    padding: 0 20px;
+}
+
+.collection-hero__inner.page-width.scroll-trigger.animate--fade-in {
+    padding: 0 20px;
+}
+
+.collection-hero__text-wrapper .collection-hero__title {
+    margin: 0;
+}
+}
