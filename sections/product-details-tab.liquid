@@ -35,13 +35,19 @@
               data-tab-image-index="{{ forloop.index0 }}"
             >
                     {% if tab.image %}
-              <img
-                src="{{ tab.image | image_url: width: 800 }}"
-                alt="{{ tab.image.alt | escape }}"
-                class="product-details-tab__image"
-                loading="lazy"
-              />
-
+                    <img
+                        src="{{ tab.image | image_url: width: 800 }}"
+                        alt="{{ tab.image.alt | escape }}"
+                        class="product-details-tab__image"
+                        loading="lazy"
+                    />
+                {% else %}
+                    <img
+                        src="{{ tabs[0].image | image_url: width: 800 }}"
+                        alt="{{ tabs[0].image.alt | escape }}"
+                        class="product-details-tab__image"
+                        loading="lazy"
+                    />
           {% endif %}
             </div>
         {% endfor %}
