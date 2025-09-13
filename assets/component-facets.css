@@ -1772,3 +1772,13 @@ ul#product-grid {
     margin: 0;
 }
 }
+
+p.mobile-facets__info {
+    margin: 0;
+    padding: 0 20px;
+    padding-top: 5px;
+}
+
+.mobile-facets__footer {
+    display: none;
+}
