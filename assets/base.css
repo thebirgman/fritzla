@@ -3873,6 +3873,6 @@ summary.list-menu__item a {
   }
 }
 
-* {
+html body * {
   letter-spacing: 0;
 }
