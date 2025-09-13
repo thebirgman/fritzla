@@ -102,3 +102,8 @@ span.visually-hidden+.caption-with-letter-spacing {
 p.variant-names {
     padding: 4px 0 10px;
 }
+
+
+label.swatch-input__label {
+    display: none!important;
+}
