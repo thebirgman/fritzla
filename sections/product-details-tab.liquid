@@ -1,21 +1,21 @@
-{% assign tabs = shop.metaobjects.product_details_tab_list['default'].product_details_tab %}
+{% assign tabs = shop.metaobjects.product_details_tab_list['default'].product_details_tab.value %}
 
 <div class="product-details-tab">
   <div class="product-details-tab__inner page-width">
-    <div class="product-details-tab__grid">
+    <div class="product-details-tab__flex">
       <div class="product-details-tab__tabs">
-        {% for tab in tabs.value %}
-            hello
+        {% for tab in tabs %}
           <button
             class="product-details-tab__tab-button{% if forloop.first %} is-active{% endif %}"
             data-tab-index="{{ forloop.index0 }}"
           >
-            {{ tab.heading  }}
+            {{ tab.heading | escape }}
           </button>
         {% endfor %}
       </div>
-      <div class="product-details-tab__content-area">
-        {% for tab in tabs.value %}
+
+      <div class="product-details-tab__content-wrapper">
+        {% for tab in tabs %}
           <div
             class="product-details-tab__content-block{% if forloop.first %} is-active{% endif %}"
             data-tab-content-index="{{ forloop.index0 }}"
@@ -23,65 +23,89 @@
             <div class="product-details-tab__text">
               {{ tab.content | metafield_tag }}
             </div>
-            {% if tab.image %}
-              <div class="product-details-tab__image-wrapper">
-                <img
-                  src="{{ tab.image | image_url: width: 800 }}"
-                  alt="{{ tab.image.alt | escape }}"
-                  class="product-details-tab__image"
-                  loading="lazy"
-                />
-              </div>
-            {% endif %}
           </div>
+        {% endfor %}
+      </div>
+
+      <div class="product-details-tab__image-wrapper">
+        {% for tab in tabs %}
+          {% if tab.image %}
+            <div
+              class="product-details-tab__image-block{% if forloop.first %} is-active{% endif %}"
+              data-tab-image-index="{{ forloop.index0 }}"
+            >
+              <img
+                src="{{ tab.image | image_url: width: 800 }}"
+                alt="{{ tab.image.alt | escape }}"
+                class="product-details-tab__image"
+                loading="lazy"
+              />
+            </div>
+          {% endif %}
         {% endfor %}
       </div>
     </div>
   </div>
 </div>
 
+
 <style>
-  .product-details-tab__grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 3rem;
-    align-items: start;
-  }
+.product-details-tab__flex {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
 
-  .product-details-tab__tab-button {
-    background: none;
-    border: none;
-    padding: 0.5rem 0;
-    cursor: pointer;
-    font-weight: 500;
-    opacity: 0.5;
-    text-align: left;
-    border-bottom: 1px solid transparent;
-    transition: opacity 0.2s, border-color 0.2s;
-  }
+.product-details-tab__tabs {
+  flex: 0 0 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-  .product-details-tab__tab-button.is-active {
-    opacity: 1;
-    border-bottom: 1px solid black;
-  }
+.product-details-tab__tab-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: 500;
+  opacity: 0.5;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  text-align: left;
+  transition: opacity 0.3s, border-color 0.3s;
+}
 
-  .product-details-tab__content-block {
-    display: none;
-  }
+.product-details-tab__tab-button.is-active {
+  opacity: 1;
+  border-color: black;
+}
 
-  .product-details-tab__content-block.is-active {
-    display: block;
-  }
+.product-details-tab__content-wrapper,
+.product-details-tab__image-wrapper {
+  flex: 1;
+}
 
-  .product-details-tab__image-wrapper {
-    margin-top: 1.5rem;
-  }
+.product-details-tab__content-block,
+.product-details-tab__image-block {
+  display: none;
+}
 
-  .product-details-tab__image {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+.product-details-tab__content-block.is-active,
+.product-details-tab__image-block.is-active {
+  display: block;
+}
+
+.product-details-tab__text {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.product-details-tab__image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 </style>
 
 <script>
