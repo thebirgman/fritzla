@@ -28,8 +28,11 @@
       </div>
 
       <div class="product-details-tab__image-wrapper">
+        
         {% for tab in tabs %}
-      
+            {% if forloop.first %}
+                    {% assign firstTab = tab %}
+            {% endif %}
             <div
               class="product-details-tab__image-block{% if forloop.first %} is-active{% endif %}"
               data-tab-image-index="{{ forloop.index0 }}"
@@ -43,8 +46,8 @@
                     />
                 {% else %}
                     <img
-                        src="{{ tabs.first.image | image_url: width: 800 }}"
-                        alt="{{tabs.first.image.alt | escape }}"
+                        src="{{ firstTab.image | image_url: width: 800 }}"
+                        alt="{{firstTab.image.alt | escape }}"
                         class="product-details-tab__image"
                         loading="lazy"
                     />
