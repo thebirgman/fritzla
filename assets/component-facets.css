@@ -817,6 +817,11 @@ a.active-facets__button.focused .active-facets__button-inner {
 .js .disclosure-has-popup:not(.menu-opening) .mobile-facets__inner {
   transform: translateX(-105vw);
 }
+.mobile-facets__inner.gradient {
+    max-width: 512px;
+    margin-right: auto;
+    margin-left: 0;
+}
 
 .mobile-facets__header {
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
