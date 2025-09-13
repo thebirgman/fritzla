@@ -1702,5 +1702,15 @@ facet-remove {
 
 facet-remove.active-facets__button-wrapper {
     order: 1;
-    margin-right: 5px;
+    
+}
+
+
+.active-facets__button {
+    margin: 0;
+    padding: 0;
+}
+
+.active-facets.active-facets-mobile {
+    gap: 8px;
 }
