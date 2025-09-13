@@ -272,7 +272,9 @@
 
                                   {{ text_value }}
 
-                                  <span class="filter-checkbox"></span>
+                                  <span class="filter-checkbox">
+                                    <span class="filter-checkbox-inner"></span>
+                                  </span>
                                 </label>
                               {%- endif -%}
                             </li>
@@ -650,7 +652,9 @@
                                     </div>
 
                                     {{ text_value }}
-                                     <span class="filter-checkbox"></span>
+                                     <span class="filter-checkbox">
+                                      <span class="filter-checkbox-inner"></span>
+                                     </span>
                                   </div>
                                 {% else %}
                                   <label for="{{ input_id }}" class="{{ label_class }}">
