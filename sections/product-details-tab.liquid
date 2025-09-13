@@ -7,6 +7,7 @@ test3{{ shop.metaobjects.product_details_tab_list['default'].product_details_tab
     <div class="product-details-tab__grid">
       <div class="product-details-tab__tabs">
         {% for tab in tabs %}
+            hello
           <button
             class="product-details-tab__tab-button{% if forloop.first %} is-active{% endif %}"
             data-tab-index="{{ forloop.index0 }}"
