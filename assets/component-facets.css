@@ -1352,3 +1352,20 @@ a.view-count-option:hover {
     margin-right: auto;
     margin-left: 0;
 }
+
+
+
+
+
+
+
+.js .mobile-facets__submenu {
+    position: static;
+    visibility: visible;
+    transform: translate(0);
+    /* display: block; */
+}
+
+.js .mobile-facets .submenu-open {
+    visibility: visible;
+}
