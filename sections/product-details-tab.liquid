@@ -1,7 +1,5 @@
 {% assign tabs = shop.metaobjects.product_details_tab_list['default'].product_details_tab %}
 
-test1{{ tabs.value }}
-test3{{ shop.metaobjects.product_details_tab_list['default'].product_details_tab }}
 <div class="product-details-tab">
   <div class="product-details-tab__inner page-width">
     <div class="product-details-tab__grid">
@@ -12,12 +10,12 @@ test3{{ shop.metaobjects.product_details_tab_list['default'].product_details_tab
             class="product-details-tab__tab-button{% if forloop.first %} is-active{% endif %}"
             data-tab-index="{{ forloop.index0 }}"
           >
-            {{ tab.heading | escape }}
+            {{ tab.heading  }}
           </button>
         {% endfor %}
       </div>
       <div class="product-details-tab__content-area">
-        {% for tab in tabs %}
+        {% for tab in tabs.value %}
           <div
             class="product-details-tab__content-block{% if forloop.first %} is-active{% endif %}"
             data-tab-content-index="{{ forloop.index0 }}"
