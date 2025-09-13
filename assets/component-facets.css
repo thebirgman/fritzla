@@ -1357,12 +1357,14 @@ a.view-count-option:hover {
 
 
 
-
+.mobile-facets__details{
+  overflow: hidden;
+}
 
 .js .mobile-facets__submenu {
     position: static;
     visibility: visible;
-    transform: translate(0);
+    transform: translateY(-100%);
     /* display: block; */
 }
 
@@ -1713,4 +1715,9 @@ facet-remove.active-facets__button-wrapper {
 
 .active-facets.active-facets-mobile {
     gap: 8px;
+}
+
+summary.mobile-facets__summary.focus-inset {
+    z-index: 2;
+    background: #fff;
 }
