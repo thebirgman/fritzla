@@ -29,19 +29,21 @@
 
       <div class="product-details-tab__image-wrapper">
         {% for tab in tabs %}
-          {% if tab.image %}
+      
             <div
               class="product-details-tab__image-block{% if forloop.first %} is-active{% endif %}"
               data-tab-image-index="{{ forloop.index0 }}"
             >
+                    {% if tab.image %}
               <img
                 src="{{ tab.image | image_url: width: 800 }}"
                 alt="{{ tab.image.alt | escape }}"
                 class="product-details-tab__image"
                 loading="lazy"
               />
-            </div>
+
           {% endif %}
+            </div>
         {% endfor %}
       </div>
     </div>
