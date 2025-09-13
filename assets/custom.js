@@ -160,3 +160,13 @@ const el = document.querySelector('.product__description');
     }
   }
 });
+
+
+
+
+var ur = window.location.href;
+if(ur.includes('/collection')){
+   setTimeout(function(){ 
+
+}, 1000);
+}
