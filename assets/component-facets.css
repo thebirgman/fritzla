@@ -1782,3 +1782,15 @@ p.mobile-facets__info {
 .mobile-facets__footer {
     display: none;
 }
+
+span.mobile-facets__highlight {
+    background: transparent;
+}
+
+.mobile-facets__label {
+    align-items: center;
+}
+
+label.facets__label.mobile-facets__label {
+    padding: 10px 20px;
+}
