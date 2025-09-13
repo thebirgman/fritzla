@@ -1721,3 +1721,10 @@ summary.mobile-facets__summary.focus-inset {
     z-index: 2;
     background: #fff;
 }
+.mobile-facets__details[open]  .mobile-facets__arrow svg{
+    transform: rotate(45deg);
+}
+
+ .mobile-facets__arrow svg{
+     transition: .2s ease-in-out;
+ }
