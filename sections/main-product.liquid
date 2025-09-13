@@ -40,7 +40,6 @@
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
     <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
@@ -76,7 +75,6 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-      {% render 'breadcrumbs-product-simple' %}
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
@@ -85,8 +83,6 @@
           id="ProductInfo-{{ section.id }}"
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
-
-          {% render 'breadcrumbs-product-simple' %}
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
           {%- for block in section.blocks -%}
@@ -123,7 +119,6 @@
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
                   </div>
                 {%- endif -%}
-              {% comment %}
                 {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
                   <div class="product__tax caption rte">
                     {%- if cart.duties_included and cart.taxes_included -%}
@@ -138,7 +133,6 @@
                     {%- endif -%}
                   </div>
                 {%- endif -%}
-              {% endcomment %}
                 <div {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
@@ -202,7 +196,6 @@
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                     {{ product.description }}
                   </div>
-                  <a class="read-more-button">{{- shop.metafields.custom.pdp_read_more -}}</a>
                 {%- endif -%}
               {%- when 'sku' -%}
                 <p
@@ -234,114 +227,6 @@
                     </div>
                   </details>
                 </div>
-              {%- when 'usp_feature' -%}
-              <div class='usp-features-block'>
-  <div class='usp-features-cont'>
-
-    <div class='usp-feature-cont usp-feature_1'>
-     
-<svg class='usp-feature-icon' width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_148_567)">
-<path d="M6.5 10.5C8.98528 10.5 11 8.48528 11 6C11 3.51472 8.98528 1.5 6.5 1.5C4.01472 1.5 2 3.51472 2 6C2 8.48528 4.01472 10.5 6.5 10.5Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.75 6.19995L5.875 7.32495L8.5 4.69995" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_148_567">
-<rect width="12" height="12" fill="white" transform="translate(0.5)"/>
-</clipPath>
-</defs>
-</svg>
-
-
-        {{ block.settings.content_1 }}
-
-    </div>
-
-    <div class='usp-feature-cont usp-feature_2'>
-      <svg class='usp-feature-icon' width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_148_567)">
-<path d="M6.5 10.5C8.98528 10.5 11 8.48528 11 6C11 3.51472 8.98528 1.5 6.5 1.5C4.01472 1.5 2 3.51472 2 6C2 8.48528 4.01472 10.5 6.5 10.5Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.75 6.19995L5.875 7.32495L8.5 4.69995" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_148_567">
-<rect width="12" height="12" fill="white" transform="translate(0.5)"/>
-</clipPath>
-</defs>
-</svg>
-
-        {{ block.settings.content_2 }}
-
-    </div>
-
-    <div class='usp-feature-cont usp-feature_3'>
-      <svg class='usp-feature-icon' width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_148_567)">
-<path d="M6.5 10.5C8.98528 10.5 11 8.48528 11 6C11 3.51472 8.98528 1.5 6.5 1.5C4.01472 1.5 2 3.51472 2 6C2 8.48528 4.01472 10.5 6.5 10.5Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.75 6.19995L5.875 7.32495L8.5 4.69995" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_148_567">
-<rect width="12" height="12" fill="white" transform="translate(0.5)"/>
-</clipPath>
-</defs>
-</svg>
-
-        {{ block.settings.content_3 }}
-    </div>
-
-  </div>
-</div>
-
-              <style>
-              .usp-features-cont {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
-
-.usp-feature-cont {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    max-width: calc(25% - 8px);
-    width: 100%;
-    background: #F1F1F1;
-    padding: 16px 8px;
-    justify-content: center;
-}
-
-.usp-feature-cont.usp-feature_2 {
-    max-width: 50%;
-}
-
-svg.usp-feature-icon {
-    min-width: 12px;
-    max-width: 12px;
-}
-
-.usp-feature-cont>p {
-    font-weight: 300;
-    font-size: 10px;
-    line-height: 100%;
-    letter-spacing: 0;
-    color: #131316;
-    margin: 0;
-}
-
-              @media (max-width:768px){
-    .usp-feature-cont {
-        max-width: 100%;
-    }
-
-.usp-feature-cont.usp-feature_2 {
-    max-width: 100%;
-}
-              .usp-feature-cont>p {
-    max-width: 70px;
-}
-              }
-              </style>
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -354,9 +239,20 @@ svg.usp-feature-icon {
                     | item_count_for_variant: product.selected_or_first_available_variant.id
                   -%}
                   {% # theme-check-enable %}
-                  <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
-                    {{ 'products.product.quantity.label' | t }}
-                    <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
+                  <span class="visually-hidden" id="quantity-label-{{ section.id }}">
+                    {%- if cart_qty > 0 -%}
+                      {{- 'products.product.quantity.in_cart_aria_label' | t: quantity: cart_qty -}}
+                    {%- else -%}
+                      {{- 'products.product.quantity.label' | t -}}
+                    {%- endif -%}
+                  </span>
+                  <label
+                    class="quantity__label form__label"
+                    for="Quantity-{{ section.id }}"
+                    aria-labelledby="quantity-label-{{ section.id }}"
+                  >
+                    <span aria-hidden="true">{{ 'products.product.quantity.label' | t }}</span>
+                    <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}" aria-hidden="true">
                       {%- render 'loading-spinner' -%}
                       <span
                         >(
@@ -471,7 +367,10 @@ svg.usp-feature-icon {
                                 </dt>
                                 <dd>
                                   <span class="price-per-item--current">
-                                    {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                    {{-
+                                      'products.product.volume_pricing.price_at_each_html'
+                                      | t: price: variant_price
+                                    -}}
                                   </span>
                                 </dd>
                               </dl>
@@ -561,16 +460,6 @@ svg.usp-feature-icon {
                   data-modal="#PopupModal-{{ block.id }}"
                   {{ block.shopify_attributes }}
                 >
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_133_2554)">
-                  <path d="M4.5 2.25L8.25 6L4.5 9.75" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                  </g>
-                  <defs>
-                  <clipPath id="clip0_133_2554">
-                  <rect width="12" height="12" fill="white"/>
-                  </clipPath>
-                  </defs>
-                  </svg>
                   <button
                     id="ProductPopup-{{ block.id }}"
                     class="product-popup-modal__button link"
@@ -580,8 +469,6 @@ svg.usp-feature-icon {
                     {{ block.settings.text | default: block.settings.page.title | escape }}
                   </button>
                 </modal-opener>
-              {%- when 'drawer' -%}
-              {%- render 'product-page-drawer', block: block, isText: true -%}
               {%- when 'share' -%}
                 {% liquid
                   assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
@@ -850,40 +737,13 @@ svg.usp-feature-icon {
     </script>
   </div>
 </product-info>
-{%- for block in section.blocks -%}
-  {%- case block.type -%}
- {%- when 'drawer' -%}
-              {%- render 'product-page-drawer', block: block, isText: false -%}
-    {% endcase %}
-  {% endfor %}
-  
+
 {% schema %}
 {
   "name": "t:sections.main-product.name",
   "tag": "section",
   "class": "section",
   "blocks": [
-    {
-      "type": "usp_feature",
-      "name": "USP Feature",
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "content_1",
-          "label": "Content"
-        },
-        {
-          "type": "richtext",
-          "id": "content_2",
-          "label": "Content"
-        },
-        {
-          "type": "richtext",
-          "id": "content_3",
-          "label": "Content"
-        },
-      ]
-    },
     {
       "type": "@app"
     },
@@ -1318,48 +1178,6 @@ svg.usp-feature-icon {
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
-        }
-      ]
-    },
-    {
-      "type": "drawer",
-      "name": "Page Drawer",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Link Text"
-        },
-        {
-          "id": "page",
-          "type": "page",
-          "label": "Page"
-        },
-        {
-          "id": "content",
-          "type": "richtext",
-          "label": "Content"
-        }
-      ]
-    },
-    {
-      "type": "size-drawer",
-      "name": "Page Size Drawer",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Link Text"
-        },
-        {
-          "id": "page",
-          "type": "page",
-          "label": "Page"
-        },
-        {
-          "id": "content",
-          "type": "richtext",
-          "label": "Content"
         }
       ]
     },
@@ -1870,7 +1688,7 @@ svg.usp-feature-icon {
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_2.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_2",
@@ -2070,7 +1888,7 @@ svg.usp-feature-icon {
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_3.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_3",
@@ -2372,7 +2190,7 @@ svg.usp-feature-icon {
       ],
       "default": "hide",
       "label": "t:sections.main-product.settings.mobile_thumbnails.label"
-    },    
+    },
     {
       "type": "select",
       "id": "media_position",
