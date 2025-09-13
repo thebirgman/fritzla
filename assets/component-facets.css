@@ -1652,7 +1652,7 @@ span.mobile-facets__open {
 }
 
 .active-facets__button {
-    margin-right: 5px;
+    margin-right: 4px;
 }
 
 span.active-facets__button-inner.button.button--tertiary {
@@ -1674,4 +1674,33 @@ facet-remove.active-facets__button-wrapper a {
     align-items: center;
     padding: 6px 12px;
     line-height: 1.3em;
+}
+
+.facets-selected-filters-container {}
+
+.active-facets__button {
+    margin-top: 0;
+}
+
+facet-remove.active-facets__button-wrapper {
+    padding: 0;
+}
+
+.active-facets {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.facets-selected-filters-container {
+    padding: 30px 20px;
+    padding-bottom: 0;
+}
+
+facet-remove {
+    order: 2;
+}
+
+facet-remove.active-facets__button-wrapper {
+    order: 1;
+    margin-right: 5px;
 }
