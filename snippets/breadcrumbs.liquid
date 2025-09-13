@@ -1,0 +1,120 @@
+{% assign current_template = template | split: '.' | first %}
+<nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
+  <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li class="breadcrumb-item test" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="{{ routes.root_url }}" itemprop="item">
+        <span itemprop="name">{{ shop.metafields.custom.plp_products }}</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+
+    {% case current_template %}
+      {% when 'collection' %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">{{ collection.title }}</span>
+          <meta itemprop="position" content="2" />
+        </li>
+
+      {% when 'product' %}
+        {% if collection %}
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="{{ collection.url }}" itemprop="item">
+              <span itemprop="name">{{ collection.title }}</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+        {% endif %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">{{ product.title }}</span>
+          <meta itemprop="position" content="3" />
+        </li>
+
+      {% when 'blog' %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">{{ blog.title }}</span>
+          <meta itemprop="position" content="2" />
+        </li>
+
+      {% when 'article' %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="{{ blog.url }}" itemprop="item">
+            <span itemprop="name">{{ blog.title }}</span>
+          </a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">{{ article.title }}</span>
+          <meta itemprop="position" content="3" />
+        </li>
+
+      {% when 'page' %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">{{ page.title }}</span>
+          <meta itemprop="position" content="2" />
+        </li>
+    {% endcase %}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs {
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.breadcrumb-item::after {
+  content: "/";
+  margin-left: 0.5rem;
+}
+
+.breadcrumb-item:last-child::after {
+  content: "";
+}
+
+  li.breadcrumb-item {
+    display: flex;
+    gap: 16px;
+}
+
+nav.breadcrumbs {
+    margin: 0;
+    width: 100%;
+}
+
+li.breadcrumb-item span {
+    color: initial;
+}
+
+li.breadcrumb-item a {
+    text-decoration: none;
+}
+
+ol.breadcrumb-list {
+    gap: 16px;
+}
+
+.breadcrumb-item::after {
+    margin: 0;
+}
+
+   .shopify-section>nav.breadcrumbs {
+      display: none;
+   }
+  @media (max-width:769px) {
+  .shopify-section>nav.breadcrumbs {
+    padding: 0 3rem;
+    display: block;
+}
+
+.shopify-section .breadcrumbs {
+    display: none;
+}
+  }
+</style>

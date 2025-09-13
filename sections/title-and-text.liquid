@@ -1,0 +1,140 @@
+{% stylesheet %}
+div.title-and-text-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  margin: 0 auto;
+}
+div.title-and-text-section-outer{
+    padding-top: 60px;
+  padding-bottom: 60px;
+}
+.title-and-text-content {
+  max-width: 400px;
+}
+
+.title-and-text-heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.title-and-text-body {
+    font-size: 14px;
+    color: #333;
+}
+
+  .title-and-text-breadcrumb {
+  font-size: 14px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.title-and-text-breadcrumb a {
+  text-decoration: none;
+  color: #333;
+}
+
+.title-and-text-breadcrumb a + span {
+  margin: 0 15px;
+
+}
+@media screen and (max-width: 768px) {
+div.title-and-text-section-outer{
+  padding: 30px;
+}
+}
+
+  @media screen and (min-width: 768px) {
+.title-and-text-breadcrumb.mobile-only {
+    display: none;
+}
+}
+
+@media screen and (max-width: 768px) {
+
+.title-and-text-breadcrumb.desktop-only {
+    display: none;
+}
+
+.title-and-text-breadcrumb a+span {
+    margin: 0;
+}
+
+.title-and-text-breadcrumb.mobile-only svg {
+    margin-right: 8px;
+}
+
+.title-and-text-breadcrumb.mobile-only {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-top: 0;
+}
+}
+
+{% endstylesheet %}
+<div class="title-and-text-section-outer page-width">
+   <div class="title-and-text-breadcrumb mobile-only">
+     
+<svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 11L1 6L6 1" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    <a href="{{ routes.root_url }}">Back  •  Home</a>
+    <span>/</span>
+    <span>{{ section.settings.title }}</span>
+  </div>
+<div class="title-and-text-section">
+  <div>
+  <h1 class="title-and-text-heading">
+    {{ section.settings.title }}
+  </h1>
+  
+  </div>
+  <div class="title-and-text-content">
+    <div class="title-and-text-body">
+      {{ section.settings.text }}
+    </div>
+  </div>
+
+
+  
+</div>
+  <div class="title-and-text-breadcrumb desktop-only">
+    <a href="{{ routes.root_url }}">{{ shop.metafields.custom.plp_products }}</a>
+    <span>/</span>
+    <span>{{ section.settings.title }}</span>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Title and Text",
+  "tag": "section",
+  "class": "section-title-and-text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Your Title Here"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Your paragraph text goes here. You can describe your brand, mission, or any key messaging you'd like to highlight."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Title and Text"
+    }
+  ]
+}
+{% endschema %}

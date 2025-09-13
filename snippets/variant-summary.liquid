@@ -1,0 +1,19 @@
+{%- comment -%}
+  variant-summary.liquid
+  Usage:
+  {% render 'variant-summary', product: product %}
+{%- endcomment -%}
+
+{%- assign first_variant = product.variants.first -%}
+{%- if first_variant -%}
+  {%- assign first_option = first_variant.option1 -%}
+  {%- assign total_variants = product.variants.size -%}
+  {%- assign remaining_count = total_variants | minus: 1 -%}
+
+  <span class="variant-summary">
+    {{ first_option }}
+    {%- if remaining_count > 0 -%}
+      +{{ remaining_count }}
+    {%- endif -%}
+  </span>
+{%- endif -%}

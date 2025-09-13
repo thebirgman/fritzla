@@ -1,0 +1,33 @@
+<div class='usp-features-block'>
+  <div class='usp-features-cont'>
+
+    <div class='usp-feature-cont usp-feature_1'>
+      {% if section.settings.icon_1 %}
+        <img src="{{ section.block.settings.icon_1 | img_url: '96x96' }}" alt="usp icon 1" class="usp-features-icon" />
+      {% endif %}
+      <p class='usp-features-content'>
+        {{ section.block.settings.content_1 }}
+      </p>
+    </div>
+
+    <div class='usp-feature-cont usp-feature_2'>
+      {% if section.settings.icon_2 %}
+        <img src="{{ section.block.settings.icon_2 | img_url: '96x96' }}" alt="usp icon 2" class="usp-features-icon" />
+      {% endif %}
+      <p class='usp-features-content'>
+        {{ section.block.settings.content_2 }}
+      </p>
+    </div>
+
+    <div class='usp-feature-cont usp-feature_3'>
+      {% if section.settings.icon_3 %}
+        <img src="{{ section.block.settings.icon_3 | img_url: '96x96' }}" alt="usp icon 3" class="usp-features-icon" />
+      {% endif %}
+      <p class='usp-features-content'>
+        {{ section.block.settings.content_3 }}
+      </p>
+    </div>
+
+  </div>
+</div>
+

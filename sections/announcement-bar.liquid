@@ -1,0 +1,482 @@
+{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign social_icons = true
+  if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
+    assign social_icons = false
+  endif
+  if section.settings.enable_country_selector or section.settings.enable_language_selector
+    assign language_country_selector = true
+  endif
+  if section.blocks.size > 0
+    assign announcement_bar = true
+  endif
+-%}
+
+{%- liquid
+  assign bar_bg = section.settings.default_bg
+  assign bar_color = section.settings.default_color
+  if section.blocks.size == 1
+    assign b_first = section.blocks.first
+    assign bar_bg = b_first.settings.bg | default: bar_bg
+    assign bar_color = b_first.settings.color | default: bar_color
+  endif
+-%}
+
+{% if social_icons %}
+  {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+<style>
+  /* Bas */
+  .se-announcement { background: var(--ann-bg); color: var(--ann-color); }
+  .se-announcement .announcement-bar__link { color: inherit; }
+  .se-announcement .se-announcement__inner {
+    display: flex; align-items: center; gap: .6rem; padding: .5rem .9rem; text-decoration: none;
+  }
+  .se-announcement .announcement-bar__message { margin: 0; line-height: 1.3; }
+
+  /* Ikoner som mask (kan färgsättas) */
+  .se-announcement .se-announcement__icon {
+    display:inline-block; width:var(--ann-icon-size,24px); height:var(--ann-icon-size,24px);
+    background-color: var(--ann-icon-color, currentColor);
+    -webkit-mask-image: var(--ann-icon-url); mask-image: var(--ann-icon-url);
+    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+    -webkit-mask-position:center; mask-position:center;
+    -webkit-mask-size:contain; mask-size:contain;
+  }
+
+  /* Pil-ikoner */
+  #shopify-section-{{ section.id }} .slider-button .svg-wrapper svg {
+    stroke: {{ section.settings.arrow_color }};
+    width: {{ section.settings.arrow_size }}px; height: {{ section.settings.arrow_size }}px;
+  }
+
+  /* Färga hela baren */
+  #shopify-section-{{ section.id }} .utility-bar {
+    background: {{ bar_bg }} !important; color: {{ bar_color }} !important;
+  }
+
+  /* Visa EN variant i taget: mobil default, desktop ≥750px */
+  #shopify-section-{{ section.id }} .annc-desktop { display:none; }
+  #shopify-section-{{ section.id }} .annc-mobile { display:block; }
+  @media (min-width:750px){
+    #shopify-section-{{ section.id }} .annc-desktop { display:block; }
+    #shopify-section-{{ section.id }} .annc-mobile { display:none; }
+  }
+
+  /* Desktop-layout */
+  .announcement-desktop .announcement-row {
+    display:flex; justify-content:center; align-items:center;
+    gap: {{ section.settings.desktop_gap }}px; flex-wrap:nowrap;
+  }
+  .announcement-desktop .announcement-item { flex:0 0 auto; }
+
+  /* Höjd via padding */
+  .se-announcement .se-announcement__inner {
+    padding-top: {{ section.settings.mobile_padding_y }}px;
+    padding-bottom: {{ section.settings.mobile_padding_y }}px;
+  }
+  @media (min-width:750px){
+    .se-announcement .se-announcement__inner {
+      padding-top: {{ section.settings.desktop_padding_y }}px;
+      padding-bottom: {{ section.settings.desktop_padding_y }}px;
+    }
+  }
+
+  /* ===== MOBIL FIX: fyll headerns bredd utan klipp ===== */
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .utility-bar {
+      position: relative;
+      width: auto; max-width: 100%;
+      left: auto; transform: none;
+      z-index: 5;
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+      margin-top: 0;
+    }
+    #shopify-section-{{ section.id }} .utility-bar > .page-width {
+      max-width: 100%; width: 100%;
+      padding-left: 0; padding-right: 0;
+    }
+    #shopify-section-{{ section.id }} .slider-button {
+      top: 50%; transform: translateY(-50%);
+    }
+    #shopify-section-{{ section.id }} .slider-button--prev { left: 8px; }
+    #shopify-section-{{ section.id }} .slider-button--next { right: 8px; }
+    #shopify-section-{{ section.id }} .announcement-bar.annc-mobile .se-announcement__inner {
+      padding-left: 12px; padding-right: 12px;
+    }
+  }
+
+  /* Släpp igenom om headern klipper */
+  .shopify-section-header .header,
+  .shopify-section-header .header-wrapper,
+  #shopify-section-header .header,
+  #shopify-section-header .header-wrapper,
+  .shopify-section-header-sticky .header,
+  .shopify-section-header-sticky .header-wrapper {
+    overflow: visible !important;
+  }
+
+  /* Top-clip fix – lager + margin-collaps */
+  #shopify-section-{{ section.id }} .utility-bar {
+    display: flow-root; box-sizing: border-box;
+    padding-top: 1px; margin-top: 0 !important;
+    position: relative; z-index: 50;
+  }
+  .shopify-section-header .header::before,
+  .shopify-section-header .header::after,
+  #shopify-section-header .header::before,
+  #shopify-section-header .header::after,
+  .shopify-section-header .header-wrapper::before,
+  .shopify-section-header .header-wrapper::after,
+  #shopify-section-header .header-wrapper::before,
+  #shopify-section-header .header-wrapper::after {
+    content: none !important;
+  }
+  .shopify-section-header .header,
+  #shopify-section-header .header,
+  .shopify-section-header .header-wrapper,
+  #shopify-section-header .header-wrapper {
+    position: relative; z-index: 10;
+  }
+
+  /* ==== Slideshow: låt den scrolla igen, men klipp inte i Y-led ==== */
+  #shopify-section-{{ section.id }} slideshow-component,
+  #shopify-section-{{ section.id }} .announcement-bar-slider,
+  #shopify-section-{{ section.id }} .slider,
+  #shopify-section-{{ section.id }} .slider--everywhere {
+    overflow-x: hidden !important;   /* behåll horisontell scrollhantering */
+    overflow-y: visible !important;  /* undvik vertikalt klipp */
+    background: transparent !important;
+    position: relative;
+    z-index: 15;
+  }
+  #shopify-section-{{ section.id }} .slideshow__slide {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+  }
+  #shopify-section-{{ section.id }} .slider-button {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0;
+  }
+  #shopify-section-{{ section.id }} .slider-button--prev { left: 8px; }
+  #shopify-section-{{ section.id }} .slider-button--next { right: 8px; }
+
+  /* ===== Gruppanimation: ikon + text tillsammans (endast mobil-slidern) ===== */
+  /* Bas: dämpa alla slides i mobil-slidern */
+  #shopify-section-{{ section.id }} .annc-mobile .slideshow__slide .se-announcement__inner {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity .35s ease, transform .35s ease;
+    will-change: opacity, transform;
+  }
+  /* Aktiv slide: visa gruppen */
+  #shopify-section-{{ section.id }} .annc-mobile .slideshow__slide:not([aria-hidden="true"]) .se-announcement__inner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Nollställ ev. individuella animationer på under-element */
+  #shopify-section-{{ section.id }} .annc-mobile .slideshow__slide .announcement-bar__message,
+  #shopify-section-{{ section.id }} .annc-mobile .slideshow__slide .se-announcement__icon {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .annc-mobile .slideshow__slide .se-announcement__inner {
+      transition: none;
+    }
+  }
+</style>
+
+<div
+  class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
+  style="background-color: {{ bar_bg }}; color: {{ bar_color }};"
+>
+  <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
+
+    {%- if section.settings.show_social and social_icons -%}
+      {%- render 'social-icons' -%}
+    {%- endif -%}
+
+    {%- if section.blocks.size == 1 -%}
+      {%- assign b = section.blocks.first -%}
+      {%- assign bg = b.settings.bg | default: section.settings.default_bg -%}
+      {%- assign color = b.settings.color | default: section.settings.default_color -%}
+      {%- assign icon_size = b.settings.icon_size | default: 24 -%}
+
+      {%- liquid
+        assign icon_color_effective = section.settings.default_icon_color
+        if b.settings.icon_inherit_text
+          assign icon_color_effective = color
+        else
+          assign icon_color_effective = b.settings.icon_color | default: section.settings.default_icon_color
+        endif
+      -%}
+
+      <div class="announcement-bar se-announcement"
+           role="region"
+           aria-label="{{ 'sections.header.announcement' | t }}"
+           style="--ann-bg: transparent; --ann-color: {{ color }}; --ann-icon-size: {{ icon_size }}px;"
+           {{ b.shopify_attributes }}>
+        {%- if b.settings.text != blank -%}
+          {%- if b.settings.link != blank -%}
+            <a href="{{ b.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow se-announcement__inner">
+          {%- else -%}
+            <div class="se-announcement__inner">
+          {%- endif -%}
+
+            {%- if b.settings.icon != blank -%}
+              <span class="se-announcement__icon"
+                    style="--ann-icon-size: {{ icon_size }}px;
+                           --ann-icon-color: {{ icon_color_effective }};
+                           --ann-icon-url: url('{{ b.settings.icon | img_url: 64 | append: 'x' }}');"
+                    aria-hidden="true"></span>
+            {%- endif -%}
+
+            <p class="announcement-bar__message h5"><span>{{ b.settings.text | escape }}</span></p>
+
+          {%- if b.settings.link != blank -%}
+            </a>
+          {%- else -%}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+
+    {%- elsif section.blocks.size > 1 -%}
+
+      <!-- Desktop: 3 statiska -->
+      <div class="announcement-bar announcement-desktop annc-desktop">
+        <div class="announcement-row">
+          {%- for block in section.blocks limit: 3 -%}
+            {%- assign bg = block.settings.bg | default: section.settings.default_bg -%}
+            {%- assign color = block.settings.color | default: section.settings.default_color -%}
+            {%- assign icon_size = block.settings.icon_size | default: 24 -%}
+
+            {%- liquid
+              assign icon_color_effective = section.settings.default_icon_color
+              if block.settings.icon_inherit_text
+                assign icon_color_effective = color
+              else
+                assign icon_color_effective = block.settings.icon_color | default: section.settings.default_icon_color
+              endif
+            -%}
+
+            <div class="announcement-item se-announcement"
+                 style="--ann-bg: {{ bg }}; --ann-color: {{ color }}; --ann-icon-size: {{ icon_size }}px;"
+                 {{ block.shopify_attributes }}>
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset se-announcement__inner">
+              {%- else -%}
+                <div class="se-announcement__inner">
+              {%- endif -%}
+
+                {%- if block.settings.icon != blank -%}
+                  <span class="se-announcement__icon"
+                        style="--ann-icon-size: {{ icon_size }}px;
+                               --ann-icon-color: {{ icon_color_effective }};
+                               --ann-icon-url: url('{{ block.settings.icon | img_url: 64 | append: 'x' }}');"
+                        aria-hidden="true"></span>
+                {%- endif -%}
+
+                <p class="announcement-bar__message h5"><span>{{ block.settings.text | escape }}</span></p>
+
+              {%- if block.settings.link != blank -%}
+                </a>
+              {%- else -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <!-- Mobil: slider med autoplay -->
+      <slideshow-component class="announcement-bar annc-mobile" role="region"
+        aria-roledescription="{{ 'sections.announcements.carousel' | t }}"
+        aria-label="{{ 'sections.announcements.announcement_bar' | t }}">
+        <div class="announcement-bar-slider slider-buttons">
+          <button type="button" class="slider-button slider-button--prev" name="previous"
+                  aria-label="{{ 'sections.announcements.previous_announcement' | t }}"
+                  aria-controls="Slider-{{ section.id }}">
+            <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+          </button>
+
+          <div class="grid grid--1-col slider slider--everywhere"
+               id="Slider-{{ section.id }}"
+               aria-live="polite" aria-atomic="true"
+               data-autoplay="true"
+               data-speed="{{ section.settings.change_slides_speed }}">
+            {%- for block in section.blocks -%}
+              {%- assign bg = block.settings.bg | default: section.settings.default_bg -%}
+              {%- assign color = block.settings.color | default: section.settings.default_color -%}
+              {%- assign icon_size = block.settings.icon_size | default: 24 -%}
+
+              {%- liquid
+                assign icon_color_effective = section.settings.default_icon_color
+                if block.settings.icon_inherit_text
+                  assign icon_color_effective = color
+                else
+                  assign icon_color_effective = block.settings.icon_color | default: section.settings.default_icon_color
+                endif
+              -%}
+
+              <div class="slideshow__slide slider__slide grid__item grid--1-col"
+                   id="Slide-{{ section.id }}-{{ forloop.index }}"
+                   {{ block.shopify_attributes }}
+                   role="group"
+                   aria-roledescription="{{ 'sections.announcements.announcement' | t }}"
+                   aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
+                   tabindex="-1">
+                <div class="announcement-bar__announcement se-announcement"
+                     role="region"
+                     aria-label="{{ 'sections.header.announcement' | t }}"
+                     style="--ann-bg: {{ bg }}; --ann-color: {{ color }}; --ann-icon-size: {{ icon_size }}px;">
+                  {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset se-announcement__inner">
+                  {%- else -%}
+                    <div class="se-announcement__inner">
+                  {%- endif -%}
+
+                    {%- if block.settings.icon != blank -%}
+                      <span class="se-announcement__icon"
+                            style="--ann-icon-size: {{ icon_size }}px;
+                                   --ann-icon-color: {{ icon_color_effective }};
+                                   --ann-icon-url: url('{{ block.settings.icon | img_url: 64 | append: 'x' }}');"
+                            aria-hidden="true"></span>
+                    {%- endif -%}
+
+                    <p class="announcement-bar__message h5"><span>{{ block.settings.text | escape }}</span></p>
+
+                  {%- if block.settings.link != blank -%}
+                    </a>
+                  {%- else -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+
+          <button type="button" class="slider-button slider-button--next" name="next"
+                  aria-label="{{ 'sections.announcements.next_announcement' | t }}"
+                  aria-controls="Slider-{{ section.id }}">
+            <span class="svg-wrapper">{{- 'icon-caret.svg' | inline_asset_content -}}</span>
+          </button>
+        </div>
+      </slideshow-component>
+
+      {%- if request.design_mode -%}
+        <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+      {%- endif -%}
+    {%- endif -%}
+
+    <div class="localization-wrapper">
+      {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+        <localization-form class="small-hide medium-hide">
+          {%- form 'localization', id: 'AnnouncementCountryForm', class: 'localization-form' -%}
+            <div>
+              <h2 class="visually-hidden" id="AnnouncementCountryLabel">{{ 'localization.country_label' | t }}</h2>
+              {%- render 'country-localization', localPosition: 'AnnouncementCountry' -%}
+            </div>
+          {%- endform -%}
+        </localization-form>
+      {% endif %}
+
+      {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+        <localization-form class="small-hide medium-hide">
+          {%- form 'localization', id: 'AnnouncementLanguageForm', class: 'localization-form' -%}
+            <div>
+              <h2 class="visually-hidden" id="AnnouncementLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+              {%- render 'language-localization', localPosition: 'AnnouncementLanguage' -%}
+            </div>
+          {%- endform -%}
+        </localization-form>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "class": "announcement-bar-section",
+  "enabled_on": { "groups": ["header"] },
+  "settings": [
+    { "type": "checkbox", "id": "auto_rotate", "label": "t:sections.announcement-bar.settings.auto_rotate.label", "default": false },
+    { "type": "range", "id": "change_slides_speed", "min": 3, "max": 10, "step": 1, "unit": "s", "label": "t:sections.announcement-bar.settings.change_slides_speed.label", "default": 5 },
+
+    { "type": "color_scheme", "id": "color_scheme", "label": "t:sections.all.colors.label", "default": "scheme-4" },
+    { "type": "checkbox", "id": "show_line_separator", "default": true, "label": "t:sections.header.settings.show_line_separator.label" },
+
+    { "type": "header", "content": "t:sections.announcement-bar.settings.heading_utilities.content" },
+    { "type": "paragraph", "content": "t:sections.announcement-bar.settings.paragraph.content" },
+
+    { "type": "checkbox", "id": "show_social", "default": false, "label": "t:sections.announcement-bar.settings.show_social.label", "info": "t:sections.announcement-bar.settings.show_social.info" },
+    { "type": "checkbox", "id": "enable_country_selector", "default": false, "label": "t:sections.announcement-bar.settings.enable_country_selector.label", "info": "t:sections.announcement-bar.settings.enable_country_selector.info" },
+    { "type": "checkbox", "id": "enable_language_selector", "default": false, "label": "t:sections.announcement-bar.settings.enable_language_selector.label", "info": "t:sections.announcement-bar.settings.enable_language_selector.info" },
+
+    { "type": "header", "content": "Standardfärger (fallback för block)" },
+    { "type": "color", "id": "default_bg", "label": "Standard bakgrund", "default": "#111827" },
+    { "type": "color", "id": "default_color", "label": "Standard textfärg", "default": "#ffffff" },
+    { "type": "color", "id": "default_icon_color", "label": "Standard ikonfärg", "default": "#FFFFFF" },
+
+    { "type": "header", "content": "Pilar - utseende" },
+    { "type": "color", "id": "arrow_color", "label": "Pilar - färg (ikon)", "default": "#000000" },
+    { "type": "range", "id": "arrow_size", "label": "Pilar - storlek (ikon)", "min": 8, "max": 40, "step": 2, "unit": "px", "default": 18 },
+
+    { "type": "header", "content": "Layout" },
+{ "type": "range", "id": "desktop_gap", "label": "Mellanrum mellan meddelanden (desktop)", "min": 0, "max": 48, "step": 2, "unit": "px", "default": 24 },
+{ "type": "range", "id": "desktop_padding_y", "label": "Vertikal padding (desktop)", "min": 0, "max": 28, "step": 2, "unit": "px", "default": 8 },
+{ "type": "range", "id": "mobile_padding_y", "label": "Vertikal padding (mobil)", "min": 0, "max": 28, "step": 2, "unit": "px", "default": 8 }
+
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        { "type": "text", "id": "text", "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default", "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label" },
+        { "type": "url", "id": "link", "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label" },
+
+        { "type": "header", "content": "Stil" },
+        { "type": "color", "id": "bg", "label": "Bakgrund (valfritt)" },
+        { "type": "color", "id": "color", "label": "Textfärg (valfritt)" },
+
+        { "type": "image_picker", "id": "icon", "label": "Ikon (SVG/PNG)", "info": "Visas till vänster om texten" },
+        {
+          "type": "select",
+          "id": "icon_size",
+          "label": "Ikonstorlek",
+          "default": "24",
+          "options": [
+            { "value": "16", "label": "16px" },
+            { "value": "20", "label": "20px" },
+            { "value": "24", "label": "24px" },
+            { "value": "28", "label": "28px" },
+            { "value": "32", "label": "32px" }
+          ]
+        },
+        { "type": "checkbox", "id": "icon_inherit_text", "label": "Ikonfärg = textfärg", "default": true },
+        { "type": "color", "id": "icon_color", "label": "Ikonfärg (om ej textfärg)", "default": "#000000" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.announcement-bar.presets.name",
+      "blocks": [{ "type": "announcement" }]
+    }
+  ]
+}
+{% endschema %}

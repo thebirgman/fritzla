@@ -1,0 +1,89 @@
+{% assign collection_handle = collection.handle | default: product.collections.first.handle %}
+{% assign collection_object = collections[collection_handle] %}
+
+{% if template contains 'product' %}
+  <nav class="breadcrumb-simple" role="navigation" aria-label="Breadcrumb">
+    {% if collection_object %}
+      <a href="{{ collection_object.url }}" class="breadcrumb-back">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_133_2493)">
+<path d="M10 13L5 8L10 3" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_133_2493">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+ {{ shop.metafields.custom.pdp_back }}</a>
+      <span class="breadcrumb-divider"> · </span>
+      <a href="{{ collection_object.url }}" class="breadcrumb-collection">
+        {{ collection_object.title }}
+      </a>
+      <span class="breadcrumb-divider"> / </span>
+    {% endif %}
+    <span class="breadcrumb-product">{{ product.title }}</span>
+  </nav>
+{% endif %}
+
+<style>
+  .breadcrumb-simple {
+    font-size: 16px;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  
+  .breadcrumb-simple a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .breadcrumb-divider {
+    margin: 0 0.25rem;
+    color: #999;
+  }
+  
+  .breadcrumb-product {
+    font-weight: 500;
+  }
+
+  nav.breadcrumb-simple * {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 160%;
+    letter-spacing: 0;
+}
+
+a.breadcrumb-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav.breadcrumb-simple {
+    border-bottom: 1px solid #D9D9D9;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+}
+
+  @media (min-width:769px) {
+    .product>nav.breadcrumb-simple {
+        display: none;
+    }
+}
+@media (max-width:768px) {
+    .product__info-container>nav.breadcrumb-simple {
+        display: none;
+    }
+
+
+
+nav.breadcrumb-simple {
+    border-bottom: 0;
+    margin: 0;
+}
+
+</style>

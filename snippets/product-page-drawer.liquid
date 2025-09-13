@@ -1,0 +1,154 @@
+<div class="drawer-block">
+  <!-- ✅ Always present overlay -->
+  
+
+  {% if isText %}
+    <!-- Drawer Opener -->
+    <div
+      class="product-drawer-opener quick-add-hidden"
+      data-drawer="#DrawerContent-{{ block.id }}"
+      {{ block.shopify_attributes }}
+    >
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_133_2554)">
+          <path d="M4.5 2.25L8.25 6L4.5 9.75" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_133_2554">
+            <rect width="12" height="12" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
+      <button
+        id="ProductDrawerButton-{{ block.id }}"
+        class="product-drawer-button link"
+        type="button"
+        aria-haspopup="dialog"
+      >
+        {{ block.settings.text | default: block.settings.page.title | escape }}
+      </button>
+    </div>
+  {% endif %}
+
+  <div
+    id="DrawerContent-{{ block.id }}"
+    class="product-drawer"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="product-drawer__header">
+      <h3 class="product-drawer__title">
+        {{ block.settings.text | default: block.settings.page.title | escape }}
+      </h3>
+      <button
+        type="button"
+        class="product-drawer__close"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        &times;
+      </button>
+    </div>
+    <div class="product-drawer__content">
+      {% if pages[block.settings.page].content != blank %}
+        {{ pages[block.settings.page].content }}
+      
+      {% else %}
+        {{ block.settings.content }}
+        
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- ✅ Styles -->
+<style>
+  .drawer-block {
+    position: relative;
+    z-index: 0;
+  }
+
+  .product-drawer-opener {
+    padding-bottom: 24px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .product-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    background: #fff;
+    padding: 0 1rem;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    z-index: 9999;
+  }
+
+  .product-drawer.active {
+    right: 0;
+    padding: 0 2rem;
+  }
+
+  .product-drawer__header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    z-index: 1;
+  }
+
+  .product-drawer__title {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  .product-drawer__close {
+    background: none;
+    border: none;
+    font-size: 2.4rem;
+    cursor: pointer;
+    width: 24px;
+  }
+
+  .product-drawer__content * {
+    font-size: 1.4rem;
+  }
+
+  .product-drawer__content p {
+    margin: 0 0 24px;
+  }
+
+  .drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 9998;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: auto;
+  }
+
+  .drawer-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .drawer-overlay:empty {
+    display: block;
+}
+
+  .product-drawer__content>* {
+    margin: 4px 0 !important;
+}
+</style>

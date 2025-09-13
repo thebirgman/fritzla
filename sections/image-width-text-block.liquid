@@ -1,0 +1,147 @@
+{% stylesheet %}
+.image-with-text-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 20px 0;
+}
+
+.image-with-text-block--reverse {
+  flex-direction: row-reverse;
+}
+
+.image-with-text-block__image,
+.image-with-text-block__text {
+  max-width: 400px;
+  flex: 1 1 400px;
+}
+
+.image-with-text-block__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-with-text-block__text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-with-text-block__text p {
+    max-width: 400px;
+    font-size: 14px;
+}
+  @media screen and (max-width: 768px) {
+.image-with-text-block-outer.page-width {
+    padding: 0;
+}
+
+.image-with-text-block {
+    padding: 10px 0;
+    gap: 20px;
+}
+
+.image-with-text-block__text {
+    padding: 20px 30px;
+}
+
+
+    
+}
+
+  {% if template contains "product" %}
+
+.image-with-text-block__text p {
+    max-width: 100%;
+}
+
+.image-with-text-block__text {
+    align-items: flex-start;
+    max-width: 524px;
+    margin: auto;
+}
+
+.image-with-text-block {}
+
+.image-with-text-block__text li {
+    font-size: 14px;
+}
+
+.image-with-text-block__text ul {
+    padding-left: 30px;
+    padding-top: 0;
+    margin: 0;
+}
+  {% endif %}
+{% endstylesheet %}
+<div class="image-with-text-block-outer page-width">
+  <div class="image-with-text-block {% if section.settings.image_position == 'right' %}image-with-text-block--reverse{% endif %}">
+    <div class="image-with-text-block__image">
+      {% assign garment_care_meta = product.metafields.custom.garment_care.value %}
+      {% if garment_care_meta != blank and garment_care_meta.image != blank %}
+        
+        <img src="{{ garment_care_meta.image | image_url: width: 2000 }}" alt="{{ garment_care_meta.image.alt | escape }}">
+      {% elsif section.settings.image != blank %}
+        <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | escape }}">
+      {% endif %}
+    </div>
+    <div class="image-with-text-block__text">
+      {% if garment_care_meta != blank and garment_care_meta.instructions != blank %}
+        
+        {{ garment_care_meta.instructions | metafield_tag }}
+      {% else %}
+        {{ section.settings.text }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image With Text Block",
+  "tag": "section",
+  "class": "section-image-with-text-block",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Add your content here. This text appears beside your image.</p>"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "default": "right",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image With Text Block"
+    }
+  ]
+}
+{% endschema %}

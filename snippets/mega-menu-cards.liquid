@@ -1,0 +1,43 @@
+{% comment %}
+  Mega menu category block with 4 images and richtext captions
+{% endcomment %}
+
+{% for block in section.blocks %}
+{% case block.type %}
+    {% when 'mega_menu_categories' %}
+            <div class="mega-menu__category-block">
+            <div class="mega-menu__category-block-inner page-width">
+                <div class="mega-menu__category-grid">
+                {% for i in (1..4) %}
+                
+                   {% assign image_key = "image_" | append: i %}
+                    {% assign text_key = "text_" | append: i %}
+                    {% assign link_key = "link_" | append: i %}
+                    {% assign image = block.settings[image_key] %}
+                    {% assign text = block.settings[text_key] %}
+                    {% assign link = block.settings[link_key] %}
+                    {% if image != blank and text != "" %}
+                          <a href="{{ link }}">
+                 <div class="mega-menu__category-card">
+                      
+                        <div class="mega-menu__category-image-wrapper">
+                        <img 
+                            src="{{ image | image_url: width: 600 }}" 
+                            alt="{{ image.alt | escape }}" 
+                            class="mega-menu__category-image" 
+                            loading="lazy"
+                        >
+                        </div>
+                    
+                    <div class="mega-menu__category-text">
+                        {{ text }}
+                    </div>
+                    </div>
+                     </a>
+                     {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+            </div>
+{% endcase %}
+{% endfor %}

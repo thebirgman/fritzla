@@ -1,0 +1,134 @@
+.header__icon--cart svg {
+    width: 25px;
+    height: 25px;
+}
+
+a.header__heading-link.link.link--text.focus-inset {
+    padding: 0 10px;
+}
+
+nav.header__inline-menu {
+    margin-bottom: -20px;
+    transition: .2s ease-in-out;
+}
+
+.scrolled-past-header nav.header__inline-menu {
+    margin-bottom: 0;
+}
+
+img.header__heading-logo.reduced {
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header__heading-logo-wrapper {
+    min-height: 20px;
+    position: relative;
+}
+
+.scrolled-past-header .header__heading-logo-wrapper {
+    width: 100%;
+    min-width: 185px;
+    margin-right: 20px;
+}
+
+.scrolled-past-header img.header__heading-logo.motion-reduce {
+    opacity: 0;
+    height: 0;
+}
+
+.scrolled-past-header img.header__heading-logo.reduced {
+    opacity: 1;
+    width: 185px;
+}
+
+.header__heading-logo {
+    transition: .2s ease-in-out;
+}
+
+summary.list-menu__item {}
+
+.scrolled-past-header .header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.shopify-section-header-sticky .header{
+    gap: 40px;
+}
+
+.header__heading-logo-wrapper {
+    width: 100%;
+    min-width: 185px;
+    margin-right: 20px;
+}
+
+
+ul.mega-menu__list.page-width {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: 0px;
+}
+
+
+.shopify-section-header-sticky .header {
+    max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+.shopify-section-header-sticky .header {
+    gap: 20px;
+    padding: 16px 20px;
+    position: relative;
+}
+
+.header__heading-logo-wrapper {
+    margin-right: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: -26px;
+}
+
+.header__icons.header__icons--localization.header-localization {
+    padding-right: 0;
+}
+
+.scrolled-past-header .header__heading-logo-wrapper {
+    /* width: 100%!important; */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* transform: none; */
+    flex-direction: column;
+    /* height: 100%; */
+    /* top: 22px; */
+    /* max-height: 40px; */
+    margin-top: -10px;
+}
+
+.scrolled-past-header img.header__heading-logo.reduced {
+    position: static;
+    transform: none!important;
+}
+
+
+.scrolled-past-header .header {
+    padding: 5px 20px;
+}
+
+.header__icons.header__icons--localization.header-localization {
+    transform: scale(.85);
+}
+
+.header__icon--menu {
+    transform: scale(.85);
+}
+}
+
+}

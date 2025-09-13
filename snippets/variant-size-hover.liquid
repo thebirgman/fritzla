@@ -1,0 +1,200 @@
+`{% assign first_color = card_product.variants.first.option1 %}
+
+
+
+
+<div class="variant-hover-cont">
+
+  <div class="variant-options-cont">
+
+    {% comment %}
+      Collect unique sizes
+    {% endcomment %}
+    {% assign seen_sizes = '' %}
+
+    {% for variant in card_product.variants %}
+      {% assign size = variant.title | split: ' / ' | last %}
+      {% assign size_tag = ',' | append: size | append: ',' %}
+
+      {% unless seen_sizes contains size_tag %}
+
+        {% comment %}
+          Check if there is a variant for this size and first color
+        {% endcomment %}
+        {% assign has_first_color = false %}
+        {% for v in card_product.variants %}
+          {% assign v_size = v.title | split: ' / ' | last %}
+          {% if v_size == size and v.option1 == first_color %}
+            {% assign has_first_color = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+
+        <div class="variant-option-cont {% if has_first_color %}first-color{% endif %}">
+          {% assign formID = card_product.id | append: "-quick" %}
+       
+            <span class="act-variant">
+             <product-form>
+              {%- form 'product',
+                card_product,
+                id: formID,
+                class: 'form',
+                novalidate: 'novalidate',
+                data-type: 'add-to-cart-form'
+              -%}
+                <input
+                  type="hidden"
+                  name="id"
+                  value="{{ variant.id }}"
+                  class="product-variant-id"
+                  {% if variant == false %}
+                    disabled
+                  {% endif %}
+                >
+                <button
+                  id="{{ product_form_id }}-submit"
+                  type="submit"
+                  name="add"
+                  class="atc-variantt"
+                  aria-haspopup="dialog"
+                  aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
+                  aria-live="polite"
+                  data-sold-out-message="true"
+                  {% if variant.available == false %}
+                    disabled
+                  {% endif %}
+                >
+                  <span>
+                    {%- if variant.available -%}
+                      Add
+                    {%- else -%}
+                      Notify
+                    {%- endif -%}
+                  </span>
+                  <span class="sold-out-message hidden">
+                    {{ 'products.product.sold_out' | t }}
+                  </span>
+                  {%- if horizontal_quick_add -%}
+                    <span class="icon-wrap">
+                      {{- 'icon-plus.svg' | inline_asset_content -}}
+                    </span>
+                  {%- endif -%}
+                  {%- render 'loading-spinner' -%}
+                </button>
+              {%- endform -%}
+            </product-form>
+              </span>
+          
+          <a class="variant-option" href="{{ variant.url }}">
+            {{ size }}
+          </a>
+        </div>
+
+        {% assign seen_sizes = seen_sizes | append: size_tag %}
+      {% endunless %}
+    {% endfor %}
+
+  </div>
+</div>
+
+
+
+
+<div class="product-color-swatches">
+  {% for option in card_product.options_with_values %}
+    {% if option.name == 'Color' %}
+      <div class="color-swatch-wrapper">
+        {% for value in option.values %}
+          {% assign variant_for_value = card_product.variants | where: 'option1', value | first %}
+          <a href="{{ variant_for_value.url }}" data-variant-id={{ variant_for_value.id }}>
+            {% render 'swatch', swatch: value.swatch %}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+
+
+<style>
+  a.variant-option {
+    color: inherit;
+}
+  button.atc-variantt {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    display: inline;
+    cursor: pointer;
+}
+  .variant-option-cont {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+  .product-color-swatches{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    dis
+}
+
+span.swatch {}
+
+.color-swatch-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.product-color-swatches {
+    opacity: 0;
+    transition: .2s ease-in-out;
+}
+
+.product-card-wrapper:hover .product-color-swatches {
+    opacity: 1;
+}
+.color-swatch-wrapper .swatch {
+    width: 12px;
+}
+  img.variant-image{
+    opacity: 0!important;
+    transition: opacity .4s cubic-bezier(.25,.46,.45,.94)!important;
+  }
+img.variant-image.active{
+    opacity: 1!important;
+  
+  }
+</style>
+
+
+<script>
+document.querySelectorAll('a[data-variant-id]').forEach(link => {
+  link.addEventListener('mouseenter', function() {
+    const variantId = this.dataset.variantId;
+
+    // Remove active from all variant images
+    document.querySelectorAll('.variant-image').forEach(img => {
+      img.classList.remove('active');
+    });
+
+    // Add active to the hovered variant's image
+    const targetImg = document.querySelector(`.variant-image[data-variant-id="${variantId}"]`);
+    if (targetImg) {
+      targetImg.classList.add('active');
+    }
+  });
+
+  link.addEventListener('mouseleave', function() {
+    // Optionally, remove active when not hovering
+    document.querySelectorAll('.variant-image').forEach(img => {
+      img.classList.remove('active');
+    });
+  });
+});
+
+
+</script>`

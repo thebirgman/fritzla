@@ -1,0 +1,97 @@
+label.form__label.size-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.size-guide {
+    font-size: 13px;
+}
+
+.product__description:not(.expanded) {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.read-more-button {
+    border: 0;
+    background: 0;
+    padding: 0;
+    display: inline-block;
+    text-decoration: underline;
+    cursor: pointer !important;
+    margin: 0 !important;
+}
+
+.expanded+a.read-more-button:before {
+    content: 'Visa mindre';
+    visibility: visible;
+    letter-spacing: 0;
+}
+
+.expanded+a.read-more-button {
+    visibility: hidden;
+    letter-spacing: -30px;
+}
+
+.new-select__container .product-form__buttons {
+    max-width: 100% !important;
+}
+
+.new-select__container {
+    width: 100%;
+    display: flex;
+}
+
+.product-form__input .new-select__container .select+div {
+    max-width: max-content;
+    width: 100%;
+}
+
+.product__description:not(.expanded) {
+    margin: 0;
+}
+
+.new-select__container .product-form__submit {
+    padding: 0 16px;
+    max-width: 100%;
+}
+
+.product-form__input .new-select__container .select {
+    max-width: 100%;
+}
+
+.product__info-container .new-select__container .product-form {
+    width: 100%;
+}
+
+.product__info-container .product__description {
+    margin-bottom: 0;
+}
+
+.new-variant_cont {
+    position: relative;
+}
+
+.size-guide {
+    position: absolute;
+    right: 0;
+    top: 22px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+}
+
+.product-form__input .form__label {
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 100%;
+}
+
+fieldset.js.product-form__input.product-form__input--swatch+div label.form__label.size-label {
+    margin-top: unset;
+    color: unset;
+}
