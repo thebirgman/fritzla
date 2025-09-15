@@ -351,13 +351,16 @@ ul.list-unstyled.is-level-3-selected a {
 }
 
 
-
+.menu-drawer summary.menu-drawer__menu-item {
+    background: transparent;
+}
 .menu-drawer summary.menu-drawer__menu-item {
     padding: 10px 20px;
     font-family: "Source Serif 4" !important;
     /* padding: 10px 0; */
     font-size: 18px;
     font-weight: 600;
+    
 }
 
 .menu-drawer__menu-item {
