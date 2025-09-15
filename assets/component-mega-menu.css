@@ -288,3 +288,28 @@ ul.list-unstyled.is-level-3-selected {
     opacity: 1;
     height: 100%;
 }
+
+
+li.is-level-3-li-selected > a {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    color: #767676;
+    padding-left: 16px;
+    padding-bottom: 20px;
+}
+
+.is-level-3-pc h3{
+  display: none;
+}
+.is-level-3 .mega-menu__link--level-2 svg {
+    transform: rotate(180deg);
+}
+
+ul.list-unstyled.is-level-3-selected a {
+    font-family: "Source Serif 4" !important;
+    padding: 10px 0;
+    font-size: 18px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
