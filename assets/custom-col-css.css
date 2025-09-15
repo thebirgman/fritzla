@@ -186,3 +186,22 @@ div.underline-links-hover:hover a {
     letter-spacing: 0;
     color: #212121;
 }
+
+@media (max-width:768px) {
+    .full-unstyled-link {
+        font-size: 16px;
+    }
+    
+    span.visually-hidden+.caption-with-letter-spacing {
+        font-size: 12px;
+    }
+    
+    p.variant-names {
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .price .price-item {
+        font-size: 14px;
+    }
+}
