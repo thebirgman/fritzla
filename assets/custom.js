@@ -180,7 +180,7 @@ if(ur.includes('/collection')){
 document.addEventListener('DOMContentLoaded', function () {
   console.log('testss!');
 
-  document.querySelectorAll('.mega-menu__link--level-2').forEach(function(el) {
+  document.querySelectorAll('.mega-menu__link--level-2.has-level-3').forEach(function(el) {
   el.addEventListener('click', function() {
     console.log('herrr');
     const parentUl = el.closest('ul');
