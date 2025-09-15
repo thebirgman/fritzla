@@ -192,6 +192,11 @@ document.addEventListener('DOMContentLoaded', function () {
       parentLi.classList.add('is-level-3-li-selected');
     }
 
+    const parentC = el.closest('.mega-menu-list-links-container');
+    if (parentC) {
+      parentC.classList.add('is-level-3-pc');
+    }
+
     const nextEl = el.nextElementSibling;
     if (nextEl) {
       nextEl.classList.add('is-level-3-selected');
