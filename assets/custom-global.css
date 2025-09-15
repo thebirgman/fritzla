@@ -77,7 +77,7 @@ ul.mega-menu__list.page-width {
     max-width: 100%;
 }
 
-@media screen and (max-width: 768px) {
+
 @media screen and (max-width: 768px) {
 .shopify-section-header-sticky .header {
     gap: 20px;
@@ -92,6 +92,7 @@ ul.mega-menu__list.page-width {
     left: 50%;
     transform: translate(-50%);
     margin-top: -26px;
+    width: auto;
 }
 
 .header__icons.header__icons--localization.header-localization {
@@ -129,6 +130,6 @@ ul.mega-menu__list.page-width {
 .header__icon--menu {
     transform: scale(.85);
 }
-}
+
 
 }
