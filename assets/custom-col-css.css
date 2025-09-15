@@ -206,13 +206,13 @@ div.underline-links-hover:hover a {
     }
 }
 
-.price--on-sale .price__sale {
+div.price--on-sale .price__sale {
     display: flex;
     flex-direction: row-reverse;
     gap: 8px;
 }
 
-.price--on-sale .price-item--regular {
+div.price--on-sale .price-item--regular {
     color: #767676;
     text-decoration-color: #767676;
 }
