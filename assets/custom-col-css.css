@@ -151,3 +151,8 @@ li.breadcrumb-item span {
 div .facets-container-drawer .active-facets.active-facets-mobile.medium-hide.large-up-hide {
     display: none !important;
 }
+
+div.shopify-section>nav.breadcrumbs {
+    max-width: 1300px;
+    margin: auto;
+}
