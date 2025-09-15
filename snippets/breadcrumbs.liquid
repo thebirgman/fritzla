@@ -1,6 +1,7 @@
 {% assign current_template = template | split: '.' | first %}
 <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
   <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <a class="home-btn" href="{{ routes.root_url }}">Hem</a>
     <li class="breadcrumb-item test" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <a href="{{ routes.root_url }}" itemprop="item">
         <span itemprop="name">{{ shop.metafields.custom.plp_products }}</span>
