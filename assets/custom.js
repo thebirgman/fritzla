@@ -188,8 +188,8 @@ document.addEventListener('DOMContentLoaded', function () {
       parentUl.classList.add('is-level-3');
     }
     const parentLi = el.closest('li');
-    if (parentUl) {
-      parentUl.classList.add('is-level-3-li-selected');
+    if (parentLi) {
+      parentLi.classList.add('is-level-3-li-selected');
     }
 
     const nextEl = el.nextElementSibling;
