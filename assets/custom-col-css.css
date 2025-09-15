@@ -156,3 +156,33 @@ div.shopify-section>nav.breadcrumbs {
     max-width: 1300px;
     margin: auto;
 }
+
+.card__heading a:after {
+    display: none;
+}
+
+span.visually-hidden+.caption-with-letter-spacing {
+    font-size: 14px;
+    color: #767676;
+}
+
+.full-unstyled-link {
+    font-size: 18px;
+}
+
+p.variant-names {
+    padding-top: 0;
+}
+
+.underline-links-hover:hover a {
+    text-decoration: none;
+}
+
+.price__regular .price-item--regular {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0;
+    color: #212121;
+}
