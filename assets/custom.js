@@ -161,36 +161,12 @@ const el = document.querySelector('.product__description');
   }
 
 
-  document.querySelectorAll('.mega-menu__link--level-2').forEach(function(el) {
-  el.addEventListener('click', function() {
-    const parentUl = el.closest('ul');
-    if (parentUl) {
-      parentUl.classList.add('is-level-3');
-    }
 
-    const nextEl = el.nextElementSibling;
-    if (nextEl) {
-      nextEl.classList.add('is-level-3-selected');
-    }
-  });
-});
 });
 
 
 
-document.querySelectorAll('.mega-menu__link--level-2').forEach(function(el) {
-  el.addEventListener('click', function() {
-    const parentUl = el.closest('ul');
-    if (parentUl) {
-      parentUl.classList.add('is-level-3');
-    }
 
-    const nextEl = el.nextElementSibling;
-    if (nextEl) {
-      nextEl.classList.add('is-level-3-selected');
-    }
-  });
-});
 
 
 var ur = window.location.href;
@@ -199,3 +175,22 @@ if(ur.includes('/collection')){
 
 }, 1000);
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  document.querySelectorAll('.mega-menu__link--level-2').forEach(function(el) {
+  el.addEventListener('click', function() {
+    console.log('herrr');
+    const parentUl = el.closest('ul');
+    if (parentUl) {
+      parentUl.classList.add('is-level-3');
+    }
+
+    const nextEl = el.nextElementSibling;
+    if (nextEl) {
+      nextEl.classList.add('is-level-3-selected');
+    }
+  });
+});
+});
