@@ -1030,3 +1030,21 @@
     </facet-filters-form>
   {%- endif -%}
 </div>
+
+{% if collection %}
+  <p class="collection-product-count">
+    {{ collection.products_count }} produkter{% if collection.products_count != 1 %}{% endif %}
+  </p>
+
+  <style>
+    .collection-product-count {
+      margin: 0;
+      font-family: Sofia Sans;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0;
+      color: #767676;
+    } 
+  </style>
+{% endif %}
