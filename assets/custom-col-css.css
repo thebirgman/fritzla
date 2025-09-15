@@ -107,3 +107,31 @@ p.variant-names {
 label.swatch-input__label {
     display: none!important;
 }
+
+aside#main-collection-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div .facets-container-drawer {
+    padding: 0;
+}
+
+a.home-btn {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0;
+    color: #212121;
+    text-decoration: none;
+}
+
+li.breadcrumb-item span {
+    font-size: 16px;
+}
+
+.breadcrumb-list {
+    align-items: center;
+}
