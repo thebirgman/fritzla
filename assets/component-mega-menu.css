@@ -395,6 +395,37 @@ nav.menu-drawer__navigation a {
     color: #767676;
     font-weight: 600;
 }
+
+.mega-menu__category-grid {
+    gap: 10px;
+    width: 100%;
+    scroll-snap-type: x mandatory; /* x = horizontal | y = vertical */
+    overflow-x: auto;
+    display: flex;
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    /* padding-left: 20px; */
 }
+
+.mega-menu__category-block-inner.page-width {
+    padding: 0;
+    padding-right: 0;
+}
+
+.mega-menu__category-grid > a {
+    min-width: 45%;
+    scroll-snap-align: start; /* or center / end */
+}
+
+.mega-menu__category-grid > a:first-child {
+    margin-left: 20px;
+    padding-left: 20px;
+    min-width: calc(45% + 20px);
+}
+}
+
+
 
 
