@@ -187,6 +187,18 @@ div.underline-links-hover:hover a {
     color: #212121;
 }
 
+div.price--on-sale .price__sale {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 8px;
+}
+
+div.price--on-sale .price-item--regular {
+    color: #767676;
+    text-decoration-color: #767676;
+    font-size: 16px;
+}
+
 @media (max-width:768px) {
     .full-unstyled-link {
         font-size: 16px;
@@ -204,15 +216,9 @@ div.underline-links-hover:hover a {
     .price .price-item {
         font-size: 14px;
     }
+
+    div.price--on-sale .price-item--regular {
+        font-size: 14px;
+    }
 }
 
-div.price--on-sale .price__sale {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 8px;
-}
-
-div.price--on-sale .price-item--regular {
-    color: #767676;
-    text-decoration-color: #767676;
-}
