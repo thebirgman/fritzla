@@ -241,3 +241,31 @@ summary.list-menu__item:after {
 .mega-menu__list li {
     max-width: 250px;
 }
+
+
+
+
+.mega-menu__list ul.list-unstyled {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: 0px;
+    display: grid;
+}
+
+.mega-menu__list ul.list-unstyled a {
+    text-decoration: none;
+}
+
+ul.mega-menu__list.is-level-3 > li {
+    display: none;
+}
+
+ul.mega-menu__list.is-level-3 {
+    grid-template-columns: repeat(1,minmax(0,1fr));
+    display: block;
+    padding: 0;
+}
+
+ul.mega-menu__list.is-level-3 > li {
+    max-width: 100%;
+}
