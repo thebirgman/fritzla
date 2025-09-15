@@ -135,3 +135,11 @@ li.breadcrumb-item span {
 .breadcrumb-list {
     align-items: center;
 }
+
+.facet-filters__field>* {
+    white-space: nowrap;
+}
+
+.active-facets.active-facets-mobile.medium-hide.large-up-hide {
+    display: none !important;
+}
