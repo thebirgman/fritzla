@@ -362,7 +362,19 @@ ul.list-unstyled.is-level-3-selected a {
     font-weight: 600;
     
 }
+.menu-drawer summary.menu-drawer__menu-item svg {
+    width: 6px;
+    height: 10px;
+}
 
+nav.menu-drawer__navigation a {
+    font-weight: 600;
+}
+
+.menu-drawer__inner-submenu svg {
+    width: 6px;
+    height: 10px;
+}
 .menu-drawer__menu-item {
     padding: 10px 20px;
 }
