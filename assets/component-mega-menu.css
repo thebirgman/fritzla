@@ -329,3 +329,15 @@ ul.list-unstyled.is-level-3-selected a {
     width: 6px;
     margin-right: 5px;
 }
+.mega-menu-list-links-container a {
+    text-decoration: none!Important;
+}
+
+.mega-menu-list-links-container a {
+    color: #000!Important;
+    transition: .1s ease-in-out;
+}
+
+.mega-menu-list-links-container a:hover {
+    opacity: .5!important;
+}
