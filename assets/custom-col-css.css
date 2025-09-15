@@ -196,6 +196,7 @@ div.price--on-sale .price__sale {
 div.price--on-sale .price-item--regular {
     color: #767676;
     text-decoration-color: #767676;
+    font-size: 16px;
 }
 
 .price .price-item {
@@ -217,6 +218,10 @@ div.price--on-sale .price-item--regular {
     }
     
     .price .price-item {
+        font-size: 14px;
+    }
+
+    div.price--on-sale .price-item--regular {
         font-size: 14px;
     }
 }
