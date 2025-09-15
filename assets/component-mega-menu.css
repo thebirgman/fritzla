@@ -273,6 +273,8 @@ ul.mega-menu__list.is-level-3 > li {
 .mega-menu__list ul.list-unstyled {
     opacity: 0;
     height: 0;
+        z-index: -1;
+    position: relative;
 }
 
 ul.mega-menu__list.page-width {
