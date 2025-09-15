@@ -205,3 +205,14 @@ div.underline-links-hover:hover a {
         font-size: 14px;
     }
 }
+
+.price--on-sale .price__sale {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 8px;
+}
+
+.price--on-sale .price-item--regular {
+    color: #767676;
+    text-decoration-color: #767676;
+}
