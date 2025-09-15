@@ -270,7 +270,7 @@ ul.mega-menu__list.is-level-3 > li {
     max-width: 100%;
 }
 
-.mega-menu__list ul.list-unstyled {
+.mega-menu__list ul.list-unstyled:not(.is-level-3-selected) {
     opacity: 0;
     height: 0;
         z-index: -1;
