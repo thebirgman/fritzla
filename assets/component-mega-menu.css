@@ -335,7 +335,7 @@ ul.list-unstyled.is-level-3-selected a {
 
 .mega-menu-list-links-container a {
     color: #000!Important;
-    transition: .1s ease-in-out;
+   transition: opacity 0.2s;
 }
 
 .mega-menu-list-links-container a:hover {
