@@ -142,6 +142,7 @@
                 </li>
               {%- endfor -%}
             </ul>
+            {% render "mega-menu-cards", section: section %}
           </nav>
           <div class="menu-drawer__utility-links">
             {%- if shop.customer_accounts_enabled -%}
