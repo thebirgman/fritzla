@@ -256,7 +256,7 @@ summary.list-menu__item:after {
     text-decoration: none;
 }
 
-ul.mega-menu__list.is-level-3 > li {
+ul.mega-menu__list.is-level-3 > li:not(.is-level-3-li-selected) {
     display: none;
 }
 
@@ -268,4 +268,23 @@ ul.mega-menu__list.is-level-3 {
 
 ul.mega-menu__list.is-level-3 > li {
     max-width: 100%;
+}
+
+.mega-menu__list ul.list-unstyled {
+    opacity: 0;
+    height: 0;
+}
+
+ul.mega-menu__list.page-width {
+    padding: 0;
+}
+
+.mega-menu__link--level-2 {
+    font-family: 'Source Serif 4'!important;
+    padding: 10px 0;
+}
+
+ul.list-unstyled.is-level-3-selected {
+    opacity: 1;
+    height: 100%;
 }
