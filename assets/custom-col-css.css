@@ -148,6 +148,6 @@ li.breadcrumb-item span {
     white-space: nowrap;
 }
 
-.active-facets.active-facets-mobile.medium-hide.large-up-hide {
+div .facets-container-drawer .active-facets.active-facets-mobile.medium-hide.large-up-hide {
     display: none !important;
 }
