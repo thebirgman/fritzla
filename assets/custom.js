@@ -178,6 +178,7 @@ if(ur.includes('/collection')){
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  console.log('testss!');
 
   document.querySelectorAll('.mega-menu__link--level-2').forEach(function(el) {
   el.addEventListener('click', function() {
