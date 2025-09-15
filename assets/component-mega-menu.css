@@ -313,3 +313,19 @@ ul.list-unstyled.is-level-3-selected a {
     /* justify-content: center; */
     align-items: center;
 }
+
+
+ul.list-unstyled.is-level-3-selected a svg {
+    display: block!important;
+}
+
+ul.list-unstyled.is-level-3-selected a {
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.is-level-3 .mega-menu__link--level-2 svg {
+    height: 10px;
+    width: 6px;
+    margin-right: 5px;
+}

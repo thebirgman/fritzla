@@ -185,21 +185,21 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('herrr');
     const parentUl = el.closest('ul');
     if (parentUl) {
-      parentUl.classList.add('is-level-3');
+      parentUl.classList.toggle('is-level-3');
     }
     const parentLi = el.closest('li');
     if (parentLi) {
-      parentLi.classList.add('is-level-3-li-selected');
+      parentLi.classList.toggle('is-level-3-li-selected');
     }
 
     const parentC = el.closest('.mega-menu-list-links-container');
     if (parentC) {
-      parentC.classList.add('is-level-3-pc');
+      parentC.classList.toggle('is-level-3-pc');
     }
 
     const nextEl = el.nextElementSibling;
     if (nextEl) {
-      nextEl.classList.add('is-level-3-selected');
+      nextEl.classList.toggle('is-level-3-selected');
     }
   });
 });
