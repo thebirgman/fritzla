@@ -137,3 +137,11 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
 .product__info-wrapper .product__tax {
     display: none;
 }
+
+.product__info-container .product__description.rte.quick-add-hidden {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+}
