@@ -305,7 +305,7 @@
       {{ 'custom-hp-css.css' | asset_url | stylesheet_tag }}
       {% endif %}
 
-      {% if request.path contains "products" %}
+      {% if template contains "product" %}
       {{ 'custom-prod-css.css' | asset_url | stylesheet_tag }}
       {% endif %}
 
