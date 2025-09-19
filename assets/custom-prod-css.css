@@ -159,7 +159,7 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
 }
 
 .product__media-item:nth-child(1), .product__media-item:nth-child(2), .product__media-item:nth-child(5), .product__media-item:nth-child(4), .product__media-item:nth-child(8), .product__media-item:nth-child(7), .product__media-item:nth-child(10), .product__media-item:nth-child(11) {
-    max-width: calc(50% - 8px) !important;
+    max-width: calc(50% - 4px) !important;
     margin: 0 !important;
 }
 
