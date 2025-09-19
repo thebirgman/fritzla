@@ -96,7 +96,7 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     color: unset;
 }
 
-.product__info-container {
+.product__info-wrapper .product__info-container {
     margin-top: 32px;
 }
 
