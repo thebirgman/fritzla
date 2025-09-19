@@ -145,3 +145,15 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     line-height: 140%;
     letter-spacing: 0;
 }
+
+.product-form__input .form__label {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+}
+
+.product__info-container>div>product-form.product-form {
+    display: unset;
+}
