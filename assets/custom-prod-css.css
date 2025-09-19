@@ -166,3 +166,15 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
 .product__media-list {
     gap: 8px;
 }
+
+.product-media-container .product__modal-opener {
+    height: 100%;
+}
+
+.product-media-container {
+    height: 100%;
+}
+
+.product-media-container .media {
+    height: 100%;
+}
