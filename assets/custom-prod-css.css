@@ -146,7 +146,7 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     letter-spacing: 0;
 }
 
-.product-form__input .form__label {
+.product__info-container .product-form__input .form__label {
     font-family: Sofia Sans;
     font-weight: 400;
     font-size: 14px;
