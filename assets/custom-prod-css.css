@@ -157,3 +157,12 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
 .product__info-container>div>product-form.product-form {
     display: unset;
 }
+
+.product__media-item:nth-child(2), .product__media-item:nth-child(3), .product__media-item:nth-child(5), .product__media-item:nth-child(6), .product__media-item:nth-child(8), .product__media-item:nth-child(9), .product__media-item:nth-child(10) {
+    max-width: calc(50% - 8px) !important;
+    margin: 0 !important;
+}
+
+.product__media-list {
+    gap: 8px;
+}
