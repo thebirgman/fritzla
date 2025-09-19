@@ -100,7 +100,7 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     margin-top: 32px;
 }
 
-p.product__text.caption-with-letter-spacing {
+.product__info-wrapper p.product__text.caption-with-letter-spacing {
     font-family: Sofia Sans;
     font-weight: 400;
     font-size: 14px;
@@ -111,7 +111,7 @@ p.product__text.caption-with-letter-spacing {
     color: #767676;
 }
 
-.product__title h1 {
+.product__info-wrapper .product__title h1 {
     font-family: Source Serif Pro;
     font-weight: 600;
     font-size: 32px;
@@ -121,7 +121,7 @@ p.product__text.caption-with-letter-spacing {
     color: #0C1214;
 }
 
-.price__regular .price-item--regular {
+.product__info-wrapper .price__regular .price-item--regular {
     font-family: Sofia Sans;
     font-weight: 400;
     font-size: 16px;
@@ -130,10 +130,10 @@ p.product__text.caption-with-letter-spacing {
     vertical-align: baseline;
 }
 
-.product__text.caption-with-letter-spacing+.product__title {
+.product__info-wrapper .product__text.caption-with-letter-spacing+.product__title {
     margin: 16px 0;
 }
 
-.product__tax {
+.product__info-wrapper .product__tax {
     display: none;
 }
