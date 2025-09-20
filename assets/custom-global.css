@@ -133,3 +133,11 @@ ul.mega-menu__list.page-width {
 
 
 }
+.card__heading a {
+    margin-top: 3px;
+    margin-bottom: -2px;
+}
+
+.card__badge.bottom.left {
+    display: none;
+}
