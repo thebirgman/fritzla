@@ -148,7 +148,8 @@ ul.mega-menu__list.page-width {
     align-items: center;
 }
 
-.product-form__submit {
+.product-form__buttons 
+ .product-form__submit {
     margin-bottom: 0!important;
 }
 
