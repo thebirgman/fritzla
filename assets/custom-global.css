@@ -141,3 +141,17 @@ ul.mega-menu__list.page-width {
 .card__badge.bottom.left {
     display: none;
 }
+
+.product-form__buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.product-form__submit {
+    margin-bottom: 0!important;
+}
+
+.quantity__button {
+    width: 30px;
+}
