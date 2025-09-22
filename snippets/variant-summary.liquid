@@ -12,7 +12,7 @@
   {% assign first_color = all_colors.first %}
   {% assign remaining_count = all_colors.size | minus: 1 %}
 
-  <span>
+  <span class="variant-names">
     {{ first_color }}
     {% if remaining_count > 0 %}+{{ remaining_count }}{% endif %}
   </span>
