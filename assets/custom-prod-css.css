@@ -196,6 +196,7 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     height: 64px;
     width: 44px;
     border-radius: 0;
+    padding: 2px;
 }
 
 .swatch-input__input+.swatch-input__label>.swatch {
