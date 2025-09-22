@@ -157,10 +157,20 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
 .product__info-container>div>product-form.product-form {
     display: unset;
 }
-
+@media screen and (min-width: 768px) {
 .product__media-item{
     max-width: calc(50% - 4px) !important;
     margin: 0 !important;
+}
+}
+
+.grid__item.product__media-wrapper button.st-wishlist-button.st-initialized {
+    position: absolute;
+    right: 0;
+}
+
+.grid__item.product__media-wrapper {
+    position: relative;
 }
 .product__media-item:nth-child(3n){
     max-width: 100% !important;
