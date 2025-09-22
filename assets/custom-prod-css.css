@@ -280,3 +280,10 @@ a.read-more__btn {
     margin-left: 4px;
     color: #767676;
 }
+
+
+@media (max-width:768px) {
+    .product__info-container > div > product-form.product-form {
+        display: block;
+    }
+}
