@@ -167,3 +167,15 @@ summary.list-menu__item span {
     z-index: 3;
     position: relative;
 }
+
+.card__media +  .card__content {
+    display: none;
+}
+
+.st-wishlist-button[data-type="details"] {
+    margin-left: auto;
+    margin-top: 15px;
+    margin-right: 15px;
+    width: 38px;
+    height: 38px;
+}
