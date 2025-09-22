@@ -277,4 +277,6 @@ a.read-more__btn {
     line-height: 140%;
     letter-spacing: 0;
     cursor: pointer;
+    margin-left: 4px;
+    color: #767676;
 }
