@@ -17,6 +17,8 @@ nav.header__inline-menu {
 }
 
 img.header__heading-logo.reduced {
+
+
     position: absolute;
     opacity: 0;
     left: 0;
@@ -155,4 +157,8 @@ ul.mega-menu__list.page-width {
 
 .quantity__button {
     width: 30px;
+}
+
+summary.list-menu__item span {
+    z-index: 2;
 }
