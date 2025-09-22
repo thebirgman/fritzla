@@ -8,5 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
         detailsSection.scrollIntoView({ behavior: "smooth", block: "start" });
         });
     };
+    
+    const descriptionP = document.querySelector(".product__description.rte p");
 
+    if (descriptionP && readMoreBtn) {
+        descriptionP.appendChild(readMoreBtn);
+    };
 });
