@@ -211,4 +211,5 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
 
 .product__description.rte.quick-add-hidden p {
     max-width: 410px;
+    line-height: 20px;
 }
