@@ -260,7 +260,7 @@ p.buybtn-message {
     color: #0C1214;
 }
 
-.product-form__input--pill input[type=radio]+label {
+.product-form__input.product-form__input--pill input[type=radio]+label {
     letter-spacing: 0;
     font-family: Sofia Sans;
     font-weight: 400;
