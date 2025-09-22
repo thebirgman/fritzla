@@ -130,6 +130,8 @@
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
           {%- endif -%}
+
+          <p class="buybtn-message">Smidiga betalningar & leveranser  •  Fria byten & enkla returer</p>
         </div>
       {%- endform -%}
     </product-form>
@@ -183,3 +185,5 @@
     <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 </div>
+
+<p class="">
