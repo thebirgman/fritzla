@@ -307,6 +307,7 @@
 
       {% if template contains "product" %}
       {{ 'custom-prod-css.css' | asset_url | stylesheet_tag }}
+      {{ 'custom-prod-js.js' | asset_url | script_tag }}
       {% endif %}
 
       {% if template contains "collection" %}
