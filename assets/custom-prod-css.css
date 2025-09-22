@@ -204,6 +204,6 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     border-radius: 0;
 }
 
-.swatch-input__input:checked+.swatch-input__label {
+.form__label .swatch-input__input:checked+.swatch-input__label {
     padding: 2px;
 }
