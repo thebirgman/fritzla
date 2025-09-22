@@ -1,19 +1,19 @@
-{%- comment -%}
-  variant-summary.liquid
-  Usage:
-  {% render 'variant-summary', product: product %}
-{%- endcomment -%}
+{% assign color_option_index = nil %}
 
-{%- assign first_variant = product.variants.first -%}
-{%- if first_variant -%}
-  {%- assign first_option = first_variant.option1 -%}
-  {%- assign total_variants = product.variants.size -%}
-  {%- assign remaining_count = total_variants | minus: 1 -%}
+{%- for option in product.options_with_values -%}
+  {%- assign downcased_option = option.name | downcase -%}
+  {%- if downcased_option == 'color' or downcased_option == 'färg' -%}
+    {% assign color_option_index = forloop.index0 %}
+  {%- endif -%}
+{%- endfor -%}
 
-  <span class="variant-summary">
-    {{ first_option }}
-    {%- if remaining_count > 0 -%}
-      +{{ remaining_count }}
-    {%- endif -%}
+{% if color_option_index != nil %}
+  {% assign all_colors = product.options_with_values[color_option_index].values %}
+  {% assign first_color = all_colors.first %}
+  {% assign remaining_count = all_colors.size | minus: 1 %}
+
+  <span>
+    {{ first_color }}
+    {% if remaining_count > 0 %}+{{ remaining_count }}{% endif %}
   </span>
-{%- endif -%}
+{% endif %}
