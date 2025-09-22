@@ -9,20 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const descParagraph = document.querySelector(".product__description.rte.quick-add-hidden p");
+    const descriptionP = document.querySelector(".product__description.rte p");
     const readMoreBtn = document.querySelector(".read-more__btn");
-    const detailsSection = document.querySelector(".product-details-tab__inner");
 
-    if (descParagraph && readMoreBtn) {
-      // Move the existing button into the paragraph
-      descParagraph.appendChild(readMoreBtn);
-
-      // Add scroll functionality
-      if (detailsSection) {
-        readMoreBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-          detailsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-      }
+    if (descriptionP && readMoreBtn) {
+        descriptionP.appendChild(readMoreBtn);
     }
 });
