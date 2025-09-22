@@ -9,10 +9,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
-    const descriptionP = document.querySelector(".product__description.rte p");
-    const readMoreBtn = document.querySelector(".read-more__btn");
-
-    if (descriptionP && readMoreBtn) {
-        descriptionP.appendChild(readMoreBtn);
-    };
 });
