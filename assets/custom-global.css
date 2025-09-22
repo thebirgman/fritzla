@@ -190,3 +190,7 @@ summary.list-menu__item span {
     z-index: 9;
     right: 0;
 }
+
+.gradient {
+    background: #fafafa !important;
+}
