@@ -162,3 +162,8 @@ ul.mega-menu__list.page-width {
 summary.list-menu__item span {
     z-index: 2;
 }
+
+.st-wishlist-button[data-type="details"] {
+    z-index: 3;
+    position: relative;
+}
