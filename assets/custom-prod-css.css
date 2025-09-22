@@ -267,3 +267,12 @@ p.buybtn-message {
     font-size: 12px;
     line-height: 140%;
 }
+
+a.read-more__btn {
+    text-decoration: underline;
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+}
