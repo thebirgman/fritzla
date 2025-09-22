@@ -162,6 +162,9 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     max-width: calc(50% - 4px) !important;
     margin: 0 !important;
 }
+.product__media-item:nth-child(3n){
+    max-width: 100% !important;
+}
 
 .product__media-list {
     gap: 8px;
