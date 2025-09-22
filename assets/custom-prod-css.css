@@ -283,7 +283,7 @@ a.read-more__btn {
 
 
 @media (max-width:768px) {
-    .product__info-container > div > product-form.product-form {
+    div .product__info-container > div > product-form.product-form {
         display: block;
     }
 }
