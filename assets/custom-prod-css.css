@@ -213,3 +213,39 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     max-width: 410px;
     line-height: 20px;
 }
+
+.product-form__input {
+    margin-bottom: 24px;
+}
+
+.quantity:before {
+    border: 0;
+    display: none;
+}
+
+.quantity:after {
+    border: 0;
+    display: none;
+}
+
+.quantity {
+    border: 0;
+}
+
+.product-form__buttons .product-form__submit {
+    border-radius: 100px;
+    transition: .2s ease-in-out;
+}
+
+.button:before {
+    display: none;
+}
+
+.button:after {
+    display: none;
+}
+
+.product-form__buttons .product-form__submit:hover {
+    opacity: .8;
+    transition: .2s ease-in-out;
+}
