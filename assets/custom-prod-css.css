@@ -214,7 +214,7 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     line-height: 20px;
 }
 
-.product-form__input {
+variant-selects .product-form__input {
     margin-bottom: 24px;
 }
 
