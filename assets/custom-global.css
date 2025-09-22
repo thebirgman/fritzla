@@ -180,3 +180,13 @@ summary.list-menu__item span {
     height: 38px;
         border-radius: 50%;
 }
+
+.card__inner {
+    z-index: 33;
+}
+
+.card__media .st-wishlist-button[data-type="details"] {
+    position: absolute;
+    z-index: 9;
+    right: 0;
+}
