@@ -208,3 +208,7 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
 .product-form__input .swatch-input__input:checked+.swatch-input__label {
     padding: 2px;
 }
+
+.product__description.rte.quick-add-hidden p {
+    max-width: 410px;
+}
