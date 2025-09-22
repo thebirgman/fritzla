@@ -266,6 +266,7 @@ p.buybtn-message {
     font-weight: 400;
     font-size: 12px;
     line-height: 140%;
+    padding: 7px 11px;
 }
 
 a.read-more__btn {
