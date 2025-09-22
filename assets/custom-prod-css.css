@@ -192,7 +192,7 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     height: 100%;
 }
 
-.product-form__input--swatch .swatch-input__input+.swatch-input__label {
+.product-form__input--swatch .form__label .swatch-input__input+.swatch-input__label {
     height: 64px;
     width: 44px;
     border-radius: 0;
