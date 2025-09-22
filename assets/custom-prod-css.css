@@ -249,3 +249,13 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
     opacity: .8;
     transition: .2s ease-in-out;
 }
+
+p.buybtn-message {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: right;
+    color: #0C1214;
+}
