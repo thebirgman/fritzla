@@ -139,7 +139,7 @@ setTimeout(function () {
   }
 }, 1500);
 
-jQuery(document).ready(function () {
+/*jQuery(document).ready(function () {
   jQuery('.read-more-button').on('click', function () {
     console.log('test truncate');
     jQuery('.product__info-container .product__description').toggleClass('expanded');
@@ -158,7 +158,7 @@ const el = document.querySelector('.product__description');
     if (!isClamped) {
       document.querySelector('.read-more-button').style.display = 'none';
     }
-  }
+  }*/
 
 
 
