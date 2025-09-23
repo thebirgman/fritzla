@@ -367,7 +367,7 @@ form .product-form__buttons {
 }
 
 .product .price__container {
-    margin: 0;
+    margin-bottom: 0 !important;
 }
 
 @media (min-width:1100px) {
