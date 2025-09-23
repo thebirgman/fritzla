@@ -181,9 +181,14 @@ summary.list-menu__item span {
         border-radius: 50%;
 }
 
-.card__inner {
-    z-index: 33;
+.grid__item button.st-wishlist-button.st-initialized {
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    top: 0;
 }
+
+
 
 .card__media .st-wishlist-button[data-type="details"] {
     position: absolute;
