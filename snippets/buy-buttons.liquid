@@ -126,11 +126,7 @@
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
-            {%- if btn_message != blank -%}
-      <p class="buybtn-message">
-
-      </p>
-    {%- endif -%}
+            
           </button>
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
@@ -139,6 +135,12 @@
           
         </div>
       {%- endform -%}
+
+      {%- if btn_message != blank -%}
+      <p class="buybtn-message">
+        {{ btn_message }}
+      </p>
+    {%- endif -%}
     </product-form>
   {%- else -%}
     <div class="product-form">
