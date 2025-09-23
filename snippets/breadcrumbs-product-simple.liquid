@@ -1,90 +1,60 @@
-{% assign collection_handle = collection.handle | default: product.collections.first.handle %}
-{% assign collection_object = collections[collection_handle] %}
+{%- comment -%}
+  breadcrumb-product.liquid
+  Usage: {% render 'breadcrumb-product', product: product %}
+{%- endcomment -%}
 
-{% if template contains 'product' %}
-  <nav class="breadcrumb-simple" role="navigation" aria-label="Breadcrumb">
-    {% if collection_object %}
-      <a href="{{ collection_object.url }}" class="breadcrumb-back">
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_133_2493)">
-<path d="M10 13L5 8L10 3" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_133_2493">
-<rect width="16" height="16" fill="white"/>
-</clipPath>
-</defs>
-</svg>
- {{ shop.metafields.custom.pdp_back }}</a>
-      <span class="breadcrumb-divider"> · </span>
-      <a href="{{ collection_object.url }}" class="breadcrumb-collection">
-        {{ collection_object.title }}
+<nav class="breadcrumb-product" aria-label="Breadcrumb">
+  <div class="breadcrumb-left">
+    {%- if product.collections.first -%}
+      <a href="{{ product.collections.first.url }}" class="breadcrumb-back">
+        &larr; {{ product.collections.first.title }}
       </a>
-      <span class="breadcrumb-divider"> / </span>
-    {% endif %}
-    <a class="home-btn" href="{{ routes.root_url }}">Hem</a>
-    <span class="breadcrumb-product">{{ product.title }}</span>
-  </nav>
-{% endif %}
+    {%- endif -%}
+  </div>
+
+  <div class="breadcrumb-center">
+    <a href="/" class="breadcrumb-home">Hem</a>
+    <span class="breadcrumb-separator">/</span>
+    <span class="breadcrumb-current">{{ product.title }}</span>
+  </div>
+</nav>
 
 <style>
-  .breadcrumb-simple {
-    font-size: 16px;
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-  }
-  
-  .breadcrumb-simple a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .breadcrumb-divider {
-    margin: 0 0.25rem;
-    color: #999;
-  }
-  
   .breadcrumb-product {
-    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    color: #666;
   }
 
-  nav.breadcrumb-simple * {
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 160%;
-    letter-spacing: 0;
-}
+  .breadcrumb-left a {
+    color: #666;
+    text-decoration: none;
+  }
 
-a.breadcrumb-back {
+  .breadcrumb-left a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumb-center {
     display: flex;
     align-items: center;
-    gap: 8px;
-}
+    gap: 6px;
+  }
 
-nav.breadcrumb-simple {
-    border-bottom: 1px solid #D9D9D9;
-    padding-bottom: 24px;
-    margin-bottom: 24px;
-}
+  .breadcrumb-home {
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+  }
 
-  @media (min-width:769px) {
-    .product>nav.breadcrumb-simple {
-        display: none;
-    }
-}
-@media (max-width:768px) {
-    .product__info-container>nav.breadcrumb-simple {
-        display: none;
-    }
+  .breadcrumb-home:hover {
+    text-decoration: underline;
+  }
 
-
-
-nav.breadcrumb-simple {
-    border-bottom: 0;
-    margin: 0;
-}
-
+  .breadcrumb-current {
+    color: #666;
+  }
 </style>
