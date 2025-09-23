@@ -3,11 +3,15 @@
   Usage: {% render 'breadcrumb-product', product: product %}
 {%- endcomment -%}
 
+{%- assign current_collection = collection | default: product.collections.first -%}
+{% assign collection_handle = collection.handle | default: product.collections.first.handle %}
+{% assign collection_object = collections[collection_handle] %}
+
 <nav class="breadcrumb-product" aria-label="Breadcrumb">
   <div class="breadcrumb-left">
-    {%- if product.collections.first -%}
-      <a href="{{ product.collections.first.url }}" class="breadcrumb-back">
-        &larr; {{ product.collections.first.title }}
+    {%- if current_collection -%}
+     <a href="{{ collection_object.url }}" class="breadcrumb-back">
+        {{ collection_object.title }}
       </a>
     {%- endif -%}
   </div>
