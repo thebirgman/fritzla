@@ -329,3 +329,23 @@ div .product-form__input--swatch .swatch-input__input+.swatch-input__label:nth-c
 form .product-form__buttons {
     max-width: 100%;
 }
+
+@media (max-width:768px) {
+    .product--large:not(.product--no-media) .product__info-wrapper {
+        padding: 0 3rem !important;
+    }
+    
+    .product-media-container .product__modal-opener, .product-media-container, .product-media-container .media {
+        height: unset;
+        max-width: 100%;
+    }
+    
+    .slider-buttons.quick-add-hidden {
+        display: none;
+    }
+    
+    .grid--peek.slider .grid__item {
+        margin: 0;
+        width: 100%;
+    }
+}
