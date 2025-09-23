@@ -238,7 +238,8 @@ variant-selects .product-form__input {
 }
 
 .product-form__buttons .product-form__submit:hover {
-    opacity: .8;
+    background: white;
+    color: black;
     transition: .2s ease-in-out;
 }
 
@@ -304,6 +305,7 @@ div .product-form__input--swatch .swatch-input__input+.swatch-input__label:nth-c
 .product-form__buttons .product-form__submit {
     height: 40px;
     min-height: 40px;
+    border: 1px solid black;
 }
 
 .product__info-container>.new-variant_cont {
