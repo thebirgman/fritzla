@@ -342,6 +342,20 @@ form .product-form__buttons {
     }
 }
 
+.product-form__input.product-form__input--pill input[type=radio]+label {
+    background: transparent;
+}
+
+.product-form__input--pill input[type=radio]:checked+label {
+    background: black;
+}
+
+.product-form__input.product-form__input--pill input[type=radio]+label:hover {
+    transition: .2s ease-in-out;
+    background: black;
+    color: white;
+}
+
 .product__description.rte.quick-add-hidden p {
     margin-bottom: 0 !important;
 }
