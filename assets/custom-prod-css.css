@@ -322,10 +322,6 @@ div .product-form__input--swatch .swatch-input__input+.swatch-input__label:nth-c
     display: none;
 }
 
-.product--large:not(.product--no-media) .product__media-wrapper {
-    max-width: 100% !important;
-}
-
 .product.grid {
     display: flex;
 }
