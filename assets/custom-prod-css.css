@@ -326,6 +326,6 @@ div .product-form__input--swatch .swatch-input__input+.swatch-input__label:nth-c
     display: flex;
 }
 
-.product-form__buttons {
+form .product-form__buttons {
     max-width: 100%;
 }
