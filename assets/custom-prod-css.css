@@ -8,14 +8,6 @@ label.form__label.size-label {
     font-size: 13px;
 }
 
-.product__description:not(.expanded) {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .read-more-button {
     border: 0;
     background: 0;
