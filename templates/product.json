@@ -58,6 +58,7 @@
         },
         "swishlist_simple_wishlist_wishlist_product_button_UVnkzK": {
           "type": "shopify://apps/swishlist-simple-wishlist/blocks/wishlist_product_button/bfcb80f2-f00d-42ae-909a-9f00c726327b",
+          "disabled": true,
           "settings": {
             "custom_liquid": ""
           }
