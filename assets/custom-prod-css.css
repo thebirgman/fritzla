@@ -287,3 +287,44 @@ a.read-more__btn {
         display: block;
     }
 }
+
+.product--large:not(.product--no-media) .product__info-wrapper {
+    padding: 0 0 0 8rem;
+}
+
+.product__info-wrapper .product__text.caption-with-letter-spacing+.product__title {
+    margin: 8px 0;
+}
+
+.product__info-wrapper .product__info-container {
+    margin-top: 24px;
+}
+
+div .product-form__input--swatch .swatch-input__input+.swatch-input__label {
+    margin: 8px 8px 0 8px;
+}
+
+div .product-form__input--swatch .swatch-input__input+.swatch-input__label:nth-child(3) {
+    margin-left: 0;
+}
+
+.product-form__buttons .product-form__submit {
+    height: 40px;
+    min-height: 40px;
+}
+
+.product__info-container>.new-variant_cont {
+    margin: 3rem 0;
+}
+
+.share-button__button {
+    display: none;
+}
+
+.product--large:not(.product--no-media) .product__media-wrapper {
+    max-width: 100% !important;
+}
+
+.product.grid {
+    display: flex;
+}
