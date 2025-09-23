@@ -377,7 +377,7 @@ form .product-form__buttons {
     }
 }
 
-div .swatch-input__input+.swatch-input__label:hover, .swatch-input__input:hover+.swatch-input__label {
+.swatch-input__input+.swatch-input__label:hover, .swatch-input__input:hover+.swatch-input__label {
     outline: unset;
     border: 1px solid rgb(var(--color-foreground));
     transition: .2s ease-in-out !important;
@@ -385,7 +385,7 @@ div .swatch-input__input+.swatch-input__label:hover, .swatch-input__input:hover+
     transition-property: none;
 }
 
-div .product-form__input--swatch .swatch-input__input+.swatch-input__label {
+.product-form__input--swatch .swatch-input__input+.swatch-input__label {
     transition: .2s ease-in-out;
     transition-property: auto;
 }
