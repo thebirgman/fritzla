@@ -401,3 +401,96 @@ form .product-form__buttons {
     transition: .2s ease-in-out;
     transition-property: auto;
 }
+
+.product-mobile-top {
+    display: none;
+}
+
+p.buybtn-message {
+    text-align: center;
+}
+
+@media (max-width:768px) {
+    .product-mobile-top {
+        display: block;
+        padding: 0 24px;
+        margin: 16px 0;
+    }
+    
+    .product-mobile-top .product__text.caption-with-letter-spacing {
+        font-family: Sofia Sans;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 140%;
+        letter-spacing: 0;
+        vertical-align: middle;
+        text-transform: capitalize;
+        color: #767676;
+        margin: 10px 0;
+    }
+    
+    .product-mobile-top .product__title>* {
+        font-family: Source Serif Pro;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 120%;
+        letter-spacing: -1px;
+        vertical-align: middle;
+        color: #0C1214;
+    }
+    
+    .product-mobile-top .product__tax.caption.rte {
+        display: none;
+    }
+    
+    .product-mobile-top .price__regular .price-item--regular {
+        font-family: Sofia Sans;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        letter-spacing: 0;
+        vertical-align: middle;
+        color: #212121;
+    }
+    
+    .st-wishlist-button .st-wishlist-icon {
+        display: none;
+    }
+    
+    .product-mobile-top .product__text.caption-with-letter-spacing+.product__title {
+        margin: 10px 0;
+    }
+    
+    .product-mobile-top [id*=price-template] {
+        margin: 10px 0;
+    }
+    
+    .product__info-wrapper p.product__text.caption-with-letter-spacing {
+        display: none;
+    }
+    
+    .product__info-wrapper .product__text.caption-with-letter-spacing+.product__title {
+        display: none;
+    }
+    
+    .product__info-container>*+*:has(.price) {
+        display: none;
+    }
+    
+    .product__info-container .product__description.rte.quick-add-hidden {
+        margin-top: 8px;
+    }
+    
+    .product__info-wrapper .product__info-container {
+        margin-top: 0;
+    }
+    
+    
+    .product--large:not(.product--no-media) .product__info-wrapper {
+        padding: 0 24px !important;
+    }
+    
+    .product__info-container>.new-variant_cont {
+        margin-bottom: 44px;
+    }
+}
