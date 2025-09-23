@@ -126,8 +126,11 @@
               {%- endif -%}
             </span>
             {%- render 'loading-spinner' -%}
-      <p class="buybtn-message">Smidiga betalningar & leveranser  •  Fria byten & enkla returer</p>
+            {%- if btn_message !== blank -%}
+      <p class="buybtn-message">
 
+      </p>
+    {%- endif -%}
           </button>
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
