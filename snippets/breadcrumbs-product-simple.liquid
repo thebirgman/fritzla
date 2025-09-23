@@ -6,8 +6,8 @@
 <nav class="breadcrumb-product" aria-label="Breadcrumb">
   <div class="breadcrumb-left">
     {%- if product.collections.first -%}
-      <a href="{{ collection_object.url }}" class="breadcrumb-back">
-        {{ collection_object.title }}
+      <a href="{{ product.collections.first.url }}" class="breadcrumb-back">
+        &larr; {{ product.collections.first.title }}
       </a>
     {%- endif -%}
   </div>
