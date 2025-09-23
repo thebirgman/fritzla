@@ -276,7 +276,7 @@ p.buybtn-message {
     font-size: 14px;
     line-height: 140%;
     letter-spacing: 0;
-    cursor: pointer;
+    cursor: pointer !important;
     margin-left: 4px;
     color: #767676;
     text-decoration-color: #767676;
