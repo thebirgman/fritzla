@@ -289,7 +289,7 @@ a.read-more__btn {
 }
 
 .product--large:not(.product--no-media) .product__info-wrapper {
-    padding: 0 0 0 8rem;
+    padding: 0 0 0 8rem !important;
 }
 
 .product__info-wrapper .product__text.caption-with-letter-spacing+.product__title {
