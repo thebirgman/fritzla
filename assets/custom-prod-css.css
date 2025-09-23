@@ -278,7 +278,7 @@ p.buybtn-message {
     letter-spacing: 0;
     cursor: pointer !important;
     margin-left: 4px;
-    color: #767676;
+    color: #767676 !important;
     text-decoration-color: #767676;
 }
 
