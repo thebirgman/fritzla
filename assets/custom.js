@@ -159,9 +159,6 @@ const el = document.querySelector('.product__description');
       document.querySelector('.read-more-button').style.display = 'none';
     }
   }*/
-
-
-
 });
 
 
