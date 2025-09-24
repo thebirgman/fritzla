@@ -1604,3 +1604,36 @@ nav.breadcrumb-simple {
 .product-drawer__content p {
     margin-bottom: 0;
 }
+
+
+
+
+
+/* STICKY */
+
+
+@media screen and (min-width: 768px) {
+.product-form__buttons.sticky-mobile {
+display: none;
+}
+
+}
+@media screen and (max-width: 768px) {
+.product-form__buttons.sticky-mobile {
+    position: fixed;
+    bottom: 0px;
+    z-index: 9999999999;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, rgba(250, 250, 250, 0) 0%, #FAFAFA 100%);
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+}
+
+.st-wishlist-details-button[data-type=floating] {
+    display: none;
+}
+}
