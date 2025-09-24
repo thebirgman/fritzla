@@ -432,3 +432,18 @@ nav.menu-drawer__navigation a {
 h3.mega-menu-title a{
     color: #767676!important;
 }
+
+@media screen and (max-width: 768px) {
+div#menu-drawer {
+    z-index: 99999;
+}
+
+.st-wishlist-details-button[data-type=floating] {
+    z-index: 99;
+}
+
+div#menu-drawer {
+    top: -40px;
+    height: 100vh;
+}
+}
