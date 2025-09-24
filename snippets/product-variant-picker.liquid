@@ -9,7 +9,6 @@
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
 {%- unless product.has_only_default_variant -%}
-  
   <variant-selects
     id="variant-selects-{{ section.id }}"
     data-section="{{ section.id }}"
@@ -21,7 +20,7 @@
         assign picker_type = block.settings.picker_type
 
         if swatch_count > 0 and block.settings.swatch_shape != 'none'
-          if block.settings.picker_type == 'dropdown' and option.name != 'Color'
+          if block.settings.picker_type == 'dropdown'
             assign picker_type = 'swatch_dropdown'
           else
             assign picker_type = 'swatch'
@@ -58,7 +57,6 @@
           <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
             {{ option.name }}
           </label>
-          <div class='new-select__container'>
           <div class="select">
             {%- if picker_type == 'swatch_dropdown' -%}
               <span
@@ -85,10 +83,6 @@
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
           </div>
-          {% render 'buy-buttons' %}
-
-          </div>
-          
         </div>
       {%- endif -%}
     {%- endfor -%}
@@ -97,5 +91,4 @@
       {{ product.selected_or_first_available_variant | json }}
     </script>
   </variant-selects>
-
 {%- endunless -%}
