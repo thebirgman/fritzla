@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
 var ur = window.location.href;
 if(ur.includes('/product')){
   document.addEventListener("DOMContentLoaded", function() {
-const mainButton   = document.querySelector('.product-form__buttons:not(.sticky-mobile)');
+const mainButton   = document.querySelector('.product__info-wrapper .product-form__buttons:not(.sticky-mobile)');
 const stickyButton = document.querySelector('.product-form__buttons.sticky-mobile');
 
 let overlappedOnce = false; // latch: only set after first actual overlap

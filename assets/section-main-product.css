@@ -1636,4 +1636,12 @@ display: none;
 .st-wishlist-details-button[data-type=floating] {
     display: none;
 }
+.is-overlap .product-form__buttons.sticky-mobile {
+    opacity: 0;
+    z-index: -1;
+}
+
+.product-form__buttons.sticky-mobile {
+    transition: .1s ease-in-out;
+}
 }
