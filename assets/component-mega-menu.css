@@ -487,3 +487,7 @@ nav.menu-drawer__navigation {
     background: transparent;
 }
 }
+
+.mega-menu .icon-caret {
+    display: none!important;
+}
