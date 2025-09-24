@@ -515,3 +515,16 @@ p.buybtn-message {
 .product-form__buttons   label.quantity__label.form__label {
     display: none;
 }
+
+@media screen and (max-width: 768px) {
+.product-details-tab__tabs {
+    flex-direction: row;
+    flex: auto;
+}
+
+.product-details-tab__flex {
+    flex-direction: column;
+}
+
+.product-details-tab__tabs {}
+}
