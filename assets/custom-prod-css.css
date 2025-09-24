@@ -494,3 +494,17 @@ p.buybtn-message {
         margin-bottom: 44px;
     }
 }
+
+.product-form__input {
+    max-width: 110px;
+    margin-bottom: 0;
+}
+
+quantity-input.quantity {
+    width: 100%;
+    max-width: 110px;
+}
+
+label.quantity__label.form__label {
+    display: none;
+}
