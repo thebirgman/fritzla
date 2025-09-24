@@ -205,39 +205,45 @@ document.addEventListener('DOMContentLoaded', function () {
 var ur = window.location.href;
 if(ur.includes('/product')){
   document.addEventListener("DOMContentLoaded", function() {
-const mainButton = document.querySelector(".product__info-wrapper .product-form__buttons:not(.sticky-mobile)");
-const stickyButton = document.querySelector(".product-form__buttons.sticky-mobile");
+const mainButton  = document.querySelector('.product-form__buttons:not(.sticky-mobile)');
+const stickyButton = document.querySelector('.product-form__buttons.sticky-mobile');
+
+// tiny buffer to reduce flicker at exact touch point (tweak or set to 0 if you want exact)
+const EPS = 2;
 
 function checkOverlap() {
   if (!mainButton || !stickyButton) return;
 
-  const mainRect = mainButton.getBoundingClientRect();
+  const mainRect   = mainButton.getBoundingClientRect();
   const stickyRect = stickyButton.getBoundingClientRect();
-  var mainRectTop = mainRect.top + 55;
+  const vh = window.innerHeight || document.documentElement.clientHeight;
 
-  // Case 1: Sticky has not reached main yet (still above)
-  if (stickyRect.bottom < mainRect.top) {
-    document.body.classList.remove("is-overlap");
+  const mainVisible = mainRect.top < vh && mainRect.bottom > 0;
+
+  // Axis-aligned overlap test (with a small EPS for stability)
+  const overlap = !(stickyRect.bottom < mainRect.top + EPS || stickyRect.top > mainRect.bottom - EPS);
+
+  // Before reaching main button (main is below viewport)
+  const beforeReach = mainRect.top >= vh;
+
+  // Past the main button (main is completely above viewport)
+  const past = mainRect.bottom <= 0;
+
+  if (beforeReach || past) {
+    document.body.classList.remove('is-overlap');
     return;
   }
 
-  // Case 2: Main button completely out of view (scrolled past)
-  if (mainRect.bottom <= 0) {
-    document.body.classList.remove("is-overlap");
-    return;
-  }
-
-  // Case 3: Overlapping
-  if (stickyRect.top <= mainRect.bottom && stickyRect.bottom >= mainRectTop) {
-    document.body.classList.add("is-overlap");
+  if (overlap && mainVisible) {
+    document.body.classList.add('is-overlap');
   } else {
-    document.body.classList.remove("is-overlap");
+    document.body.classList.remove('is-overlap');
   }
 }
 
-window.addEventListener("scroll", checkOverlap, { passive: true });
-window.addEventListener("resize", checkOverlap);
-checkOverlap(); // initial run
+window.addEventListener('scroll', checkOverlap, { passive: true });
+window.addEventListener('resize', checkOverlap);
+checkOverlap();
 
 
 });
