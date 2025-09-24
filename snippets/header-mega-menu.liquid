@@ -83,6 +83,14 @@
 
                 <div class="megamenu-footer">
                   {%- render 'social-icons', class: 'megamenu__list-social' -%}
+                  <div class="megamenu-subfooter">
+                    <div class="megamenu-copyright">
+                      <small class="copyright__content"
+                        >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
+                      </small>
+                      <small class="copyright__content">{{ powered_by_link }}</small>
+                    </div>
+                  </div>
                 </div>
               </div>
             </details>
