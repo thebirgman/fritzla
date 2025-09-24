@@ -494,7 +494,7 @@ p.buybtn-message {
         margin-bottom: 44px;
     }
     .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
-    margin: 0;
+    margin: 0!important;
 }
 
 .grid--peek.slider .grid__item:first-of-type {
