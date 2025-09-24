@@ -1365,7 +1365,7 @@
       {
         "type": "text",
         "id": "social_mail_link",
-        "label": "t:settings_schema.social-media.settings.social_vimeo_link.label",
+        "label": "Email",
       }
     ]
   },
