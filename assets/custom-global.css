@@ -264,3 +264,12 @@ details#Details-HeaderMenu-1 svg.icon {
     letter-spacing: 0;
     vertical-align: middle;
 }
+
+.megamenu-footer .list-social {
+    flex-wrap: nowrap;
+}
+
+.megamenu-footer {
+    display: flex;
+    flex-direction: column;
+}
