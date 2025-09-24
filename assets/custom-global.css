@@ -199,3 +199,9 @@ summary.list-menu__item span {
 .gradient {
     background: #fafafa !important;
 }
+
+
+
+.st-wishlist-details-button[data-type=floating] {
+    z-index: 99;
+}
