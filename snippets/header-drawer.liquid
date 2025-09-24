@@ -147,6 +147,17 @@
             </ul>
             {% render "mega-menu-cards", section: section %}
           </nav>
+          <div class="megamenu-footer">
+            {%- render 'social-icons', class: 'megamenu__list-social' -%}
+              <div class="megamenu-subfooter">
+                <div class="megamenu-copyright">
+                  <small class="copyright__content"
+                    >&copy; {{ 'now' | date: '%Y' }} {{ shop.name | link_to: routes.root_url -}}
+                  </small>
+                </div>
+              </div>
+          </div>
+          {%  comment %}
           <div class="menu-drawer__utility-links">
             {%- if shop.customer_accounts_enabled -%}
               <a
@@ -300,6 +311,7 @@
               {%- endif -%}
             </ul>
           </div>
+          {% endcomment %}
         </div>
       </div>
     </div>
