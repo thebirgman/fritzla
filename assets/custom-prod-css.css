@@ -495,16 +495,16 @@ p.buybtn-message {
     }
 }
 
-.product-form__input {
+body .product-form__input {
     max-width: 110px;
     margin-bottom: 0;
 }
 
-quantity-input.quantity {
+body  quantity-input.quantity {
     width: 100%;
     max-width: 110px;
 }
 
-label.quantity__label.form__label {
+body  label.quantity__label.form__label {
     display: none;
 }
