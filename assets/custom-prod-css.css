@@ -453,9 +453,7 @@ p.buybtn-message {
         color: #212121;
     }
     
-    .st-wishlist-button .st-wishlist-icon {
-        display: none;
-    }
+
     
     .product-mobile-top .product__text.caption-with-letter-spacing+.product__title {
         margin: 10px 0;
@@ -499,6 +497,14 @@ p.buybtn-message {
 
 .grid--peek.slider .grid__item:first-of-type {
     margin-left: 0;
+}
+
+media-gallery {
+    position: relative;
+}
+
+.grid__item.product__media-wrapper button.st-wishlist-button.st-initialized {
+    top: 10px;
 }
 }
 
