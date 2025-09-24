@@ -229,3 +229,7 @@ div.price--on-sale .price-item--regular {
 .card .card__inner .card__media {
     border-radius: 12px 12px 0 0 !important;
 }
+
+.card--standard>.card__content>div.card__information {
+    background: none;
+}
