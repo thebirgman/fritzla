@@ -209,7 +209,7 @@ const mainButton   = document.querySelector('.product-form__buttons:not(.sticky-
 const stickyButton = document.querySelector('.product-form__buttons.sticky-mobile');
 
 let overlappedOnce = false; // latch: only set after first actual overlap
-const EPS = 1; // small buffer to avoid flicker; set to 0 for exact edges
+const EPS = 55; // small buffer to avoid flicker; set to 0 for exact edges
 
 function checkOverlap() {
   if (!mainButton || !stickyButton) return;
