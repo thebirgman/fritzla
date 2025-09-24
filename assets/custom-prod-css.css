@@ -487,12 +487,19 @@ p.buybtn-message {
     
     
     .product--large:not(.product--no-media) .product__info-wrapper {
-        padding: 0 24px !important;
+        padding: 0 20px !important;
     }
     
     .product__info-container>.new-variant_cont {
         margin-bottom: 44px;
     }
+    .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
+    margin: 0;
+}
+
+.grid--peek.slider .grid__item:first-of-type {
+    margin-left: 0;
+}
 }
 
 .product-form__buttons .product-form__input {
