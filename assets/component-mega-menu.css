@@ -450,7 +450,7 @@ nav.menu-drawer__navigation {
     overflow: hidden;
 }
 
-summary.header__icon.header__icon--menu.header__icon--summary.link.focus-inset {
+.menu-opening summary.header__icon.header__icon--menu.header__icon--summary.link.focus-inset {
     right: 15px;
     position: fixed;
     z-index: 9999999;
