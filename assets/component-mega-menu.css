@@ -474,4 +474,16 @@ summary.header__icon.header__icon--menu.header__icon--summary.link.focus-inset s
     width: 15px;
     height: 15px;
 }
+
+.menu-drawer__inner-container {
+    max-height: calc(100vh - 70px);
+}
+
+.menu-drawer__utility-links {
+    height: 100%;
+}
+
+.menu-drawer__utility-links {
+    background: transparent;
+}
 }
