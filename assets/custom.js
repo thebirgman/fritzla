@@ -205,36 +205,33 @@ document.addEventListener('DOMContentLoaded', function () {
 var ur = window.location.href;
 if(ur.includes('/product')){
   document.addEventListener("DOMContentLoaded", function() {
-const mainButton  = document.querySelector('.product-form__buttons:not(.sticky-mobile)');
+const mainButton   = document.querySelector('.product-form__buttons:not(.sticky-mobile)');
 const stickyButton = document.querySelector('.product-form__buttons.sticky-mobile');
 
-// tiny buffer to reduce flicker at exact touch point (tweak or set to 0 if you want exact)
-const EPS = 2;
+let overlappedOnce = false; // latch: only set after first actual overlap
+const EPS = 1; // small buffer to avoid flicker; set to 0 for exact edges
 
 function checkOverlap() {
   if (!mainButton || !stickyButton) return;
 
-  const mainRect   = mainButton.getBoundingClientRect();
-  const stickyRect = stickyButton.getBoundingClientRect();
+  const mr = mainButton.getBoundingClientRect();
+  const sr = stickyButton.getBoundingClientRect();
   const vh = window.innerHeight || document.documentElement.clientHeight;
 
-  const mainVisible = mainRect.top < vh && mainRect.bottom > 0;
+  const mainVisible = mr.top < vh && mr.bottom > 0;
 
-  // Axis-aligned overlap test (with a small EPS for stability)
-  const overlap = !(stickyRect.bottom < mainRect.top + EPS || stickyRect.top > mainRect.bottom - EPS);
+  // true only when their boxes touch/overlap (with EPS)
+  const isOverlapping =
+    !(sr.bottom <= mr.top + EPS || sr.top >= mr.bottom - EPS);
 
-  // Before reaching main button (main is below viewport)
-  const beforeReach = mainRect.top >= vh;
+  // arm the latch once we *actually* overlap
+  if (isOverlapping) overlappedOnce = true;
 
-  // Past the main button (main is completely above viewport)
-  const past = mainRect.bottom <= 0;
+  // reset the latch if the main button is no longer visible (either past or not reached yet)
+  if (!mainVisible) overlappedOnce = false;
 
-  if (beforeReach || past) {
-    document.body.classList.remove('is-overlap');
-    return;
-  }
-
-  if (overlap && mainVisible) {
+  // class ON only if we've overlapped at least once AND the main is still visible
+  if (overlappedOnce && mainVisible) {
     document.body.classList.add('is-overlap');
   } else {
     document.body.classList.remove('is-overlap');
