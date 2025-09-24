@@ -202,7 +202,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 });
 
-
 var ur = window.location.href;
 if(ur.includes('/product')){
   document.addEventListener("DOMContentLoaded", function() {
@@ -214,8 +213,21 @@ function checkOverlap() {
 
   const mainRect = mainButton.getBoundingClientRect();
   const stickyRect = stickyButton.getBoundingClientRect();
-    var mainRectTop = mainRect.top + 55;
-  // Sticky has reached or overlapped the main button
+  var mainRectTop = mainRect.top + 55;
+
+  // Case 1: Sticky has not reached main yet (still above)
+  if (stickyRect.bottom < mainRect.top) {
+    document.body.classList.remove("is-overlap");
+    return;
+  }
+
+  // Case 2: Main button completely out of view (scrolled past)
+  if (mainRect.bottom <= 0) {
+    document.body.classList.remove("is-overlap");
+    return;
+  }
+
+  // Case 3: Overlapping
   if (stickyRect.top <= mainRect.bottom && stickyRect.bottom >= mainRectTop) {
     document.body.classList.add("is-overlap");
   } else {
@@ -225,7 +237,9 @@ function checkOverlap() {
 
 window.addEventListener("scroll", checkOverlap, { passive: true });
 window.addEventListener("resize", checkOverlap);
-checkOverlap(); // run immediately once  
+checkOverlap(); // initial run
+
+
 });
 
 }
