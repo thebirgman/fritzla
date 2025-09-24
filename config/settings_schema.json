@@ -1364,7 +1364,7 @@
       },
       {
         "type": "text",
-        "id": "social_mail_link",
+        "id": "social_mail",
         "label": "Email",
       }
     ]
