@@ -243,6 +243,36 @@ window.addEventListener('resize', checkOverlap);
 checkOverlap();
 
 
+const mainQty   = document.querySelector('.product__info-wrapper .product-form__buttons:not(.sticky-mobile) .quantity__input');
+const stickyQty = document.querySelector('.product-form__buttons.sticky-mobile .quantity__input');
+
+if (mainQty && stickyQty) {
+  function sync(from, to) {
+    if (!from || !to) return;
+    if (to.value !== from.value) {   // prevent infinite loop
+      to.value = from.value;
+      to.dispatchEvent(new Event('change', { bubbles: true })); // let Shopify listeners run
+    }
+  }
+
+  mainQty.addEventListener('input', () => sync(mainQty, stickyQty));
+  mainQty.addEventListener('change', () => sync(mainQty, stickyQty));
+
+  stickyQty.addEventListener('input', () => sync(stickyQty, mainQty));
+  stickyQty.addEventListener('change', () => sync(stickyQty, mainQty));
+}
+
+const mainSubmit   = document.querySelector('.product__info-wrapper .product-form__buttons:not(.sticky-mobile) .product-form__submit');
+const stickySubmit = document.querySelector('.product-form__buttons.sticky-mobile .product-form__submit');
+
+if (mainSubmit && stickySubmit) {
+  stickySubmit.addEventListener('click', (e) => {
+    e.preventDefault(); // stop sticky’s own form submit
+    mainSubmit.click(); // trigger main button instead
+  });
+}
+
+
 });
 
 }
