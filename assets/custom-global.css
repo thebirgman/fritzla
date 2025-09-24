@@ -221,7 +221,7 @@ div#MegaMenu-Content-1 {
 }
 
 .mega-menu-list-links-container {
-    width: calc(50% - 40px);
+    width: calc(50% - 40px) !important;
 }
 
 details#Details-HeaderMenu-1 svg.icon {
