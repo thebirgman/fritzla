@@ -229,7 +229,7 @@ details#Details-HeaderMenu-1 svg.icon {
 }
 
 .megamenu-footer .list-social__link {
-    padding: 4px;
+    padding: 8px !important;
 }
 
 .megamenu-footer .list-social {
@@ -277,4 +277,14 @@ details#Details-HeaderMenu-1 svg.icon {
 .megamenu-footer {
     max-height: max-content;
     margin-top: auto;
+}
+
+.megamenu-footer.mobile>* {
+    padding-right: 32px;
+    padding-left: 32px;
+}
+
+.megamenu-footer.mobile .megamenu-subfooter {
+    margin-left: 0;
+    width: 100%;
 }
