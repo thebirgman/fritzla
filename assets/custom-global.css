@@ -273,3 +273,8 @@ details#Details-HeaderMenu-1 svg.icon {
     display: flex;
     flex-direction: column;
 }
+
+.megamenu-footer {
+    max-height: max-content;
+    margin-top: auto;
+}
