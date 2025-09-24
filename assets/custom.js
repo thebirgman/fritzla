@@ -201,3 +201,31 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 });
+
+
+var ur = window.location.href;
+if(ur.includes('/product')){
+  document.addEventListener("DOMContentLoaded", function() {
+const mainButton = document.querySelector(".product__info-wrapper .product-form__buttons:not(.sticky-mobile)");
+const stickyButton = document.querySelector(".product-form__buttons.sticky-mobile");
+
+function checkOverlap() {
+  if (!mainButton || !stickyButton) return;
+
+  const mainRect = mainButton.getBoundingClientRect();
+  const stickyRect = stickyButton.getBoundingClientRect();
+    var mainRectTop = mainRect.top + 55;
+  // Sticky has reached or overlapped the main button
+  if (stickyRect.top <= mainRect.bottom && stickyRect.bottom >= mainRectTop) {
+    document.body.classList.add("is-overlap");
+  } else {
+    document.body.classList.remove("is-overlap");
+  }
+}
+
+window.addEventListener("scroll", checkOverlap, { passive: true });
+window.addEventListener("resize", checkOverlap);
+checkOverlap(); // run immediately once  
+});
+
+}
