@@ -100,4 +100,13 @@
       </a>
     </li>
   {%- endif -%}
+  {%- if settings.social_mail != blank -%}
+    <li class="list-social__item">
+      <a href="{{ settings.social_mail }}" class="link list-social__link">
+        <span class="svg-wrapper">
+          {{- 'icon-email.svg' | inline_asset_content -}}
+        </span>
+      </a>
+    </li>
+  {%- endif -%}
 </ul>
