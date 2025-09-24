@@ -288,3 +288,15 @@ details#Details-HeaderMenu-1 svg.icon {
     margin-left: 0;
     width: 100%;
 }
+
+details#Details-HeaderMenu-1 .megamenu-footer svg {
+    display: block;
+}
+
+.megamenu-footer .list-social {
+    width: 100%;
+}
+
+.megamenu-footer .list-social__link:first-child {
+    padding-left: 0 !important;
+}
