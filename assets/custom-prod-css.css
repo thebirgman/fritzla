@@ -413,7 +413,7 @@ p.buybtn-message {
 @media (max-width:768px) {
     .product-mobile-top {
         display: block;
-        padding: 0 24px;
+        padding: 0 20px;
         margin: 16px 0;
     }
     
