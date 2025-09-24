@@ -470,7 +470,7 @@ nav.menu-drawer__navigation {
     color: #767676;
 }
 
-summary.header__icon.header__icon--menu.header__icon--summary.link.focus-inset svg {
+.menu-opening summary.header__icon.header__icon--menu.header__icon--summary.link.focus-inset svg {
     width: 15px;
     height: 15px;
 }
