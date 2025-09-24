@@ -528,45 +528,5 @@ p.buybtn-message {
 
 .product-details-tab__tabs {}
 
-.product-details-tab__tabs {
-    flex-direction: row;
-    flex: auto;
-    order: 2;
-    padding: 30px 20px 0;
-    width: 100%;
-}
 
-.product-details-tab__tab-button {
-    white-space: nowrap;
-}
-
-.product-details-tab__content-wrapper {
-    order: 3;
-}
-
-.product-details-tab__inner.page-width {
-    padding: 0;
-}
-
-.product-details-tab {
-    padding-top: 60px;
-    padding-bottom: 40px;
-}
-
-.product-details-tab__content-wrapper {
-    width: 100%;
-    padding: 0 20px;
-}
-
-.product-details-tab__flex {
-    gap: 20px;
-}
-
-.product-details-tab__text {
-    max-width: 100%;
-}
-
-.product-details-tab__text ul {
-    padding-left: 15px;
-}
 }
