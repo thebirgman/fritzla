@@ -49,13 +49,15 @@
               </h2>
               <div class="select">
                 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-                <select
-                  name="sort_by"
-                  class="facet-filters__sort select__select caption-large"
-                  id="SortBy"
-                  aria-describedby="a11y-refresh-page-message"
-                >
-                  {%- for option in collection.sort_options -%}
+               <select
+                name="sort_by"
+                class="facet-filters__sort select__select caption-large"
+                id="SortBy"
+                aria-describedby="a11y-refresh-page-message"
+              >
+                {%- assign allowed_sorts = "best-selling,created-descending,price-ascending,price-descending" | split: "," -%}
+                {%- for option in collection.sort_options -%}
+                  {%- if allowed_sorts contains option.value -%}
                     <option
                       value="{{ option.value | escape }}"
                       {% if option.value == sort_by %}
@@ -64,8 +66,10 @@
                     >
                       {{ option.name | escape }}
                     </option>
-                  {%- endfor -%}
-                </select>
+                  {%- endif -%}
+                {%- endfor -%}
+              </select>
+
                 <span class="svg-wrapper">
                   {{- 'icon-caret.svg' | inline_asset_content -}}
                 </span>
