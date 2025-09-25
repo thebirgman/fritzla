@@ -1883,3 +1883,7 @@ span.mobile-facets__open-label.button-label.small-hide {
     align-items: center;
     gap: 12px;
 }
+
+.active-facets.active-facets-desktop {
+    gap: 10px;
+}
