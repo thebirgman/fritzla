@@ -1075,12 +1075,13 @@
 
     listItems.forEach(li => {
       li.addEventListener("click", function() {
-        const value = this.getAttribute("data-value");
+        const value = this.dataset.value;
 
-        // Update hidden select
+        // Update select value
         select.value = value;
 
-        // Fire the same event Shopify listens for
+        // Dispatch both native + input events (covers all Shopify theme listeners)
+        select.dispatchEvent(new Event("input", { bubbles: true }));
         select.dispatchEvent(new Event("change", { bubbles: true }));
 
         // Toggle active class
