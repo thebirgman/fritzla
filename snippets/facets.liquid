@@ -596,25 +596,22 @@
               <ul id="SortList">
                 <li data-value="best-selling">
                   <label>
-                    <input type="radio" name="sort_radio" value="best-selling">
+                   
                     Popularitet
                   </label>
                 </li>
                 <li data-value="created-descending">
                   <label>
-                    <input type="radio" name="sort_radio" value="created-descending">
                     Nyast först
                   </label>
                 </li>
                 <li data-value="price-ascending">
                   <label>
-                    <input type="radio" name="sort_radio" value="price-ascending">
                     Lägst pris
                   </label>
                 </li>
                 <li data-value="price-descending">
                   <label>
-                    <input type="radio" name="sort_radio" value="price-descending">
                     Högsta pris
                   </label>
                 </li>
@@ -1081,16 +1078,15 @@
 
 
 <script>
- document.addEventListener("DOMContentLoaded", function() {
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
     const sortList = document.getElementById('SortList');
     const listItems = sortList.querySelectorAll('li');
     const select = document.getElementById('SortBy');
-
-    console.log(select.value);
+    const sortForm = select.closest('form'); // Shopify's sort form
 
     // Highlight the active li on load
     if (select.value) {
-      
       const activeLi = sortList.querySelector(`li[data-value="${select.value}"]`);
       if (activeLi) {
         activeLi.classList.add('active');
@@ -1102,10 +1098,9 @@
       li.addEventListener("click", function() {
         const value = this.getAttribute("data-value");
 
-        console.log(value);
         // Update hidden select
         select.value = value;
-        select.dispatchEvent(new Event("change"));
+        select.dispatchEvent(new Event("change", { bubbles: true }));
 
         // Update radios
         //this.querySelector('input[type="radio"]').checked = true;
@@ -1113,7 +1108,14 @@
         // Toggle active class
         listItems.forEach(item => item.classList.remove("active"));
         this.classList.add("active");
+
+        // 🔑 Trigger Shopify's sort (submit form)
+        if (sortForm) {
+          sortForm.submit();
+        }
       });
     });
   });
+</script>
+
 </script>
