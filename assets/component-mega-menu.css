@@ -491,3 +491,12 @@ nav.menu-drawer__navigation {
 .mega-menu .icon-caret {
     display: none!important;
 }
+
+.megamenu-footer .list-social {
+    gap: 7px;
+}
+
+.megamenu-footer .list-social__link[href*="contact"] .svg-wrapper {
+    width: 23px;
+    height: 22px;
+}
