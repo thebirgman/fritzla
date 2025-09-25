@@ -1846,3 +1846,33 @@ div#FacetsWrapperMobile {
     align-items: center;
     cursor: pointer;
 }
+
+
+
+.sort-options li:after {border-color: #212121;}
+
+.sort-options li:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1px solid #212121;
+    margin-left: auto;
+    position: absolute;
+    right: 3px;
+    background: #212121;
+    opacity: 0;
+    transition: .2s ease-in-out;
+}
+
+.sort-options ul li.active:before{
+    opacity: 1;
+}
+
+.sort-options ul li:hover:before{
+    opacity: 1;
+}
+
+.sort-options ul li {
+    position: relative;
+}
