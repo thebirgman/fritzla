@@ -505,4 +505,8 @@ nav.menu-drawer__navigation {
 .mega-menu__category-block {
     width: 100%!important;
 }
+
+.scrolled-past-header div#menu-drawer {
+    top: 0;
+}
 }
