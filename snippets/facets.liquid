@@ -590,6 +590,36 @@
               id="FacetsWrapperMobile"
               class="mobile-facets__main has-submenu gradient"
             >
+
+              <div class="sort-options">
+              <h3>Sortera efter</h3>
+              <ul>
+                <li>
+                  <label>
+                    <input type="radio" name="sort_radio" value="best-selling">
+                    Popularitet
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="sort_radio" value="created-descending">
+                    Nyast först
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="sort_radio" value="price-ascending">
+                    Lägst pris
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="sort_radio" value="price-descending">
+                    Högsta pris
+                  </label>
+                </li>
+              </ul>
+            </div>
               {%- if enable_filtering -%}
                 {%- for filter in results.filters -%}
                   {% liquid
@@ -1048,3 +1078,24 @@
     } 
   </style>
 {% endif %}
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const radios = document.querySelectorAll('input[name="sort_radio"]');
+    const select = document.getElementById('SortBy');
+
+    // Sync radio state with current select
+    if (select.value) {
+      document.querySelector(`input[name="sort_radio"][value="${select.value}"]`)?.setAttribute("checked", "checked");
+    }
+
+    // When a radio is selected → update <select> and trigger change
+    radios.forEach(radio => {
+      radio.addEventListener("change", function() {
+        select.value = this.value;
+        select.dispatchEvent(new Event("change")); // Shopify listens for this
+      });
+    });
+  });
+</script>
