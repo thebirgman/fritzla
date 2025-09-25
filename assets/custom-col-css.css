@@ -155,10 +155,16 @@ li.breadcrumb-item span {
     white-space: nowrap;
 }
 
-div .facets-container-drawer .active-facets.active-facets-mobile.medium-hide.large-up-hide {
-    display: none !important;
+facet-filters-form.facets {
+    display: none;
 }
 
+span.mobile-facets__open-label.button-label.small-hide {
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 div.shopify-section>nav.breadcrumbs {
     max-width: 1300px;
     margin: auto;
