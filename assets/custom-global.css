@@ -308,3 +308,17 @@ div#MegaMenu-Content-1 {
 .megamenu-subfooter {
     padding-bottom: 8px;
 }
+
+
+
+@media screen and (min-width: 768px) {
+ul#product-grid {
+    row-gap: 60px;
+}
+}
+@media screen and (max-width: 768px) {
+.st-wishlist-button[data-type=details] {
+    width: 32px;
+    height: 32px;
+}
+}
