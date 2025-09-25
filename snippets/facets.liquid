@@ -1088,8 +1088,10 @@
 
     // Highlight the active li on load
     if (select.value) {
+      
       const activeLi = sortList.querySelector(`li[data-value="${select.value}"]`);
       if (activeLi) {
+        alert()
         activeLi.classList.add('active');
         activeLi.querySelector('input[type="radio"]').checked = true;
       }
@@ -1099,6 +1101,7 @@
       li.addEventListener("click", function() {
         const value = this.getAttribute("data-value");
 
+        console.log(value);
         // Update hidden select
         select.value = value;
         select.dispatchEvent(new Event("change"));
