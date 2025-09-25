@@ -500,3 +500,9 @@ nav.menu-drawer__navigation {
     width: 23px;
     height: 22px;
 }
+
+@media screen and (max-width: 768px) {
+.mega-menu__category-block {
+    width: 100%!important;
+}
+}
