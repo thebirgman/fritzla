@@ -1806,3 +1806,43 @@ form#FacetFiltersFormMobile {
 span.mobile-facets__close {
     z-index: 99999999;
 }
+
+div#FacetsWrapperMobile {
+    /* padding-top: 0; */
+}
+
+.sort-options h3 {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.sort-options {
+    padding: 0 20px;
+}
+
+.sort-options ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sort-options input {
+    display: none;
+}
+
+.sort-options li:after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    margin-left: auto;
+}
+
+.sort-options ul li {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
