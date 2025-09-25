@@ -1876,3 +1876,10 @@ div#FacetsWrapperMobile {
 .sort-options ul li {
     position: relative;
 }
+
+span.mobile-facets__open-label.button-label.small-hide {
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
