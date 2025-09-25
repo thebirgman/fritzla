@@ -24,6 +24,12 @@ span.visually-hidden+.caption-with-letter-spacing {
     border-radius: 12px 12px 0 0;
 }
 
+
+
+div.shopify-section>nav.breadcrumbs {
+    padding: 0 30px;
+    display: block;
+}
 @media (max-width:768px) {
     ul#product-grid {
         gap: 16px;
@@ -33,6 +39,10 @@ span.visually-hidden+.caption-with-letter-spacing {
     .grid--2-col-tablet-down .grid__item {
         width: calc(50% - 16px / 2);
     }
+    div.shopify-section>nav.breadcrumbs {
+    padding: 0 20px;
+    display: block;
+}
 }
 
 .collection-hero__text-wrapper .collection-hero__description.rte {
@@ -47,10 +57,7 @@ p.variant-names {
     margin: 0;
 }
 
-div.shopify-section>nav.breadcrumbs {
-    padding: 0 20px;
-    display: block;
-}
+
 
 li.breadcrumb-item a {
     display: none;
