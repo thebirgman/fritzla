@@ -246,3 +246,31 @@ div.price--on-sale .price-item--regular {
 .card--standard>.card__content>div.card__information {
     background: none;
 }
+
+.product .price .badge {
+    display: none;
+}
+
+.price--on-sale .price__sale {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.product__info-container .price--on-sale .price-item--regular {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    text-decoration-color: #767676;
+    text-decoration-thickness: 1px;
+}
+
+.price .price-item {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    margin-right: 8px;
+}
