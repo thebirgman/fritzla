@@ -9,6 +9,14 @@
       <meta itemprop="position" content="1" />
     </li>
 
+    <a class="allcol-btn" href="{{ routes.all_products_collection_url }}">Produkter</a>
+    <li class="breadcrumb-item test" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="{{ routes.root_url }}" itemprop="item">
+        <span itemprop="name">{{ shop.metafields.custom.plp_products }}</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+
     {% case current_template %}
       {% when 'collection' %}
         <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
