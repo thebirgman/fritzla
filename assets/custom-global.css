@@ -354,6 +354,9 @@ ul#product-grid {
     width: 16px;
     height: 14px;
 }
+ol.breadcrumb-list {
+    gap: 10px!important;
+}
 }
 
 span.mobile-facets__open-label.button-label.medium-hide.large-up-hide {
