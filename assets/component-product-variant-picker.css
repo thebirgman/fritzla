@@ -187,14 +187,6 @@ variant-selects {
     margin: 0;
 }
 
-.product-form__submit span {
-    font-family: Alexandria;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 160%;
-    text-align: center;
-    width: 100%;
-}
 
 .product-form__submit {
     padding: 0;
