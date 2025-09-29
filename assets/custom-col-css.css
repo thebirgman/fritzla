@@ -307,3 +307,12 @@ span.mobile-facets__open-label.button-label.small-hide {
         font-size: 12px;
     }
 }
+
+.mobile-facets__item:hover {
+    background: white;
+    transition: .2s ease-in-out;
+}
+
+.mobile-facets__item {
+    transition: .2s ease-in-out;
+}
