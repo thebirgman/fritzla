@@ -562,3 +562,7 @@ p.buybtn-message {
     font-family: 'Sofia Sans';
     letter-spacing: 0;
 }
+
+.product-details-tab__tab-button{
+    color: #000;
+}
