@@ -310,6 +310,30 @@ span.mobile-facets__open-label.button-label.small-hide {
     ol.breadcrumb-list a, ol.breadcrumb-list span {
         font-size: 12px;
     }
+
+    ol.breadcrumb-list a, ol.breadcrumb-list span {
+        font-size: 12px;
+    }
+
+    li.grid__item {
+        position: relative;
+    }
+
+    .sort-options ul li {
+        font-size: 16px;
+    }
+
+    .facets-layout-list--swatch .facets__label .swatch-input-wrapper span.facet-checkbox__text {
+        font-size: 12px;
+    }
+
+    .facets-layout-list--swatch .facets__label span.facet-checkbox__text {
+        font-size: 12px;
+    }
+
+    [id*=SortBy] {
+        display: none;
+    }
 }
 
 li.grid__item {
