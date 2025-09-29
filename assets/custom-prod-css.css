@@ -553,9 +553,11 @@ p.buybtn-message {
     font-size: 14px;
     color: #FAFAFA;
 }
-
+@media screen and (max-width: 768px) {
 .quantity__input[type=number] {
     font-size: 12px;
+}
+
 }
 
 .product-details-tab__tabs * {
