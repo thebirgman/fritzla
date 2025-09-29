@@ -483,7 +483,7 @@
           </span>
           {% endcomment %}
           <span class="mobile-facets__open-label button-label medium-hide large-up-hide">
-            +
+            
             {%- if enable_filtering and enable_sorting -%}
               {{ 'products.facets.filter_and_sort' | t }}
             {%- elsif enable_filtering -%}
@@ -491,6 +491,7 @@
             {%- elsif enable_sorting -%}
               {{ 'products.facets.sort_button' | t }}
             {%- endif -%}
+             +
           </span>
           <span class="mobile-facets__open-label button-label small-hide">
             
