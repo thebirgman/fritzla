@@ -334,3 +334,12 @@ ul#product-grid {
     transition: .2s ease-in-out;
     transform: scale(1.1);
 }
+
+
+.mobile-facets__details {
+    transition: none;
+}
+
+.js .mobile-facets__submenu {
+    transition: none!important;
+}
