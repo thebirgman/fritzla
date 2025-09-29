@@ -508,9 +508,7 @@ p.buybtn-message {
         top: 10px;
     }
 
-    .product-mobile-top .product__title>* {
-        font-weight: 500;
-    }
+
 
     .product-form__submit span {
         font-family: 'Sofia sans';
