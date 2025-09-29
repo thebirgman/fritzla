@@ -312,6 +312,10 @@ span.mobile-facets__open-label.button-label.small-hide {
     }
 }
 
+li.grid__item {
+    position: relative;
+}
+
 .mobile-facets__item:hover {
     background: white;
     transition: .2s ease-in-out;
