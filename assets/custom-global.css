@@ -370,3 +370,9 @@ span.mobile-facets__open-label.button-label.small-hide {
 .menu-drawer__menu-item--active, .menu-drawer__menu-item:focus, .menu-drawer__close-button:focus, .menu-drawer__menu-item:hover, .menu-drawer__close-button:hover {
     background: transparent!important;
 }
+
+@media screen and (max-height: 700px) {
+.mega-menu__category-block-inner.page-width{
+    margin-top: 20px;
+}
+}
