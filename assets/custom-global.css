@@ -246,6 +246,10 @@ details#Details-HeaderMenu-1 svg.icon {
     padding-right: 24px;
 }
 
+.mega-menu__category-text {
+    font-family: 'Source Serif';
+}
+
 .megamenu-copyright {
     text-align: right;
 }
