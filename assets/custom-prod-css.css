@@ -546,3 +546,10 @@ p.buybtn-message {
 .product-form__buttons   label.quantity__label.form__label {
     display: none;
 }
+
+
+.product-form__buttons .product-form__submit {
+    font-weight: 400;
+    font-size: 14px;
+    color: #FAFAFA;
+}
