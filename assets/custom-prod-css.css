@@ -528,7 +528,7 @@ p.buybtn-message {
         padding: 0 20px;
     }
 
-    .product-form__buttons.sticky-mobile {
+    section .product-form__buttons.sticky-mobile {
         background: #fafafacc;
     }
 }
