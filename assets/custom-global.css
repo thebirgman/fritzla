@@ -343,3 +343,15 @@ ul#product-grid {
 .js .mobile-facets__submenu {
     transition: none!important;
 }
+
+
+@media screen and (max-width: 768px) {
+.st-wishlist-button[data-type=details] {
+    padding: 8px;
+}
+
+.st-wishlist-button .st-wishlist-icon {
+    width: 16px;
+    height: 14px;
+}
+}
