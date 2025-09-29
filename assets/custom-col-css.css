@@ -318,5 +318,5 @@ span.mobile-facets__open-label.button-label.small-hide {
 }
 
 .js details[open].menu-opening>.mobile-facets__submenu {
-    transition: unset;
+    transition: unset !important;
 }
