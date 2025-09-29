@@ -1359,6 +1359,7 @@ a.view-count-option:hover {
 .js .mobile-facets__submenu {
     position: static;
     visibility: visible;
+    transition: none;
     /* display: block; */
 }
 
