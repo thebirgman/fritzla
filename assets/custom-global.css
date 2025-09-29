@@ -376,3 +376,44 @@ span.mobile-facets__open-label.button-label.small-hide {
     margin-top: 20px;
 }
 }
+
+
+.grid__item button.st-wishlist-button.st-initialized{
+    border: 0;
+}
+
+.filters-footer-container {
+    padding: 20px;
+}
+
+span.filters-footer-btn {}
+
+.filters-footer-btn {
+ 
+  color: #212121;
+  border-radius: 40px;
+  padding: 10px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+  text-align: center;
+  font-size: 16px;
+  transition: .2s ease-in-out;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none!important;
+   background-color: #F1E9E1;
+} 
+
+.filters-footer-btn:hover {
+  background-color: #F7F3F0;
+}   
+
+@media screen and (max-width: 768px) {
+.filters-footer-btn {
+font-size: 12px;
+  height: 35px;
+}
+}
+
