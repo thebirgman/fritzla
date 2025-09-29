@@ -277,7 +277,7 @@ div.price--on-sale .price-item--regular {
     margin-right: 8px;
 }
 
-.grid__item button.st-wishlist-button:hover {
+.st-wishlist-button:hover {
     transition: .2s ease-in-out;
     transform: scale(1.1);
 }
