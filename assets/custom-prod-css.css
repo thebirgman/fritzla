@@ -553,3 +553,7 @@ p.buybtn-message {
     font-size: 14px;
     color: #FAFAFA;
 }
+
+.quantity__input[type=number] {
+    font-size: 12px;
+}
