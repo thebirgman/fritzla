@@ -563,3 +563,6 @@ p.buybtn-message {
     letter-spacing: 0;
 }
 
+.product-details-tab__tab-button{
+    color: #000!important;
+}
