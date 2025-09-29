@@ -274,3 +274,24 @@ div.price--on-sale .price-item--regular {
     vertical-align: middle;
     margin-right: 8px;
 }
+
+.grid__item button.st-wishlist-button:hover {
+    transition: .2s ease-in-out;
+    transform: scale(1.1);
+}
+
+.grid__item button.st-wishlist-button {
+    transition: .2s ease-in-out;
+}
+
+span.mobile-facets__open-label.button-label.small-hide {
+    font-size: 14px;
+}
+
+.collection-hero__text-wrapper .collection-hero__description.rte {
+    font-size: 16px;
+}
+
+.card__heading a {
+    font-weight: 500;
+}
