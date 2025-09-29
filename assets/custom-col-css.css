@@ -317,6 +317,6 @@ span.mobile-facets__open-label.button-label.small-hide {
     transition: .2s ease-in-out;
 }
 
-.js details[open].menu-opening>.mobile-facets__submenu {
+.js .mobile-facets__submenu {
     transition: unset !important;
 }
