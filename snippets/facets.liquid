@@ -1099,5 +1099,10 @@
         this.classList.add("active");
       });
     });
+    document.querySelectorAll('span.filters-footer-btn').forEach(function(el) {
+  el.addEventListener('click', function() {
+document.querySelectorAll('span.mobile-facets__close')[0].click()
+  });
+});
   });
 </script>
