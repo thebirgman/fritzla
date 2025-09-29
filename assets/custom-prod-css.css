@@ -557,3 +557,8 @@ p.buybtn-message {
 .quantity__input[type=number] {
     font-size: 12px;
 }
+
+.product-details-tab__tabs * {
+    font-family: 'Sofia Sans';
+    letter-spacing: 0;
+}
