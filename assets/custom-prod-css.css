@@ -104,8 +104,8 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
 }
 
 .product__info-wrapper .product__title h1 {
-    font-family: Source Serif 4;
-    font-weight: 500;
+    font-family: 'Source Serif 4';
+    font-weight: 600;
     font-size: 32px;
     line-height: 120%;
     letter-spacing: -1px;
@@ -430,7 +430,7 @@ p.buybtn-message {
     }
     
     .product-mobile-top .product__title>* {
-        font-family: Source Serif 4;
+        font-family: 'Source Serif 4';
         font-weight: 600;
         font-size: 32px;
         line-height: 120%;
