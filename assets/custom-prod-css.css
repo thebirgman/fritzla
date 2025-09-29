@@ -496,6 +496,18 @@ p.buybtn-message {
         margin: 0!important;
     }
 
+    .grid--peek.slider .grid__item:first-of-type {
+        margin-left: 0;
+    }
+
+    media-gallery {
+        position: relative;
+    }
+
+    .grid__item.product__media-wrapper button.st-wishlist-button.st-initialized {
+        top: 10px;
+    }
+
     .product-mobile-top .product__title>* {
         font-weight: 500;
     }
@@ -515,19 +527,6 @@ p.buybtn-message {
     nav.breadcrumb-product {
         padding: 0 20px;
     }
-}
-
-.grid--peek.slider .grid__item:first-of-type {
-    margin-left: 0;
-}
-
-media-gallery {
-    position: relative;
-}
-
-.grid__item.product__media-wrapper button.st-wishlist-button.st-initialized {
-    top: 10px;
-}
 }
 
 .product-form__buttons .product-form__input {
