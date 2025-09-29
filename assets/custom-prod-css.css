@@ -491,7 +491,7 @@ p.buybtn-message {
     .product__info-container>.new-variant_cont {
         margin-bottom: 44px;
     }
-    
+
     .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
         margin: 0!important;
     }
@@ -524,7 +524,7 @@ p.buybtn-message {
         font-family: 'sofia sans';
     }
 
-    nav.breadcrumb-product {
+    div nav.breadcrumb-product {
         padding: 0 20px;
     }
 }
