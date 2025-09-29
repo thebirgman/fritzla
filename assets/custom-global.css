@@ -327,7 +327,9 @@ ul#product-grid {
 }
 }
 
-
+.st-wishlist-button{
+    transition: .2s ease-in-out;
+}
 .st-wishlist-button:hover {
     transition: .2s ease-in-out;
     transform: scale(1.1);
