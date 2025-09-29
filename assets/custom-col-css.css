@@ -334,6 +334,14 @@ span.mobile-facets__open-label.button-label.small-hide {
     [id*=SortBy] {
         display: none;
     }
+
+    span.active-facets__button-inner.button.button--tertiary {
+        font-size: 14px;
+    }
+
+    .active-facets__button-wrapper * {
+        font-size: 14px;
+    }
 }
 
 li.grid__item {
