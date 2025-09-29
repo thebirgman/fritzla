@@ -303,7 +303,7 @@ span.mobile-facets__open-label.button-label.small-hide {
         font-size: 14px;
     }
 
-    .collection-hero__title+.collection-hero__description p {
+    .collection-hero__title + .collection-hero__description.rte p {
         font-size: 12px;
     }
 }
