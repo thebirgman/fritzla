@@ -82,6 +82,12 @@
         "share",
         "swishlist_simple_wishlist_wishlist_product_button_UVnkzK"
       ],
+      "custom_css": [
+        ".jdgm-prev-badge {font-size: 12px;}",
+        "span.jdgm-prev-badge__stars {letter-spacing: 0;}",
+        ".jdgm-preview-badge .jdgm-star.jdgm-star {padding-right: 2px!Important;}",
+        "span.jdgm-prev-badge__text {margin-left: 3px;}"
+      ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
