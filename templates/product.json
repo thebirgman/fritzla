@@ -85,8 +85,10 @@
       "custom_css": [
         ".jdgm-prev-badge {font-size: 12px;}",
         "span.jdgm-prev-badge__stars {letter-spacing: 0;}",
-        ".jdgm-preview-badge .jdgm-star.jdgm-star {padding-right: 2px!Important;}",
-        "span.jdgm-prev-badge__text {margin-left: 3px;}"
+        ".jdgm-preview-badge .jdgm-star.jdgm-star {padding-right: 2px !important;}",
+        "span.jdgm-prev-badge__text {margin-left: 3px;}",
+        ".product__info-wrapper .product__title h1 {margin: 10px 0;}",
+        ".shopify-app-block{margin: 0; margin-top: -10px; }"
       ],
       "settings": {
         "enable_sticky_info": true,
