@@ -121,11 +121,30 @@
       "type": "product-details-tab",
       "name": "Product Details Tab",
       "settings": {}
+    },
+    "1759318997bfffe1c7": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_JCnAYY": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_JCnAYY"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
     "related-products",
-    "product_details_tab_YfrtqG"
+    "product_details_tab_YfrtqG",
+    "1759318997bfffe1c7"
   ]
 }
