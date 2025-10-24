@@ -28,13 +28,13 @@
           "settings": {
             "image": "shopify://shop_images/Gemini_Generated_Image_vj4zxivj4zxivj4z.png",
             "image_overlay_opacity": 0,
-            "heading": "",
-            "heading_size": "h1",
+            "heading": "Skapa ditt drömhem tillsammans med oss",
+            "heading_size": "h0",
             "subheading": "",
             "button_label": "",
             "link": "",
             "button_style_secondary": false,
-            "show_text_box": false,
+            "show_text_box": true,
             "box_align": "middle-center",
             "text_alignment": "center",
             "text_alignment_mobile": "center",
@@ -102,11 +102,60 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "image_banner_kjicXz": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Emhw3e": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_NRqDhy": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_fwyqjy": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Emhw3e",
+        "text_NRqDhy",
+        "buttons_fwyqjy"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
     }
   },
   "order": [
     "custom_liquid_UGJgL4",
     "slideshow_PLgdqz",
-    "collection_list_77BtjM"
+    "collection_list_77BtjM",
+    "image_banner_kjicXz"
   ]
 }
