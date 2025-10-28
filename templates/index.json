@@ -20,46 +20,6 @@
         "padding_bottom": 0
       }
     },
-    "slideshow_PLgdqz": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_gew8zk": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_vj4zxivj4zxivj4z.png",
-            "image_overlay_opacity": 0,
-            "heading": "Skapa ditt drömhem tillsammans med oss",
-            "heading_size": "h0",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "middle-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_gew8zk"
-      ],
-      "custom_css": [
-        ".slideshow__text.banner__box {display: none;}"
-      ],
-      "name": "t:sections.slideshow.presets.name",
-      "settings": {
-        "layout": "full_bleed",
-        "slide_height": "adapt_image",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
-      }
-    },
     "collection_list_77BtjM": {
       "type": "collection-list",
       "blocks": {
@@ -147,7 +107,6 @@
   },
   "order": [
     "custom_liquid_UGJgL4",
-    "slideshow_PLgdqz",
     "collection_list_77BtjM",
     "image_banner_kjicXz"
   ]
