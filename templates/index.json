@@ -139,8 +139,9 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_1.png",
+        "image_overlay_opacity": 40,
+        "image_height": "large",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
