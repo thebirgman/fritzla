@@ -103,11 +103,49 @@
         "mobile_content_alignment": "center",
         "show_text_below": true
       }
+    },
+    "image_banner_xJPNrB": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_VDETQK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bageriet på gården",
+            "heading_size": "h1"
+          }
+        },
+        "text_XQcrHR": {
+          "type": "text",
+          "settings": {
+            "text": "När du besöker vår butik i Fritsla kan du varva ner med ett besök på bageriet på gården, där du hittar nybakat fika, god lunch och riktigt bra kaffe i en mysig miljö.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VDETQK",
+        "text_XQcrHR"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/4b90a67331f1ea8eea4ee1273f6e163843ccb3a9_1.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
     }
   },
   "order": [
     "custom_liquid_UGJgL4",
     "collection_list_77BtjM",
-    "image_banner_kjicXz"
+    "image_banner_kjicXz",
+    "image_banner_xJPNrB"
   ]
 }
