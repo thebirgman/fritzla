@@ -109,24 +109,17 @@
         "heading_Emhw3e": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "Skapa ditt drömhem tillsammans med oss",
             "heading_size": "h1"
-          }
-        },
-        "text_NRqDhy": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
           }
         },
         "buttons_fwyqjy": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
+            "button_label_1": "Handla nu",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
-            "button_label_2": "Button label",
+            "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
           }
@@ -134,7 +127,6 @@
       },
       "block_order": [
         "heading_Emhw3e",
-        "text_NRqDhy",
         "buttons_fwyqjy"
       ],
       "name": "t:sections.image-banner.presets.name",
@@ -145,7 +137,7 @@
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
-        "show_text_box": true,
+        "show_text_box": false,
         "color_scheme": "",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
