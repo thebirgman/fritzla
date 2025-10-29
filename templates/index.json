@@ -63,6 +63,16 @@
         "padding_bottom": 0
       }
     },
+    "multicolumn_categories_KGFUxG": {
+      "type": "multicolumn-categories",
+      "name": "Popular Categories",
+      "settings": {
+        "heading": "Populära kategorier",
+        "mobile_layout": "carousel",
+        "section_background": "",
+        "font_size": 16
+      }
+    },
     "image_banner_kjicXz": {
       "type": "image-banner",
       "blocks": {
@@ -145,6 +155,7 @@
   "order": [
     "custom_liquid_UGJgL4",
     "collection_list_77BtjM",
+    "multicolumn_categories_KGFUxG",
     "image_banner_kjicXz",
     "image_banner_xJPNrB"
   ]
