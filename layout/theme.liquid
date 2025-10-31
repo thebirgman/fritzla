@@ -46,14 +46,39 @@
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+      
+      assign header_font_bold = settings.type_header_font | font_modify: 'weight', 'bold'
+      assign header_font_italic = settings.type_header_font | font_modify: 'style', 'italic'
+      assign header_font_bold_italic = header_font_bold | font_modify: 'style', 'italic'
+      
+      assign body_font_weights = '100,200,300,400,500,600' | split: ','
+      assign header_font_weights = '100,200,300,400,500,600' | split: ','
     %}
 
     {% style %}
-      {{ settings.type_body_font | font_face: font_display: 'swap' }}
-      {{ body_font_bold | font_face: font_display: 'swap' }}
-      {{ body_font_italic | font_face: font_display: 'swap' }}
-      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
-      {{ settings.type_header_font | font_face: font_display: 'swap' }}
+      {%- unless settings.type_body_font.system? -%}
+        {{ settings.type_body_font | font_face: font_display: 'swap' }}
+        {{ body_font_bold | font_face: font_display: 'swap' }}
+        {{ body_font_italic | font_face: font_display: 'swap' }}
+        {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+        
+        {%- for weight in body_font_weights -%}
+          {%- assign body_font_weighted = settings.type_body_font | font_modify: 'weight', weight -%}
+          {{ body_font_weighted | font_face: font_display: 'swap' }}
+        {%- endfor -%}
+      {%- endunless -%}
+      
+      {%- unless settings.type_header_font.system? -%}
+        {{ settings.type_header_font | font_face: font_display: 'swap' }}
+        {{ header_font_bold | font_face: font_display: 'swap' }}
+        {{ header_font_italic | font_face: font_display: 'swap' }}
+        {{ header_font_bold_italic | font_face: font_display: 'swap' }}
+        
+        {%- for weight in header_font_weights -%}
+          {%- assign header_font_weighted = settings.type_header_font | font_modify: 'weight', weight -%}
+          {{ header_font_weighted | font_face: font_display: 'swap' }}
+        {%- endfor -%}
+      {%- endunless -%}
 
       {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
@@ -112,6 +137,17 @@
 
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+
+        --desktop-heading-h2-size: {{ settings.desktop_heading_h2_size }}px;
+        --desktop-heading-h1-size: {{ settings.desktop_heading_h1_size }}px;
+        --desktop-heading-h0-size: {{ settings.desktop_heading_h0_size }}px;
+        --desktop-heading-hxl-size: {{ settings.desktop_heading_hxl_size }}px;
+        --desktop-heading-hxxl-size: {{ settings.desktop_heading_hxxl_size }}px;
+        --mobile-heading-h2-size: {{ settings.mobile_heading_h2_size }}px;
+        --mobile-heading-h1-size: {{ settings.mobile_heading_h1_size }}px;
+        --mobile-heading-h0-size: {{ settings.mobile_heading_h0_size }}px;
+        --mobile-heading-hxl-size: {{ settings.mobile_heading_hxl_size }}px;
+        --mobile-heading-hxxl-size: {{ settings.mobile_heading_hxxl_size }}px;
 
         --media-padding: {{ settings.media_padding }}px;
         --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};

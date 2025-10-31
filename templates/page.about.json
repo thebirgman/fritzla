@@ -1,1 +1,63 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{"padding_top":28,"padding_bottom":28}},"title_and_text_agKAKk":{"type":"title-and-text","name":"Title and Text","settings":{"title":"Om COUR STUDIOS","text":"COUR STUDIOS föddes i hjärtat av storstaden - för kvinnan som lever i den. Hon som inte vill göra avkall på sin stil för att känna sig bekväm oavsett väder."}},"image_width_text_block_zApCCB":{"type":"image-width-text-block","name":"Image With Text Block","settings":{"image":"shopify:\/\/shop_images\/0842.jpg","text":"<p>COUR STUDIOS design är grundad i skandinavisk minimalism,  med tidlösa siluetter och perfekt passform. Plaggen är av hög kvalitet och funktion för att ge skydd mot regn, vind och kyla. <\/p>","image_position":"right"}},"image_width_text_block_m9HbbG":{"type":"image-width-text-block","name":"Image With Text Block","settings":{"image":"shopify:\/\/shop_images\/0855.jpg","text":"<p>COUR STUDIOS är inte fast fashion. Plaggen du investerar i ska hålla länge. <\/p><p>Varje plagg är skapat för ett långt liv - med material i hög kvalitet och genomarbetad  design och produktutveckling. <\/p><p>När du köper ett COUR STUDIOS plagg investerar du i din garderob. <\/p><p> <\/p>","image_position":"left"}},"image_width_text_block_YCMyWU":{"type":"image-width-text-block","name":"Image With Text Block","settings":{"image":"shopify:\/\/shop_images\/2510006-03_BrownCOUR_STUDIOS_FALL202501674.jpg","text":"<p>COUR STUDIOS vill att du som kund aldrig ska behöva göra avkall på din stil. Därför är våra ytterplagg utvecklade i högfunktionella material som möter estetiken i din garderob. <\/p><p>COUR STUDIOS förenar mode med funktion. <\/p><p><\/p>","image_position":"right"}}},"order":["main","title_and_text_agKAKk","image_width_text_block_zApCCB","image_width_text_block_m9HbbG","image_width_text_block_YCMyWU"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "title_and_text_agKAKk": {
+      "type": "title-and-text",
+      "name": "Title and Text",
+      "settings": {
+        "title": "Om COUR STUDIOS",
+        "text": "COUR STUDIOS föddes i hjärtat av storstaden - för kvinnan som lever i den. Hon som inte vill göra avkall på sin stil för att känna sig bekväm oavsett väder."
+      }
+    },
+    "image_width_text_block_zApCCB": {
+      "type": "image-width-text-block",
+      "name": "Image With Text Block",
+      "settings": {
+        "image": "shopify://shop_images/0842.jpg",
+        "text": "<p>COUR STUDIOS design är grundad i skandinavisk minimalism,  med tidlösa siluetter och perfekt passform. Plaggen är av hög kvalitet och funktion för att ge skydd mot regn, vind och kyla. </p>",
+        "image_position": "right"
+      }
+    },
+    "image_width_text_block_m9HbbG": {
+      "type": "image-width-text-block",
+      "name": "Image With Text Block",
+      "settings": {
+        "image": "shopify://shop_images/0855.jpg",
+        "text": "<p>COUR STUDIOS är inte fast fashion. Plaggen du investerar i ska hålla länge. </p><p>Varje plagg är skapat för ett långt liv - med material i hög kvalitet och genomarbetad  design och produktutveckling. </p><p>När du köper ett COUR STUDIOS plagg investerar du i din garderob. </p><p> </p>",
+        "image_position": "left"
+      }
+    },
+    "image_width_text_block_YCMyWU": {
+      "type": "image-width-text-block",
+      "name": "Image With Text Block",
+      "settings": {
+        "image": "shopify://shop_images/2510006-03_BrownCOUR_STUDIOS_FALL202501674.jpg",
+        "text": "<p>COUR STUDIOS vill att du som kund aldrig ska behöva göra avkall på din stil. Därför är våra ytterplagg utvecklade i högfunktionella material som möter estetiken i din garderob. </p><p>COUR STUDIOS förenar mode med funktion. </p><p></p>",
+        "image_position": "right"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "title_and_text_agKAKk",
+    "image_width_text_block_zApCCB",
+    "image_width_text_block_m9HbbG",
+    "image_width_text_block_YCMyWU"
+  ]
+}

@@ -148,6 +148,118 @@
         "unit": "%",
         "label": "t:settings_schema.typography.settings.body_scale.label",
         "default": 100
+      },
+      {
+        "type": "header",
+        "content": "Heading font sizes"
+      },
+      {
+        "type": "paragraph",
+        "content": "Desktop heading font sizes"
+      },
+      {
+        "type": "range",
+        "id": "desktop_heading_h2_size",
+        "min": 12,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "H2 size (desktop)",
+        "default": 28
+      },
+      {
+        "type": "range",
+        "id": "desktop_heading_h1_size",
+        "min": 12,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "H1 size (desktop)",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "desktop_heading_h0_size",
+        "min": 12,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "H0 size (desktop)",
+        "default": 44
+      },
+      {
+        "type": "range",
+        "id": "desktop_heading_hxl_size",
+        "min": 12,
+        "max": 150,
+        "step": 2,
+        "unit": "px",
+        "label": "HXL size (desktop)",
+        "default": 56
+      },
+      {
+        "type": "range",
+        "id": "desktop_heading_hxxl_size",
+        "min": 12,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "label": "HXXL size (desktop)",
+        "default": 72
+      },
+      {
+        "type": "paragraph",
+        "content": "Mobile heading font sizes"
+      },
+      {
+        "type": "range",
+        "id": "mobile_heading_h2_size",
+        "min": 12,
+        "max": 80,
+        "step": 1,
+        "unit": "px",
+        "label": "H2 size (mobile)",
+        "default": 24
+      },
+      {
+        "type": "range",
+        "id": "mobile_heading_h1_size",
+        "min": 12,
+        "max": 80,
+        "step": 1,
+        "unit": "px",
+        "label": "H1 size (mobile)",
+        "default": 32
+      },
+      {
+        "type": "range",
+        "id": "mobile_heading_h0_size",
+        "min": 12,
+        "max": 80,
+        "step": 1,
+        "unit": "px",
+        "label": "H0 size (mobile)",
+        "default": 40
+      },
+      {
+        "type": "range",
+        "id": "mobile_heading_hxl_size",
+        "min": 12,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "HXL size (mobile)",
+        "default": 48
+      },
+      {
+        "type": "range",
+        "id": "mobile_heading_hxxl_size",
+        "min": 12,
+        "max": 120,
+        "step": 2,
+        "unit": "px",
+        "label": "HXXL size (mobile)",
+        "default": 60
       }
     ]
   },
