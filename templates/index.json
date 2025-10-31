@@ -23,11 +23,17 @@
     "image_banner_kjicXz": {
       "type": "image-banner",
       "blocks": {
-        "heading_Emhw3e": {
-          "type": "heading",
+        "text_UhNJde": {
+          "type": "text",
           "settings": {
-            "heading": "Skapa ditt drömhem tillsammans med oss",
-            "heading_size": "h1"
+            "text": "<h2><strong>Skapa ditt drömhem tillsammans med oss</strong></h2>",
+            "text_style": "body",
+            "enable_custom_font_size": false,
+            "custom_font_size": 48,
+            "enable_max_width": true,
+            "max_width": 450,
+            "margin_top": 0,
+            "margin_bottom": 0
           }
         },
         "buttons_fwyqjy": {
@@ -38,25 +44,32 @@
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": false,
+            "margin_top": 30,
+            "margin_bottom": 0
           }
         }
       },
       "block_order": [
-        "heading_Emhw3e",
+        "text_UhNJde",
         "buttons_fwyqjy"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_1.png",
+        "image_mobile": "shopify://shop_images/Mobile.png",
         "image_overlay_opacity": 40,
-        "image_height": "large",
+        "image_height": "custom",
+        "custom_height": 650,
         "image_behavior": "none",
+        "desktop_image_position": "bottom-center",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-353be432-42cf-4afc-a9a6-9cf57225c9bd",
-        "stack_images_on_mobile": true,
+        "mobile_image_height": "custom",
+        "custom_mobile_height": 550,
+        "mobile_image_position": "bottom-left",
         "mobile_content_alignment": "center",
         "show_text_below": false
       }
@@ -68,14 +81,24 @@
           "type": "heading",
           "settings": {
             "heading": "Bageriet på gården",
-            "heading_size": "h1"
+            "text_type": "h2",
+            "heading_size": "h1",
+            "font_weight": "",
+            "enable_custom_font_size": false,
+            "custom_font_size": 24
           }
         },
         "text_XQcrHR": {
           "type": "text",
           "settings": {
-            "text": "När du besöker vår butik i Fritsla kan du varva ner med ett besök på bageriet på gården, där du hittar nybakat fika, god lunch och riktigt bra kaffe i en mysig miljö.",
-            "text_style": "body"
+            "text": "<p>När du besöker vår butik i Fritsla kan du varva ner med ett besök på bageriet på gården, där du hittar nybakat fika, god lunch och riktigt bra kaffe i en mysig miljö.</p>",
+            "text_style": "body",
+            "enable_custom_font_size": false,
+            "custom_font_size": 16,
+            "enable_max_width": false,
+            "max_width": 600,
+            "margin_top": 0,
+            "margin_bottom": 0
           }
         }
       },
@@ -88,20 +111,77 @@
         "image": "shopify://shop_images/4b90a67331f1ea8eea4ee1273f6e163843ccb3a9_1.png",
         "image_overlay_opacity": 0,
         "image_height": "large",
+        "custom_height": 500,
         "image_behavior": "none",
+        "desktop_image_position": "middle-center",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "scheme-1",
-        "stack_images_on_mobile": true,
+        "mobile_image_height": "medium",
+        "custom_mobile_height": 400,
+        "mobile_image_position": "middle-center",
         "mobile_content_alignment": "center",
         "show_text_below": true
+      }
+    },
+    "image_with_text_gallery_7Xb3Ni": {
+      "type": "image-with-text-gallery",
+      "blocks": {
+        "heading_yK7zNr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_iii8yK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_FjYqd6": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_yK7zNr",
+        "text_iii8yK",
+        "button_FjYqd6"
+      ],
+      "name": "Image with text (gallery)",
+      "settings": {
+        "image_1": "shopify://shop_images/image.jpg",
+        "image_2": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "image_3": "shopify://shop_images/image.jpg",
+        "image_4": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "show_heading_above_mobile": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "custom_liquid_UGJgL4",
     "image_banner_kjicXz",
-    "image_banner_xJPNrB"
+    "image_banner_xJPNrB",
+    "image_with_text_gallery_7Xb3Ni"
   ]
 }
