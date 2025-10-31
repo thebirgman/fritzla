@@ -20,59 +20,6 @@
         "padding_bottom": 0
       }
     },
-    "collection_list_77BtjM": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_FNR4G9": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "ytterplagg"
-          }
-        },
-        "featured_collection_BXxeDw": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "stickat"
-          }
-        },
-        "featured_collection_AFxCkT": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "accessoarer"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_FNR4G9",
-        "featured_collection_BXxeDw",
-        "featured_collection_AFxCkT"
-      ],
-      "disabled": true,
-      "custom_css": [],
-      "name": "t:sections.collection-list.presets.name",
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "image_ratio": "portrait",
-        "columns_desktop": 3,
-        "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "multicolumn_categories_KGFUxG": {
-      "type": "multicolumn-categories",
-      "name": "Popular Categories",
-      "settings": {
-        "heading": "Populära kategorier",
-        "mobile_layout": "carousel",
-        "section_background": "",
-        "font_size": 16
-      }
-    },
     "image_banner_kjicXz": {
       "type": "image-banner",
       "blocks": {
@@ -154,8 +101,6 @@
   },
   "order": [
     "custom_liquid_UGJgL4",
-    "collection_list_77BtjM",
-    "multicolumn_categories_KGFUxG",
     "image_banner_kjicXz",
     "image_banner_xJPNrB"
   ]
