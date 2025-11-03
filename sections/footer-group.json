@@ -44,7 +44,8 @@
       ],
       "name": "Logo Marquee",
       "settings": {
-        "color_scheme": "",
+        "main_logo": "shopify://shop_images/Frame_26.png",
+        "color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
         "speed": 30,
         "logo_width": 70,
         "main_logo_width": 160,
@@ -88,7 +89,7 @@
         ".footer-block__newsletter {font-size: 55px;}"
       ],
       "settings": {
-        "color_scheme": "scheme-4",
+        "color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
         "newsletter_enable": true,
         "newsletter_heading": "Bli medlem & ta emot nyhetsbrev – få erbjudanden",
         "enable_follow_on_shop": false,
