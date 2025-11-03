@@ -444,7 +444,6 @@
   },
   "platform_customizations": {
     "custom_css": [
-      "div,p {color: #131316;}",
       "h0,h1,h2,h3 {font-size: 20px;}",
       " /* Make open accordion panels scroll when content is long */.product .accordion details[open] .accordion__content {max-height: 60vh; /* adjust to taste */ overflow-y: auto; overscroll-behavior: contain; padding-right: 0.25rem; /* room for scrollbar */}"
     ]

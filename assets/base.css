@@ -80,7 +80,7 @@
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 24px;
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
@@ -242,6 +242,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   font-weight: var(--font-body-weight);
 }
 
+strong{
+  font-weight: 600!important;
+}
 h1,
 h2,
 h3,
@@ -252,106 +255,137 @@ h5,
 .h2,
 .h3,
 .h4,
-.h5 {
+.h5,
+.h6,
+.h7 {
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
   color: rgb(var(--color-foreground));
-  line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+  line-height: calc(1 + 0.2 / max(1, var(--font-heading-scale)));
   word-break: break-word;
 }
 
-.hxxl {
-  font-size: clamp(
-    calc(var(--font-heading-scale) * 5.6rem),
-    14vw,
-    calc(var(--font-heading-scale) * 7.2rem)
-  );
+body .hxxl {
+  font-size: var(--mobile-heading-hxxl-size);
   line-height: 1.1;
 }
 
-.hxl {
-  font-size: calc(var(--font-heading-scale) * 5rem);
+@media only screen and (min-width: 750px) {
+  body .hxxl {
+    font-size: var(--desktop-heading-hxxl-size);
+  }
+}
+
+body .hxl {
+  font-size: var(--mobile-heading-hxl-size);
   line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
 }
 
 @media only screen and (min-width: 750px) {
-  .hxl {
-    font-size: calc(var(--font-heading-scale) * 6.2rem);
+  body .hxl {
+    font-size: var(--desktop-heading-hxl-size);
   }
 }
 
-.h0 {
-  font-size: calc(var(--font-heading-scale) * 4rem);
+body .h0 {
+  font-size: var(--mobile-heading-h0-size);
 }
 
 @media only screen and (min-width: 750px) {
-  .h0 {
-    font-size: calc(var(--font-heading-scale) * 5.2rem);
+  body .h0 {
+    font-size: var(--desktop-heading-h0-size);
   }
 }
 
-h1,
-.h1 {
-  font-size: calc(var(--font-heading-scale) * 3rem);
+body h1,
+body .h1 {
+  font-size: var(--mobile-heading-h1-size);
 }
 
 @media only screen and (min-width: 750px) {
-  h1,
-  .h1 {
-    font-size: calc(var(--font-heading-scale) * 4rem);
+  body h1,
+  body .h1 {
+    font-size: var(--desktop-heading-h1-size);
   }
 }
 
-h2,
-.h2 {
-  font-size: calc(var(--font-heading-scale) * 2rem);
+body h2,
+body .h2 {
+  font-size: var(--mobile-heading-h2-size);
 }
 
 @media only screen and (min-width: 750px) {
-  h2,
-  .h2 {
-    font-size: calc(var(--font-heading-scale) * 2.4rem);
+  body h2,
+  body .h2 {
+    font-size: var(--desktop-heading-h2-size);
   }
 }
 
-h3,
-.h3 {
-  font-size: calc(var(--font-heading-scale) * 1.7rem);
+body h3,
+body .h3 {
+  font-size: var(--mobile-heading-h3-size);
 }
 
 @media only screen and (min-width: 750px) {
-  h3,
-  .h3 {
-    font-size: calc(var(--font-heading-scale) * 1.8rem);
+  body h3,
+  body .h3 {
+    font-size: var(--desktop-heading-h3-size);
   }
 }
 
-h4,
-.h4 {
+body h4,
+body .h4 {
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
-  font-size: calc(var(--font-heading-scale) * 1.5rem);
-}
-
-h5,
-.h5 {
-  font-size: calc(var(--font-heading-scale) * 1.2rem);
+  font-size: var(--mobile-heading-h4-size);
 }
 
 @media only screen and (min-width: 750px) {
-  h5,
-  .h5 {
-    font-size: calc(var(--font-heading-scale) * 1.3rem);
+  body h4,
+  body .h4 {
+    font-size: var(--desktop-heading-h4-size);
   }
 }
 
-h6,
-.h6 {
-  color: rgba(var(--color-foreground), 0.75);
+body h5,
+body .h5 {
+  font-size: var(--mobile-heading-h5-size);
+}
+
+@media only screen and (min-width: 750px) {
+  body h5,
+  body .h5 {
+    font-size: var(--desktop-heading-h5-size);
+  }
+}
+
+body h6,
+body .h6 {
+  
   margin-block-start: 1.67em;
   margin-block-end: 1.67em;
+  font-size: var(--mobile-heading-h6-size);
+}
+
+@media only screen and (min-width: 750px) {
+  body h6,
+  body .h6 {
+    font-size: var(--desktop-heading-h6-size);
+  }
+}
+
+body h7,
+body .h7 {
+  font-size: var(--mobile-heading-h7-size);
+}
+
+@media only screen and (min-width: 750px) {
+  body h7,
+  body .h7 {
+    font-size: var(--desktop-heading-h7-size);
+  }
 }
 
 blockquote {
@@ -501,7 +535,9 @@ h6:empty {
 .link--text {
   color: rgb(var(--color-foreground));
 }
-
+.banner__box>*+.banner__text{
+  color: rgba(var(--color-foreground), 1);
+}
 .link--text:hover {
   color: rgba(var(--color-foreground), 0.75);
 }
@@ -1336,7 +1372,6 @@ button.shopify-payment-button__button--unbranded {
 .shopify-challenge__button,
 .customer button {
   font-size: 1.5rem;
-  letter-spacing: 0.1rem;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
 }
 

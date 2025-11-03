@@ -260,6 +260,106 @@
         "unit": "px",
         "label": "HXXL size (mobile)",
         "default": 60
+      },
+      {
+        "type": "range",
+        "id": "desktop_heading_h3_size",
+        "min": 12,
+        "max": 80,
+        "step": 1,
+        "unit": "px",
+        "label": "H3 size (desktop)",
+        "default": 22
+      },
+      {
+        "type": "range",
+        "id": "desktop_heading_h4_size",
+        "min": 12,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "label": "H4 size (desktop)",
+        "default": 18
+      },
+      {
+        "type": "range",
+        "id": "desktop_heading_h5_size",
+        "min": 12,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "H5 size (desktop)",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "desktop_heading_h6_size",
+        "min": 12,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "H6 size (desktop)",
+        "default": 14
+      },
+      {
+        "type": "range",
+        "id": "desktop_heading_h7_size",
+        "min": 12,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "label": "H7 size (desktop)",
+        "default": 13
+      },
+      {
+        "type": "range",
+        "id": "mobile_heading_h3_size",
+        "min": 12,
+        "max": 60,
+        "step": 1,
+        "unit": "px",
+        "label": "H3 size (mobile)",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "mobile_heading_h4_size",
+        "min": 12,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "label": "H4 size (mobile)",
+        "default": 17
+      },
+      {
+        "type": "range",
+        "id": "mobile_heading_h5_size",
+        "min": 12,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "H5 size (mobile)",
+        "default": 15
+      },
+      {
+        "type": "range",
+        "id": "mobile_heading_h6_size",
+        "min": 12,
+        "max": 30,
+        "step": 1,
+        "unit": "px",
+        "label": "H6 size (mobile)",
+        "default": 14
+      },
+      {
+        "type": "range",
+        "id": "mobile_heading_h7_size",
+        "min": 12,
+        "max": 25,
+        "step": 1,
+        "unit": "px",
+        "label": "H7 size (mobile)",
+        "default": 12
       }
     ]
   },
