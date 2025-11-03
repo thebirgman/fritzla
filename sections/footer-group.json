@@ -16,23 +16,57 @@
       "blocks": {
         "logo_hazWpR": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/ef02a50716f5da3bcb2bd928ae6251609f528dce.png"
+          }
         },
         "logo_EVGTnN": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/1a5cb294532ee080dc88436ea6d9c6d347b72e6e.png"
+          }
         },
         "logo_QYJgVx": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/9732b74c1136c79cdbf741af1f75c1090ae95a53.png"
+          }
         },
         "logo_f3GrM4": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/dab3d0f5094c7ae51f28f7e0222d8d3f2f98b175.png"
+          }
         },
         "logo_qwiwhY": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/1d16184f3a1c717949207c14cd24d0d2bbc878ea.png"
+          }
+        },
+        "logo_x7A6hH": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/a43d71254d49f83b8cba25cebb293f36e0436baf.png"
+          }
+        },
+        "logo_aDFmrx": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/66fabcc06cb4f564db8902fc47e0f42fd5120c52.png"
+          }
+        },
+        "logo_Gw864E": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/6182fca59ce50830ca1632eea609df593a6caab8.png"
+          }
+        },
+        "logo_4idpJW": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/cea9bae9582fc3975e8702dd217e7982b7b62493.png"
+          }
         }
       },
       "block_order": [
@@ -40,7 +74,11 @@
         "logo_EVGTnN",
         "logo_QYJgVx",
         "logo_f3GrM4",
-        "logo_qwiwhY"
+        "logo_qwiwhY",
+        "logo_x7A6hH",
+        "logo_aDFmrx",
+        "logo_Gw864E",
+        "logo_4idpJW"
       ],
       "name": "Logo Marquee",
       "settings": {
