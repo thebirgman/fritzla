@@ -232,10 +232,7 @@
       ],
       "name": "Image with text (gallery)",
       "settings": {
-        "image_1": "shopify://shop_images/image.jpg",
-        "image_2": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
-        "image_3": "shopify://shop_images/image.jpg",
-        "image_4": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "image_1": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
         "show_heading_above_mobile": false,
         "height": "adapt",
         "desktop_image_width": "medium",
