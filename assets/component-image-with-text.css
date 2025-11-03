@@ -334,7 +334,10 @@
 
 @media screen and (min-width: 990px) {
   .image-with-text__content {
-    padding: 0rem 7rem 0rem;
+    padding: 0rem 0rem 0rem;
+  }
+  .image-with-text .grid__item{
+    gap: 72px;
   }
 }
 
