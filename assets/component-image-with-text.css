@@ -423,6 +423,9 @@
   .image-with-text .grid{
     gap: 70px;
   }
+  .grid--2-col-tablet .grid__item{
+    width: calc(50% - 35px);
+  }
 }
 
 
