@@ -197,6 +197,62 @@
         "show_text_below": false
       }
     },
+    "image_with_text_gallery_kbXftB": {
+      "type": "image-with-text-gallery",
+      "blocks": {
+        "heading_XD8UhH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sömnad med känsla för detaljer",
+            "text_type": "h4",
+            "heading_size": "h2"
+          }
+        },
+        "text_6LLniq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hos oss får du experthjälp att planera, sy och hänga upp skräddarsydda gardiner - oavsett om du behöver specialsydda eller vill att vi fållar dina färdigköpta. </p><p>Vi erbjuder även ett brett sortiment av gardinstänger och skenor. Beställ tygprover och låt oss guida dig genom hela processen.</p><ul><li>Over 50 års erfarenhet inom textil och inredning.</li><li>Skräddarsydda lösningar för dina behov</li><li>Personlig guidning genom hela processen</li></ul><p></p>",
+            "text_type": "p",
+            "text_style": "body"
+          }
+        },
+        "button_VD6rX3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Kontakta oss",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_XD8UhH",
+        "text_6LLniq",
+        "button_VD6rX3"
+      ],
+      "name": "Image with text (gallery)",
+      "settings": {
+        "image_1": "shopify://shop_images/image.jpg",
+        "image_2": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "image_3": "shopify://shop_images/image.jpg",
+        "image_4": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "show_heading_above_mobile": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 24
+      }
+    },
     "image_banner_xJPNrB": {
       "type": "image-banner",
       "blocks": {
@@ -254,6 +310,7 @@
     "image_banner_kjicXz",
     "image_with_text_gallery_7Xb3Ni",
     "image_banner_XCYRUR",
+    "image_with_text_gallery_kbXftB",
     "image_banner_xJPNrB"
   ]
 }
