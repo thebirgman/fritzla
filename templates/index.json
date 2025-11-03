@@ -131,14 +131,14 @@
         "heading_yK7zNr": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Vi hjälper dig till ett genomtänkt och komplett hem!",
             "heading_size": "h1"
           }
         },
         "text_iii8yK": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Fritsla Tyglager - över 50 års erfarenhet inom textil och inredning. Vårt kunniga team ger dig personlig service och hjälper dig förverkliga din vision - från målsättning till slutresultat. Med djup kunskap och brett sortiment gör vi din inredningsresa enkel och inspirerande.</p><ul><li>Over 50 års erfarenhet inom textil och inredning.</li><li>Skräddarsydda lösningar för dina behov</li><li>Personlig guidning genom hela processen</li></ul><p></p>",
             "text_style": "body"
           }
         },
