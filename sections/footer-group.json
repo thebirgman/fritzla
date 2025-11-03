@@ -11,6 +11,48 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "logo_marquee_ejKc4N": {
+      "type": "logo-marquee",
+      "blocks": {
+        "logo_hazWpR": {
+          "type": "logo",
+          "settings": {}
+        },
+        "logo_EVGTnN": {
+          "type": "logo",
+          "settings": {}
+        },
+        "logo_QYJgVx": {
+          "type": "logo",
+          "settings": {}
+        },
+        "logo_f3GrM4": {
+          "type": "logo",
+          "settings": {}
+        },
+        "logo_qwiwhY": {
+          "type": "logo",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "logo_hazWpR",
+        "logo_EVGTnN",
+        "logo_QYJgVx",
+        "logo_f3GrM4",
+        "logo_qwiwhY"
+      ],
+      "name": "Logo Marquee",
+      "settings": {
+        "color_scheme": "",
+        "speed": 30,
+        "logo_width": 70,
+        "main_logo_width": 160,
+        "section_min_height": 100,
+        "desktop_gap": 8,
+        "mobile_gap": 4
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -62,6 +104,7 @@
     }
   },
   "order": [
+    "logo_marquee_ejKc4N",
     "footer"
   ]
 }
