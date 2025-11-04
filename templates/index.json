@@ -81,8 +81,9 @@
           "type": "category",
           "settings": {
             "collection": "",
+            "image": "shopify://shop_images/f48ae081981ff495b1147e90fda375e159a81406.png",
             "title": "Hemtextil",
-            "url": "",
+            "url": "shopify://collections",
             "button_label": "Handla nu"
           }
         },
@@ -90,15 +91,17 @@
           "type": "category",
           "settings": {
             "collection": "",
-            "title": "",
-            "url": "",
+            "image": "shopify://shop_images/303d333850d985cd77c6fd8c400fc8f51b619ec4.png",
+            "title": "Möbler",
+            "url": "shopify://collections/belysning",
             "button_label": "Handla nu"
           }
         },
         "category_3WPBbX": {
           "type": "category",
           "settings": {
-            "collection": "",
+            "collection": "belysning",
+            "image": "shopify://shop_images/d986c5980bb13f78642fbd39d5b9a23414ffd000.png",
             "title": "",
             "url": "",
             "button_label": "Handla nu"
