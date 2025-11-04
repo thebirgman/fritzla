@@ -244,6 +244,42 @@
         "show_text_below": false
       }
     },
+    "popular_categories_TiWmEJ": {
+      "type": "popular-categories",
+      "blocks": {
+        "category_VjnTKz": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/97e80b5cf502d328c90f3ae925cb566c36bb1180.png",
+            "title": "Mörkläggningsgardiner",
+            "url": "shopify://pages/homestyling",
+            "button_label": "Handla nu"
+          }
+        },
+        "category_MQTm7m": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/606a8358655eddacb814a0576ac432d094703ab5.png",
+            "title": "Linnegardiner",
+            "url": "shopify://collections/all",
+            "button_label": "Handla nu"
+          }
+        }
+      },
+      "block_order": [
+        "category_VjnTKz",
+        "category_MQTm7m"
+      ],
+      "name": "Popular Categories",
+      "settings": {
+        "heading": "Gardiner",
+        "mobile_layout": "carousel",
+        "section_background": "#fafafa",
+        "font_size": 32
+      }
+    },
     "image_with_text_gallery_kbXftB": {
       "type": "image-with-text-gallery",
       "blocks": {
@@ -355,6 +391,7 @@
     "popular_categories_GbWPmF",
     "image_with_text_gallery_7Xb3Ni",
     "image_banner_XCYRUR",
+    "popular_categories_TiWmEJ",
     "image_with_text_gallery_kbXftB",
     "image_banner_xJPNrB"
   ]
