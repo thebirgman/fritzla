@@ -74,6 +74,50 @@
         "show_text_below": false
       }
     },
+    "popular_categories_GbWPmF": {
+      "type": "popular-categories",
+      "blocks": {
+        "category_kxRmJA": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "title": "Hemtextil",
+            "url": "",
+            "button_label": "Handla nu"
+          }
+        },
+        "category_EpgGmn": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "button_label": "Handla nu"
+          }
+        },
+        "category_3WPBbX": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "title": "",
+            "url": "",
+            "button_label": "Handla nu"
+          }
+        }
+      },
+      "block_order": [
+        "category_kxRmJA",
+        "category_EpgGmn",
+        "category_3WPBbX"
+      ],
+      "name": "Popular Categories",
+      "settings": {
+        "heading": "Populära kategorier",
+        "mobile_layout": "carousel",
+        "section_background": "#f7f3f0",
+        "font_size": 32
+      }
+    },
     "image_with_text_gallery_7Xb3Ni": {
       "type": "image-with-text-gallery",
       "blocks": {
@@ -305,6 +349,7 @@
   "order": [
     "custom_liquid_UGJgL4",
     "image_banner_kjicXz",
+    "popular_categories_GbWPmF",
     "image_with_text_gallery_7Xb3Ni",
     "image_banner_XCYRUR",
     "image_with_text_gallery_kbXftB",
