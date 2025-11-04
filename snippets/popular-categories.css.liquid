@@ -1,0 +1,123 @@
+<style>
+.section-{{ section.id }} {
+  padding: 72px 0;
+  background: {{ section.settings.section_background }};
+}
+
+.section-{{ section.id }} .popular-categories__heading {
+  font-weight: 700;
+  font-size: {{ section.settings.font_size }}px;
+  margin: 0 0 40px 0;
+}
+
+.section-{{ section.id }} .popular-categories__wrapper {
+  display: flex;
+  gap: 40px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.section-{{ section.id }} .popular-categories__wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.section-{{ section.id }} .popular-categories__item {
+  border-radius: 16px;
+  flex: 0 0 calc(33.333% - 0.67rem);
+  scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+}
+
+.section-{{ section.id }} .popular-categories__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.section-{{ section.id }} .popular-categories__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  gap: 16px;
+}
+
+.section-{{ section.id }} .popular-categories__item:hover .popular-categories__overlay {
+  opacity: 1;
+}
+
+.section-{{ section.id }} .popular-categories__title {
+  color: white;
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: -1px;
+  text-align: center;
+  margin: 0;
+}
+
+.section-{{ section.id }} .popular-categories__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #000;
+  padding: 0 16px;
+  height: 40px;
+  border-radius: 100px;
+  font-family: 'Sofia Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  transition: 0.2s ease-in-out;
+  margin: 16px 0;
+}
+
+.section-{{ section.id }} .popular-categories__button:hover {
+  background: #212121;
+  color: white;
+}
+
+/* --- Mobile styles --- */
+@media (max-width: 768px) {
+  .section-{{ section.id }} {
+    padding: 32px 0;
+  }
+
+  .section-{{ section.id }} .popular-categories__heading {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  .section-{{ section.id }} .popular-categories__wrapper {
+    gap: 16px;
+  }
+
+  .section-{{ section.id }} .popular-categories__wrapper.vertical {
+    flex-direction: column;
+    overflow: visible;
+    gap: 32px;
+  }
+
+  .section-{{ section.id }} .popular-categories__item {
+    flex: 1 1 100%;
+    min-width: 75%;
+  }
+
+  .section-{{ section.id }} .page-width {
+    padding: 0 24px;
+  }
+}
+</style>
