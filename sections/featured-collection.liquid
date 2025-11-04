@@ -206,6 +206,74 @@
   </div>
 </div>
 
+<style>
+  h2.title.inline-richtext {
+    font-size: {{ section.settings.heading_size }}px;
+    font-family: Source Serif Pro;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -1px;
+  }
+
+  .collection__title.title-wrapper {
+    padding: 0;
+  }
+
+  [class*=featured_collection] {
+    padding: 72px 32px;
+  }
+
+  .card__content {
+    position: relative;
+    transform: unset;
+    top: 0;
+  }
+
+  .card__heading {
+    color: black;
+    width: 100%;
+  }
+
+  .card__heading a {
+    color: black;
+    font-family: Sofia Sans;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .card--standard > .card__content .card__information {
+    padding: 16px 0;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .card__heading+.card-information {
+    width: fit-content;
+  }
+
+  .card__heading a::after {
+    display: none;
+  }
+
+  .price .price-item {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #212121;
+  }
+
+  .card .card__inner .card__media {
+    border-radius: 16px 16px 0 0;
+  }
+</style>
+
 {% schema %}
 {
   "name": "t:sections.featured-collection.name",
