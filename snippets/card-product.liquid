@@ -200,11 +200,12 @@
             >
               {{ card_product.title | escape }}
             </a>
-          </h3>
-          {%- if new_variant -%}
+            {%- if new_variant -%}
             {% render 'variant-summary', product: card_product %}
             
           {%- endif -%}
+          </h3>
+          
           <div class="card-information">
 
             <span class="caption-large light">{{ block.settings.description | escape }}</span>
