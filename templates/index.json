@@ -333,6 +333,53 @@
         "mobile_padding_bottom": 32
       }
     },
+    "popular_categories_VUizXM": {
+      "type": "popular-categories",
+      "blocks": {
+        "category_YRebfq": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/c27ba727610bc90b58cf7bcc54f49b148cb0e7ea.png",
+            "title": "Artwood",
+            "url": "shopify://pages/homestyling",
+            "button_label": "Handla nu"
+          }
+        },
+        "category_JqaG3e": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/bb98f9146f4a3ebc2e4827870a0e8f4e63306228.png",
+            "title": "Saga form",
+            "url": "shopify://collections/all",
+            "button_label": "Handla nu"
+          }
+        },
+        "category_yEHNmz": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/c947c1431daae689fe76f42d21b11f60e3450cc8.png",
+            "title": "Gridelli",
+            "url": "shopify://pages/homestyling",
+            "button_label": "Handla nu"
+          }
+        }
+      },
+      "block_order": [
+        "category_YRebfq",
+        "category_JqaG3e",
+        "category_yEHNmz"
+      ],
+      "name": "Popular Categories",
+      "settings": {
+        "heading": "Gardiner",
+        "mobile_layout": "carousel",
+        "section_background": "#fafafa",
+        "font_size": 32
+      }
+    },
     "image_banner_xJPNrB": {
       "type": "image-banner",
       "blocks": {
@@ -393,6 +440,7 @@
     "image_banner_XCYRUR",
     "popular_categories_TiWmEJ",
     "image_with_text_gallery_kbXftB",
+    "popular_categories_VUizXM",
     "image_banner_xJPNrB"
   ]
 }
