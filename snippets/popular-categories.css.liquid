@@ -12,11 +12,12 @@
 
 .section-{{ section.id }} .popular-categories__wrapper {
   display: flex;
-  gap: 40px;
+  gap: 32px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  height: 572px;
 }
 
 .section-{{ section.id }} .popular-categories__wrapper::-webkit-scrollbar {
@@ -25,10 +26,10 @@
 
 .section-{{ section.id }} .popular-categories__item {
   border-radius: 16px;
-  flex: 0 0 calc(33.333% - 0.67rem);
   scroll-snap-align: start;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .section-{{ section.id }} .popular-categories__image {
@@ -60,7 +61,7 @@
   color: white;
   font-family: 'Source Serif Pro', serif;
   font-weight: 600;
-  font-size: {{ section.settings.font_size }};
+  font-size: 32px;
   line-height: 120%;
   letter-spacing: -1px;
   text-align: center;
