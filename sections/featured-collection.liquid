@@ -116,7 +116,9 @@
                   show_rating: section.settings.show_rating,
                   skip_styles: skip_card_product_styles,
                   section_id: section.id,
-                  quick_add: section.settings.quick_add
+                  quick_add: section.settings.quick_add,
+                  variant_hover: section.settings.variant_hover,
+                  new_variant: section.settings.new_variant
                 %}
               </li>
               {%- assign skip_card_product_styles = true -%}
@@ -145,7 +147,9 @@
                 show_vendor: section.settings.show_vendor,
                 media_aspect_ratio: section.settings.image_ratio,
                 image_shape: section.settings.image_shape,
-                placeholder_image: placeholder_image
+                placeholder_image: placeholder_image,
+                variant_hover: section.settings.variant_hover,
+                new_variant: section.settings.new_variant
               %}
             </li>
           {%- endfor -%}
@@ -211,6 +215,16 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "variant_hover",
+      "label": "Hover Variants"
+    },
+    {
+      "type": "checkbox",
+      "id": "new_variant",
+      "label": "Text Variants"
+    },
     {
       "type": "collection",
       "id": "collection",
