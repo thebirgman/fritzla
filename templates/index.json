@@ -380,6 +380,53 @@
         "font_size": 32
       }
     },
+    "popular_categories_jAqEyN": {
+      "type": "popular-categories",
+      "blocks": {
+        "category_gPcMMY": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/5105a8fe670e5bcd4b9a9287426b050b404d5a4e.png",
+            "title": "Inredningsservice",
+            "url": "shopify://pages/homestyling",
+            "button_label": "Handla nu"
+          }
+        },
+        "category_VLpRcK": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/3944359a9707e34c7cc7ea3c8039da6904044da5.png",
+            "title": "Sömnad",
+            "url": "shopify://collections/all",
+            "button_label": "Handla nu"
+          }
+        },
+        "category_AdM4qU": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0.png",
+            "title": "Homestyling",
+            "url": "shopify://pages/homestyling",
+            "button_label": "Handla nu"
+          }
+        }
+      },
+      "block_order": [
+        "category_gPcMMY",
+        "category_VLpRcK",
+        "category_AdM4qU"
+      ],
+      "name": "Popular Categories",
+      "settings": {
+        "heading": "Våra tjänster",
+        "mobile_layout": "carousel",
+        "section_background": "#f7f3f0",
+        "font_size": 32
+      }
+    },
     "image_banner_xJPNrB": {
       "type": "image-banner",
       "blocks": {
@@ -441,6 +488,7 @@
     "popular_categories_TiWmEJ",
     "image_with_text_gallery_kbXftB",
     "popular_categories_VUizXM",
+    "popular_categories_jAqEyN",
     "image_banner_xJPNrB"
   ]
 }
