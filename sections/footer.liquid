@@ -180,6 +180,16 @@ div[data-lastpass-icon-root] {
     border: 1px solid #e0dfde;
     transition: .2s ease-in-out;
 }
+
+.footer-block.grid__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.footer-block__details-content:after {
+    display: none;
+}
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
