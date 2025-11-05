@@ -108,11 +108,6 @@ span.visually-hidden+.caption-with-letter-spacing {
     grid-row-start: unset;
 }
 
-p.variant-names {
-    padding: 4px 0 10px;
-}
-
-
 label.swatch-input__label {
     display: none!important;
 }
