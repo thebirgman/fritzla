@@ -151,6 +151,35 @@ div[data-lastpass-icon-root] {
     top: unset;
     bottom: 4px;
 }
+
+.newsletter-form__field-wrapper .field__input {
+    border-bottom: 1px solid #dadada;
+}
+
+.newsletter-form__button:not(:focus-visible):not(.focused) {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-top: 16px;
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+    vertical-align: bottom;
+    border-radius: 100px;
+    background: #212121;
+    color: #FAFAFA;
+    padding: 10px 16px;
+    transition: .2s ease-in-out;
+}
+
+.newsletter-form__button:not(:focus-visible):not(.focused):hover {
+    background: #fafafa;
+    color: #212121;
+    border: 1px solid #e0dfde;
+    transition: .2s ease-in-out;
+}
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
