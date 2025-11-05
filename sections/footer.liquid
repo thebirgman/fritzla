@@ -95,6 +95,37 @@ div[data-lastpass-icon-root] {
 .footer-block.grid__item {
     max-width: fit-content;
 }
+
+.footer__content-top .grid {
+    max-width: max-content;
+    padding-right: 32px;
+}
+
+.footer__content-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-block__details-content>li {
+    line-height: 100%;
+}
+
+.footer-block__details-content .list-menu__item--link {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    color: #212121;
+    padding: 0;
+}
+
+.footer-block__details-content {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
