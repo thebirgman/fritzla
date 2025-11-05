@@ -215,6 +215,45 @@ div[data-lastpass-icon-root] {
     padding: 12px 32px;
 }
 
+/* Desktop: Details element should behave like a regular div */
+@media screen and (min-width: 769px) {
+  .footer-block-accordion {
+    display: block;
+    border: none;
+  }
+
+  .footer-block-accordion summary {
+    display: block;
+    cursor: default;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-block__accordion-summary {
+    display: block;
+    cursor: default;
+    padding: 0;
+  }
+
+  .footer-block__accordion-summary .footer-block__heading {
+    margin-bottom: 16px;
+  }
+
+  .footer-block__accordion-icon {
+    display: none;
+  }
+
+  .footer-block__accordion-content {
+    display: block !important;
+    padding-bottom: 0;
+  }
+
+  .footer-block-accordion[open] .footer-block__accordion-content,
+  .footer-block-accordion:not([open]) .footer-block__accordion-content {
+    display: block !important;
+  }
+}
+
 @media screen and (max-width: 768px) {
 .footer__content-top.page-width {
     flex-direction: column;
@@ -240,6 +279,120 @@ div[data-lastpass-icon-root] {
 
 .footer-block.grid__item:first-child {
     border: 0;
+}
+
+/* Mobile Accordion Styles */
+.footer-block-accordion {
+    border: none;
+    border-top: 1px solid #e0dfde;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-block-accordion:last-child {
+    border-bottom: 1px solid #e0dfde;
+}
+
+.footer-block__accordion-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.footer-block__accordion-summary::-webkit-details-marker {
+    display: none;
+}
+
+.footer-block__accordion-summary::marker {
+    display: none;
+}
+
+.footer-block__accordion-summary .footer-block__heading {
+    margin: 0;
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #767676;
+    flex: 1;
+}
+
+.footer-block__accordion-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-left: 16px;
+    transition: transform 0.2s ease;
+}
+
+.footer-block__accordion-icon svg {
+    display: block;
+    width: 9px;
+    height: 9px;
+}
+
+.footer-block-accordion[open] .footer-block__accordion-icon {
+    transform: rotate(45deg);
+}
+
+.footer-block__accordion-content {
+    padding-bottom: 16px;
+    display: none;
+}
+
+.footer-block-accordion[open] .footer-block__accordion-content {
+    display: block;
+}
+
+.footer-block-accordion[open] .footer-block__details-content {
+    margin-top: 0;
+}
+}
+
+@media screen and (max-width: 768px) {
+.footer .grid.footer__blocks-wrapper {
+    padding: 0;
+    /* border-top: 1px solid; */
+    min-width: calc(100% + 40px);
+    gap: 0;
+}
+
+.footer-block__accordion-summary {
+    border-top: 1px solid #D9D9DA;
+    padding: 17px 20px 15px;
+    /* padding-right: 24px; */
+    color: #212121;
+}
+
+.footer-block__accordion-summary .footer-block__heading {
+    color: #212121;
+}
+
+.footer-block__accordion-content {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+}
+
+.footer__content-bottom.scroll-trigger.animate--slide-in {
+    margin-top: 100px;
+    padding-bottom: 0;
+}
+}
+
+@media screen and (max-width: 768px) {
+.footer-block__newsletter .footer-block__heading {
+    font-size: 20px;
+    line-height: 1.2em;
 }
 }
 {%- endstyle -%}
@@ -284,18 +437,31 @@ div[data-lastpass-icon-root] {
             {% endif %}
           >
             {%- for block in section.blocks -%}
-              <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              <details class="footer-block-accordion footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-                {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                {%- liquid
+                  assign accordion_heading = block.settings.heading
+                  if block.type == 'brand_information' and accordion_heading == blank
+                    assign accordion_heading = settings.brand_headline
+                  endif
+                -%}
+                {%- if accordion_heading != blank -%}
+                  <summary class="footer-block__accordion-summary">
+                    <h2 class="footer-block__heading inline-richtext">{{- accordion_heading -}}</h2>
+                    <span class="footer-block__accordion-icon">
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.5 4.5H4.5M8.5 4.5H4.5M4.5 4.5V0.5M4.5 4.5V8.5" stroke="#212121" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </summary>
                 {%- endif -%}
 
+                <div class="footer-block__accordion-content">
                 {%- case block.type -%}
                   {%- when '@app' -%}
                     {% render block %}
@@ -339,7 +505,7 @@ div[data-lastpass-icon-root] {
                           }}
                         </div>
                       {%- endif -%}
-                      {%- if settings.brand_headline != blank -%}
+                      {%- if settings.brand_headline != blank and block.settings.heading == blank -%}
                         <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
                       {%- endif -%}
                       {%- if settings.brand_description != blank -%}
@@ -371,7 +537,8 @@ div[data-lastpass-icon-root] {
                       {%- endif -%}
                     </div>
                 {%- endcase -%}
-              </div>
+                </div>
+              </details>
             {%- endfor -%}
 
             {%- if section.settings.show_social and has_social_icons -%}
@@ -538,6 +705,56 @@ div[data-lastpass-icon-root] {
     </div>
   </div>
 </footer>
+
+<script>
+  // Ensure footer accordions behave correctly on desktop and mobile
+  (function() {
+    const footerAccordions = document.querySelectorAll('.footer-block-accordion');
+    let summaryClickHandlers = new WeakMap();
+    
+    function handleAccordions() {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      
+      footerAccordions.forEach(accordion => {
+        const summary = accordion.querySelector('summary');
+        
+        if (isMobile) {
+          // On mobile, ensure accordion functionality works
+          // Remove open attribute to allow collapsible behavior
+          accordion.removeAttribute('open');
+          // Remove click prevention on mobile
+          if (summary && summaryClickHandlers.has(summary)) {
+            summary.removeEventListener('click', summaryClickHandlers.get(summary));
+            summaryClickHandlers.delete(summary);
+          }
+        } else {
+          // On desktop, ensure all are open and summary doesn't toggle
+          accordion.setAttribute('open', '');
+          if (summary && !summaryClickHandlers.has(summary)) {
+            const clickHandler = function(e) {
+              e.preventDefault();
+            };
+            summary.addEventListener('click', clickHandler);
+            summaryClickHandlers.set(summary, clickHandler);
+          }
+        }
+      });
+    }
+    
+    // Run on load and resize
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', handleAccordions);
+    } else {
+      handleAccordions();
+    }
+    
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(handleAccordions, 100);
+    });
+  })();
+</script>
 
 {% schema %}
 {
