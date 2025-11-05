@@ -115,20 +115,12 @@
             "heading": "Sociala medier",
             "menu": "sociala-medier"
           }
-        },
-        "link_list_VEMHjE": {
-          "type": "link_list",
-          "settings": {
-            "heading": "",
-            "menu": ""
-          }
         }
       },
       "block_order": [
         "text_3zWMmk",
         "link_list_YGxM3m",
-        "link_list_nFXR9f",
-        "link_list_VEMHjE"
+        "link_list_nFXR9f"
       ],
       "custom_css": [
         ".footer-block__newsletter {font-size: 55px;}"
