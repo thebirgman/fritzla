@@ -95,6 +95,13 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "text_3zWMmk": {
+          "type": "text",
+          "settings": {
+            "heading": "Kontakta Oss",
+            "subtext": "<p>Aratorpsvägen 14511 71, Fritsla<br/><br/>+46 32 07 23 41<br/>fritslatyglager@gmail.com<br/><br/></p>"
+          }
+        },
         "link_list_YGxM3m": {
           "type": "link_list",
           "settings": {
@@ -118,6 +125,7 @@
         }
       },
       "block_order": [
+        "text_3zWMmk",
         "link_list_YGxM3m",
         "link_list_nFXR9f",
         "link_list_VEMHjE"
