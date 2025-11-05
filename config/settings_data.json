@@ -25,7 +25,7 @@
     "mobile_heading_h4_size": 24,
     "page_width": 1300,
     "spacing_sections": 0,
-    "spacing_grid_horizontal": 40,
+    "spacing_grid_horizontal": 24,
     "spacing_grid_vertical": 20,
     "animations_reveal_on_scroll": true,
     "animations_hover_elements": "default",
