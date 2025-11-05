@@ -23,6 +23,7 @@
 {%- unless skip_styles -%}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+  {% render 'card-product.css' %}
 
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'quick-order-list.css' | asset_url | stylesheet_tag }}
@@ -662,7 +663,6 @@
         </div>
       </div>
     </div>
-    {% render 'card-product.css' %}
   </div>
 
   
