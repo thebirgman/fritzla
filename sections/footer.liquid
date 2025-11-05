@@ -214,6 +214,34 @@ div[data-lastpass-icon-root] {
 .footer__content-bottom {
     padding: 12px 32px;
 }
+
+@media screen and (max-width: 768px) {
+.footer__content-top.page-width {
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.footer-block--newsletter.scroll-trigger.animate--slide-in {
+    border: 0;
+}
+
+.footer .grid.footer__blocks-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+}
+
+.footer-block.grid__item {
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+}
+
+.footer-block.grid__item:first-child {
+    border: 0;
+}
+}
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
