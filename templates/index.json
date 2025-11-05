@@ -417,6 +417,61 @@
         "padding_bottom": 72
       }
     },
+    "image_with_text_gallery_xCxQXB": {
+      "type": "image-with-text-gallery",
+      "blocks": {
+        "heading_JF3kqM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Butiken i Fritsla",
+            "text_type": "h4",
+            "heading_size": "h2"
+          }
+        },
+        "text_4F7VDk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fritsla Tyglager är 1500 kvm fyllt med inspiration för hela hemmet, uppdelat på tre våningar mitt i tygriket. Här hittar du mängder med textilier, inredning, belysning och mycket mer. Lokalerna är en gammal syfabrik med anor från textilindustrins storhetstid. </p><p>Vi har allt inom hemtextil, metervaror och färdiga gardiner. Vår sömnadsateljé måttsyr dina gardiner efter beställning och vi har även ett stort sortiment gardinstänger och takskenor.</p><ul><li>Personlig service och rådgivning</li><li>Skräddarsydda lösningar för dina behov</li><li>1500 kvm fyllt med inspiration för hela hemmet</li></ul>",
+            "text_type": "p",
+            "text_style": "body"
+          }
+        },
+        "button_NwiFwr": {
+          "type": "button",
+          "settings": {
+            "button_label": "Kontakta oss",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_JF3kqM",
+        "text_4F7VDk",
+        "button_NwiFwr"
+      ],
+      "name": "Image with text (gallery)",
+      "settings": {
+        "image_1": "shopify://shop_images/image_5d98b9a7-09ad-4ce2-90c1-77fb82b02ce5.jpg",
+        "image_2": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0.png",
+        "image_3": "shopify://shop_images/image.jpg",
+        "show_heading_above_mobile": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 32
+      }
+    },
     "featured_collection_mDew7y": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
@@ -559,6 +614,7 @@
     "popular_categories_TiWmEJ",
     "image_with_text_gallery_kbXftB",
     "popular_categories_VUizXM",
+    "image_with_text_gallery_xCxQXB",
     "featured_collection_mDew7y",
     "popular_categories_jAqEyN",
     "image_banner_xJPNrB"
