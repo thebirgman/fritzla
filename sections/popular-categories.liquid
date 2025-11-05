@@ -11,7 +11,7 @@
     <h2 class="popular-categories__heading">{{ section.settings.heading }}</h2>
   {% endif %}
 
-  <div class="popular-categories__wrapper {% if section.settings.mobile_layout == 'vertical' %}vertical{% else %}carousel{% endif %}">
+  <div class="popular-categories__wrapper {% if section.settings.mobile_layout == 'vertical' %}vertical{% else %}carousel{% endif %} {% if section.blocks.size <= 2 %}stack-mobile{% endif %}">
     {% for block in section.blocks %}
       {% assign collection = block.settings.collection %}
       {% assign image = block.settings.image %}
@@ -74,6 +74,26 @@
         "max": 100,
         "step": 2,
         "default": 16
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Padding Top",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "default": 72,
+        "unit": "px"
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Padding Bottom",
+        "min": 0,
+        "max": 200,
+        "step": 4,
+        "default": 72,
+        "unit": "px"
     }
   ],
   "blocks": [

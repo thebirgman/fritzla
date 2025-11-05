@@ -331,7 +331,7 @@
       "onboarding_content": "Give your customers a summary of your blog post"
     },
     "featured_collection": {
-      "view_all": "View all",
+      "view_all": "Se alla nyheter",
       "view_all_label": "View all products in the {{ collection_name }} collection"
     },
     "collection_list": {

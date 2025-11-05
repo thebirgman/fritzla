@@ -1,12 +1,12 @@
 <style>
 .section-{{ section.id }} {
-  padding: 72px 0;
+  padding: {{ section.settings.padding_top | default: 72 }}px 0 {{ section.settings.padding_bottom | default: 72 }}px 0;
   background: {{ section.settings.section_background }};
 }
 
 .section-{{ section.id }} .popular-categories__heading {
-  font-weight: 700;
-  font-size: {{ section.settings.font_size }}px;
+  font-weight: 600;
+  font-size: 32px;
   margin: 0 0 40px 0;
 }
 
@@ -17,7 +17,7 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  height: 572px;
+  
 }
 
 .section-{{ section.id }} .popular-categories__wrapper::-webkit-scrollbar {
@@ -30,6 +30,7 @@
   overflow: hidden;
   position: relative;
   width: 100%;
+  height: 572px;
 }
 
 .section-{{ section.id }} .popular-categories__image {
@@ -59,7 +60,6 @@
 
 .section-{{ section.id }} .popular-categories__title {
   color: white;
-  font-family: 'Source Serif Pro', serif;
   font-weight: 600;
   font-size: 32px;
   line-height: 120%;
@@ -83,7 +83,7 @@
   line-height: 140%;
   letter-spacing: 0;
   transition: 0.2s ease-in-out;
-  margin: 16px 0;
+  margin: 16px 0 0;
 }
 
 .section-{{ section.id }} .popular-categories__button:hover {
@@ -94,16 +94,25 @@
 /* --- Mobile styles --- */
 @media (max-width: 768px) {
   .section-{{ section.id }} {
-    padding: 32px 0;
+    padding: {{ section.settings.padding_top | default: 32 }}px 0 {{ section.settings.padding_bottom | default: 32 }}px 0;
   }
-
+.section-{{ section.id }} .popular-categories__title {
+ 
+  font-size: 24px;
+  margin: 0;
+}
+.section-{{ section.id }} .popular-categories__button{
+  margin: 5px 0 0 ;
+}
   .section-{{ section.id }} .popular-categories__heading {
     font-size: 20px;
+    font-weight: 600;
     margin-bottom: 24px;
   }
 
   .section-{{ section.id }} .popular-categories__wrapper {
     gap: 16px;
+   
   }
 
   .section-{{ section.id }} .popular-categories__wrapper.vertical {
@@ -112,13 +121,26 @@
     gap: 32px;
   }
 
+  .section-{{ section.id }} .popular-categories__wrapper.stack-mobile {
+    flex-direction: column;
+    overflow: visible;
+    gap: 32px;
+    max-height: none;
+  }
+
   .section-{{ section.id }} .popular-categories__item {
     flex: 1 1 100%;
     min-width: 75%;
+    border-radius: 8px;
+    height: 344px;
+    max-height: 344px;
   }
 
   .section-{{ section.id }} .page-width {
     padding: 0 24px;
   }
+  .popular-categories__wrapper.carousel:not(.stack-mobile) {
+    min-width: calc(100% + 24px);
+}
 }
 </style>

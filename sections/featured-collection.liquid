@@ -309,6 +309,29 @@
 [class*=featured_collection] {
     background: #fafafa;
 }
+
+@media screen and (max-width: 768px) {
+.collection .slider-button {
+    display: none;
+}
+
+.grid--peek.slider .grid__item:first-of-type {
+    padding: 0!important;
+    margin: 0;
+}
+
+slider-component.slider-mobile-gutter {
+    min-width: calc(100% + 24px);
+}
+
+[class*=featured_collection] {
+    padding: 40px 24px;
+}
+
+.card--standard > .card__content .card__information {
+    padding-bottom: 0;
+}
+}
 </style>
 
 {% schema %}
