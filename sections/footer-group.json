@@ -95,23 +95,22 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "link_list_VEMHjE": {
-          "type": "link_list",
-          "settings": {
-            "heading": "",
-            "menu": ""
-          }
-        },
         "link_list_YGxM3m": {
           "type": "link_list",
           "settings": {
-            "heading": "",
-            "menu": ""
+            "heading": "Support",
+            "menu": "support"
           }
         },
         "link_list_nFXR9f": {
           "type": "link_list",
-          "disabled": true,
+          "settings": {
+            "heading": "Sociala medier",
+            "menu": "sociala-medier"
+          }
+        },
+        "link_list_VEMHjE": {
+          "type": "link_list",
           "settings": {
             "heading": "",
             "menu": ""
@@ -119,9 +118,9 @@
         }
       },
       "block_order": [
-        "link_list_VEMHjE",
         "link_list_YGxM3m",
-        "link_list_nFXR9f"
+        "link_list_nFXR9f",
+        "link_list_VEMHjE"
       ],
       "custom_css": [
         ".footer-block__newsletter {font-size: 55px;}"
