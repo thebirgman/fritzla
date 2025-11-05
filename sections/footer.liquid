@@ -25,6 +25,32 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .footer__content-top {
+      flex-direction: row-reverse;
+  }
+
+  .footer__content-top .grid {
+      gap: 88px;
+      display: flex;
+  }
+
+  .footer-block--newsletter {
+      margin: 0;
+      display: flex;
+      align-items: center;
+  }
+
+  .footer-block__newsletter {}
+
+  .footer-block__heading {
+      font-family: Source Serif Pro;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 120%;
+      letter-spacing: -0.5px;
+      vertical-align: middle;
+  }
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
