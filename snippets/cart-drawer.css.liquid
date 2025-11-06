@@ -83,3 +83,77 @@ body .cart-item__name {
     display: flex;
     flex-direction: column;
 }
+
+.cart-drawer .cart-item__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-option.vendor-name {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+    vertical-align: middle;
+}
+
+.product-option {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.cart-item cart-remove-button {
+    display: none;
+}
+
+.cart-drawer .quantity__input {
+    line-height: 100%;
+    max-height: max-content;
+    width: 100%;
+    padding: 8px 0;
+    max-width: 32px;
+}
+
+.cart-drawer .quantity__button {
+    padding: 8px;
+    aspect-ratio: 1;
+    width: unset;
+}
+
+quantity-popover .quantity {
+    min-height: unset;
+    min-width: unset;
+    width: unset;
+}
+
+.cart-item .cart-item__quantity {
+    padding: 0;
+}
+
+.cart-drawer .quantity__button[name="plus"] {
+    padding-right: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-drawer .quantity__button[name="minus"] {
+    padding-left: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.quantity__button .svg-wrapper {
+    width: 10px;
+}
+
+.cart-item__details-cont {
+    display: flex;
+    justify-content: space-between;
+}
