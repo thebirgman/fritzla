@@ -116,10 +116,14 @@
                               {%- if settings.show_vendor -%}
                                 <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                               {%- endif -%}
-
+                              <div class="cart-item__details-content">
                               <a href="{{ item.url }}" class="cart-item__name h4 break">
                                 {{- item.product.title | escape -}}
                               </a>
+                              <div class="product-option vendor-name">
+                                        {{ item.product.vendor }}
+                                      </div>
+                              </div>
 
                               {%- if item.original_price != item.final_price -%}
                                 <div class="cart-item__discounted-prices">
@@ -146,40 +150,9 @@
                                 or item.properties.size != 0
                                 or item.selling_plan_allocation != null
                               -%}
-                                <dl>
+                              
                                   
-                                      <div class="product-option vendor-name">
-                                        {{ item.product.vendor }}
-                                      </div>
-                                    
-                                  {% comment %}
-                                   {% endcomment %}
-
-                                  {%- for property in item.properties -%}
-                                    {%- assign property_first_char = property.first | slice: 0 -%}
-                                    {%- if property.last != blank and property_first_char != '_' -%}
-                                      <div class="product-option">
-                                        {% comment %}
-                                        <dt>{{ property.first }}:</dt>
-                                        {% endcomment %}
-                                        <dd>
-                                          {%- if property.last contains '/uploads/' -%}
-                                            <a
-                                              href="{{ property.last }}"
-                                              class="link"
-                                              target="_blank"
-                                              aria-describedby="a11y-new-window-message"
-                                            >
-                                              {{ property.last | split: '/' | last }}
-                                            </a>
-                                          {%- else -%}
-                                            {{ property.last }}
-                                          {%- endif -%}
-                                        </dd>
-                                      </div>
-                                    {%- endif -%}
-                                  {%- endfor -%}
-                                </dl>
+                                      
 
                                 <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
                               {%- endif -%}
