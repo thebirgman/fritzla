@@ -165,7 +165,9 @@
                                     {%- assign property_first_char = property.first | slice: 0 -%}
                                     {%- if property.last != blank and property_first_char != '_' -%}
                                       <div class="product-option">
+                                        {% comment %}
                                         <dt>{{ property.first }}:</dt>
+                                        {% endcomment %}
                                         <dd>
                                           {%- if property.last contains '/uploads/' -%}
                                             <a
