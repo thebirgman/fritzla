@@ -150,6 +150,47 @@
                                   
                                       <div class="product-option vendor-name">
                                         {{ item.product.vendor }}
+
+                                        <div class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
+                              {%- render 'loading-spinner' -%}
+                              <div class="cart-item__price-wrapper">
+                                {%- if item.original_line_price != item.final_line_price -%}
+                                  <div class="cart-item__discounted-prices">
+                                    <span class="visually-hidden">
+                                      {{ 'products.product.price.regular_price' | t }}
+                                    </span>
+                                    <s class="cart-item__old-price price price--end">
+                                      {{ item.original_line_price | money }}
+                                    </s>
+                                    <span class="visually-hidden">
+                                      {{ 'products.product.price.sale_price' | t }}
+                                    </span>
+                                    <span class="price price--end">
+                                      {{ item.final_line_price | money }}
+                                    </span>
+                                  </div>
+                                {%- else -%}
+                                  <span class="price price--end">
+                                    {{ item.original_line_price | money }}
+                                  </span>
+                                {%- endif -%}
+
+                                {%- if item.variant.available and item.unit_price_measurement -%}
+                                  <div class="unit-price caption">
+                                    <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
+                                    {{ item.unit_price | money }}
+                                    <span aria-hidden="true">/</span>
+                                    <span class="visually-hidden"
+                                      >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
+                                    >
+                                    {%- if item.unit_price_measurement.reference_value != 1 -%}
+                                      {{- item.unit_price_measurement.reference_value -}}
+                                    {%- endif -%}
+                                    {{ item.unit_price_measurement.reference_unit }}
+                                  </div>
+                                {%- endif -%}
+                              </div>
+                            </div>
                                       </div>
                                     
                                   {% comment %}
@@ -197,46 +238,7 @@
                                 {%- endfor -%}
                               </ul>
                             </div>
-                            <div class="cart-item__totals right" role="cell" headers="CartDrawer-ColumnTotal">
-                              {%- render 'loading-spinner' -%}
-                              <div class="cart-item__price-wrapper">
-                                {%- if item.original_line_price != item.final_line_price -%}
-                                  <div class="cart-item__discounted-prices">
-                                    <span class="visually-hidden">
-                                      {{ 'products.product.price.regular_price' | t }}
-                                    </span>
-                                    <s class="cart-item__old-price price price--end">
-                                      {{ item.original_line_price | money }}
-                                    </s>
-                                    <span class="visually-hidden">
-                                      {{ 'products.product.price.sale_price' | t }}
-                                    </span>
-                                    <span class="price price--end">
-                                      {{ item.final_line_price | money }}
-                                    </span>
-                                  </div>
-                                {%- else -%}
-                                  <span class="price price--end">
-                                    {{ item.original_line_price | money }}
-                                  </span>
-                                {%- endif -%}
-
-                                {%- if item.variant.available and item.unit_price_measurement -%}
-                                  <div class="unit-price caption">
-                                    <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
-                                    {{ item.unit_price | money }}
-                                    <span aria-hidden="true">/</span>
-                                    <span class="visually-hidden"
-                                      >&nbsp;{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span
-                                    >
-                                    {%- if item.unit_price_measurement.reference_value != 1 -%}
-                                      {{- item.unit_price_measurement.reference_value -}}
-                                    {%- endif -%}
-                                    {{ item.unit_price_measurement.reference_unit }}
-                                  </div>
-                                {%- endif -%}
-                              </div>
-                            </div>
+                            
                           </div>
                           <div class="cart-item__details-bottom-cont">
                             {%- liquid
