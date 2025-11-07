@@ -300,6 +300,7 @@
             {% render block %}
         {%- endcase -%}
       {%- endfor -%}
+      <button class="st-wishlist-details-button st-wishlist-details-button--header-icon" data-type="manually" aria-label="View Wishlist Details"></button>
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {% if cart == empty %}
