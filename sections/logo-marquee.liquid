@@ -129,7 +129,38 @@
     .logo-marquee-section-{{ section.id }} .logo-marquee__track {
       gap: {{ section.settings.mobile_gap | default: 2 }}rem;
     }
+    .logo-marquee-flex-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+div[class*="logo-marquee-section-sections"] {
+    background: transparent;
+}
+
+:not(#s) .logo-marquee__main-logo {
+    background: #f7f3f0;
+    margin: 0 auto!important;
+    margin-bottom: -20px!Important;
+    padding-bottom: 40px;
+    border-radius: 24px 24px 0 0;
+    width: 100%;
+}
+
+.logo-marquee__main-logo {}
+
+:not(#s) .logo-marquee__main-logo img {
+    max-width: 120px;
+    margin: auto;
+}
+
+.logo-marquee__container {
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
   }
+
+  
 {%- endstyle -%}
 
 <div class="logo-marquee-section-{{ section.id }} gradient color-{{ section.settings.color_scheme }}">
