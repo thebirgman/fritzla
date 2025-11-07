@@ -422,9 +422,9 @@
               </h2>
               <p class="totals__shipping-value">
                 {% if cart.total_price >= 200 %}
-                  {{ 0 | money }}
+                  {{ 0 | money_with_currency }}
                 {% else %}
-                  {{ 100 | money }}
+                  {{ 100 | money_with_currency }}
                 {% endif %}
               </p>
             </div>
