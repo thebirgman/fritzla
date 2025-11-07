@@ -421,7 +421,11 @@
                 Leverans:
               </h2>
               <p class="totals__shipping-value">
-                {{ order.shipping_price }}
+                {% if cart.total_price >= 200 %}
+                  0 {{ checkout.currency }}
+                {% else %}
+                  100 {{ checkout.currency }}
+                {% endif %}
               </p>
             </div>
             <div class="totals__details">
