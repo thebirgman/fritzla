@@ -421,7 +421,7 @@
                 Leverans:
               </h2>
               <p class="totals__shipping-value">
-                {{ order.shipping_price | divided_by: 100 }}
+                {{ order.shipping_price | money_with_currency }}
               </p>
             </div>
             <div class="totals__details">
