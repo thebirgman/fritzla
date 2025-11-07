@@ -72,3 +72,28 @@ input::-webkit-search-decoration {
 .template-search__results {
   position: relative;
 }
+
+
+.st-wishlist-details-button[data-type=manually]:before {
+    content: "";
+    background: url(https://cdn.shopify.com/s/files/1/0944/4766/5495/files/Vector_f180d8df-0437-40f1-819b-af2eac0884c9.png?v=1762490539);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 21px;
+    height: 20px;
+    display: block;
+}
+
+.st-wishlist-details-button[data-type=manually] svg {
+    display: none;
+}
+
+button.st-wishlist-details-button.st-wishlist-details-button--header-icon.st-initialized {
+    padding-top: 11px;
+}
+@media screen and (max-width: 768px) {
+details-modal.header__search {
+    display: none;
+}
+}
