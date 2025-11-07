@@ -421,7 +421,7 @@
                 Leverans:
               </h2>
               <p class="totals__shipping-value">
-                {{ checkout.shipping_price }}
+                {{ order.shipping_price | divided_by: 100 }}
               </p>
             </div>
             <div class="totals__details">
