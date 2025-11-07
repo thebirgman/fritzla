@@ -89,7 +89,7 @@
         "main_logo_width": 160,
         "section_min_height": 100,
         "desktop_gap": 8,
-        "mobile_gap": 4
+        "mobile_gap": 6
       }
     },
     "footer": {
