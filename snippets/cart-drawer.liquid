@@ -416,8 +416,18 @@
           </div>
 
           <div class="totals" role="status">
-            <h2 class="totals__total">Totaltsumma:</h2>
-            <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+            <div class="totals__shipping">
+              <h2 class="totals__shipping-total">
+                Leverans:
+              </h2>
+              <p class="totals__shipping-value">
+                {{ checkout.shipping_price }}
+              </p>
+            </div>
+            <div class="totals__details">
+              <h2 class="totals__total">Totaltsumma:</h2>
+              <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+            </div>
           </div>
 
           <small class="tax-note caption-large rte">
