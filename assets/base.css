@@ -76,7 +76,12 @@
 }
 
 /* base */
+@media screen and (min-width: 768px) {
+.page-width {
+  padding: 0 32px;
+}
 
+}
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
