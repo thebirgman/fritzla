@@ -594,7 +594,7 @@
       ],
       "custom_css": [
         "h2 {margin-bottom: 24px;}",
-        "@media screen and (max-width: 768px) {h2 strong {font-size: 24px !important; } p {font-size: 12px; line-height: 1.4em; }}"
+        "@media screen and (max-width: 768px) {h2 strong {font-size: 24px !important; line-height: 1.2em; } h2{margin-bottom: 16px; } p {font-size: 12px; line-height: 1.4em; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
