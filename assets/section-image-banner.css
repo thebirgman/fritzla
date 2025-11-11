@@ -435,7 +435,10 @@
     max-width: 90rem;
   }
 }
-
+.banner__box>*:first-child{
+  margin-left: auto;
+  margin-right: auto;
+}
 .banner__heading {
   margin-bottom: 0;
 }
