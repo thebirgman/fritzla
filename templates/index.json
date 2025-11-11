@@ -570,7 +570,7 @@
             "text_type": "h2",
             "heading_size": "h1",
             "font_weight": "",
-            "enable_custom_font_size": false,
+            "enable_custom_font_size": true,
             "custom_font_size": 24
           }
         },
