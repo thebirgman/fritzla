@@ -498,4 +498,6 @@
 .banner__box>*+.banner__text {
     max-width: 680px;
     line-height: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
 }
