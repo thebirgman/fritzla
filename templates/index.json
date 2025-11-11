@@ -596,8 +596,8 @@
       "settings": {
         "image": "shopify://shop_images/4b90a67331f1ea8eea4ee1273f6e163843ccb3a9_1.png",
         "image_overlay_opacity": 0,
-        "image_height": "large",
-        "custom_height": 500,
+        "image_height": "custom",
+        "custom_height": 630,
         "image_behavior": "none",
         "desktop_image_position": "middle-center",
         "desktop_content_position": "middle-center",
