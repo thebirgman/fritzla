@@ -398,7 +398,9 @@
 .banner__box > * + .banner__text {
   margin-top: 1.5rem;
 }
-
+.banner__box > * + .banner__text {
+    font-size: 14px;
+  }
 @media screen and (min-width: 750px) {
   .banner__box > * + .banner__text {
     margin-top: 2rem;
