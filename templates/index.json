@@ -68,7 +68,7 @@
         "show_text_box": false,
         "color_scheme": "scheme-353be432-42cf-4afc-a9a6-9cf57225c9bd",
         "mobile_image_height": "custom",
-        "custom_mobile_height": 550,
+        "custom_mobile_height": 500,
         "mobile_image_position": "bottom-left",
         "mobile_content_alignment": "center",
         "show_text_below": false
