@@ -604,7 +604,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": true,
         "color_scheme": "scheme-1",
-        "mobile_image_height": "medium",
+        "mobile_image_height": "custom",
         "custom_mobile_height": 400,
         "mobile_image_position": "middle-center",
         "mobile_content_alignment": "center",
