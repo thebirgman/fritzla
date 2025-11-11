@@ -714,3 +714,12 @@ span.soldout-variant + a.variant-option {
 .product__info-container  > div > product-form.product-form{
   display: none;
 }
+
+a.card-media-link {
+    width: 100%;
+    display: block;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+}
