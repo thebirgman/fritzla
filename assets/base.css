@@ -1304,6 +1304,14 @@ button.shopify-payment-button__button--unbranded {
 .customer button {
  font-size: 1.2rem;
 }
+
+.button,
+.shopify-challenge__button,
+.customer button {
+
+  padding:8px 12px;
+
+}
 }
 
 
