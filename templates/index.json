@@ -566,7 +566,7 @@
         "heading_VDETQK": {
           "type": "heading",
           "settings": {
-            "heading": "Bageriet på gården",
+            "heading": "<strong>Bageriet på gården</strong>",
             "text_type": "h2",
             "heading_size": "h1",
             "font_weight": "",
