@@ -297,6 +297,11 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
     margin-top: 20px;
 }
 }
+@media screen and (min-width: 750px) {
+                    .image-with-text__heading-mobile {
+                      display: none;
+                    }
+                  }
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
@@ -320,13 +325,7 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                 endif
               -%}
               <div class="image-with-text__heading-mobile grid__item">
-                <style>
-                  @media screen and (min-width: 750px) {
-                    .image-with-text__heading-mobile {
-                      display: none;
-                    }
-                  }
-                </style>
+                
                 <{{ heading_tag }}
                   class="{{ heading_class }}"
                   {{ block.shopify_attributes }}
