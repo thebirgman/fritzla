@@ -1,3 +1,5 @@
+
+
 .header__icon--cart svg {
     width: 25px;
     height: 25px;
@@ -413,3 +415,13 @@ font-size: 12px;
 }
 }
 
+
+
+
+button.st-wishlist-button.st-initialized {
+    opacity: 0;
+}
+
+.grid__item:hover button.st-wishlist-button.st-initialized {
+    opacity: 1;
+}
