@@ -594,7 +594,7 @@
       ],
       "custom_css": [
         "h2 {margin-bottom: 24px;}",
-        "@media screen and (max-width: 768px) {h2 strong {font-size: 24px !important; }}"
+        "@media screen and (max-width: 768px) {h2 strong {font-size: 24px !important; } p {font-size: 12px; line-height: 1.4em; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -610,7 +610,7 @@
         "show_text_box": true,
         "color_scheme": "scheme-09ced41c-4e9e-4974-925c-c1860966bad8",
         "mobile_image_height": "custom",
-        "custom_mobile_height": 360,
+        "custom_mobile_height": 450,
         "mobile_image_position": "middle-center",
         "mobile_content_alignment": "center",
         "show_text_below": true
