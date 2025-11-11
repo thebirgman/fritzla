@@ -1271,7 +1271,7 @@ button.shopify-payment-button__button--unbranded {
 .customer button,
 button.shopify-payment-button__button--unbranded {
   min-width: calc(12rem + var(--buttons-border-width) * 2);
-  min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+  min-height: calc(4.0rem + var(--buttons-border-width) * 2);
 }
 
 .button,
@@ -1281,7 +1281,7 @@ button.shopify-payment-button__button--unbranded {
   justify-content: center;
   align-items: center;
   border: 0;
-  padding: 0 3rem;
+  padding: 10px 16px;
   cursor: pointer;
   font: inherit;
   font-size: 1.4rem;
