@@ -502,7 +502,15 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                       {{ block.settings.heading }}
                     </{{ heading_tag }}>
                   {%- else -%}
-                    <style>
+                   
+                    <{{ heading_tag }}
+                      class="{{ heading_class }} image-with-text__heading-desktop"
+                      {{ block.shopify_attributes }}
+                    >
+                      {{ block.settings.heading }}
+                    </{{ heading_tag }}>
+
+                     <style>
                       @media screen and (min-width: 750px) {
                         #ImageWithText--{{ section.id }} .image-with-text__heading-desktop {
                           display: block;
@@ -514,12 +522,6 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                         }
                       }
                     </style>
-                    <{{ heading_tag }}
-                      class="{{ heading_class }} image-with-text__heading-desktop"
-                      {{ block.shopify_attributes }}
-                    >
-                      {{ block.settings.heading }}
-                    </{{ heading_tag }}>
                   {%- endunless -%}
                 {%- when 'caption' -%}
                   <p
