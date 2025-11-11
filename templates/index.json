@@ -592,6 +592,9 @@
         "heading_VDETQK",
         "text_XQcrHR"
       ],
+      "custom_css": [
+        "h2 {margin-bottom: 24px;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/4b90a67331f1ea8eea4ee1273f6e163843ccb3a9_1.png",
@@ -605,7 +608,7 @@
         "show_text_box": true,
         "color_scheme": "scheme-1",
         "mobile_image_height": "custom",
-        "custom_mobile_height": 400,
+        "custom_mobile_height": 360,
         "mobile_image_position": "middle-center",
         "mobile_content_alignment": "center",
         "show_text_below": true

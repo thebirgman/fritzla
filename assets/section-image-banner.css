@@ -493,3 +493,9 @@
     color: currentColor;
   }
 }
+
+
+.banner__box>*+.banner__text {
+    max-width: 680px;
+    line-height: 1.5em;
+}
