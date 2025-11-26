@@ -12,7 +12,7 @@
     "main": {
       "type": "main-page",
       "custom_css": [
-        "h1 {font-size:20px;}"
+        "h1 {font-size: 20px;}"
       ],
       "settings": {
         "padding_top": 28,
