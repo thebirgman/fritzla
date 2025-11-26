@@ -1,0 +1,196 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [
+        "h1 {font-size: 20px;}"
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_aKpcDA": {
+      "type": "image-banner",
+      "blocks": {
+        "text_kwgyAY": {
+          "type": "text",
+          "settings": {
+            "text": "<h2><strong>Skapa ditt drömhem tillsammans med oss</strong></h2>",
+            "text_style": "body",
+            "enable_custom_font_size": false,
+            "custom_font_size": 48,
+            "enable_max_width": true,
+            "max_width": 450,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "buttons_ra6ftd": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Handla nu",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "margin_top": 32,
+            "margin_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "text_kwgyAY",
+        "buttons_ra6ftd"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_1.png",
+        "image_mobile": "shopify://shop_images/Mobile.png",
+        "image_overlay_opacity": 40,
+        "image_height": "custom",
+        "custom_height": 650,
+        "image_behavior": "none",
+        "desktop_image_position": "bottom-center",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-353be432-42cf-4afc-a9a6-9cf57225c9bd",
+        "mobile_image_height": "custom",
+        "custom_mobile_height": 500,
+        "mobile_image_position": "bottom-left",
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "image_with_text_gallery_PFHAUV": {
+      "type": "image-with-text-gallery",
+      "blocks": {
+        "heading_iBfzKM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vi hjälper dig till ett genomtänkt och komplett hem!",
+            "text_type": "h4",
+            "heading_size": "h2"
+          }
+        },
+        "text_YXqGzh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fritsla Tyglager - över 50 års erfarenhet inom textil och inredning. Vårt kunniga team ger dig personlig service och hjälper dig förverkliga din vision - från målsättning till slutresultat. Med djup kunskap och brett sortiment gör vi din inredningsresa enkel och inspirerande.</p><ul><li>Over 50 års erfarenhet inom textil och inredning.</li><li>Skräddarsydda lösningar för dina behov</li><li>Personlig guidning genom hela processen</li></ul><p></p>",
+            "text_type": "p",
+            "text_style": "body"
+          }
+        },
+        "button_q3yVhi": {
+          "type": "button",
+          "settings": {
+            "button_label": "Kontakta oss",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_iBfzKM",
+        "text_YXqGzh",
+        "button_q3yVhi"
+      ],
+      "name": "Image with text (gallery)",
+      "settings": {
+        "image_1": "shopify://shop_images/image.jpg",
+        "image_2": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "image_3": "shopify://shop_images/image.jpg",
+        "image_4": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "show_heading_above_mobile": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 24
+      }
+    },
+    "image_with_text_gallery_EUrDW9": {
+      "type": "image-with-text-gallery",
+      "blocks": {
+        "heading_AWUdTk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vi hjälper dig till ett genomtänkt och komplett hem!",
+            "text_type": "h4",
+            "heading_size": "h2"
+          }
+        },
+        "text_9HcfXj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fritsla Tyglager - över 50 års erfarenhet inom textil och inredning. Vårt kunniga team ger dig personlig service och hjälper dig förverkliga din vision - från målsättning till slutresultat. Med djup kunskap och brett sortiment gör vi din inredningsresa enkel och inspirerande.</p><ul><li>Over 50 års erfarenhet inom textil och inredning.</li><li>Skräddarsydda lösningar för dina behov</li><li>Personlig guidning genom hela processen</li></ul><p></p>",
+            "text_type": "p",
+            "text_style": "body"
+          }
+        },
+        "button_EmpJxA": {
+          "type": "button",
+          "settings": {
+            "button_label": "Kontakta oss",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_AWUdTk",
+        "text_9HcfXj",
+        "button_EmpJxA"
+      ],
+      "name": "Image with text (gallery)",
+      "settings": {
+        "image_1": "shopify://shop_images/image.jpg",
+        "image_2": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "image_3": "shopify://shop_images/image.jpg",
+        "image_4": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "show_heading_above_mobile": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_aKpcDA",
+    "image_with_text_gallery_PFHAUV",
+    "image_with_text_gallery_EUrDW9"
+  ]
+}
