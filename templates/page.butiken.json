@@ -260,20 +260,11 @@
             "text_type": "p",
             "text_style": "body"
           }
-        },
-        "button_EmpJxA": {
-          "type": "button",
-          "settings": {
-            "button_label": "Kontakta oss",
-            "button_link": "#",
-            "button_style_secondary": false
-          }
         }
       },
       "block_order": [
         "heading_AWUdTk",
-        "text_9HcfXj",
-        "button_EmpJxA"
+        "text_9HcfXj"
       ],
       "name": "Image with text (gallery)",
       "settings": {
