@@ -468,7 +468,7 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                       <div
                         class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %} media{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
                         {% if section.settings.height == 'adapt' and first_image != blank %}
-                          style="padding-bottom: {{ 1 | divided_by: first_image.aspect_ratio | times: 100 }}%;"
+                          style="padding-bottom: 400px;"
                         {% endif %}
                       >
                         {%- if slide_index == 1 -%}
