@@ -541,7 +541,7 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
             <div
               class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if single_image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
               {% if section.settings.height == 'adapt' and single_image != blank %}
-                style="padding-bottom: {{ 1 | divided_by: single_image.aspect_ratio | times: 100 }}%;"
+                style="padding-bottom: 400px;"
               {% endif %}
             >
               {%- if single_image != blank -%}
