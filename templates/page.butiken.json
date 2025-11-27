@@ -200,6 +200,13 @@
             "text_style": "body"
           }
         },
+        "address_nXyBEd": {
+          "type": "address",
+          "settings": {
+            "address_line": "<p>Adress:<br/>Aratorpsvägen 14<br/>511 71<br/>Fritsla</p>",
+            "contact_line": ""
+          }
+        },
         "button_aQkaUY": {
           "type": "button",
           "settings": {
@@ -212,6 +219,7 @@
       "block_order": [
         "heading_ewQgyX",
         "text_QVXmEV",
+        "address_nXyBEd",
         "button_aQkaUY"
       ],
       "name": "Image with text (gallery)",
