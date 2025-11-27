@@ -203,7 +203,7 @@
         "button_aQkaUY": {
           "type": "button",
           "settings": {
-            "button_label": "Kontakta oss",
+            "button_label": "Hitta hit",
             "button_link": "#",
             "button_style_secondary": false
           }
@@ -216,10 +216,7 @@
       ],
       "name": "Image with text (gallery)",
       "settings": {
-        "image_1": "shopify://shop_images/image.jpg",
-        "image_2": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
-        "image_3": "shopify://shop_images/image.jpg",
-        "image_4": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "image_1": "shopify://shop_images/e7480864a9628da78bcde0ef3ef53b03af206736.png",
         "show_heading_above_mobile": true,
         "height": "adapt",
         "desktop_image_width": "medium",
