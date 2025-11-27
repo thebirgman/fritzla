@@ -564,6 +564,28 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                   >
                     {{ block.settings.text }}
                   </{{ text_tag }}>
+                {%- when 'text' -%}
+                  {%- liquid
+                    assign text_tag = block.settings.text_type | default: 'div'
+                    if text_tag == 'none'
+                      assign text_tag = 'div'
+                    endif
+                    assign text_class = 'image-with-text__text rte'
+                    if block.settings.text_type != blank and block.settings.text_type != 'none'
+                      assign text_class = text_class | append: ' ' | append: block.settings.text_type
+                    endif
+                    if block.settings.text_style != blank
+                      assign text_class = text_class | append: ' ' | append: block.settings.text_style
+                    endif
+                    assign text_tag = 'div'
+                  -%}
+                  
+                  <{{ text_tag }}
+                    class="{{ text_class }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.text }}
+                  </{{ text_tag }}>
                 {%- when 'button' -%}
                   {%- if block.settings.button_label != blank -%}
                     <a
@@ -990,6 +1012,23 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
           "default": "medium",
           "label": "t:sections.image-with-text.blocks.caption.settings.caption_size.label"
         }
+      ]
+    },
+    {
+      "type": "inline_richtext",
+      "name": "Address",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "address_line",
+          "label" : "Address Line"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "contact_line",
+          "label": "Contact Line"
+        },
       ]
     },
     {
