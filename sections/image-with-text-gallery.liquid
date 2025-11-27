@@ -544,12 +544,12 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                   </p>
                 {%- when 'address' -%}
                   <div class="image-with-text__address-container">
-                    <p class="image-with-text__address">
+                    <div class="image-with-text__address">
                       {{ block.settings.address_line }}
-                    </p>
-                    <p class="image-with-text__contact">
+                    </div>
+                    <div class="image-with-text__contact">
                       {{ block.settings.contact_line }}
-                    </p>
+                    </div>
                   </div>
                 {%- when 'text' -%}
                   {%- liquid
