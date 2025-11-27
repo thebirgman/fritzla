@@ -542,8 +542,15 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                   >
                     {{ block.settings.caption | escape }}
                   </p>
-                {%- when 'inline_richtext' -%}
-                  
+                {%- when 'address' -%}
+                  <div class="image-with-text__address-container">
+                    <p class="image-with-text__address">
+                      {{ block.settings.address_line }}
+                    </p>
+                    <p class="image-with-text__contact">
+                      {{ block.settings.contact_line }}
+                    </p>
+                  </div>
                 {%- when 'text' -%}
                   {%- liquid
                     assign text_tag = block.settings.text_type | default: 'div'
