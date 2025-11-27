@@ -36,23 +36,23 @@
             "margin_bottom": 0
           }
         },
-        "buttons_ra6ftd": {
-          "type": "buttons",
+        "text_4xYLEQ": {
+          "type": "text",
           "settings": {
-            "button_label_1": "Handla nu",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "margin_top": 32,
+            "text": "<p>Destination Fritsla Tyglager – dagsutflykt, shopping och gofika. Här möts du av en inspirerande butik med stort sortiment av tyger och inredning, samt ett mysigt bageri på gården som serverar fika och lunch. Perfekt utflyktsmål för hela familjen.</p>",
+            "text_style": "body",
+            "enable_custom_font_size": true,
+            "custom_font_size": 16,
+            "enable_max_width": true,
+            "max_width": 710,
+            "margin_top": 0,
             "margin_bottom": 0
           }
         }
       },
       "block_order": [
         "text_kwgyAY",
-        "buttons_ra6ftd"
+        "text_4xYLEQ"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
