@@ -242,6 +242,30 @@
         "mobile_padding_bottom": 24
       }
     },
+    "reviews_carousel_9a7t9G": {
+      "type": "reviews-carousel",
+      "blocks": {
+        "review_QkitnK": {
+          "type": "review",
+          "settings": {
+            "card_bg": "#ffffff",
+            "card_text": "#333333",
+            "star_color": "#d4a253",
+            "review_text": "Fantastiskt utbud av heminredning, något för alla (som har smak :D) hoppa definitivt in om du är i området!"
+          }
+        }
+      },
+      "block_order": [
+        "review_QkitnK"
+      ],
+      "name": "Reviews Carousel",
+      "settings": {
+        "heading": "Detta säger våra kunder om oss!",
+        "bg_color": "#f8f0eb",
+        "text_color": "#3c2b20",
+        "font_size": 28
+      }
+    },
     "image_with_text_gallery_EUrDW9": {
       "type": "image-with-text-gallery",
       "blocks": {
@@ -404,6 +428,7 @@
     "image_with_text_gallery_PFHAUV",
     "popular_categories_Jp6Dbh",
     "image_with_text_gallery_fG8Lri",
+    "reviews_carousel_9a7t9G",
     "image_with_text_gallery_EUrDW9",
     "image_banner_kPWnB6",
     "image_with_text_gallery_HkfKqi"
