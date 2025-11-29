@@ -245,17 +245,34 @@
     "reviews_carousel_9a7t9G": {
       "type": "reviews-carousel",
       "blocks": {
-        "review_QkitnK": {
+        "review_B7QDc3": {
           "type": "review",
           "settings": {
             "card_bg": "#ffffff",
-            "card_text": "#333333",
-            "star_color": "#d4a253",
+            "card_text": "#212121",
+            "review_text": "Fantastiskt utbud av heminredning, något för alla (som har smak :D) hoppa definitivt in om du är i området!"
+          }
+        },
+        "review_eGhVEK": {
+          "type": "review",
+          "settings": {
+            "card_bg": "#fafafa",
+            "card_text": "#212121",
+            "review_text": "Fantastiskt utbud av heminredning, något för alla (som har smak :D) hoppa definitivt in om du är i området!"
+          }
+        },
+        "review_QkitnK": {
+          "type": "review",
+          "settings": {
+            "card_bg": "#fafafa",
+            "card_text": "#212121",
             "review_text": "Fantastiskt utbud av heminredning, något för alla (som har smak :D) hoppa definitivt in om du är i området!"
           }
         }
       },
       "block_order": [
+        "review_B7QDc3",
+        "review_eGhVEK",
         "review_QkitnK"
       ],
       "name": "Reviews Carousel",
