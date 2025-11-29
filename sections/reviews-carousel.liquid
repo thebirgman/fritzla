@@ -1,0 +1,216 @@
+{% comment %}
+  Reviews Carousel Section
+{% endcomment %}
+
+<section 
+  class="reviews-carousel section-{{ section.id }}"
+  style="
+    background: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    padding: 60px 0;
+  "
+>
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 
+        class="reviews-carousel__heading"
+        style="font-size: {{ section.settings.font_size }}px; color: {{ section.settings.text_color }}"
+      >
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="reviews-carousel__wrapper">
+      
+      <!-- LEFT ARROW (SVG placeholder) -->
+      <button class="reviews-carousel__arrow left-arrow">
+        <!-- INSERT LEFT ARROW SVG HERE -->
+      </button>
+
+      <div class="reviews-carousel__track">
+
+        {% for block in section.blocks %}
+          <div 
+            class="reviews-carousel__card"
+            style="
+              background: {{ block.settings.card_bg }};
+              color: {{ block.settings.card_text }};
+            "
+            {{ block.shopify_attributes }}
+          >
+
+            <div class="reviews-carousel__stars" style="color: {{ block.settings.star_color }}">
+              <!-- INSERT STAR SVG 5x -->
+            </div>
+
+            <p class="reviews-carousel__text">
+              {{ block.settings.review_text }}
+            </p>
+
+          </div>
+        {% endfor %}
+
+      </div>
+
+      <!-- RIGHT ARROW (SVG placeholder) -->
+      <button class="reviews-carousel__arrow right-arrow">
+        <!-- INSERT RIGHT ARROW SVG HERE -->
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* ---------- GENERAL ---------- */
+.reviews-carousel__heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ---------- WRAPPER ---------- */
+.reviews-carousel__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ---------- ARROWS ---------- */
+.reviews-carousel__arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+}
+
+/* ---------- CAROUSEL TRACK ---------- */
+.reviews-carousel__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.reviews-carousel__track::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+/* ---------- CARD ---------- */
+.reviews-carousel__card {
+  flex: 0 0 320px;
+  padding: 25px 30px;
+  border-radius: 16px;
+  scroll-snap-align: center;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
+}
+
+/* Stars placeholder container */
+.reviews-carousel__stars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* Review text */
+.reviews-carousel__text {
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.4;
+}
+</style>
+
+<script>
+/* OPTIONAL JS NAVIGATION (UNCOMMENT IF YOU WANT CLICKABLE ARROWS)
+
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector('.section-{{ section.id }} .reviews-carousel__track');
+  const left = document.querySelector('.section-{{ section.id }} .left-arrow');
+  const right = document.querySelector('.section-{{ section.id }} .right-arrow');
+
+  const scrollAmount = 350;
+
+  right.addEventListener("click", () => {
+    track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+
+  left.addEventListener("click", () => {
+    track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+});
+*/
+</script>
+
+{% schema %}
+{
+  "name": "Reviews Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Detta säger våra kunder om oss!"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f8f0eb"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Heading text color",
+      "default": "#3c2b20"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Heading font size",
+      "min": 16,
+      "max": 60,
+      "step": 1,
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Card background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "card_text",
+          "label": "Card text color",
+          "default": "#333333"
+        },
+        {
+          "type": "color",
+          "id": "star_color",
+          "label": "Star color",
+          "default": "#d4a253"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review text",
+          "default": "Fantastiskt utbud!"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Carousel"
+    }
+  ]
+}
+{% endschema %}
