@@ -253,6 +253,30 @@
             "review_text": "Fantastiskt utbud av heminredning, något för alla (som har smak :D) hoppa definitivt in om du är i området!"
           }
         },
+        "review_ez7tdH": {
+          "type": "review",
+          "settings": {
+            "card_bg": "#ffffff",
+            "card_text": "#212121",
+            "review_text": "Fantastiskt utbud av heminredning, något för alla (som har smak :D) hoppa definitivt in om du är i området!"
+          }
+        },
+        "review_Jhq9dT": {
+          "type": "review",
+          "settings": {
+            "card_bg": "#ffffff",
+            "card_text": "#212121",
+            "review_text": "Fantastiskt utbud av heminredning, något för alla (som har smak :D) hoppa definitivt in om du är i området!"
+          }
+        },
+        "review_iwH6Te": {
+          "type": "review",
+          "settings": {
+            "card_bg": "#ffffff",
+            "card_text": "#212121",
+            "review_text": "Fantastiskt utbud av heminredning, något för alla (som har smak :D) hoppa definitivt in om du är i området!"
+          }
+        },
         "review_eGhVEK": {
           "type": "review",
           "settings": {
@@ -272,12 +296,15 @@
       },
       "block_order": [
         "review_B7QDc3",
+        "review_ez7tdH",
+        "review_Jhq9dT",
+        "review_iwH6Te",
         "review_eGhVEK",
         "review_QkitnK"
       ],
       "name": "Reviews Carousel",
       "settings": {
-        "heading": "<strong>Detta säger våra kunder om oss!</strong>",
+        "heading": "Detta säger våra kunder om oss!",
         "bg_color": "#f7f3f0",
         "text_color": "#432f22",
         "font_size": 28
