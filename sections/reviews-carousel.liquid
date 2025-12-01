@@ -170,6 +170,33 @@
     padding: 40px 30px;
 }
 
+.reviews-carousel__card.active {
+    min-width: 460px;
+    flex: unset;
+}
+
+.reviews-carousel__card:not(.active) {
+    flex: unset;
+    min-width: 254px;
+    transform: scale(1);
+    max-height: 93px;
+    padding: 20px 12px;
+}
+
+.reviews-carousel__track {
+    overflow: visible;
+    gap: 56px;
+    align-items: center;
+}
+
+.reviews-carousel__card:not(.active) .reviews-carousel__text {
+    font-size: 9.37px;
+}
+
+.reviews-carousel__card:not(.active) .reviews-carousel__stars {
+    margin-bottom: 13px;
+}
+
 @media (max-width: 768px) {
     .reviews-carousel__card.active {
         max-width: 230px;
