@@ -246,6 +246,41 @@ Skicka
     align-items: center;
 }
 
+.field__label {
+    left: 0;
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    top: unset;
+    bottom: 8px;
+}
+
+.contact .field:before, .contact .field:after {
+    display: none;
+}
+
+.contact .field {
+    border-bottom: 1px solid #767676;
+}
+
+.contact .field .field__input {
+    padding: 0 !important;
+}
+
+.contact .field:has(textarea#ContactForm-body) {
+    border: 1px solid #767676;
+    border-radius: 4px;
+    margin-top: 44px;
+}
+
+textarea#ContactForm-body+.field__label {
+    left: 8px;
+    top: 12px;
+}
+
 .contact-layout__form-slot {
     max-width: 466px;
     display: flex;
