@@ -137,10 +137,20 @@
         "heading": "Fyll i formuläret så hör vi av oss!",
         "heading_size": "h2",
         "content": "<p>Berätta kort om dina behov och önskemål så återkommer vi.Oavsett om det gäller små förändringar eller en helhetslösning ser vi fram emot att skapa ditt drömhem tillsammans med dig.</p>",
-        "image": "shopify://shop_images/Frame_338644102.jpg",
+        "image_1": "shopify://shop_images/Frame_338644102_cc52a75d-230e-47fd-801a-124e9391986c.jpg",
+        "image_2": "shopify://shop_images/Frame_338644102_a1e81ec3-1dea-449a-a0c7-1c8fcb86e78e.jpg",
+        "image_3": "shopify://shop_images/Frame_338644102_02b9b769-0c59-4c21-bb44-f0e4445e94ae.jpg",
+        "image_4": "shopify://shop_images/Frame_338644102_aa1633c5-0cda-4ec7-b713-98bd6fc5630c.jpg",
+        "show_heading_above_mobile": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_behavior": "none",
         "color_scheme": "scheme-50eb2b2b-8179-40ba-8a8c-4d7fb6415e44",
+        "section_color_scheme": "",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
       }
     }
   },
