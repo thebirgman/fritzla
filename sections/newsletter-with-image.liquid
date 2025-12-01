@@ -53,7 +53,12 @@
   <div class="contact page-width section-{{ section.id }}-padding">
 
     <!-- *** TEXT NOW ABOVE IMAGE *** -->
-    <div class="contact-layout__top-text">
+    
+
+    <div class="contact-layout">
+      <!-- IMAGE -->
+      <div class="contact-layout__image">
+        <div class="contact-layout__top-text">
       {%- if section.settings.heading != blank -%}
         <h2 class="title inline-richtext {{ section.settings.heading_size }}">
           {{ section.settings.heading }}
@@ -63,10 +68,6 @@
         </div>
       {%- endif -%}
     </div>
-
-    <div class="contact-layout">
-      <!-- IMAGE -->
-      <div class="contact-layout__image">
         {% if section.settings.image != blank %}
           {{ section.settings.image | image_url: width: 1600 | image_tag }}
         {% else %}
