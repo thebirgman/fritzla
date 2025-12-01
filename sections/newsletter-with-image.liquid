@@ -111,7 +111,7 @@ name="contact[{{ 'templates.contact.form.name' | t }}]"
 value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
 placeholder="{{ 'templates.contact.form.name' | t }}"
 >
-<label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+<label class="field__label" for="ContactForm-name">Ex. Lena Andersson</label>
 </div>
 <div class="field field--with-error">
 <input
@@ -131,8 +131,8 @@ aria-describedby="ContactForm-email-error"
 placeholder="{{ 'templates.contact.form.email' | t }}"
 >
 <label class="field__label" for="ContactForm-email">
-{{- 'templates.contact.form.email' | t }}
-<span aria-hidden="true">*</span></label
+Ex. lena.andersson@gmail.com
+</label
 >
 {%- if form.errors contains 'email' -%}
 <small class="contact__field-error" id="ContactForm-email-error">
@@ -159,7 +159,7 @@ pattern="[0-9\-]*"
 value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
 placeholder="{{ 'templates.contact.form.phone' | t }}"
 >
-<label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+<label class="field__label" for="ContactForm-phone">Ex. 073 xx xxx xx</label>
 </div>
 <div class="field">
 <textarea
@@ -172,7 +172,7 @@ placeholder="{{ 'templates.contact.form.comment' | t }}"
 {{- form.body -}}
 </textarea>
 <label class="form__label field__label" for="ContactForm-body">
-{{- 'templates.contact.form.comment' | t -}}
+Skriv dina specifika önskemål här om du har några!
 </label>
 </div>
 <div class="contact__button">
