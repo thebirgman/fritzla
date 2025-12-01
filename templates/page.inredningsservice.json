@@ -136,9 +136,9 @@
       "settings": {
         "heading": "Fyll i formuläret så hör vi av oss!",
         "heading_size": "h2",
-        "content": "<p>Berätta kort om dina behov och önskemål så återkommer vi.Oavsett om det gäller små förändringar eller en helhetslösning ser vi fram emot att skapa ditt drömhem tillsammans med dig.<br/><br/></p>",
+        "content": "<p>Berätta kort om dina behov och önskemål så återkommer vi.Oavsett om det gäller små förändringar eller en helhetslösning ser vi fram emot att skapa ditt drömhem tillsammans med dig.</p>",
         "image": "shopify://shop_images/Frame_338644102.jpg",
-        "color_scheme": "",
+        "color_scheme": "scheme-3",
         "padding_top": 36,
         "padding_bottom": 36
       }
