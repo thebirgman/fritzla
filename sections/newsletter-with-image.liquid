@@ -1,6 +1,52 @@
 {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  # compute gallery image count (image_1..image_5)
+  assign image_count = 0
+  assign image_list = ''
+  if section.settings.image_1 != blank
+    assign image_count = image_count | plus: 1
+    assign image_list = image_list | append: 'image_1,'
+  endif
+  if section.settings.image_2 != blank
+    assign image_count = image_count | plus: 1
+    assign image_list = image_list | append: 'image_2,'
+  endif
+  if section.settings.image_3 != blank
+    assign image_count = image_count | plus: 1
+    assign image_list = image_list | append: 'image_3,'
+  endif
+  if section.settings.image_4 != blank
+    assign image_count = image_count | plus: 1
+    assign image_list = image_list | append: 'image_4,'
+  endif
+  if section.settings.image_5 != blank
+    assign image_count = image_count | plus: 1
+    assign image_list = image_list | append: 'image_5,'
+  endif
+
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+{%- liquid
+  # mobile padding fallback (from gallery file)
+  assign mobile_padding_top = section.settings.mobile_padding_top
+  if mobile_padding_top == 0 or mobile_padding_top == blank
+    assign mobile_padding_top = section.settings.padding_top | times: 0.75 | round: 0
+  endif
+
+  assign mobile_padding_bottom = section.settings.mobile_padding_bottom
+  if mobile_padding_bottom == 0 or mobile_padding_bottom == blank
+    assign mobile_padding_bottom = section.settings.padding_bottom | times: 0.75 | round: 0
+  endif
+-%}
 
 {%- style -%}
+  /* --- Contact layout padding --- */
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -13,6 +59,13 @@
     }
   }
 
+  /* if using gallery mobile padding (keeps gallery's mobile fallback for gallery area) */
+  .section-{{ section.id }}-padding--mobile {
+    padding-top: {{ mobile_padding_top }}px;
+    padding-bottom: {{ mobile_padding_bottom }}px;
+  }
+
+  /* --- Contact layout --- */
   .contact-layout {
     display: flex;
     flex-direction: column;
@@ -47,37 +100,440 @@
       grid-column: 1 / -1;
     }
   }
+
+  /* --- Contact typography & form tweaks (from your original inline CSS) --- */
+  h2.contact-title {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 110%;
+      letter-spacing: -1px;
+      vertical-align: middle;
+      margin: 0;
+      color: #432F22;
+  }
+
+  .contact-content p {
+      margin: 0;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: 0;
+      vertical-align: middle;
+  }
+
+  .contact-layout__top-text {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+  }
+
+  .contact-layout__image {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      max-width: 531px;
+  }
+
+  .contact {
+      padding: 72px 97px;
+  }
+
+  .contact-layout {
+      display: flex;
+      flex-direction: row;
+      gap: 84px;
+      align-items: center;
+  }
+
+  .field__label {
+      left: 0;
+      font-family: Sofia Sans;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 100%;
+      letter-spacing: 0;
+      vertical-align: middle;
+      top: unset;
+      bottom: 8px;
+  }
+
+  .contact .field:before, .contact .field:after {
+      display: none;
+  }
+
+  .contact .field {
+      border-bottom: 1px solid #767676;
+  }
+
+  .contact .field .field__input {
+      padding: 0 !important;
+  }
+
+  .contact .field:has(textarea#ContactForm-body) {
+      border: 1px solid #767676;
+      border-radius: 4px;
+      margin-top: 44px;
+  }
+
+  textarea#ContactForm-body+.field__label {
+      left: 8px;
+      top: 12px;
+  }
+
+  .contact-layout__form-slot {
+      max-width: 466px;
+      display: flex;
+      height: 100%;
+      align-items: center;
+  }
+
+  .contact__fields {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 100%;
+  }
+
+  .contact .field {
+      width: 100%;
+  }
+
+  form#ContactForm {
+      width: 100%;
+  }
+
+  .contact__button button.button {
+      width: 100%;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0;
+      vertical-align: bottom;
+  }
+
+  .field-title {
+      font-family: 'Source Serif 4';
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0;
+      vertical-align: middle;
+      width: 100%;
+      margin: 0;
+  }
+
+  .contact .field {
+      display: flex;
+      flex-direction: column;
+      min-height: 60px;
+  }
+
+  .contact .field .field__input {margin: 0;}
+
+  textarea#ContactForm-body {
+      border-radius: 4px;
+  }
+
+  .contact .field:has(textarea#ContactForm-body) .field-title {
+      position: absolute;
+      top: -25%;
+      z-index: 1;
+  }
+
+  .field-title {
+      position: absolute;
+      z-index: 1;
+      top: 15%;
+  }
+
+  /* ======================================================
+     GALLERY STYLES (from image-with-text-gallery.liquid)
+     Only activated if >1 gallery image is present
+     ====================================================== */
+
+  {%- if image_count > 1 -%}
+    .image-with-text__gallery-wrapper {
+      position: relative;
+    }
+
+    .image-with-text__gallery-slider {
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .image-with-text__gallery-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .image-with-text__gallery-slider.is-dragging {
+      cursor: grabbing;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .image-with-text__gallery-slider img {
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+    .image-with-text__gallery-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      scroll-snap-align: start;
+      padding: 0;
+      margin: 0;
+    }
+
+    .image-with-text__gallery-slide .image-with-text__media {
+      height: 100%;
+      flex: 1;
+      padding: 0;
+      margin: 0;
+    }
+
+    .image-with-text__gallery-slide .image-with-text__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-with-text__gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 2rem;
+      padding: 1.5rem 0 0;
+    }
+
+    @media screen and (min-width: 750px) {
+      .image-with-text__gallery-dots {
+        padding: 2rem 0 0;
+      }
+    }
+
+    .image-with-text__gallery-dot {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      width: 1.2rem;
+      height: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .image-with-text__gallery-dot .dot {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background-color: rgba(var(--color-foreground), 0.3);
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .image-with-text__gallery-dot.active .dot,
+    .image-with-text__gallery-dot:hover .dot {
+      background-color: rgba(var(--color-foreground), 1);
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  {%- endif -%}
+
+  .image-with-text__gallery-dots {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    margin: 0;
+    bottom: 20px;
+  }
+
+  .image-with-text__gallery-wrapper {
+      position: relative;
+  }
+
+  .image-with-text__gallery-dot.active .dot, .image-with-text__gallery-dot:hover .dot {
+      background: #fff;
+      width: 12px;
+      height: 12px;
+  }
+
+  .image-with-text__gallery-dot .dot {
+      width: 12px;
+      height: 12px;
+      background: transparent;
+      border: 1px solid #fff;
+  }
+
+  /* preserve gallery list styling from gallery file */
+  .image-with-text__text-item.grid__item p {
+      line-height: 1.5em;
+  }
+
+  /* ... additional gallery-related helpers kept as-is ... */
+  .image-with-text .image-with-text__media,
+  .image-with-text .image-with-text__media img {
+    border-radius: 16px!important;
+  }
+
+  @media screen and (max-width: 750px) {
+    .image-with-text .image-with-text__media,
+    .image-with-text .image-with-text__media img {
+      border-radius: 8px!important;
+    }
+
+    .image-with-text__content .image-with-text__text+.button{
+      padding: 10px 16px;
+    }
+  }
+
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width section-{{ section.id }}-padding">
-
-    <!-- *** TEXT NOW ABOVE IMAGE *** -->
-    
-
+  <div class="contact page-width section-{{ section.id }}-padding section-{{ section.id }}-padding--mobile">
     <div class="contact-layout">
-      <!-- IMAGE -->
+      <!-- IMAGE (REPLACED WITH GALLERY) -->
       <div class="contact-layout__image">
         <div class="contact-layout__top-text">
-      {%- if section.settings.heading != blank -%}
-        <h2 class="contact-title inline-richtext {{ section.settings.heading_size }}">
-          {{ section.settings.heading }}
-        </h2>
-        <div class="contact-content">
-          {{ section.settings.content }}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="contact-title inline-richtext {{ section.settings.heading_size }}">
+              {{ section.settings.heading }}
+            </h2>
+            <div class="contact-content">
+              {{ section.settings.content }}
+            </div>
+          {%- endif -%}
         </div>
-      {%- endif -%}
-    </div>
-        {% if section.settings.image != blank %}
-          {{ section.settings.image | image_url: width: 1600 | image_tag }}
-        {% else %}
-          {{ 'image' | placeholder_svg_tag }}
-        {% endif %}
+
+        {%- comment -%}
+          Gallery block (uses image_1..image_5). If only one image is provided, show single image.
+        {%- endcomment -%}
+
+        {%- liquid
+          assign first_image = null
+          for i in (1..5)
+            assign image_setting = 'image_' | append: i
+            assign current_image = section.settings[image_setting]
+            if current_image != blank and first_image == null
+              assign first_image = current_image
+              break
+            endif
+          endfor
+        -%}
+
+        {%- if image_count > 1 -%}
+          <div class="image-with-text__gallery-wrapper" id="Gallery-{{ section.id }}">
+            <div
+              class="image-with-text__media-wrapper image-with-text__gallery-slider"
+              id="ImageSlider-{{ section.id }}"
+              role="region"
+              aria-roledescription="Image gallery"
+              aria-label="Image gallery"
+            >
+              {%- assign slide_index = 0 -%}
+              {%- for i in (1..5) -%}
+                {%- assign image_setting = 'image_' | append: i -%}
+                {%- assign current_image = section.settings[image_setting] -%}
+                {%- if current_image != blank -%}
+                  {%- assign slide_index = slide_index | plus: 1 -%}
+                  <div
+                    class="image-with-text__slide image-with-text__gallery-slide"
+                    id="ImageSlide-{{ section.id }}-{{ slide_index }}"
+                    data-slide-index="{{ slide_index | minus: 1 }}"
+                    role="group"
+                    aria-roledescription="Image"
+                    aria-label="{{ slide_index }} of {{ image_count }}"
+                  >
+                    <div
+                      class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings media"
+                      {% if section.settings.height == 'adapt' and first_image != blank %}
+                        style="padding-bottom: 400px;"
+                      {% endif %}
+                    >
+                      {%- if slide_index == 1 -%}
+                        {{
+                          current_image
+                          | image_url: width: 1500
+                          | image_tag: fetchpriority: fetch_priority, draggable: 'false'
+                        }}
+                      {%- else -%}
+                        {{
+                          current_image
+                          | image_url: width: 1500
+                          | image_tag: loading: 'lazy', fetchpriority: fetch_priority, draggable: 'false'
+                        }}
+                      {%- endif -%}
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+            <div class="image-with-text__gallery-dots">
+              {%- assign dot_index = 0 -%}
+              {%- for i in (1..5) -%}
+                {%- assign image_setting = 'image_' | append: i -%}
+                {%- assign current_image = section.settings[image_setting] -%}
+                {%- if current_image != blank -%}
+                  {%- assign dot_index = dot_index | plus: 1 -%}
+                  <button
+                    type="button"
+                    class="image-with-text__gallery-dot{% if dot_index == 1 %} active{% endif %}"
+                    aria-label="Go to slide {{ dot_index }}"
+                    data-slide-index="{{ dot_index | minus: 1 }}"
+                    aria-current="{% if dot_index == 1 %}true{% else %}false{% endif %}"
+                  >
+                    <span class="dot"></span>
+                  </button>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- else -%}
+          {%- assign single_image = section.settings.image_1 | default: section.settings.image_2 | default: section.settings.image_3 | default: section.settings.image_4 | default: section.settings.image_5 -%}
+          <div
+            class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings media {% if single_image == blank %}image-with-text__media--placeholder placeholder{% endif %}"
+            {% if section.settings.height == 'adapt' and single_image != blank %}
+              style="padding-bottom: 400px;"
+            {% endif %}
+          >
+            {%- if single_image != blank -%}
+              {{
+                single_image
+                | image_url: width: 1500
+                | image_tag: fetchpriority: fetch_priority
+              }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag }}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
       </div>
 
       <!-- FORM SLOT (OLD TEXT AREA REPLACED) -->
       <div class="contact-layout__form-slot">
-        <!-- ⬇️⬇️⬇️  PASTE YOUR CONTACT FORM CODE FROM OTHER SECTION HERE  ⬇️⬇️⬇️ -->
+        <!-- ⬇️⬇️⬇️  PASTE YOUR CONTACT FORM CODE  ⬇️⬇️⬇️ -->
 {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
 {%- if form.posted_successfully? -%}
 <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
@@ -193,160 +649,19 @@ Skicka
 </button>
 </div>
 {%- endform -%}
-        <!-- ⬆️⬆️⬆️  END PASTE AREA  ⬆️⬆️⬆️ -->
+        <!-- ⬆️⬆️⬆️  END FORM AREA  ⬆️⬆️⬆️ -->
       </div>
     </div>
 
   </div>
 </div>
 
-<style>
-  body.gradient.animate--hover-default.st-wishlist-initialized {}
-
-h2.contact-title {
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 110.00000000000001%;
-    letter-spacing: -1px;
-    vertical-align: middle;
-    margin: 0;
-    color: #432F22;
-}
-
-.contact-content p {
-    margin: 0;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    letter-spacing: 0;
-    vertical-align: middle;
-}
-
-.contact-layout__top-text {
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
-}
-
-.contact-layout__image {
-    display: flex;
-    flex-direction: column;
-    gap: 26px;
-    max-width: 531px;
-}
-
-.contact {
-    padding: 72px 97px;
-}
-
-.contact-layout {
-    display: flex;
-    flex-direction: row;
-    gap: 84px;
-    align-items: center;
-}
-
-.field__label {
-    left: 0;
-    font-family: Sofia Sans;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 100%;
-    letter-spacing: 0;
-    vertical-align: middle;
-    top: unset;
-    bottom: 8px;
-}
-
-.contact .field:before, .contact .field:after {
-    display: none;
-}
-
-.contact .field {
-    border-bottom: 1px solid #767676;
-}
-
-.contact .field .field__input {
-    padding: 0 !important;
-}
-
-.contact .field:has(textarea#ContactForm-body) {
-    border: 1px solid #767676;
-    border-radius: 4px;
-    margin-top: 44px;
-}
-
-textarea#ContactForm-body+.field__label {
-    left: 8px;
-    top: 12px;
-}
-
-.contact-layout__form-slot {
-    max-width: 466px;
-    display: flex;
-    height: 100%;
-    align-items: center;
-}
-
-.contact__fields {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 100%;
-}
-
-.contact .field {
-    width: 100%;
-}
-
-form#ContactForm {
-    width: 100%;
-}
-
-.contact__button button.button {
-    width: 100%;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 140%;
-    letter-spacing: 0;
-    vertical-align: bottom;
-}
-
-.field-title {
-    font-family: 'Source Serif 4';
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 140%;
-    letter-spacing: 0;
-    vertical-align: middle;
-    width: 100%;
-    margin: 0;
-}
-
-.contact .field {
-    display: flex;
-    flex-direction: column;
-    min-height: 60px;
-}
-
-.contact .field .field__input {margin: 0;}
-
-textarea#ContactForm-body {
-    border-radius: 4px;
-}
-
-.contact .field:has(textarea#ContactForm-body) .field-title {
-    position: absolute;
-    top: -25%;
-    z-index: 1;
-}
-
-.field-title {
-    position: absolute;
-    z-index: 1;
-    top: 15%;
-}
-</style>
+{%- comment -%}
+  Schema: merged settings from your original contact section and the gallery section.
+  - heading / heading_size / content / color_scheme / padding_top / padding_bottom
+  - gallery image pickers (image_1..image_5)
+  - gallery display options (height, desktop image width)
+{%- endcomment -%}
 
 {% schema %}
 {
@@ -378,22 +693,91 @@ textarea#ContactForm-body {
       "id": "content",
       "label": "Content"
     },
+
+    { "type": "header", "content": "Gallery images (optional)" },
     {
       "type": "image_picker",
-      "id": "image",
-      "label": "Main image"
+      "id": "image_1",
+      "label": "Image 1"
     },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_5",
+      "label": "Image 5"
+    },
+
+    { "type": "checkbox", "id": "show_heading_above_mobile", "default": false, "label": "Show heading above gallery on mobile" },
+
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        { "value": "adapt", "label": "Adapt" },
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "adapt",
+      "label": "Gallery height"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_width",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ],
+      "default": "medium",
+      "label": "Desktop image width"
+    },
+
+    {
+      "type": "select",
+      "id": "image_behavior",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "ambient", "label": "Ambient (subtle motion)" },
+        { "value": "zoom-in", "label": "Zoom-in" }
+      ],
+      "default": "none",
+      "label": "Image animation behavior"
+    },
+
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "Color scheme",
+      "label": "Color scheme (section wrapper)",
       "default": "scheme-1"
     },
+    {
+      "type": "color_scheme",
+      "id": "section_color_scheme",
+      "label": "Color scheme (gallery inner)",
+      "default": "scheme-1"
+    },
+
+    { "type": "header", "content": "Padding (desktop)" },
     {
       "type": "range",
       "id": "padding_top",
       "min": 0,
-      "max": 100,
+      "max": 200,
       "step": 4,
       "unit": "px",
       "label": "Padding top",
@@ -403,15 +787,148 @@ textarea#ContactForm-body {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
-      "max": 100,
+      "max": 200,
       "step": 4,
       "unit": "px",
       "label": "Padding bottom",
       "default": 36
+    },
+
+    { "type": "paragraph", "content": "Mobile padding (leave 0 to use 75% of desktop padding)" },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top (mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom (mobile)",
+      "default": 0
     }
   ],
+
   "presets": [
     { "name": "Custom Contact Layout" }
   ]
 }
 {% endschema %}
+
+{%- if image_count > 1 -%}
+<script>
+(function() {
+  const galleryId = 'Gallery-{{ section.id }}';
+  const gallery = document.getElementById(galleryId);
+  if (!gallery) return;
+
+  const slider = gallery.querySelector('#ImageSlider-{{ section.id }}');
+  const dots = gallery.querySelectorAll('.image-with-text__gallery-dot');
+  const slides = gallery.querySelectorAll('.image-with-text__gallery-slide');
+
+  if (!slider || dots.length === 0) return;
+
+  // Update active dot based on scroll position
+  function updateActiveDot() {
+    const scrollLeft = slider.scrollLeft;
+    const slideWidth = slider.clientWidth;
+    const currentIndex = Math.round(scrollLeft / slideWidth);
+
+    dots.forEach((dot, index) => {
+      if (index === currentIndex) {
+        dot.classList.add('active');
+        dot.setAttribute('aria-current', 'true');
+      } else {
+        dot.classList.remove('active');
+        dot.setAttribute('aria-current', 'false');
+      }
+    });
+  }
+
+  // Handle dot click
+  dots.forEach((dot) => {
+    dot.addEventListener('click', function() {
+      const slideIndex = parseInt(this.getAttribute('data-slide-index'));
+      const slide = slides[slideIndex];
+      if (slide) {
+        slide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      }
+    });
+  });
+
+  // Update dots on scroll
+  slider.addEventListener('scroll', updateActiveDot);
+
+  // Desktop drag support
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+    // Only handle left mouse button
+    if (e.button !== 0) return;
+
+    isDown = true;
+    slider.classList.add('is-dragging');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+    e.preventDefault();
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    if (isDown) {
+      isDown = false;
+      slider.classList.remove('is-dragging');
+    }
+  });
+
+  slider.addEventListener('mouseup', () => {
+    if (isDown) {
+      isDown = false;
+      slider.classList.remove('is-dragging');
+    }
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  // Prevent default drag behavior on images
+  slider.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+    return false;
+  });
+
+  // Prevent text selection while dragging
+  slider.addEventListener('selectstart', (e) => {
+    if (isDown) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Prevent context menu during drag
+  slider.addEventListener('contextmenu', (e) => {
+    if (isDown) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Initial update
+  updateActiveDot();
+})();
+</script>
+{%- endif -%}
