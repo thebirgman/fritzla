@@ -118,7 +118,7 @@ placeholder="{{ 'templates.contact.form.name' | t }}"
 </div>
 <div class="field field--with-error">
   <h3 class="field-title">
-    För- och efternamn*
+    Mailadress*
   </h3>
 <input
 autocomplete="email"
@@ -156,7 +156,7 @@ Ex. lena.andersson@gmail.com
 </div>
 <div class="field">
   <h3 class="field-title">
-    För- och efternamn*
+    Telefonnummer
   </h3>
 <input
 type="tel"
@@ -172,7 +172,7 @@ placeholder="{{ 'templates.contact.form.phone' | t }}"
 </div>
 <div class="field">
   <h3 class="field-title">
-    För- och efternamn*
+    Dina önskemål
   </h3>
 <textarea
 rows="10"
@@ -310,6 +310,41 @@ form#ContactForm {
     line-height: 140%;
     letter-spacing: 0;
     vertical-align: bottom;
+}
+
+.field-title {
+    font-family: 'Source Serif 4';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+    vertical-align: middle;
+    width: 100%;
+    margin: 0;
+}
+
+.contact .field {
+    display: flex;
+    flex-direction: column;
+    min-height: 60px;
+}
+
+.contact .field .field__input {margin: 0;}
+
+textarea#ContactForm-body {
+    border-radius: 4px;
+}
+
+.contact .field:has(textarea#ContactForm-body) .field-title {
+    position: absolute;
+    top: -25%;
+    z-index: 1;
+}
+
+.field-title {
+    position: absolute;
+    z-index: 1;
+    top: 15%;
 }
 </style>
 
