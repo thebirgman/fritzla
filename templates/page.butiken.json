@@ -58,7 +58,7 @@
       "settings": {
         "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_1.png",
         "image_mobile": "shopify://shop_images/Mobile.png",
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 50,
         "image_height": "custom",
         "custom_height": 650,
         "image_behavior": "none",
