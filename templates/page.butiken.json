@@ -20,6 +20,17 @@
         "padding_bottom": 28
       }
     },
+    "contact_form_dkbinY": {
+      "type": "contact-form",
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "heading": "Contact form",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "image_banner_aKpcDA": {
       "type": "image-banner",
       "blocks": {
@@ -474,6 +485,7 @@
   },
   "order": [
     "main",
+    "contact_form_dkbinY",
     "image_banner_aKpcDA",
     "image_with_text_gallery_PFHAUV",
     "popular_categories_Jp6Dbh",
