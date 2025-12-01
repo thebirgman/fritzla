@@ -1,0 +1,261 @@
+{%- liquid
+  assign image_count = section.blocks.size
+-%}
+
+{%- style -%}
+  .scrolling-images-section-{{ section.id }} {
+    position: relative;
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+  
+  .scrolling-images-section-{{ section.id }} .scrolling-images__container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .scrolling-images-section-{{ section.id }} .scrolling-images__wrapper {
+    display: flex;
+    width: fit-content;
+  }
+  
+  .scrolling-images-section-{{ section.id }} .scrolling-images__track {
+    display: flex;
+    gap: 1rem;
+    animation: scrolling-images-{{ section.id }} {{ section.settings.autoplay_speed | default: 30 }}s linear infinite;
+    will-change: transform;
+  }
+  
+  .scrolling-images-section-{{ section.id }} .scrolling-images__wrapper:hover .scrolling-images__track {
+    animation-play-state: paused;
+  }
+  
+  .scrolling-images-section-{{ section.id }} .scrolling-images__item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: {{ section.settings.border_radius | default: 12 }}px;
+    width: calc((100vw - ({{ section.settings.desktop_columns | default: 3 }} - 1) * 1rem) / {{ section.settings.desktop_columns | default: 3 }});
+    max-width: calc((100% - ({{ section.settings.desktop_columns | default: 3 }} - 1) * 1rem) / {{ section.settings.desktop_columns | default: 3 }});
+    {%- if section.settings.aspect_ratio == 'square' -%}
+      aspect-ratio: 1;
+    {%- elsif section.settings.aspect_ratio == 'landscape_16_9' -%}
+      aspect-ratio: 16 / 9;
+    {%- elsif section.settings.aspect_ratio == 'landscape_4_3' -%}
+      aspect-ratio: 4 / 3;
+    {%- elsif section.settings.aspect_ratio == 'portrait_9_16' -%}
+      aspect-ratio: 9 / 16;
+    {%- elsif section.settings.aspect_ratio == 'portrait_3_4' -%}
+      aspect-ratio: 3 / 4;
+    {%- elsif section.settings.aspect_ratio == 'natural' -%}
+      height: auto;
+    {%- else -%}
+      aspect-ratio: 1;
+    {%- endif -%}
+  }
+  
+  {%- if section.settings.aspect_ratio == 'natural' -%}
+    .scrolling-images-section-{{ section.id }} .scrolling-images__item img {
+      height: auto;
+    }
+  {%- endif -%}
+  
+  .scrolling-images-section-{{ section.id }} .scrolling-images__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: {{ section.settings.border_radius | default: 12 }}px;
+    transition: transform 0.3s ease;
+  }
+  
+  .scrolling-images-section-{{ section.id }} .scrolling-images__item:hover img {
+    transform: scale(1.05);
+  }
+  
+  @keyframes scrolling-images-{{ section.id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Mobile styles */
+  @media screen and (max-width: 749px) {
+    .scrolling-images-section-{{ section.id }} {
+      padding: 2rem 0;
+    }
+    
+    .scrolling-images-section-{{ section.id }} .scrolling-images__item {
+      width: calc((100vw - ({{ section.settings.mobile_columns | default: 2 }} - 1) * 1rem) / {{ section.settings.mobile_columns | default: 2 }});
+      max-width: calc((100% - ({{ section.settings.mobile_columns | default: 2 }} - 1) * 1rem) / {{ section.settings.mobile_columns | default: 2 }});
+    }
+  }
+{%- endstyle -%}
+
+<div class="scrolling-images-section-{{ section.id }} gradient color-{{ section.settings.color_scheme }}">
+  {%- if image_count > 0 -%}
+    <div class="scrolling-images__container">
+      <div class="scrolling-images__wrapper">
+        <div class="scrolling-images__track">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.image != blank -%}
+              <div class="scrolling-images__item" {{ block.shopify_attributes }}>
+                {{
+                  block.settings.image
+                  | image_url: width: 800
+                  | image_tag: loading: 'lazy', alt: block.settings.image.alt | default: 'Scrolling image'
+                }}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+          <!-- Duplicate items for seamless infinite loop -->
+          {%- for block in section.blocks -%}
+            {%- if block.settings.image != blank -%}
+              <div class="scrolling-images__item">
+                {{
+                  block.settings.image
+                  | image_url: width: 800
+                  | image_tag: loading: 'lazy', alt: block.settings.image.alt | default: 'Scrolling image'
+                }}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Scrolling Images",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay speed",
+      "default": 30,
+      "info": "Speed in seconds for one complete cycle"
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "min": 1,
+      "max": 8,
+      "step": 0.2,
+      "label": "Number of columns (desktop)",
+      "default": 3,
+      "info": "Number of columns displayed on desktop"
+    },
+    {
+      "type": "range",
+      "id": "mobile_columns",
+      "min": 1,
+      "max": 6,
+      "step": 0.2,
+      "label": "Number of columns (mobile)",
+      "default": 2,
+      "info": "Number of columns displayed on mobile"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        {
+          "value": "square",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "landscape_16_9",
+          "label": "Landscape (16:9)"
+        },
+        {
+          "value": "landscape_4_3",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "portrait_3_4",
+          "label": "Portrait (3:4)"
+        },
+        {
+          "value": "portrait_9_16",
+          "label": "Portrait (9:16)"
+        },
+        {
+          "value": "natural",
+          "label": "Natural (auto)"
+        }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Image border radius",
+      "default": 12,
+      "info": "Border radius for images in pixels"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling Images",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
