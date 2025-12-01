@@ -471,7 +471,8 @@
         "desktop_columns": 4.6,
         "mobile_columns": 1.8,
         "aspect_ratio": "square",
-        "border_radius": 12
+        "border_radius": 12,
+        "visibility": "desktop_only"
       }
     },
     "image_with_text_gallery_HkfKqi": {
@@ -585,7 +586,8 @@
         "desktop_columns": 4.6,
         "mobile_columns": 1.8,
         "aspect_ratio": "square",
-        "border_radius": 12
+        "border_radius": 12,
+        "visibility": "mobile_only"
       }
     }
   },
