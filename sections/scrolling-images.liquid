@@ -84,6 +84,21 @@
     }
   }
   
+  /* Visibility settings */
+  {%- if section.settings.visibility == 'desktop_only' -%}
+    @media screen and (max-width: 749px) {
+      .scrolling-images-section-{{ section.id }} {
+        display: none !important;
+      }
+    }
+  {%- elsif section.settings.visibility == 'mobile_only' -%}
+    @media screen and (min-width: 750px) {
+      .scrolling-images-section-{{ section.id }} {
+        display: none !important;
+      }
+    }
+  {%- endif -%}
+  
   /* Mobile styles */
   @media screen and (max-width: 749px) {
     .scrolling-images-section-{{ section.id }} {
@@ -216,6 +231,27 @@
       "label": "Image border radius",
       "default": 12,
       "info": "Border radius for images in pixels"
+    },
+    {
+      "type": "select",
+      "id": "visibility",
+      "label": "Visibility",
+      "options": [
+        {
+          "value": "both",
+          "label": "Both desktop and mobile"
+        },
+        {
+          "value": "desktop_only",
+          "label": "Desktop only"
+        },
+        {
+          "value": "mobile_only",
+          "label": "Mobile only"
+        }
+      ],
+      "default": "both",
+      "info": "Choose which devices to show this section on"
     }
   ],
   "blocks": [

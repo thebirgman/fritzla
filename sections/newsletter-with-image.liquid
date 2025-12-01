@@ -58,6 +58,9 @@
         <h2 class="title inline-richtext {{ section.settings.heading_size }}">
           {{ section.settings.heading }}
         </h2>
+        <div class="contact-content">
+          {{ section.settings.content }}
+        </div>
       {%- endif -%}
     </div>
 
@@ -208,6 +211,11 @@ placeholder="{{ 'templates.contact.form.comment' | t }}"
       ],
       "default": "h1",
       "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
     },
     {
       "type": "image_picker",
