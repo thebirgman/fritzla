@@ -130,60 +130,15 @@
         "mobile_padding_bottom": 24
       }
     },
-    "image_with_text_gallery_EUrDW9": {
-      "type": "image-with-text-gallery",
-      "blocks": {
-        "heading_AWUdTk": {
-          "type": "heading",
-          "settings": {
-            "heading": "Vi hjälper dig till ett genomtänkt och komplett hem!",
-            "text_type": "h4",
-            "heading_size": "h2"
-          }
-        },
-        "text_9HcfXj": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Fritsla Tyglager - över 50 års erfarenhet inom textil och inredning. Vårt kunniga team ger dig personlig service och hjälper dig förverkliga din vision - från målsättning till slutresultat. Med djup kunskap och brett sortiment gör vi din inredningsresa enkel och inspirerande.</p><ul><li>Over 50 års erfarenhet inom textil och inredning.</li><li>Skräddarsydda lösningar för dina behov</li><li>Personlig guidning genom hela processen</li></ul><p></p>",
-            "text_type": "p",
-            "text_style": "body"
-          }
-        },
-        "button_EmpJxA": {
-          "type": "button",
-          "settings": {
-            "button_label": "Kontakta oss",
-            "button_link": "#",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_AWUdTk",
-        "text_9HcfXj",
-        "button_EmpJxA"
-      ],
-      "name": "Image with text (gallery)",
+    "newsletter_with_image_EEHxQJ": {
+      "type": "newsletter-with-image",
+      "name": "Custom Contact Layout",
       "settings": {
-        "image_1": "shopify://shop_images/image.jpg",
-        "image_2": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
-        "image_3": "shopify://shop_images/image.jpg",
-        "image_4": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
-        "show_heading_above_mobile": true,
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
-        "color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "mobile_padding_top": 24,
-        "mobile_padding_bottom": 24
+        "heading": "Get in touch",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
@@ -191,6 +146,6 @@
     "main",
     "image_banner_aKpcDA",
     "image_with_text_gallery_PFHAUV",
-    "image_with_text_gallery_EUrDW9"
+    "newsletter_with_image_EEHxQJ"
   ]
 }
