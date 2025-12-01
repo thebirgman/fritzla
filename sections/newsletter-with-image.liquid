@@ -188,6 +188,83 @@ placeholder="{{ 'templates.contact.form.comment' | t }}"
   </div>
 </div>
 
+<style>
+  body.gradient.animate--hover-default.st-wishlist-initialized {}
+
+h2.contact-title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 110.00000000000001%;
+    letter-spacing: -1px;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.contact-content p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0;
+    vertical-align: middle;
+}
+
+.contact-layout__top-text {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.contact-layout__image {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    max-width: 531px;
+}
+
+.contact {
+    padding: 72px 97px;
+}
+
+.contact-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 84px;
+    align-items: center;
+}
+
+.contact-layout__form-slot {
+    max-width: 466px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.contact__fields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+}
+
+.contact .field {
+    width: 100%;
+}
+
+form#ContactForm {
+    width: 100%;
+}
+
+.contact__button button.button {
+    width: 100%;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+    vertical-align: bottom;
+}
+</style>
+
 {% schema %}
 {
   "name": "Custom Contact Layout",
