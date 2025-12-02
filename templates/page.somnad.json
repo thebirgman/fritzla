@@ -20,45 +20,45 @@
         "padding_bottom": 28
       }
     },
-    "image_banner_aKpcDA": {
+    "image_banner_p9fxwE": {
       "type": "image-banner",
       "blocks": {
-        "text_kwgyAY": {
+        "text_8UDmhd": {
           "type": "text",
           "settings": {
-            "text": "<h2><strong>Skapa ditt drömhem tillsammans med oss</strong></h2>",
+            "text": "<h2><strong>Inredningsservice</strong></h2>",
             "text_style": "body",
-            "enable_custom_font_size": false,
-            "custom_font_size": 48,
+            "enable_custom_font_size": true,
+            "custom_font_size": 40,
             "enable_max_width": true,
-            "max_width": 450,
+            "max_width": 480,
             "margin_top": 0,
             "margin_bottom": 0
           }
         },
-        "buttons_ra6ftd": {
-          "type": "buttons",
+        "text_6QHdAa": {
+          "type": "text",
           "settings": {
-            "button_label_1": "Handla nu",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "margin_top": 32,
+            "text": "<p>Vi hjälper dig att skapa ett hem som speglar din stil och känns både harmoniskt och funktionellt. Med känsla för färg, form och detaljer erbjuder vi lösningar som gör vardagen lite vackrare.</p>",
+            "text_style": "body",
+            "enable_custom_font_size": true,
+            "custom_font_size": 16,
+            "enable_max_width": true,
+            "max_width": 710,
+            "margin_top": 0,
             "margin_bottom": 0
           }
         }
       },
       "block_order": [
-        "text_kwgyAY",
-        "buttons_ra6ftd"
+        "text_8UDmhd",
+        "text_6QHdAa"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_1.png",
-        "image_mobile": "shopify://shop_images/Mobile.png",
-        "image_overlay_opacity": 40,
+        "image": "shopify://shop_images/06f55f72a4b07dc70ed5fe379abfa890c5ace3ba_1.png",
+        "image_mobile": "shopify://shop_images/06f55f72a4b07dc70ed5fe379abfa890c5ace3ba_2.png",
+        "image_overlay_opacity": 50,
         "image_height": "custom",
         "custom_height": 650,
         "image_behavior": "none",
@@ -74,26 +74,26 @@
         "show_text_below": false
       }
     },
-    "image_with_text_gallery_PFHAUV": {
+    "image_with_text_gallery_3RQztG": {
       "type": "image-with-text-gallery",
       "blocks": {
-        "heading_iBfzKM": {
+        "heading_8zEGP7": {
           "type": "heading",
           "settings": {
-            "heading": "Vi hjälper dig till ett genomtänkt och komplett hem!",
+            "heading": "Inredningsservice för ditt hem!",
             "text_type": "h4",
             "heading_size": "h2"
           }
         },
-        "text_YXqGzh": {
+        "text_8hzpyW": {
           "type": "text",
           "settings": {
-            "text": "<p>Fritsla Tyglager - över 50 års erfarenhet inom textil och inredning. Vårt kunniga team ger dig personlig service och hjälper dig förverkliga din vision - från målsättning till slutresultat. Med djup kunskap och brett sortiment gör vi din inredningsresa enkel och inspirerande.</p><ul><li>Over 50 års erfarenhet inom textil och inredning.</li><li>Skräddarsydda lösningar för dina behov</li><li>Personlig guidning genom hela processen</li></ul><p></p>",
+            "text": "<p>Vi hjälper dig att skapa ett hem som är både vackert och funktionellt – en plats där du verkligen trivs.</p><p>Vi erbjuder personlig rådgivning och skräddarsydda lösningar – från färgval och möblering till belysning och detaljer. Med vår erfarenhet och känsla för estetik skapar vi hem som kombinerar funktion, komfort och design.</p><ul><li>Helhetsgrepp & detaljfokus</li><li>Trygg och smidig process</li><li>Erfarenhet & känsla för design</li></ul>",
             "text_type": "p",
             "text_style": "body"
           }
         },
-        "button_q3yVhi": {
+        "button_fmw7rW": {
           "type": "button",
           "settings": {
             "button_label": "Kontakta oss",
@@ -103,16 +103,16 @@
         }
       },
       "block_order": [
-        "heading_iBfzKM",
-        "text_YXqGzh",
-        "button_q3yVhi"
+        "heading_8zEGP7",
+        "text_8hzpyW",
+        "button_fmw7rW"
       ],
       "name": "Image with text (gallery)",
       "settings": {
-        "image_1": "shopify://shop_images/image.jpg",
-        "image_2": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
-        "image_3": "shopify://shop_images/image.jpg",
-        "image_4": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "image_1": "shopify://shop_images/40eb9e5c4129c202efa9a738792f1cf148cca47b_1.png",
+        "image_2": "shopify://shop_images/40eb9e5c4129c202efa9a738792f1cf148cca47b_1_9caed144-cf69-4961-b280-b2c35b2ea01e.png",
+        "image_3": "shopify://shop_images/40eb9e5c4129c202efa9a738792f1cf148cca47b_1_c23eb306-0fea-4465-90b7-628d9195a620.png",
+        "image_4": "shopify://shop_images/40eb9e5c4129c202efa9a738792f1cf148cca47b_1_24428c43-e4f0-469c-b222-c9798e3eaf66.png",
         "show_heading_above_mobile": true,
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -122,18 +122,102 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
-        "color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "section_color_scheme": "scheme-9bf48ca7-eb1f-4ff4-a686-387e6c25e902",
+        "color_scheme": "scheme-9bf48ca7-eb1f-4ff4-a686-387e6c25e902",
         "padding_top": 72,
         "padding_bottom": 72,
         "mobile_padding_top": 24,
         "mobile_padding_bottom": 24
       }
     },
-    "image_with_text_gallery_EUrDW9": {
+    "newsletter_with_image_TFapdR": {
+      "type": "newsletter-with-image",
+      "name": "Custom Contact Layout",
+      "settings": {
+        "heading": "Fyll i formuläret så hör vi av oss!",
+        "heading_size": "h2",
+        "content": "<p>Berätta kort om dina behov och önskemål så återkommer vi.Oavsett om det gäller små förändringar eller en helhetslösning ser vi fram emot att skapa ditt drömhem tillsammans med dig.</p>",
+        "image_1": "shopify://shop_images/39c0e1503953c249add435ae8ed222c905b1d815.jpg",
+        "image_2": "shopify://shop_images/39c0e1503953c249add435ae8ed222c905b1d815_2e756059-d024-4150-8848-b1525cb757a1.jpg",
+        "image_3": "shopify://shop_images/39c0e1503953c249add435ae8ed222c905b1d815_0d4abfbe-b68d-4924-b009-45c03364f99d.jpg",
+        "image_4": "shopify://shop_images/39c0e1503953c249add435ae8ed222c905b1d815_a214b926-2485-455e-bd8e-b5b0b21280a6.jpg",
+        "show_heading_above_mobile": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "image_behavior": "none",
+        "color_scheme": "scheme-50eb2b2b-8179-40ba-8a8c-4d7fb6415e44",
+        "section_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "image_with_text_gallery_jMfkGK": {
       "type": "image-with-text-gallery",
       "blocks": {
-        "heading_AWUdTk": {
+        "heading_Cp4cpW": {
+          "type": "heading",
+          "settings": {
+            "heading": "Planera ditt besök!",
+            "text_type": "h4",
+            "heading_size": "h2"
+          }
+        },
+        "text_iH9kq6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ta en titt på kartan och upptäck hur du hittar hit på bästa sätt. Här ser du entréer, parkering och viktiga platser som gör ditt besök både smidigt och trevligt. Vi ser fram emot att välkomna dig!</p>",
+            "text_type": "p",
+            "text_style": "body"
+          }
+        },
+        "address_afg8cc": {
+          "type": "address",
+          "settings": {
+            "address_line": "<p>Adress:<br/>Aratorpsvägen 14<br/>511 71<br/>Fritsla</p>",
+            "contact_line": "<p>Öppettider:<br/>Mån-Fre: 10:00-18:00<br/>Lördag: 10:00-15:00<br/>Stängt röda dagar<br/><br/></p>"
+          }
+        },
+        "button_DPBzkd": {
+          "type": "button",
+          "settings": {
+            "button_label": "Hitta hit",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Cp4cpW",
+        "text_iH9kq6",
+        "address_afg8cc",
+        "button_DPBzkd"
+      ],
+      "name": "Image with text (gallery)",
+      "settings": {
+        "image_1": "shopify://shop_images/d3c5d0cfe838bb219a9d521701d3c300fc103b64.png",
+        "show_heading_above_mobile": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-9bf48ca7-eb1f-4ff4-a686-387e6c25e902",
+        "color_scheme": "scheme-9bf48ca7-eb1f-4ff4-a686-387e6c25e902",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 24
+      }
+    },
+    "image_with_text_gallery_Ff3UbC": {
+      "type": "image-with-text-gallery",
+      "blocks": {
+        "heading_DmakNH": {
           "type": "heading",
           "settings": {
             "heading": "Vi hjälper dig till ett genomtänkt och komplett hem!",
@@ -141,27 +225,18 @@
             "heading_size": "h2"
           }
         },
-        "text_9HcfXj": {
+        "text_VyQCt3": {
           "type": "text",
           "settings": {
             "text": "<p>Fritsla Tyglager - över 50 års erfarenhet inom textil och inredning. Vårt kunniga team ger dig personlig service och hjälper dig förverkliga din vision - från målsättning till slutresultat. Med djup kunskap och brett sortiment gör vi din inredningsresa enkel och inspirerande.</p><ul><li>Over 50 års erfarenhet inom textil och inredning.</li><li>Skräddarsydda lösningar för dina behov</li><li>Personlig guidning genom hela processen</li></ul><p></p>",
             "text_type": "p",
             "text_style": "body"
           }
-        },
-        "button_EmpJxA": {
-          "type": "button",
-          "settings": {
-            "button_label": "Kontakta oss",
-            "button_link": "#",
-            "button_style_secondary": false
-          }
         }
       },
       "block_order": [
-        "heading_AWUdTk",
-        "text_9HcfXj",
-        "button_EmpJxA"
+        "heading_DmakNH",
+        "text_VyQCt3"
       ],
       "name": "Image with text (gallery)",
       "settings": {
@@ -178,8 +253,8 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
-        "color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "section_color_scheme": "scheme-50eb2b2b-8179-40ba-8a8c-4d7fb6415e44",
+        "color_scheme": "scheme-50eb2b2b-8179-40ba-8a8c-4d7fb6415e44",
         "padding_top": 72,
         "padding_bottom": 72,
         "mobile_padding_top": 24,
@@ -189,8 +264,10 @@
   },
   "order": [
     "main",
-    "image_banner_aKpcDA",
-    "image_with_text_gallery_PFHAUV",
-    "image_with_text_gallery_EUrDW9"
+    "image_banner_p9fxwE",
+    "image_with_text_gallery_3RQztG",
+    "newsletter_with_image_TFapdR",
+    "image_with_text_gallery_jMfkGK",
+    "image_with_text_gallery_Ff3UbC"
   ]
 }
