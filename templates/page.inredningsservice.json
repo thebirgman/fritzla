@@ -20,45 +20,45 @@
         "padding_bottom": 28
       }
     },
-    "image_banner_aKpcDA": {
+    "image_banner_aUi6y4": {
       "type": "image-banner",
       "blocks": {
-        "text_kwgyAY": {
+        "text_RjwPAM": {
           "type": "text",
           "settings": {
-            "text": "<h2><strong>Skapa ditt drömhem tillsammans med oss</strong></h2>",
+            "text": "<h2><strong>Inredningsservice</strong></h2>",
             "text_style": "body",
-            "enable_custom_font_size": false,
-            "custom_font_size": 48,
+            "enable_custom_font_size": true,
+            "custom_font_size": 40,
             "enable_max_width": true,
-            "max_width": 450,
+            "max_width": 480,
             "margin_top": 0,
             "margin_bottom": 0
           }
         },
-        "buttons_ra6ftd": {
-          "type": "buttons",
+        "text_jziYwp": {
+          "type": "text",
           "settings": {
-            "button_label_1": "Handla nu",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "margin_top": 32,
+            "text": "<p>Vi hjälper dig att skapa ett hem som speglar din stil och känns både harmoniskt och funktionellt. Med känsla för färg, form och detaljer erbjuder vi lösningar som gör vardagen lite vackrare.</p>",
+            "text_style": "body",
+            "enable_custom_font_size": true,
+            "custom_font_size": 16,
+            "enable_max_width": true,
+            "max_width": 710,
+            "margin_top": 0,
             "margin_bottom": 0
           }
         }
       },
       "block_order": [
-        "text_kwgyAY",
-        "buttons_ra6ftd"
+        "text_RjwPAM",
+        "text_jziYwp"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_1.png",
         "image_mobile": "shopify://shop_images/Mobile.png",
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 50,
         "image_height": "custom",
         "custom_height": 650,
         "image_behavior": "none",
@@ -156,7 +156,7 @@
   },
   "order": [
     "main",
-    "image_banner_aKpcDA",
+    "image_banner_aUi6y4",
     "image_with_text_gallery_PFHAUV",
     "newsletter_with_image_EEHxQJ"
   ]
