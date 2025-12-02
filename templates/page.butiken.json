@@ -137,37 +137,26 @@
           "type": "category",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/f48ae081981ff495b1147e90fda375e159a81406.png",
-            "title": "Hemtextil",
+            "image": "shopify://shop_images/06f55f72a4b07dc70ed5fe379abfa890c5ace3ba.png",
+            "title": "Inredningsservice",
             "url": "shopify://collections",
-            "button_label": "Handla nu"
+            "button_label": ""
           }
         },
         "category_PfLxjt": {
           "type": "category",
           "settings": {
             "collection": "",
-            "image": "shopify://shop_images/303d333850d985cd77c6fd8c400fc8f51b619ec4.png",
-            "title": "Möbler",
+            "image": "shopify://shop_images/40eb9e5c4129c202efa9a738792f1cf148cca47b.png",
+            "title": "Sömnad",
             "url": "shopify://collections/belysning",
-            "button_label": "Handla nu"
-          }
-        },
-        "category_bUwziE": {
-          "type": "category",
-          "settings": {
-            "collection": "belysning",
-            "image": "shopify://shop_images/d986c5980bb13f78642fbd39d5b9a23414ffd000.png",
-            "title": "",
-            "url": "",
-            "button_label": "Handla nu"
+            "button_label": ""
           }
         }
       },
       "block_order": [
         "category_kUnrkm",
-        "category_PfLxjt",
-        "category_bUwziE"
+        "category_PfLxjt"
       ],
       "name": "Popular Categories",
       "settings": {
