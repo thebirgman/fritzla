@@ -107,6 +107,9 @@
         "text_YXqGzh",
         "button_q3yVhi"
       ],
+      "custom_css": [
+        "@media screen and (max-width: 768px) {{margin-top: 40px;}}"
+      ],
       "name": "Image with text (gallery)",
       "settings": {
         "image_1": "shopify://shop_images/Frame_44013.jpg",
