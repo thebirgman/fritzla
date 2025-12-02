@@ -56,8 +56,8 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_1.png",
-        "image_mobile": "shopify://shop_images/Mobile.png",
+        "image": "shopify://shop_images/06f55f72a4b07dc70ed5fe379abfa890c5ace3ba_1.png",
+        "image_mobile": "shopify://shop_images/06f55f72a4b07dc70ed5fe379abfa890c5ace3ba_2.png",
         "image_overlay_opacity": 50,
         "image_height": "custom",
         "custom_height": 650,
