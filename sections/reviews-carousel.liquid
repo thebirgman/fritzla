@@ -190,6 +190,7 @@
     .reviews-carousel__card.active {
         transform: scale(1);
         opacity: 1;
+        min-width: 230px;
     }
 
     .reviews-carousel__text {
@@ -220,6 +221,23 @@
     .reviews-carousel {
         padding: 40px 0 !important;
     }
+
+
+button.reviews-carousel__arrow {
+    position: absolute;
+}
+
+button.reviews-carousel__arrow.left-arrow {
+    left: 16px;
+}
+
+button.reviews-carousel__arrow.right-arrow {
+    right: 16px;
+}
+
+.reviews-carousel .page-width {
+    padding: 0;
+}
 }
 
 
