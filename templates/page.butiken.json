@@ -139,6 +139,7 @@
             "collection": "",
             "image": "shopify://shop_images/06f55f72a4b07dc70ed5fe379abfa890c5ace3ba.png",
             "title": "Inredningsservice",
+            "subheading": "",
             "url": "shopify://collections",
             "button_label": ""
           }
@@ -149,6 +150,7 @@
             "collection": "",
             "image": "shopify://shop_images/40eb9e5c4129c202efa9a738792f1cf148cca47b.png",
             "title": "Sömnad",
+            "subheading": "Måttsydda gardiner",
             "url": "shopify://collections/belysning",
             "button_label": ""
           }
