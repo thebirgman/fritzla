@@ -176,9 +176,20 @@
 }
 
 @media (max-width: 768px) {
-    .reviews-carousel__card.active {
+    @media (max-width: 768px) {
+
+    /* Make ALL cards the correct width for JS */
+    .reviews-carousel__card {
+        flex: 0 0 230px;
         max-width: 230px;
         padding: 20px 12px;
+        transform: scale(0.85);  /* optional visual similarity */
+    }
+
+    /* Active card pops but DOES NOT change width */
+    .reviews-carousel__card.active {
+        transform: scale(1);
+        opacity: 1;
     }
 
     .reviews-carousel__text {
@@ -210,6 +221,7 @@
         padding: 40px 0 !important;
     }
 }
+
 
 .reviews-carousel__text {
   line-height: 1.4;
