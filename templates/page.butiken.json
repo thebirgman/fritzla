@@ -160,6 +160,9 @@
         "category_kUnrkm",
         "category_PfLxjt"
       ],
+      "custom_css": [
+        ".popular-categories__overlay {gap: 4px;}"
+      ],
       "name": "Popular Categories",
       "settings": {
         "heading": "Populära kategorier",
