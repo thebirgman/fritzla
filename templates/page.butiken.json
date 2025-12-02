@@ -108,7 +108,7 @@
         "button_q3yVhi"
       ],
       "custom_css": [
-        "@media screen and (max-width: 768px) {{margin-top: 40px;}}"
+        "@media screen and (max-width: 768px) {{margin-top: 40px; }}"
       ],
       "name": "Image with text (gallery)",
       "settings": {
@@ -478,15 +478,15 @@
         "heading_pUGwha": {
           "type": "heading",
           "settings": {
-            "heading": "Vi hjälper dig till ett genomtänkt och komplett hem!",
-            "text_type": "h4",
+            "heading": "Varmt välkomna till vårt bageri!",
+            "text_type": "h3",
             "heading_size": "h2"
           }
         },
         "text_fbtDfd": {
           "type": "text",
           "settings": {
-            "text": "<p>Fritsla Tyglager - över 50 års erfarenhet inom textil och inredning. Vårt kunniga team ger dig personlig service och hjälper dig förverkliga din vision - från målsättning till slutresultat. Med djup kunskap och brett sortiment gör vi din inredningsresa enkel och inspirerande.</p><ul><li>Over 50 års erfarenhet inom textil och inredning.</li><li>Skräddarsydda lösningar för dina behov</li><li>Personlig guidning genom hela processen</li></ul><p></p>",
+            "text": "<p>Hos oss hittar du alltid något gott, oavsett om du vill börja dagen med en fika eller avrunda besöket med något sött.</p><p><strong>Mån-Fre: 10:00-18:00<br/>Lördag: 10:00-15:00<br/>Stängt röda dagar</strong></p>",
             "text_type": "p",
             "text_style": "body"
           }
@@ -494,7 +494,7 @@
         "button_MMdjpX": {
           "type": "button",
           "settings": {
-            "button_label": "Kontakta oss",
+            "button_label": "Hitta hit",
             "button_link": "#",
             "button_style_secondary": false
           }
@@ -520,8 +520,8 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
-        "color_scheme": "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a",
+        "section_color_scheme": "scheme-9bf48ca7-eb1f-4ff4-a686-387e6c25e902",
+        "color_scheme": "scheme-9bf48ca7-eb1f-4ff4-a686-387e6c25e902",
         "padding_top": 72,
         "padding_bottom": 72,
         "mobile_padding_top": 24,
@@ -576,6 +576,7 @@
         "image_gPhcbE",
         "image_PLeKCe"
       ],
+      "disabled": true,
       "name": "Scrolling Images",
       "settings": {
         "color_scheme": "",
