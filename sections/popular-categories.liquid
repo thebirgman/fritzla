@@ -31,12 +31,12 @@
             <img src="{{ image | image_url: width: 800 }}" alt="{{ title | escape }}" class="popular-categories__image">
             <div class="popular-categories__overlay">
               <h3 class="popular-categories__title">{{ title }}</h3>
-              {% if block.settings.subheading %}
+              {% if block.settings.subheading != blank %}
                 <p class="popular-categories__subheading">
                   {{ subheading }}
                 </p>
               {% endif %}
-              {% if block.settings.button_label %}
+              {% if block.settings.button_label != blank %}
                 <span class="popular-categories__button">{{ block.settings.button_label }}</span>
               {% endif %}
             </div>
