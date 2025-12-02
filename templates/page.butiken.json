@@ -165,7 +165,7 @@
       ],
       "name": "Popular Categories",
       "settings": {
-        "heading": "Populära kategorier",
+        "heading": "Våra tjänster",
         "mobile_layout": "carousel",
         "section_background": "#f7f3f0",
         "font_size": 32,
