@@ -17,12 +17,13 @@
       {% assign image = block.settings.image %}
       {% assign title = block.settings.title %}
       {% assign url = block.settings.url %}
+      {% assign subheading = block.settings.subheading %}
 
       {% if collection != blank %}
         {% assign image = collection.image | default: image %}
         {% assign title = collection.title %}
         {% assign url = collection.url %}
-        {% assign subheading = block.settings.subheading %}
+        
       {% endif %}
 
       <div class="popular-categories__item">
