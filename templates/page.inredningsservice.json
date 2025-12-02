@@ -152,12 +152,122 @@
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
+    },
+    "image_with_text_gallery_7VPVix": {
+      "type": "image-with-text-gallery",
+      "blocks": {
+        "heading_rN7ggN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Planera ditt besök!",
+            "text_type": "h4",
+            "heading_size": "h2"
+          }
+        },
+        "text_ctF9Lh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ta en titt på kartan och upptäck hur du hittar hit på bästa sätt. Här ser du entréer, parkering och viktiga platser som gör ditt besök både smidigt och trevligt. Vi ser fram emot att välkomna dig!</p>",
+            "text_type": "p",
+            "text_style": "body"
+          }
+        },
+        "address_aWFfb4": {
+          "type": "address",
+          "settings": {
+            "address_line": "<p>Adress:<br/>Aratorpsvägen 14<br/>511 71<br/>Fritsla</p>",
+            "contact_line": "<p>Öppettider:<br/>Mån-Fre: 10:00-18:00<br/>Lördag: 10:00-15:00<br/>Stängt röda dagar<br/><br/></p>"
+          }
+        },
+        "button_iRKiKA": {
+          "type": "button",
+          "settings": {
+            "button_label": "Hitta hit",
+            "button_link": "#",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_rN7ggN",
+        "text_ctF9Lh",
+        "address_aWFfb4",
+        "button_iRKiKA"
+      ],
+      "name": "Image with text (gallery)",
+      "settings": {
+        "image_1": "shopify://shop_images/e7480864a9628da78bcde0ef3ef53b03af206736.png",
+        "show_heading_above_mobile": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-9bf48ca7-eb1f-4ff4-a686-387e6c25e902",
+        "color_scheme": "scheme-9bf48ca7-eb1f-4ff4-a686-387e6c25e902",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 24
+      }
+    },
+    "image_with_text_gallery_KbMHLD": {
+      "type": "image-with-text-gallery",
+      "blocks": {
+        "heading_HEd9Xt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vi hjälper dig till ett genomtänkt och komplett hem!",
+            "text_type": "h4",
+            "heading_size": "h2"
+          }
+        },
+        "text_9RVcdK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Fritsla Tyglager - över 50 års erfarenhet inom textil och inredning. Vårt kunniga team ger dig personlig service och hjälper dig förverkliga din vision - från målsättning till slutresultat. Med djup kunskap och brett sortiment gör vi din inredningsresa enkel och inspirerande.</p><ul><li>Over 50 års erfarenhet inom textil och inredning.</li><li>Skräddarsydda lösningar för dina behov</li><li>Personlig guidning genom hela processen</li></ul><p></p>",
+            "text_type": "p",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HEd9Xt",
+        "text_9RVcdK"
+      ],
+      "name": "Image with text (gallery)",
+      "settings": {
+        "image_1": "shopify://shop_images/image.jpg",
+        "image_2": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "image_3": "shopify://shop_images/image.jpg",
+        "image_4": "shopify://shop_images/image_6ab50cfe-e707-4f16-b3df-0971284ae95d.jpg",
+        "show_heading_above_mobile": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-50eb2b2b-8179-40ba-8a8c-4d7fb6415e44",
+        "color_scheme": "scheme-50eb2b2b-8179-40ba-8a8c-4d7fb6415e44",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 24
+      }
     }
   },
   "order": [
     "main",
     "image_banner_aUi6y4",
     "image_with_text_gallery_PFHAUV",
-    "newsletter_with_image_EEHxQJ"
+    "newsletter_with_image_EEHxQJ",
+    "image_with_text_gallery_7VPVix",
+    "image_with_text_gallery_KbMHLD"
   ]
 }
