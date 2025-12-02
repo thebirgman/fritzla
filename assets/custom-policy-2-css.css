@@ -26,6 +26,6 @@
     margin-bottom: 8px !important;
 }
 
-.rte p {
+.rte p span {
     color: #212121;
 }
