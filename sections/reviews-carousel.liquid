@@ -100,6 +100,7 @@
 /* ---------- TRACK WRAPPER ---------- */
 .reviews-carousel__track-wrapper {
   overflow-x: scroll;
+  scroll-snap-type: x mandatory;
   scrollbar-width: none;
   width: 100%;
 }
@@ -120,6 +121,7 @@
   background: white;
   padding: 25px 30px;
   border-radius: 18px;
+  scroll-snap-align: center;
   text-align: center;
   transition: 
     transform 0.3s ease,
@@ -168,6 +170,11 @@
     padding: 40px 30px;
 }
 
+.reviews-carousel__card.active {
+    min-width: 460px;
+    flex: unset;
+}
+
 @media (max-width: 768px) {
     .reviews-carousel__card.active {
         max-width: 230px;
@@ -212,7 +219,6 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-
   const section = document.querySelector('.section-{{ section.id }}');
   const wrapper = section.querySelector(".reviews-carousel__track-wrapper");
   const track = section.querySelector(".reviews-carousel__track");
@@ -225,79 +231,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (total === 0) return;
 
-  /* ------------------------------------------------------------------
-     REMOVE SCROLL SNAP (prevents mobile bugs)
-  ------------------------------------------------------------------ */
-  wrapper.style.scrollSnapType = "none";
-  cards.forEach(c => c.style.scrollSnapAlign = "none");
+  const gap = 20; // gap in CSS
+  const cardWidth = cards[0].offsetWidth + gap;
 
   /* ------------------------------------------------------------------
-     DYNAMIC CARD WIDTH (recalculates on mobile)
+     1. CLONE CARDS AT START AND END FOR INFINITE LOOP
   ------------------------------------------------------------------ */
-  const getCardWidth = () => cards[0].getBoundingClientRect().width;
+  const cloneCount = 3; // safe amount
+  const clonesStart = cards.slice(-cloneCount).map(c => c.cloneNode(true));
+  const clonesEnd = cards.slice(0, cloneCount).map(c => c.cloneNode(true));
 
-  /* ------------------------------------------------------------------
-     CLONE FOR TRUE INFINITE LOOP
-  ------------------------------------------------------------------ */
-  const clonesBefore = cards.map(c => {
-    const clone = c.cloneNode(true);
-    clone.classList.add("clone");
-    track.prepend(clone);
-    return clone;
+  clonesStart.forEach(c => {
+    c.classList.add("clone");
+    track.insertBefore(c, track.firstChild);
   });
 
-  const clonesAfter = cards.map(c => {
-    const clone = c.cloneNode(true);
-    clone.classList.add("clone");
-    track.append(clone);
-    return clone;
+  clonesEnd.forEach(c => {
+    c.classList.add("clone");
+    track.appendChild(c);
   });
 
+  // recalc after clones
   cards = Array.from(track.children);
 
-  let cardWidth = getCardWidth();
-  let startOffset = cardWidth * total;
+  // START POSITION = after the leading clones
+  wrapper.scrollLeft = cardWidth * cloneCount;
 
-  wrapper.scrollLeft = startOffset;
 
   /* ------------------------------------------------------------------
-     TELEPORT LOOP WITHOUT BUGGING
+     2. INFINITE LOOP TELEPORT LOGIC
   ------------------------------------------------------------------ */
   wrapper.addEventListener("scroll", () => {
-    const left = wrapper.scrollLeft;
-    const end = cardWidth * total * 2;
+    const maxScroll = cardWidth * (total + cloneCount);
+    const minScroll = cardWidth * (cloneCount - 1);
 
-    if (left <= cardWidth) {
-      wrapper.scrollLeft = left + cardWidth * total;
-    } else if (left >= end - cardWidth) {
-      wrapper.scrollLeft = left - cardWidth * total;
+    if (wrapper.scrollLeft >= maxScroll) {
+      wrapper.scrollLeft = cardWidth * cloneCount;
+    }
+
+    if (wrapper.scrollLeft <= minScroll) {
+      wrapper.scrollLeft = cardWidth * (total + cloneCount - 1);
     }
 
     updateActiveCard();
   });
 
+
   /* ------------------------------------------------------------------
-     SMART ARROW SCROLLING (works on any width)
+     3. ARROW SCROLLING
   ------------------------------------------------------------------ */
-  const scrollNext = () => {
-    wrapper.scrollBy({
-      left: getCardWidth(),
-      behavior: "smooth"
-    });
-  };
+  const scrollAmount = cardWidth;
 
-  const scrollPrev = () => {
-    wrapper.scrollBy({
-      left: -getCardWidth(),
-      behavior: "smooth"
+  if (rightArrow) {
+    rightArrow.addEventListener("click", () => {
+      wrapper.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
-  };
+  }
 
-  rightArrow?.addEventListener("click", scrollNext);
-  leftArrow?.addEventListener("click", scrollPrev);
+  if (leftArrow) {
+    leftArrow.addEventListener("click", () => {
+      wrapper.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+  }
+
 
   /* ------------------------------------------------------------------
-     UPDATE ACTIVE CARD (pop-out center)
+     4. DETECT CENTER CARD & APPLY ACTIVE STYLE
   ------------------------------------------------------------------ */
   function updateActiveCard() {
     const wrapperRect = wrapper.getBoundingClientRect();
@@ -307,9 +306,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let closestDist = Infinity;
 
     cards.forEach(card => {
-      card.classList.remove("active");
       const rect = card.getBoundingClientRect();
-      const dist = Math.abs(centerX - (rect.left + rect.width / 2));
+      const cardCenter = rect.left + rect.width / 2;
+      const dist = Math.abs(centerX - cardCenter);
+
+      card.classList.remove("active");
+
       if (dist < closestDist) {
         closestDist = dist;
         closest = card;
@@ -320,19 +322,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   updateActiveCard();
-
-  /* ------------------------------------------------------------------
-     RECALC WHEN RESIZING
-  ------------------------------------------------------------------ */
-  window.addEventListener("resize", () => {
-    cardWidth = getCardWidth();
-    startOffset = cardWidth * total;
-    wrapper.scrollLeft = startOffset;
-    updateActiveCard();
-  });
+  window.addEventListener("resize", updateActiveCard);
 });
 </script>
-
 
 
 
