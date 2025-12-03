@@ -449,3 +449,233 @@
 .language-selector .disclosure__list {
   min-width: 200px;
 }
+
+/* Country Drawer Styles */
+country-drawer {
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  visibility: hidden;
+  transition: visibility var(--duration-default) ease;
+}
+
+country-drawer.active {
+  visibility: visible;
+}
+
+.country-drawer__overlay {
+  position: fixed;
+  top: auto;
+  right: 0;
+  bottom: -40px;
+  left: 0;
+  height: 100vh;
+  background-color: rgba(var(--color-foreground), 0.5);
+  opacity: 0;
+  transition: opacity var(--duration-default) ease;
+  display: block;
+  z-index: 99;
+}
+
+country-drawer.active .country-drawer__overlay {
+  opacity: 1;
+}
+
+.country-drawer__inner {
+  position: fixed;
+  top: auto;
+  bottom: 0px;
+  left: 0;
+  height: 100vh;
+  width: 40rem;
+  z-index: 999;
+  max-width: calc(100vw - 3rem);
+  background-color: rgb(var(--color-background));
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  border-left: 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform var(--duration-default) ease;
+  box-shadow: 2px 0 10px rgba(var(--color-foreground), 0.1);
+}
+
+country-drawer.active .country-drawer__inner {
+  transform: translateX(0);
+}
+
+.country-drawer__header {
+  position: relative;
+  padding: 2rem 2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.2);
+}
+
+.country-drawer__title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: rgb(var(--color-foreground));
+}
+
+.country-drawer__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  min-width: 4.4rem;
+  min-height: 4.4rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgb(var(--color-foreground));
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.country-drawer__close .svg-wrapper {
+  height: 2rem;
+  width: 2rem;
+}
+
+.country-drawer__content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.country-drawer__form {
+  padding: 0;
+}
+
+.country-drawer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.country-drawer__item {
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.country-drawer__item:last-child {
+  border-bottom: none;
+}
+
+.country-drawer__label {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  transition: background-color var(--duration-short) ease;
+  margin: 0;
+}
+
+.country-drawer__label:hover {
+  background-color: rgba(var(--color-foreground), 0.03);
+}
+
+.country-drawer__radio {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 1.5rem 0 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.country-drawer__radio:checked {
+  border-color: rgb(var(--color-foreground));
+}
+
+.country-drawer__radio:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: rgb(var(--color-foreground));
+}
+
+.country-drawer__text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  color: rgb(var(--color-foreground));
+  flex: 1;
+}
+
+.country-drawer__separator {
+  color: rgba(var(--color-foreground), 0.5);
+  margin: 0 0.5rem;
+}
+
+.country-drawer__currency {
+  font-weight: 400;
+  color: rgb(var(--color-foreground));
+}
+
+.country-drawer__footer {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  padding: 2rem;
+}
+
+.country-drawer__button {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  font-size: 1.4rem;
+  border-radius: 0.4rem;
+  background-color: #f7f3f0;
+  color: rgb(var(--color-foreground));
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--duration-short) ease;
+  font-weight: 400;
+}
+
+.country-drawer__button:hover {
+  background-color: #e8e0db;
+}
+
+@media screen and (max-width: 749px) {
+  .country-drawer__inner {
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  .country-drawer__header {
+    padding: 1.5rem;
+  }
+  
+  .country-drawer__label {
+    padding: 1.2rem 1.5rem;
+  }
+  
+  .country-drawer__footer {
+    padding: 1.5rem;
+  }
+}
+
+.country-drawer__overlay {
+  display: block!important;
+  bottom: 0;
+  top: auto;
+  height: 100vh;
+  z-index: 99;
+}
