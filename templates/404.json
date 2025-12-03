@@ -35,7 +35,7 @@
           "settings": {
             "heading": "<strong>Sidan kan inte hittas</strong>",
             "text_type": "h2",
-            "heading_size": "h0",
+            "heading_size": "hxl",
             "font_weight": "",
             "enable_custom_font_size": false,
             "custom_font_size": 24
