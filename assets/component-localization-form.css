@@ -836,7 +836,7 @@ h2#FooterCountryLabel {
 button.disclosure__button.localization-form__select.localization-selector.link.link--text.caption-large.country-drawer-opener {
   border: 0;
   padding: 0;
-  padding-right: 35px;
+  padding-right: 25px;
 }
 
 button.disclosure__button.localization-form__select.localization-selector.link.link--text.caption-large.country-drawer-opener:before, button.disclosure__button.localization-form__select.localization-selector.link.link--text.caption-large.country-drawer-opener:after {
