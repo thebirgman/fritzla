@@ -31,8 +31,9 @@
     align-items: flex-start;
 }
 
-.template-search__search {
-    margin: 0 !important;
+.template-search__header .template-search__search {
+    margin: 0;
+    max-width: 287px;
 }
 
 h1.h2.center {
