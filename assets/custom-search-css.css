@@ -10,9 +10,13 @@
     justify-content: space-between;
 }
 
-.facets-container .facets-container-drawer .mobile-facets__wrapper {
+.facets-container.facets-container-drawer .mobile-facets__wrapper {
     width: 100%;
     justify-content: unset;
+}
+
+.facets-container-drawer .mobile-facets__wrapper {
+
 }
 
 .active-facets.active-facets-mobile.medium-hide.large-up-hide {
