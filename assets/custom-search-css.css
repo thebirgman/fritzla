@@ -66,6 +66,10 @@ form.search .field input {
     display: none;
 }
 
+form.search .field input {
+    border-bottom: 1px solid #D9D9D9;
+}
+
 .search__button.field__button {
     display: none;
 }
