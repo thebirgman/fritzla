@@ -47,3 +47,37 @@ h1.h2.center {
     letter-spacing: -0.5px;
     vertical-align: middle;
 }
+
+.template-search__header .template-search__search form.search {
+    margin: 0;
+}
+
+form.search .field:before, form.search .field:after {
+    display: none;
+}
+
+form.search .field input {
+    padding: 0;
+    min-height: 0;
+    height: unset;
+}
+
+.reset__button.field__button {
+    display: none;
+}
+
+.search__button.field__button {
+    display: none;
+}
+
+.field label.field__label {
+    display: none;
+}
+
+h1.h2.center {
+    margin: 0;
+}
+
+.template-search__header {
+    gap: 12px;
+}
