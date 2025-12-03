@@ -613,7 +613,7 @@ h2.contact-title {
       autocomplete="name"
       type="text"
       id="ContactForm-name"
-      name="contact[{{ 'templates.contact.form.name' | t }}]"
+      name="contact[Ex. Lena Andersson]"
       value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
       placeholder="Ex. Lena Andersson"
       >
@@ -667,7 +667,7 @@ h2.contact-title {
     id="ContactForm-phone"
     class="field__input"
     autocomplete="tel"
-    name="contact[{{ 'templates.contact.form.phone' | t }}]"
+    name="contact[Ex. 073 xx xxx xx]"
     pattern="[0-9\-]*"
     value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
     placeholder="Ex. 073 xx xxx xx"
