@@ -12,6 +12,8 @@
     "main": {
       "type": "main-search",
       "settings": {
+        "variant_hover": false,
+        "new_variant": true,
         "columns_desktop": 4,
         "columns_mobile": "2",
         "image_ratio": "portrait",
