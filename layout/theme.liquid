@@ -363,10 +363,6 @@
       {% if template contains "policy-2" %}
       {{ 'custom-policy-2-css.css' | asset_url | stylesheet_tag }}
       {% endif %}
-
-      {% if template contains "search" %}
-      {{ 'custom-search-css.css' | asset_url | stylesheet_tag }}
-      {% endif %}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
