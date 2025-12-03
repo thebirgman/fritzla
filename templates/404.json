@@ -11,10 +11,91 @@
   "sections": {
     "main": {
       "type": "main-404",
+      "disabled": true,
       "settings": {}
+    },
+    "image_banner_WV7fr9": {
+      "type": "image-banner",
+      "blocks": {
+        "text_L4RhML": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>404</em></p>",
+            "text_style": "body",
+            "enable_custom_font_size": true,
+            "custom_font_size": 20,
+            "enable_max_width": false,
+            "max_width": 600,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "heading_x44QJi": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Sidan kan inte hittas</strong>",
+            "text_type": "h2",
+            "heading_size": "h1",
+            "font_weight": "",
+            "enable_custom_font_size": false,
+            "custom_font_size": 24
+          }
+        },
+        "text_Vappy3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Body</p>",
+            "text_style": "body",
+            "enable_custom_font_size": false,
+            "custom_font_size": 16,
+            "enable_max_width": false,
+            "max_width": 600,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "buttons_MGPcq4": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Tillbaka till startsidan",
+            "button_link_1": "#",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "text_L4RhML",
+        "heading_x44QJi",
+        "text_Vappy3",
+        "buttons_MGPcq4"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_cafb3467-a116-4539-879e-2961aa77267f.png",
+        "image_overlay_opacity": 60,
+        "image_height": "medium",
+        "custom_height": 500,
+        "image_behavior": "none",
+        "desktop_image_position": "middle-center",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-19e5212c-36ac-4b4b-b1b2-0d8a01f16b11",
+        "mobile_image_height": "medium",
+        "custom_mobile_height": 400,
+        "mobile_image_position": "middle-center",
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "image_banner_WV7fr9"
   ]
 }
