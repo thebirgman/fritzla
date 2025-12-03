@@ -35,7 +35,7 @@
           "settings": {
             "heading": "<strong>Sidan kan inte hittas</strong>",
             "text_type": "h2",
-            "heading_size": "hxl",
+            "heading_size": "h0",
             "font_weight": "",
             "enable_custom_font_size": false,
             "custom_font_size": 24
@@ -75,7 +75,8 @@
         "buttons_MGPcq4"
       ],
       "custom_css": [
-        ".banner__text p em {font-family: Great Vibes; font-weight: 400; font-size: 20px; line-height: 140%; letter-spacing: 2px; text-align: center; color: white;}"
+        ".banner__text p em {font-family: Great Vibes; font-weight: 400; font-size: 20px; line-height: 140%; letter-spacing: 2px; text-align: center; color: white;}",
+        "h2 {font-size: 48px;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
