@@ -81,3 +81,9 @@ h1.h2.center {
 .template-search__header {
     gap: 12px;
 }
+
+@media (max-width: 768px) {
+    .grid.product-grid {
+        padding: 0 20px 8px;
+    }
+}
