@@ -35,10 +35,14 @@
     data-drawer="#{{ localPosition }}-country-drawer"
   >
     <span>
-      {{- localization.country.name }} |
+      {{- localization.country.name }} /
       {{ localization.country.currency.iso_code }}
     </span>
-    {{ 'icon-caret.svg' | inline_asset_content }}
+    
+<svg class="icon icon-caret" width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.90225 4.25726L0.569288 7.89344C0.538322 7.92722 0.501559 7.95402 0.461099 7.97231C0.420639 7.99059 0.377275 8 0.333481 8C0.289688 8 0.246323 7.99059 0.205864 7.97231C0.165404 7.95402 0.128641 7.92722 0.0976743 7.89344C0.0667076 7.85966 0.0421436 7.81955 0.0253846 7.77541C0.0086256 7.73127 0 7.68396 0 7.63618C0 7.5884 0.0086256 7.54109 0.0253846 7.49695C0.0421436 7.45281 0.0667076 7.4127 0.0976743 7.37892L3.19524 4L0.0976743 0.62108C0.0351344 0.55285 -6.58965e-10 0.460311 0 0.36382C6.58965e-10 0.267329 0.0351344 0.17479 0.0976743 0.10656C0.160214 0.0383309 0.245037 7.18915e-10 0.333481 0C0.421926 -7.18915e-10 0.506749 0.0383309 0.569288 0.10656L3.90225 3.74274C3.93324 3.77651 3.95782 3.81661 3.97459 3.86076C3.99137 3.9049 4 3.95221 4 4C4 4.04778 3.99137 4.0951 3.97459 4.13924C3.95782 4.18339 3.93324 4.22349 3.90225 4.25726Z" fill="#767676"/>
+</svg>
+
   </button>
   
   <country-drawer
@@ -51,61 +55,64 @@
   >
     <div class="country-drawer__overlay"></div>
     <div class="country-drawer__inner">
-      <div class="country-drawer__header">
-        <h2 class="country-drawer__title" id="{{ localPosition }}-country-drawer-title">
-          {{ 'localization.update_country' | t }}
-        </h2>
-        <button
-          type="button"
-          class="country-drawer__close"
-          aria-label="{{ 'accessibility.close' | t }}"
-        >
-          <span class="svg-wrapper">
-            {{- 'icon-close.svg' | inline_asset_content -}}
-          </span>
-        </button>
-      </div>
-      
-      <div class="country-drawer__content">
-        <div id="sr-country-search-results" class="visually-hidden" aria-live="polite"></div>
-        <form class="country-drawer__form" id="{{ localPosition }}-country-form">
-          <ul role="radiogroup" class="country-drawer__list list-unstyled" id="{{ localPosition }}-country-results">
-            {%- for country in localization.available_countries -%}
-              <li class="country-drawer__item">
-                <label class="country-drawer__label">
-                  <input
-                    type="radio"
-                    name="country_code"
-                    value="{{ country.iso_code }}"
-                    class="country-drawer__radio"
-                    {% if country.iso_code == localization.country.iso_code %}
-                      checked
-                    {% endif %}
-                    data-value="{{ country.iso_code }}"
-                    id="{{ localPosition }}-country-{{ country.iso_code }}"
-                  >
-                  <span class="country-drawer__text">
-                    <span class="country">{{- country.name }}</span>
-                    <span class="country-drawer__separator">|</span>
-                    <span class="country-drawer__currency">{{ country.currency.iso_code }}</span>
-                  </span>
-                </label>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </form>
-      </div>
-      
-      <div class="country-drawer__footer">
-        <button
-          type="button"
-          class="country-drawer__button button button--primary"
-          form="{{ localPosition }}-country-form"
-        >
-          {{ 'localization.update_country' | t }}
-        </button>
-      </div>
+      <localization-form>
+        {%- liquid
+          assign form_id = localPosition | append: 'CountryForm'
+        -%}
+        {%- form 'localization', id: form_id, class: 'localization-form' -%}
+          <div class="country-drawer__header">
+            <h2 class="country-drawer__title" id="{{ localPosition }}-country-drawer-title">
+              {{ 'localization.update_country' | t }}
+            </h2>
+            <button
+              type="button"
+              class="country-drawer__close"
+              aria-label="{{ 'accessibility.close' | t }}"
+            >
+              <span class="svg-wrapper">
+                {{- 'icon-close.svg' | inline_asset_content -}}
+              </span>
+            </button>
+          </div>
+          
+          <div class="country-drawer__content">
+            <div id="sr-country-search-results" class="visually-hidden" aria-live="polite"></div>
+            <ul role="radiogroup" class="country-drawer__list list-unstyled" id="{{ localPosition }}-country-results">
+              {%- for country in localization.available_countries -%}
+                <li class="country-drawer__item">
+                  <label class="country-drawer__label">
+                    <input
+                      type="radio"
+                      name="country_code"
+                      value="{{ country.iso_code }}"
+                      class="country-drawer__radio"
+                      {% if country.iso_code == localization.country.iso_code %}
+                        checked
+                      {% endif %}
+                      data-value="{{ country.iso_code }}"
+                      id="{{ localPosition }}-country-{{ country.iso_code }}"
+                    >
+                    <span class="country-drawer__text">
+                      <span class="country">{{- country.name }}</span>
+                      <span class="country-drawer__separator">|</span>
+                      <span class="country-drawer__currency">{{ country.currency.iso_code }}</span>
+                    </span>
+                  </label>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+          
+          <div class="country-drawer__footer">
+            <button
+              type="submit"
+              class="country-drawer__button button button--primary"
+            >
+              {{ 'localization.update_country' | t }}
+            </button>
+          </div>
+        {%- endform -%}
+      </localization-form>
     </div>
   </country-drawer>
 </div>
-<input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">

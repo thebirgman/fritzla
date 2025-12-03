@@ -6,26 +6,46 @@ if (!customElements.get('localization-form')) {
         super();
         this.mql = window.matchMedia('(min-width: 750px)');
         this.header = document.querySelector('.header-wrapper');
+        // Find drawer (parent of this localization-form)
+        const drawerElement = this.closest('country-drawer');
+        // Find button - it's in the disclosure div which is parent of the drawer
+        const disclosureDiv = drawerElement?.parentElement;
+        const buttonElement = disclosureDiv?.querySelector('button.localization-form__select');
+        // Find form inside this element
+        const drawerForm = this.querySelector('form');
+        
         this.originalForm = this.closest('form');
         this.elements = {
           input: this.querySelector('input[name="locale_code"], input[name="country_code"]'),
-          button: this.querySelector('button.localization-form__select'),
+          button: buttonElement || this.querySelector('button.localization-form__select'),
           panel: this.querySelector('.disclosure__list-wrapper'),
-          drawer: this.querySelector('country-drawer'),
+          drawer: drawerElement,
           search: this.querySelector('input[name="country_filter"]'),
           closeButton: this.querySelector('.country-selector__close-button, .country-drawer__close'),
           resetButton: this.querySelector('.country-filter__reset-button'),
           searchIcon: this.querySelector('.country-filter__search-icon'),
           liveRegion: this.querySelector('#sr-country-search-results'),
-          updateButton: this.querySelector('.country-drawer__button'),
-          form: this.querySelector('form'),
+          updateButton: drawerForm?.querySelector('.country-drawer__button'),
+          form: drawerForm || this.querySelector('form'),
         };
         this.addEventListener('keyup', this.onContainerKeyUp.bind(this));
         this.addEventListener('keydown', this.onContainerKeyDown.bind(this));
         this.addEventListener('focusout', this.closeSelector.bind(this));
         
+        // Attach click handler to button
         if (this.elements.button) {
           this.elements.button.addEventListener('click', this.openSelector.bind(this));
+        } else {
+          // Fallback: use event delegation if button not found yet
+          const drawerId = this.elements.drawer?.id;
+          if (drawerId) {
+            // Find button by data-drawer attribute
+            const buttonByData = document.querySelector(`button[data-drawer="#${drawerId}"]`);
+            if (buttonByData) {
+              this.elements.button = buttonByData;
+              buttonByData.addEventListener('click', this.openSelector.bind(this));
+            }
+          }
         }
 
         if (this.elements.search) {
@@ -41,9 +61,7 @@ if (!customElements.get('localization-form')) {
           this.elements.resetButton.addEventListener('click', this.resetFilter.bind(this));
           this.elements.resetButton.addEventListener('mousedown', (event) => event.preventDefault());
         }
-        if (this.elements.updateButton) {
-          this.elements.updateButton.addEventListener('click', this.onUpdateClick.bind(this));
-        }
+        // Update button is now type="submit" so form submission is handled automatically
         if (this.elements.drawer) {
           this.elements.drawer.querySelector('.country-drawer__overlay')?.addEventListener('click', this.hidePanel.bind(this));
         }
@@ -213,30 +231,9 @@ if (!customElements.get('localization-form')) {
       }
       
       onUpdateClick(event) {
-        event.preventDefault();
-        const selectedRadio = this.elements.drawer?.querySelector('.country-drawer__radio:checked');
-        if (selectedRadio) {
-          // Work exactly like onItemClick - find form within localization-form
-          const form = this.querySelector('form');
-          if (form) {
-            // Update the hidden input value (same as old onItemClick)
-            if (this.elements.input) {
-              this.elements.input.value = selectedRadio.value;
-            } else {
-              // If input doesn't exist, find or create it in the form
-              let hiddenInput = form.querySelector('input[name="country_code"]');
-              if (!hiddenInput) {
-                hiddenInput = document.createElement('input');
-                hiddenInput.type = 'hidden';
-                hiddenInput.name = 'country_code';
-                form.appendChild(hiddenInput);
-              }
-              hiddenInput.value = selectedRadio.value;
-            }
-            // Submit the form (same as old onItemClick)
-            form.submit();
-          }
-        }
+        // Form submission is now handled by the submit button inside the drawer
+        // The form is already inside the drawer, so no need to prevent default or manually submit
+        // The button type="submit" will handle it automatically
       }
 
       normalizeString(str) {

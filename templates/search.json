@@ -12,20 +12,18 @@
     "main": {
       "type": "main-search",
       "settings": {
-        "variant_hover": false,
-        "new_variant": true,
         "columns_desktop": 4,
         "columns_mobile": "2",
-        "image_ratio": "portrait",
+        "image_ratio": "adapt",
         "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": true,
+        "show_secondary_image": false,
+        "show_vendor": false,
         "show_rating": false,
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": false,
         "article_show_date": true,
-        "article_show_author": true,
+        "article_show_author": false,
         "padding_top": 36,
         "padding_bottom": 36
       }

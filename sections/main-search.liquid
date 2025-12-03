@@ -2,7 +2,6 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'component-search.css' | asset_url | stylesheet_tag }}
-{{ 'custom-search-css.css' | asset_url | stylesheet_tag }}
 
 {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
   {{ 'component-facets.css' | asset_url | stylesheet_tag }}
@@ -69,9 +68,9 @@
     <div class="template-search__header page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       <h1 class="h2 center">
         {%- if search.performed -%}
-          Sökresultat för:
+          {{- 'templates.search.title' | t -}}
         {%- else -%}
-          Sökresultat för:
+          {{- 'general.search.search' | t -}}
         {%- endif -%}
       </h1>
       <div class="template-search__search">
@@ -281,12 +280,7 @@
                           show_vendor: section.settings.show_vendor,
                           show_rating: section.settings.show_rating,
                           lazy_load: lazy_load,
-                          skip_styles: skip_card_product_styles,
-                          quick_add: section.settings.quick_add,
-                          section_id: section.id,
-                          collection: collection,
-                          variant_hover: section.settings.variant_hover,
-                          new_variant: section.settings.new_variant
+                          skip_styles: skip_card_product_styles
                         %}
                         {%- assign skip_card_product_styles = true -%}
                       {%- when 'article' -%}
@@ -345,16 +339,6 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "variant_hover",
-      "label": "Hover Variants"
-    },
-    {
-      "type": "checkbox",
-      "id": "new_variant",
-      "label": "Text Variants"
-    },
     {
       "type": "range",
       "id": "columns_desktop",
