@@ -1,1 +1,103 @@
-{"name":"t:sections.header.name","type":"header","sections":{"announcement-bar":{"type":"announcement-bar","blocks":{"announcement_kbArnX":{"type":"announcement","settings":{"text":"Tre våningar inredning & textil till hela hemmet","link":"","bg":"#f1e9e1","color":"","icon_size":"16","icon_inherit_text":true,"icon_color":"#000000"}}},"block_order":["announcement_kbArnX"],"settings":{"auto_rotate":false,"change_slides_speed":5,"color_scheme":"scheme-3","show_line_separator":true,"show_social":false,"enable_country_selector":false,"enable_language_selector":false,"default_bg":"#000000","default_color":"#ffffff","default_icon_color":"#ffffff","arrow_color":"#f8f8fa","arrow_size":12,"desktop_gap":12,"desktop_padding_y":0,"mobile_padding_y":0}},"header":{"type":"header","blocks":{"mega_menu_categories_hRNHrm":{"type":"mega_menu_categories","settings":{"image_1":"shopify:\/\/shop_images\/Rectangle_1073_ce2377ab-0e9b-41ea-b615-450921bf6b1a.png","text_1":"<p><strong>Kategori<\/strong><br\/>Butiken<\/p>","link_1":"","image_2":"shopify:\/\/shop_images\/Rectangle_1073_56e9ac8d-cc30-4526-8e8e-3edbf56ae096.png","text_2":"<p><strong>Kategori<\/strong><br\/>Inspiration<\/p>","link_2":"","image_3":"shopify:\/\/shop_images\/Rectangle_1073.png","text_3":"<p><strong>Kategori<\/strong><br\/>Homestyling<\/p>","link_3":"","text_4":"","link_4":""}}},"block_order":["mega_menu_categories_hRNHrm"],"settings":{"logo_position":"middle-left","mobile_logo_position":"center","menu":"header-menu","menu_mobile":"header-menu","menu_type_desktop":"mega","sticky_header_type":"reduce-logo-size","show_line_separator":false,"color_scheme":"scheme-1","menu_color_scheme":"scheme-1","enable_country_selector":true,"enable_language_selector":true,"enable_customer_avatar":true,"margin_bottom":0,"padding_top":16,"padding_bottom":16}}},"order":["announcement-bar","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_kbArnX": {
+          "type": "announcement",
+          "settings": {
+            "text": "Tre våningar inredning & textil till hela hemmet",
+            "link": "",
+            "bg": "#f1e9e1",
+            "color": "",
+            "icon_size": "16",
+            "icon_inherit_text": true,
+            "icon_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_kbArnX"
+      ],
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "scheme-3",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "default_bg": "#000000",
+        "default_color": "#ffffff",
+        "default_icon_color": "#ffffff",
+        "arrow_color": "#f8f8fa",
+        "arrow_size": 12,
+        "desktop_gap": 12,
+        "desktop_padding_y": 0,
+        "mobile_padding_y": 0
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_categories_hRNHrm": {
+          "type": "mega_menu_categories",
+          "settings": {
+            "image_1": "shopify://shop_images/Rectangle_1073_ce2377ab-0e9b-41ea-b615-450921bf6b1a.png",
+            "text_1": "<p><strong>Kategori</strong><br/>Butiken</p>",
+            "link_1": "",
+            "image_2": "shopify://shop_images/Rectangle_1073_56e9ac8d-cc30-4526-8e8e-3edbf56ae096.png",
+            "text_2": "<p><strong>Kategori</strong><br/>Inspiration</p>",
+            "link_2": "",
+            "image_3": "shopify://shop_images/Rectangle_1073.png",
+            "text_3": "<p><strong>Kategori</strong><br/>Homestyling</p>",
+            "link_3": "",
+            "text_4": "",
+            "link_4": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_categories_hRNHrm"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "mobile_logo_position": "center",
+        "menu": "header-menu",
+        "menu_mobile": "header-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "reduce-logo-size",
+        "show_line_separator": false,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "popular_keywords": "Artwood, ,Sängbord, Kuddar, Kuddar",
+        "popular_keywords_title": "Populära sökningar",
+        "popular_products_collection": "all",
+        "popular_products_title": "Populära produkter",
+        "popular_products_limit": 12,
+        "search_cta_text": "Resultat",
+        "margin_bottom": 0,
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
