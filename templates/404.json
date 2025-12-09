@@ -82,7 +82,7 @@
       "settings": {
         "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_cafb3467-a116-4539-879e-2961aa77267f.png",
         "image_overlay_opacity": 60,
-        "image_height": "medium",
+        "image_height": "large",
         "custom_height": 500,
         "image_behavior": "none",
         "desktop_image_position": "middle-center",
