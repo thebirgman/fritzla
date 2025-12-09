@@ -5,6 +5,10 @@
     height: 25px;
 }
 
+h2#HeaderCountry-country-drawer-title {
+    font-size: 24px;
+}
+
 a.header__heading-link.link.link--text.focus-inset {
     padding: 0 10px;
 }
