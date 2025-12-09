@@ -97,3 +97,227 @@ details-modal.header__search {
     display: none;
 }
 }
+
+/* Search Drawer Styles */
+search-drawer {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.search-drawer {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  transition: visibility var(--duration-default) ease;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.search-drawer.active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.search-drawer__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(var(--color-foreground), 0.5);
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.search-drawer__overlay:empty {
+  display: block;
+}
+
+.search-drawer__inner {
+  height: 100%;
+  width: 40rem;
+  max-width: calc(100vw - 3rem);
+  padding: 0 1.5rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  border-right: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--duration-default) ease;
+  background-color: rgb(var(--color-background));
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.search-drawer.active .search-drawer__inner {
+  transform: translateX(0);
+}
+
+.search-drawer__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 0;
+  padding-bottom: 0;
+}
+
+.search-drawer__form {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.search-drawer__form .field {
+  position: relative;
+}
+
+.search-drawer__form .search__input {
+  padding-right: 4.4rem;
+}
+
+.search-drawer__section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.search-drawer__popular-keywords {
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+}
+
+.search-drawer__keywords-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.search-drawer__keyword-tag {
+  padding: 0.8rem 1.6rem;
+  background-color: transparent;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: all var(--duration-short) ease;
+  color: rgb(var(--color-foreground));
+}
+
+.search-drawer__keyword-tag:hover {
+  background-color: rgba(var(--color-foreground), 0.05);
+  border-color: rgba(var(--color-foreground), 0.4);
+}
+
+.search-drawer__popular-products {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.search-drawer__products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.search-drawer__product-card {
+  display: flex;
+  gap: 1.2rem;
+  text-decoration: none;
+  color: rgb(var(--color-foreground));
+  padding: 1rem;
+  border-radius: 0.4rem;
+  transition: background-color var(--duration-short) ease;
+}
+
+.search-drawer__product-card:hover {
+  background-color: rgba(var(--color-foreground), 0.03);
+}
+
+.search-drawer__product-image {
+  width: 8rem;
+  height: 8rem;
+  flex-shrink: 0;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  background-color: rgba(var(--color-foreground), 0.05);
+}
+
+.search-drawer__product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.search-drawer__product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-drawer__product-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+  line-height: 1.4;
+}
+
+.search-drawer__product-price {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.search-drawer__footer {
+  margin-top: auto;
+  padding: 2rem 0;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  background-color: rgb(var(--color-background));
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.search-drawer__cta {
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .search-drawer__inner {
+    min-width: 512px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .search-drawer__inner {
+    width: 100%;
+    max-width: 100vw;
+    padding: 0 1.5rem;
+  }
+}
+
+
+.search-drawer {
+  background: rgba(0,0,0,.4);
+}
+
+.grid--3-col-desktop .grid__item {
+  position: relative;
+}
+
+.search-drawer__inner ul.grid.product-grid {
+  gap: 5px;
+}
+
+.search-drawer__inner ul.grid.product-grid li.grid__item {
+  width: calc(33.33% - 5px);
+  max-width: calc(33.33% - 5px);
+}

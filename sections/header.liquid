@@ -147,7 +147,7 @@
       endif
 
       if section.settings.logo_position == 'top-center' or section.settings.menu == blank
-        render 'header-search', input_id: 'Search-In-Modal-1'
+        render 'header-search', input_id: 'Search-In-Modal-1', section: section
       endif
     -%}
 
@@ -259,7 +259,7 @@
           </localization-form>
         {%- endif -%}
       </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
+      {% render 'header-search', input_id: 'Search-In-Modal', section: section %}
 
       {%- if shop.customer_accounts_enabled -%}
         <a
@@ -625,6 +625,48 @@
       "default": true,
       "label": "t:sections.header.settings.enable_customer_avatar.label",
       "info": "t:sections.header.settings.enable_customer_avatar.info"
+    },
+    {
+      "type": "header",
+      "content": "Search Drawer"
+    },
+    {
+      "type": "text",
+      "id": "popular_keywords",
+      "label": "Popular Search Keywords",
+      "info": "Enter keywords separated by commas (e.g., sofa, chair, table)"
+    },
+    {
+      "type": "text",
+      "id": "popular_keywords_title",
+      "label": "Popular Keywords Title",
+      "default": "Popular Search Keywords"
+    },
+    {
+      "type": "collection",
+      "id": "popular_products_collection",
+      "label": "Popular Products Collection"
+    },
+    {
+      "type": "text",
+      "id": "popular_products_title",
+      "label": "Popular Products Title",
+      "default": "Popular Products"
+    },
+    {
+      "type": "range",
+      "id": "popular_products_limit",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "label": "Number of Popular Products to Show"
+    },
+    {
+      "type": "text",
+      "id": "search_cta_text",
+      "label": "Search Button Text",
+      "default": "Search"
     },
     {
       "type": "header",

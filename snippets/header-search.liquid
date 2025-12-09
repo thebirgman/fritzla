@@ -1,17 +1,20 @@
 {% comment %}
-  Renders a header search modal. Should be used with 'header.liquid'
+  Renders a header search drawer. Should be used with 'header.liquid'
 
   Accepts:
   - input_id: {String} Id for the search input element (required)
+  - section: {Object} Section object to access settings
 
   Usage:
-  {% render 'header-search', input_id: 'My-Id'%}
+  {% render 'header-search', input_id: 'My-Id', section: section %}
 {% endcomment %}
 
-<details-modal class="header__search">
+<script src="{{ 'search-drawer.js' | asset_url }}" defer="defer"></script>
+
+<search-drawer class="header__search">
   <details>
     <summary
-      class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
+      class="header__icon header__icon--search header__icon--summary link focus-inset"
       aria-haspopup="dialog"
       aria-label="{{ 'general.search.search' | t }}"
     >
@@ -25,84 +28,120 @@
       </span>
     </summary>
     <div
-      class="search-modal modal__content gradient"
+      class="search-drawer gradient color-{{ section.settings.color_scheme }}"
       role="dialog"
       aria-modal="true"
       aria-label="{{ 'general.search.search' | t }}"
     >
-      <div class="modal-overlay"></div>
-      <div
-        class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}"
-        tabindex="-1"
-      >
-        {%- if settings.predictive_search_enabled -%}
-          <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
-        {%- else -%}
-          <search-form class="search-modal__form">
-        {%- endif -%}
-        <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
-          <div class="field">
-            <input
-              class="search__input field__input"
-              id="{{ input_id }}"
-              type="search"
-              name="q"
-              value="{{ search.terms | escape }}"
-              placeholder="{{ 'general.search.search' | t }}"
-              {%- if settings.predictive_search_enabled -%}
-                role="combobox"
-                aria-expanded="false"
-                aria-owns="predictive-search-results"
-                aria-controls="predictive-search-results"
-                aria-haspopup="listbox"
-                aria-autocomplete="list"
-                autocorrect="off"
-                autocomplete="off"
-                autocapitalize="off"
-                spellcheck="false"
-              {%- endif -%}
-            >
-            <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
-            <input type="hidden" name="options[prefix]" value="last">
+      <div class="search-drawer__overlay"></div>
+      <div class="search-drawer__inner drawer__inner" tabindex="-1">
+        <div class="drawer__header">
+          <h2 class="drawer__heading">{{ 'general.search.search' | t }}</h2>
+          <button
+            class="drawer__close"
+            type="button"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-close.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </div>
+
+        <div class="search-drawer__content drawer__contents">
+          <form id="search-drawer-form" action="{{ routes.search_url }}" method="get" role="search" class="search-drawer__form">
+            <div class="field">
+              <input
+                class="search__input field__input"
+                id="{{ input_id }}"
+                type="search"
+                name="q"
+                value="{{ search.terms | escape }}"
+                placeholder="{{ 'general.search.search' | t }}"
+              >
+              <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
+              <input type="hidden" name="options[prefix]" value="last">
+              <button
+                type="reset"
+                class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
+                aria-label="{{ 'general.search.reset' | t }}"
+              >
+                <span class="svg-wrapper">
+                  {{- 'icon-reset.svg' | inline_asset_content -}}
+                </span>
+              </button>
+            </div>
+          </form>
+
+          {%- comment -%} Popular Search Keywords {%- endcomment -%}
+          {%- if section.settings.popular_keywords != blank -%}
+            <div class="search-drawer__popular-keywords">
+              <h3 class="search-drawer__section-title">{{ section.settings.popular_keywords_title | default: 'Popular Search Keywords' }}</h3>
+              <div class="search-drawer__keywords-list">
+                {%- assign keywords = section.settings.popular_keywords | split: ',' -%}
+                {%- for keyword in keywords -%}
+                  {%- assign trimmed_keyword = keyword | strip -%}
+                  {%- if trimmed_keyword != blank -%}
+                    <button
+                      type="button"
+                      class="search-drawer__keyword-tag"
+                      data-keyword="{{ trimmed_keyword | escape }}"
+                    >
+                      {{ trimmed_keyword }}
+                    </button>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} Popular Products {%- endcomment -%}
+          {%- if section.settings.popular_products_collection != blank -%}
+            {%- assign popular_collection = collections[section.settings.popular_products_collection] -%}
+            {%- if popular_collection != blank and popular_collection.products.size > 0 -%}
+              <div class="search-drawer__popular-products">
+                <h3 class="search-drawer__section-title">{{ section.settings.popular_products_title | default: 'Popular Products' }}</h3>
+                <ul class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--1-col-tablet-down grid--3-col-desktop">
+                  {% assign skip_card_product_styles = false %}
+                  {%- assign products_limit = section.settings.popular_products_limit | default: 6 -%}
+                  {%- for product in popular_collection.products limit: products_limit -%}
+                    {% assign lazy_load = false %}
+                    {%- if forloop.index > 2 -%}
+                      {%- assign lazy_load = true -%}
+                    {%- endif -%}
+                    <li class="grid__item">
+                      {% render 'card-product',
+                        card_product: product,
+                        media_aspect_ratio: 'square',
+                        image_shape: settings.card_image_shape,
+                        show_secondary_image: settings.card_show_secondary_image,
+                        show_vendor: settings.card_show_vendor,
+                        show_rating: settings.card_show_rating,
+                        lazy_load: lazy_load,
+                        skip_styles: skip_card_product_styles,
+                        quick_add: 'none',
+                        section_id: 'search-drawer'
+                      %}
+                    </li>
+                    {%- assign skip_card_product_styles = true -%}
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- comment -%} Search CTA Button {%- endcomment -%}
+          <div class="search-drawer__footer">
             <button
-              type="reset"
-              class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
-              aria-label="{{ 'general.search.reset' | t }}"
+              type="submit"
+              class="search-drawer__cta button"
+              form="search-drawer-form"
             >
-              <span class="svg-wrapper">
-                {{- 'icon-reset.svg' | inline_asset_content -}}
-              </span>
-            </button>
-            <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
-              <span class="svg-wrapper">
-                {{- 'icon-search.svg' | inline_asset_content -}}
-              </span>
+              {{ section.settings.search_cta_text | default: 'Search' }}
             </button>
           </div>
-
-          {%- if settings.predictive_search_enabled -%}
-            <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
-              {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%}
-            </div>
-
-            <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
-          {%- endif -%}
-        </form>
-        {%- if settings.predictive_search_enabled -%}
-          </predictive-search>
-        {%- else -%}
-          </search-form>
-        {%- endif -%}
-        <button
-          type="button"
-          class="search-modal__close-button modal__close-button link link--text focus-inset"
-          aria-label="{{ 'accessibility.close' | t }}"
-        >
-          <span class="svg-wrapper">
-            {{- 'icon-close.svg' | inline_asset_content -}}
-          </span>
-        </button>
+        </div>
       </div>
     </div>
   </details>
-</details-modal>
+</search-drawer>

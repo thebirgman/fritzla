@@ -14,8 +14,7 @@
 }
 
 .grid--3-col-desktop .grid__item {
-  width: 100%;
-  max-width: 100%;
+
   flex-grow: unset;
   flex-shrink: unset;
 }
@@ -24,9 +23,7 @@
   cursor: pointer;
 }
 
-.page-width {
-  padding: 0;
-}
+
 
 .section-collection-list .collection-list:not(.slider) {
     padding: 0 !important;
