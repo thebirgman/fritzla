@@ -90,11 +90,11 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-19e5212c-36ac-4b4b-b1b2-0d8a01f16b11",
-        "mobile_image_height": "medium",
+        "mobile_image_height": "large",
         "custom_mobile_height": 400,
         "mobile_image_position": "middle-center",
         "mobile_content_alignment": "center",
-        "show_text_below": true
+        "show_text_below": false
       }
     }
   },
