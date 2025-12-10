@@ -77,7 +77,10 @@
       "custom_css": [
         ".banner__text p em {font-family: Great Vibes; font-weight: 400; font-size: 20px; line-height: 140%; letter-spacing: 2px; text-align: center; color: white;}",
         "h2 {font-size: 48px;}",
-        "@media (max-width: 768px) {.banner__text p em {font-weight: 400; font-size: 16px; line-height: 110.00000000000001%; letter-spacing: 1.6px; text-align: center; } .banner__box {max-width: 287px; } a.button {min-height: 33px; }}"
+        ".banner__box {display: flex; flex-direction: column; gap: 16px;}",
+        ".banner__box * {margin: 0 !important;}",
+        ".banner__box .button.button--primary {margin: 16px 0 !important;}",
+        "@media (max-width: 768px) {.banner__text p em {font-weight: 400; font-size: 16px; line-height: 110%; letter-spacing: 1.6px; text-align: center; } .banner__box {max-width: 287px; } a.button {min-height: 33px; }}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
