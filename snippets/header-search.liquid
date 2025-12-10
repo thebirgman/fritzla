@@ -119,7 +119,10 @@
                         lazy_load: lazy_load,
                         skip_styles: skip_card_product_styles,
                         quick_add: 'none',
-                        section_id: 'search-drawer'
+                        section_id: 'search-drawer',
+                        collection: collection,
+                        variant_hover: section.settings.variant_hover,
+                        new_variant: section.settings.new_variant
                       %}
                     </li>
                     {%- assign skip_card_product_styles = true -%}
