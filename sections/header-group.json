@@ -86,6 +86,7 @@
         "enable_customer_avatar": true,
         "variant_hover": false,
         "new_variant": true,
+        "card_show_vendor": true,
         "popular_keywords": "Artwood, ,Sängbord, Kuddar, Kuddar",
         "popular_keywords_title": "Populära sökningar",
         "popular_products_collection": "all",
