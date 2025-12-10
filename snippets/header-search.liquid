@@ -258,4 +258,62 @@
 .search-drawer .card__inner {
     --ratio-percent: 115.5% !important;!i;!;
 }
+
+@media (max-width:768px) {
+.search-drawer__inner ul.grid.product-grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-drawer__inner ul.grid.product-grid li.grid__item {
+    width: 100%;
+    max-width: 100%;
+}
+
+.search-drawer .card.card--standard.card--media {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-drawer .card__inner {
+    max-width: 75px;
+    !i;!;
+    max-height: 100px;
+    border-radius: 8px;
+    width: 100%;
+    min-height: 100px;
+}
+
+.search-drawer .card__inner .card__media {
+    border-radius: 8px !important;
+}
+
+.search-drawer .card--standard>.card__content>div.card__information {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-drawer .card--standard > .card__content {
+    padding: 6px 0 6px 10px;
+    display: flex;
+}
+
+.search-drawer .caption-with-letter-spacing {
+    display: none;
+}
+
+.search-drawer .card__heading a {
+    font-family: Sofia Sans;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+}
+
+.search-drawer .price__container * {
+    font-size: 14px !important;
+}
+}
 </style>
