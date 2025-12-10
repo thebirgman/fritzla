@@ -86,6 +86,23 @@ h1.h2.center {
     gap: 12px;
 }
 
+form.search .field input {
+    color: #767676;
+    letter-spacing: 0;
+}
+
+span.mobile-facets__open-label.button-label.small-hide {
+    color: #121212;
+}
+
+span#ProductCount {
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+}
+
 @media (max-width: 768px) {
     .grid.product-grid {
         padding: 0 20px 8px;
