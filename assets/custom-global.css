@@ -429,3 +429,13 @@ button.st-wishlist-button.st-initialized {
 .grid__item:hover button.st-wishlist-button.st-initialized {
     opacity: 1;
 }
+
+.contact .field .field__input:focus {
+    box-shadow: none;
+}
+
+.contact .field .field__input {}
+
+.search-drawer__form .search__input:focus {
+    box-shadow: none;
+}
