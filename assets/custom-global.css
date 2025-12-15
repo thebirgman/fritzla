@@ -439,3 +439,57 @@ button.st-wishlist-button.st-initialized {
 .search-drawer__form .search__input:focus {
     box-shadow: none;
 }
+
+.kl-private-reset-css-Xuajs1 h2 {
+    font-family: 'Source Serif 4'!important;
+    color: #000!important;
+    font-weight: 600!important;
+    margin-top: -20px;
+}
+
+div#rich-text-01KCGPADDQH4JKQDZ1J9WJFEFR {}
+
+.needsclick.kl-private-reset-css-Xuajs1 p {
+    font-family: 'Sofia Sans'!important;
+    font-size: 14px!important;
+    color: #000!important;
+}
+
+input[type="email"] {}
+
+.needsclick.kl-private-reset-css-Xuajs1 input[type="email"] {
+    border: 0!Important;
+    font-size: 16px!important;
+    border-bottom: 1px solid #000!important;
+    border-radius: 0!important;
+    padding: 0!important;
+    box-shadow: none!important;
+    outline: none!important;
+    height: 40px!Important;
+}
+
+button.needsclick.klaviyo-close-form.go528693720.kl-private-reset-css-Xuajs1 {
+    top: 10px!important;
+    right: 5px!Important;
+}
+
+button.needsclick.klaviyo-close-form.go528693720.kl-private-reset-css-Xuajs1 path {
+    stroke-width: 0.5px;
+}
+
+button.needsclick.go1375592442.kl-private-reset-css-Xuajs1 {
+    font-size: 16px!important;
+    font-family: 'Sofia Sans'!important;
+    margin-top: 5px;
+    margin-bottom: -20px;
+}
+
+a[href*="klaviyo.com"]{
+    display: none!Important;
+}
+
+a {}
+
+.klaviyo-form.klaviyo-form.klaviyo-form {
+    max-width: 95vw!important;
+}
