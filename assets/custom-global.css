@@ -492,3 +492,7 @@ a {}
 .klaviyo-form.klaviyo-form.klaviyo-form {
     max-width: 95vw!important;
 }
+
+.needsclick.kl-private-reset-css-Xuajs1 input[type=email]::placeholder {
+    font-size: 16px !important;
+}
