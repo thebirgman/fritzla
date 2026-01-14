@@ -86,7 +86,17 @@
             "id": "shadow",
             "label": "t:settings_schema.colors.settings.shadow.label",
             "default": "#121212"
-          }
+          },
+          {
+            "type": "color",
+            "id": "button_hover_bg",
+            "label": "Button BG hover"
+          },
+          {
+            "type": "color",
+            "id": "button_hover_text",
+            "label": "Button Text hover"
+          },
         ],
         "role": {
           "text": "text",
