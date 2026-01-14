@@ -179,7 +179,9 @@
           "button": "#121212",
           "button_label": "#ffffff",
           "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "button_hover_bg": "",
+          "button_hover_text": ""
         }
       },
       "scheme-2": {
@@ -190,7 +192,9 @@
           "button": "#121212",
           "button_label": "#f3f3f3",
           "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "button_hover_bg": "",
+          "button_hover_text": ""
         }
       },
       "scheme-3": {
@@ -201,7 +205,9 @@
           "button": "#ffffff",
           "button_label": "#000000",
           "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "button_hover_bg": "#bcaa9d",
+          "button_hover_text": ""
         }
       },
       "scheme-4": {
@@ -212,7 +218,9 @@
           "button": "#ffffff",
           "button_label": "#121212",
           "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "button_hover_bg": "",
+          "button_hover_text": ""
         }
       },
       "scheme-5": {
@@ -223,7 +231,9 @@
           "button": "#ffffff",
           "button_label": "#334fb4",
           "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "button_hover_bg": "",
+          "button_hover_text": ""
         }
       },
       "scheme-19e5212c-36ac-4b4b-b1b2-0d8a01f16b11": {
@@ -234,7 +244,9 @@
           "button": "#f8f8fa",
           "button_label": "#131316",
           "secondary_button_label": "#131316",
-          "shadow": "#131316"
+          "shadow": "#131316",
+          "button_hover_bg": "",
+          "button_hover_text": ""
         }
       },
       "scheme-15a341f7-3cfa-40ae-8cdd-e343eee72291": {
@@ -245,7 +257,9 @@
           "button": "#121212",
           "button_label": "#ffffff",
           "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "button_hover_bg": "",
+          "button_hover_text": ""
         }
       },
       "scheme-353be432-42cf-4afc-a9a6-9cf57225c9bd": {
@@ -256,7 +270,9 @@
           "button": "#ffffff",
           "button_label": "#000000",
           "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "button_hover_bg": "",
+          "button_hover_text": ""
         }
       },
       "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a": {
@@ -267,7 +283,9 @@
           "button": "#432f22",
           "button_label": "#fafafa",
           "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "button_hover_bg": "",
+          "button_hover_text": ""
         }
       },
       "scheme-09ced41c-4e9e-4974-925c-c1860966bad8": {
@@ -278,7 +296,9 @@
           "button": "#121212",
           "button_label": "#ffffff",
           "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "button_hover_bg": "",
+          "button_hover_text": ""
         }
       },
       "scheme-9bf48ca7-eb1f-4ff4-a686-387e6c25e902": {
@@ -289,7 +309,9 @@
           "button": "#432f22",
           "button_label": "#ffffff",
           "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "shadow": "#121212",
+          "button_hover_bg": "",
+          "button_hover_text": ""
         }
       },
       "scheme-50eb2b2b-8179-40ba-8a8c-4d7fb6415e44": {
@@ -300,7 +322,9 @@
           "button": "#432f22",
           "button_label": "#fafafa",
           "secondary_button_label": "#432f22",
-          "shadow": "#432f22"
+          "shadow": "#432f22",
+          "button_hover_bg": "#bcaa9d",
+          "button_hover_text": ""
         }
       }
     }
