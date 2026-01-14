@@ -1357,6 +1357,7 @@ button.shopify-payment-button__button--unbranded {
     0 0 0 var(--buttons-border-width)
       rgba(var(--color-button), var(--alpha-button-background));
   transition: box-shadow var(--duration-short) ease;
+  display: none;
 }
 
 .button:not([disabled]):hover::after,
@@ -1368,6 +1369,7 @@ button.shopify-payment-button__button--unbranded {
       rgba(var(--color-button-text), var(--border-opacity)),
     0 0 0 calc(var(--buttons-border-width) + 1px)
       rgba(var(--color-button), var(--alpha-button-background));
+  display: none;
 }
 
 .button--secondary:after {
