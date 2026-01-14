@@ -661,11 +661,11 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                 {%- when 'button' -%}
                   <style>
                     {% if block.settings.hover_text != blank or block.settings.hover_bg != blank %}
-                      .button.button--primary {
+                      .section-{{ section.id }}-padding .button.button--primary {
                         transition: .2s ease-in-out;
                       }
 
-                      .button.button--primary:hover {
+                      .section-{{ section.id }}-padding .button.button--primary:hover {
                         color: {{ block.settings.hover_text }};
                         background: {{ block.settings.hover_bg }};
                         transition: .2s ease-in-out;
