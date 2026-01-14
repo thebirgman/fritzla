@@ -178,17 +178,6 @@
     bottom: 20px;
 }
 
-{% if block.settings.button_hover_text != blank or block.settings.button_hover_bg != blank %}
-  .button.button--primary {
-    transition: .2s ease-in-out;
-  }
-
-  .button.button--primary:hover {
-    color: {{ block.settings.button_hover_text }};
-    background: {{ block.settings.button_hover_bg }};
-    transition: .2s ease-in-out;
-  }
-{% endif %}
 .image-with-text__gallery-wrapper {
     position: relative;
 }
@@ -628,6 +617,7 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                     </style>
                   {%- endunless -%}
                 {%- when 'caption' -%}
+                  
                   <p
                     class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}"
                     {{ block.shopify_attributes }}
@@ -669,6 +659,19 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                     {{ block.settings.text }}
                   </{{ text_tag }}>
                 {%- when 'button' -%}
+                  <style>
+                    {% if block.settings.hover_text != blank or block.settings.hover_bg != blank %}
+                      .button.button--primary {
+                        transition: .2s ease-in-out;
+                      }
+
+                      .button.button--primary:hover {
+                        color: {{ block.settings.hover_text }};
+                        background: {{ block.settings.hover_bg }};
+                        transition: .2s ease-in-out;
+                      }
+                    {% endif %}
+                  </style>
                   {%- if block.settings.button_label != blank -%}
                     <a
                       {% if block.settings.button_link == blank %}
@@ -1200,12 +1203,12 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
         },
         {
           "type": "color",
-          "id": "button_hover_text",
+          "id": "hover_text",
           "label": "Button Text Color on Hover",
         },
         {
           "type": "color",
-          "id": "button_hover_bg",
+          "id": "hover_bg",
           "label": "Button BG Color on Hover",
         },
         {
