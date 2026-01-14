@@ -207,7 +207,7 @@
           "secondary_button_label": "#ffffff",
           "shadow": "#121212",
           "button_hover_bg": "#bcaa9d",
-          "button_hover_text": ""
+          "button_hover_text": "#000000"
         }
       },
       "scheme-4": {
@@ -284,8 +284,8 @@
           "button_label": "#fafafa",
           "secondary_button_label": "#121212",
           "shadow": "#121212",
-          "button_hover_bg": "",
-          "button_hover_text": ""
+          "button_hover_bg": "#bcaa9d",
+          "button_hover_text": "#212121"
         }
       },
       "scheme-09ced41c-4e9e-4974-925c-c1860966bad8": {
@@ -324,7 +324,7 @@
           "secondary_button_label": "#432f22",
           "shadow": "#432f22",
           "button_hover_bg": "#bcaa9d",
-          "button_hover_text": ""
+          "button_hover_text": "#212121"
         }
       }
     }
