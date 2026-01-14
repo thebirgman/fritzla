@@ -182,8 +182,8 @@
           "type": "button",
           "settings": {
             "button_label": "Kontakta oss",
-            "button_hover_text": "",
-            "button_hover_bg": "#bcaa9d",
+            "hover_text": "",
+            "hover_bg": "#bcaa9d",
             "button_link": "#",
             "button_style_secondary": false
           }
@@ -349,8 +349,8 @@
           "type": "button",
           "settings": {
             "button_label": "Kontakta oss",
-            "button_hover_text": "",
-            "button_hover_bg": "",
+            "hover_text": "",
+            "hover_bg": "",
             "button_link": "#",
             "button_style_secondary": false
           }
@@ -458,8 +458,8 @@
           "type": "button",
           "settings": {
             "button_label": "Kontakta oss",
-            "button_hover_text": "",
-            "button_hover_bg": "",
+            "hover_text": "",
+            "hover_bg": "",
             "button_link": "#",
             "button_style_secondary": false
           }
