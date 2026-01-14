@@ -83,6 +83,7 @@
             "collection": "",
             "image": "shopify://shop_images/f48ae081981ff495b1147e90fda375e159a81406.png",
             "title": "Hemtextil",
+            "subheading": "",
             "url": "shopify://collections",
             "button_label": "Handla nu"
           }
@@ -93,6 +94,7 @@
             "collection": "",
             "image": "shopify://shop_images/303d333850d985cd77c6fd8c400fc8f51b619ec4.png",
             "title": "Möbler",
+            "subheading": "",
             "url": "shopify://collections/belysning",
             "button_label": "Handla nu"
           }
@@ -103,6 +105,7 @@
             "collection": "belysning",
             "image": "shopify://shop_images/d986c5980bb13f78642fbd39d5b9a23414ffd000.png",
             "title": "",
+            "subheading": "",
             "url": "",
             "button_label": "Handla nu"
           }
@@ -179,6 +182,8 @@
           "type": "button",
           "settings": {
             "button_label": "Kontakta oss",
+            "button_hover_text": "",
+            "button_hover_bg": "#bcaa9d",
             "button_link": "#",
             "button_style_secondary": false
           }
@@ -288,6 +293,7 @@
             "collection": "",
             "image": "shopify://shop_images/97e80b5cf502d328c90f3ae925cb566c36bb1180.png",
             "title": "Mörkläggningsgardiner",
+            "subheading": "",
             "url": "shopify://pages/homestyling",
             "button_label": "Handla nu"
           }
@@ -298,6 +304,7 @@
             "collection": "",
             "image": "shopify://shop_images/606a8358655eddacb814a0576ac432d094703ab5.png",
             "title": "Linnegardiner",
+            "subheading": "",
             "url": "shopify://collections/all",
             "button_label": "Handla nu"
           }
@@ -342,6 +349,8 @@
           "type": "button",
           "settings": {
             "button_label": "Kontakta oss",
+            "button_hover_text": "",
+            "button_hover_bg": "",
             "button_link": "#",
             "button_style_secondary": false
           }
@@ -381,6 +390,7 @@
             "collection": "",
             "image": "shopify://shop_images/c27ba727610bc90b58cf7bcc54f49b148cb0e7ea.png",
             "title": "Artwood",
+            "subheading": "",
             "url": "shopify://pages/homestyling",
             "button_label": "Handla nu"
           }
@@ -391,6 +401,7 @@
             "collection": "",
             "image": "shopify://shop_images/bb98f9146f4a3ebc2e4827870a0e8f4e63306228.png",
             "title": "Saga form",
+            "subheading": "",
             "url": "shopify://collections/all",
             "button_label": "Handla nu"
           }
@@ -401,6 +412,7 @@
             "collection": "",
             "image": "shopify://shop_images/c947c1431daae689fe76f42d21b11f60e3450cc8.png",
             "title": "Gridelli",
+            "subheading": "",
             "url": "shopify://pages/homestyling",
             "button_label": "Handla nu"
           }
@@ -446,6 +458,8 @@
           "type": "button",
           "settings": {
             "button_label": "Kontakta oss",
+            "button_hover_text": "",
+            "button_hover_bg": "",
             "button_link": "#",
             "button_style_secondary": false
           }
@@ -518,6 +532,7 @@
             "collection": "",
             "image": "shopify://shop_images/5105a8fe670e5bcd4b9a9287426b050b404d5a4e.png",
             "title": "Inredningsservice",
+            "subheading": "",
             "url": "shopify://pages/homestyling",
             "button_label": "Handla nu"
           }
@@ -528,6 +543,7 @@
             "collection": "",
             "image": "shopify://shop_images/3944359a9707e34c7cc7ea3c8039da6904044da5.png",
             "title": "Sömnad",
+            "subheading": "",
             "url": "shopify://collections/all",
             "button_label": "Handla nu"
           }
@@ -538,6 +554,7 @@
             "collection": "",
             "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0.png",
             "title": "Homestyling",
+            "subheading": "",
             "url": "shopify://pages/homestyling",
             "button_label": "Handla nu"
           }
