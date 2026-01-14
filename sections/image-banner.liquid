@@ -241,19 +241,6 @@
               {{ block.settings.text }}
             </div>
           {%- when 'buttons' -%}
-            <style>
-              {% if block.settings.hover_text != blank or block.settings.hover_bg != blank %}
-                #Banner-{{ section.id }} .button.button--primary {
-                  transition: .2s ease-in-out;
-                }
-
-                #Banner-{{ section.id }} .button.button--primary:hover {
-                  color: {{ block.settings.hover_text }};
-                  background: {{ block.settings.hover_bg }};
-                  transition: .2s ease-in-out;
-                }
-              {% endif %}
-            </style>
             <div
               class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
               data-block-id="{{ block.id }}"
