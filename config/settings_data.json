@@ -271,8 +271,8 @@
           "button_label": "#000000",
           "secondary_button_label": "#121212",
           "shadow": "#121212",
-          "button_hover_bg": "",
-          "button_hover_text": ""
+          "button_hover_bg": "#212121",
+          "button_hover_text": "#ffffff"
         }
       },
       "scheme-3a2b2a96-78f2-48a2-8953-1d2e71003d7a": {
