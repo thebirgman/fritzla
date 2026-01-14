@@ -350,7 +350,7 @@
           "settings": {
             "button_label": "Kontakta oss",
             "hover_text": "",
-            "hover_bg": "",
+            "hover_bg": "#bcaa9d",
             "button_link": "#",
             "button_style_secondary": false
           }
