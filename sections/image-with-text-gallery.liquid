@@ -663,19 +663,6 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
                     {{ block.settings.text }}
                   </{{ text_tag }}>
                 {%- when 'button' -%}
-                  <style>
-                    {% if block.settings.hover_text != blank or block.settings.hover_bg != blank %}
-                      .section-{{ section.id }}-padding .button.button--primary {
-                        transition: .2s ease-in-out;
-                      }
-
-                      .section-{{ section.id }}-padding .button.button--primary:hover {
-                        color: {{ block.settings.hover_text }};
-                        background: {{ block.settings.hover_bg }};
-                        transition: .2s ease-in-out;
-                      }
-                    {% endif %}
-                  </style>
                   {%- if block.settings.button_label != blank -%}
                     <a
                       {% if block.settings.button_link == blank %}
@@ -1204,16 +1191,6 @@ h4.image-with-text__heading.inline-richtext:not(.image-with-text__heading-deskto
           "default": "t:sections.image-with-text.blocks.button.settings.button_label.default",
           "label": "t:sections.image-with-text.blocks.button.settings.button_label.label",
           "info": "t:sections.image-with-text.blocks.button.settings.button_label.info"
-        },
-        {
-          "type": "color",
-          "id": "hover_text",
-          "label": "Button Text Color on Hover",
-        },
-        {
-          "type": "color",
-          "id": "hover_bg",
-          "label": "Button BG Color on Hover",
         },
         {
           "type": "url",
