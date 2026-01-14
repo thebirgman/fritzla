@@ -178,6 +178,17 @@
     bottom: 20px;
 }
 
+{% if block.settings.button_hover_text != blank or block.settings.button_hover_bg != blank %}
+  .button.button--primary {
+    transition: .2s ease-in-out;
+  }
+
+  .button.button--primary:hover {
+    color: {{ block.settings.button_hover_text }};
+    background: {{ block.settings.button_hover_bg }};
+    transition: .2s ease-in-out;
+  }
+{% endif %}
 .image-with-text__gallery-wrapper {
     position: relative;
 }
