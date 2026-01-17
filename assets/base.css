@@ -2492,9 +2492,46 @@ input[type="checkbox"] {
   align-items: center;
 }
 
+.header__search-mobile {
+  display: none;
+}
+
+.header__left-icons-wrapper {
+  grid-area: left-icons;
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+
+.header__left-icons-wrapper header-drawer {
+  justify-self: auto;
+  margin-left: -1.2rem;
+}
+
 @media screen and (max-width: 749px) {
   .header--has-app {
     grid-template-columns: auto 1fr auto;
+  }
+  
+  /* Move search icon beside burger menu on mobile */
+  .header__icons .header__search {
+    display: none !important;
+  }
+  
+  .header__search-mobile {
+    display: inline-flex;
+    margin-left: -3px;
+  }
+  
+  .header__search-mobile .header__search {
+    display: inline-flex;
+    line-height: 0;
+  }
+  
+  /* Make left-icons area flex to accommodate both burger and search */
+  header-drawer {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -3954,4 +3991,12 @@ summary.list-menu__item a {
 
 html body * {
   letter-spacing: 0;
+}
+
+button.st-wishlist-details-button.st-wishlist-details-button--bottom_right.st-initialized {
+  display: none;
+}
+
+.cart-drawer quantity-popover .quantity {
+  background: transparent;
 }

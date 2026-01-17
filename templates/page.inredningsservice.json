@@ -97,8 +97,6 @@
           "type": "button",
           "settings": {
             "button_label": "Kontakta oss",
-            "hover_text": "",
-            "hover_bg": "#bcaa9d",
             "button_link": "#",
             "button_style_secondary": false
           }
@@ -185,8 +183,6 @@
           "type": "button",
           "settings": {
             "button_label": "Hitta hit",
-            "hover_text": "",
-            "hover_bg": "#bcaa9d",
             "button_link": "#",
             "button_style_secondary": false
           }

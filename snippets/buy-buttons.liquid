@@ -60,6 +60,41 @@
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
 
+        {%- liquid
+          assign has_length_option = product.metafields.custom.has_length_option
+          assign length_min = product.metafields.custom.length_option_range_minimum | default: 50
+          assign length_max = product.metafields.custom.length_option_range_maximum | default: 500
+          assign length_placeholder = product.metafields.custom.length_option_placeholder | default: 'Ange längd (50cm-5m)'
+        -%}
+
+        {%- if has_length_option -%}
+          <div class="product-form__input product-form__length-option" data-length-option>
+            <label class="form__label" for="Length-{{ section.id }}">
+              Längd:
+            </label>
+            <div class="field field--length-input">
+              <input
+                type="text"
+                name="properties[Length]"
+                id="Length-{{ section.id }}"
+                class="field__input length-input"
+                placeholder="{{ length_placeholder }}"
+                form="{{ product_form_id }}"
+                data-length-min="{{ length_min }}"
+                data-length-max="{{ length_max }}"
+                aria-describedby="Length-Error-{{ section.id }}"
+              >
+              <span class="length-unit">cm</span>
+            </div>
+            <span id="Length-Error-{{ section.id }}" class="form__message length-error-message" role="alert" hidden>
+              <span class="svg-wrapper">
+                {{- 'icon-error.svg' | inline_asset_content -}}
+              </span>
+              Ange en längd mellan {{ length_min | round: 0 }}-{{ length_max | round: 0 }} cm.
+            </span>
+          </div>
+        {%- endif -%}
+
         <div class="product-form__buttons">
          <div
                   id="Quantity-Form-{{ section.id }}"
@@ -295,17 +330,21 @@
             if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
               assign quantity_rule_soldout = true
             endif
+            assign should_disable_button = false
+            if product.selected_or_first_available_variant.available == false or quantity_rule_soldout or product.selected_or_first_available_variant == null
+              assign should_disable_button = true
+            endif
           -%}
           <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
-            {% if product.selected_or_first_available_variant.available == false
-              or quantity_rule_soldout
-              or product.selected_or_first_available_variant == null
-            %}
+            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}{% if has_length_option %} length-option-required disabled{% endif %}"
+            {% if should_disable_button %}
               disabled
+            {% endif %}
+            {% if has_length_option %}
+              data-requires-length="true"
             {% endif %}
           >
             <span>
