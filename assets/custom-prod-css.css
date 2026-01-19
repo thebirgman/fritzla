@@ -466,6 +466,10 @@ p.buybtn-message {
     .product__info-container .product__description.rte.quick-add-hidden {
         margin-top: 8px;
     }
+
+    .product__info-container>*+*:has(.price) {
+        padding-bottom: 20px;
+    }
     
     .product__info-wrapper .product__info-container {
         margin-top: 0;
