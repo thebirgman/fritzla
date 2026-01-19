@@ -480,6 +480,10 @@ p.buybtn-message {
         margin-bottom: 44px;
     }
 
+    .product-mobile-top {
+        display: none;
+    }
+
     .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
         margin: 0!important;
     }
