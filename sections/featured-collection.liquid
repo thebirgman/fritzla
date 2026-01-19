@@ -207,37 +207,37 @@
 </div>
 
 <style>
-  .section-{{ section.id }}-padding h2.title.inline-richtext {
+  h2.title.inline-richtext {
     font-size: {{ section.settings.heading_size }}px;
     font-weight: 600;
     line-height: 120%;
     letter-spacing: -1px;
   }
 
-  .section-{{ section.id }}-padding .collection__title.title-wrapper h2 {
+  .collection__title.title-wrapper h2 {
     margin: 0 !important;
 }
 
-  .section-{{ section.id }}-padding .collection__title.title-wrapper {
+  .collection__title.title-wrapper {
     padding: 0;
   }
 
-  .section-{{ section.id }}-padding [class*=featured_collection] {
+  [class*=featured_collection] {
     padding: 72px 32px;
   }
 
-  .section-{{ section.id }}-padding .card__content {
+  .card__content {
     position: relative;
     transform: unset;
     top: 0;
   }
 
-  .section-{{ section.id }}-padding .card__heading {
+  .card__heading {
     color: black;
     width: 100%;
   }
 
-  .section-{{ section.id }}-padding .card__heading a {
+  .card__heading a {
     color: black;
     font-family: Sofia Sans;
     font-weight: 700;
@@ -248,19 +248,19 @@
     text-align: left;
   }
 
-  .section-{{ section.id }}-padding .card--standard > .card__content .card__information {
+  .card--standard > .card__content .card__information {
     padding: 16px 0;
     flex-direction: column;
     gap: 8px;
   }
 
-  .section-{{ section.id }}-padding .card__heading+.card-information {
+  .card__heading+.card-information {
     width: fit-content;
   }
 
 
 
-  .section-{{ section.id }}-padding .price .price-item {
+  .price .price-item {
     font-family: Sofia Sans;
     font-weight: 400;
     font-size: 16px;
@@ -270,89 +270,89 @@
     color: #212121;
   }
 
-  .section-{{ section.id }}-padding .card .card__inner .card__media {
+  .card .card__inner .card__media {
     border-radius: 16px 16px 0 0;
   }
 
-  .section-{{ section.id }}-padding .collection__title.title-wrapper {
+  .collection__title.title-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
 }
 
-  .section-{{ section.id }}-padding .collection__view-all a:not(.link) {
-      margin: 0;
-      padding: 10px 16px;
-      font-family: Sofia Sans;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 140%;
-      letter-spacing: 0;
-      color: #212121;
-      background-color: #fafafa;
-      border: 1px solid #D9D9D9;
-      max-height: 40px;
-      min-height: 40px;
-  }
+.collection__view-all a:not(.link) {
+    margin: 0;
+    padding: 10px 16px;
+    font-family: Sofia Sans;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: 0;
+    color: #212121;
+    background-color: #fafafa;
+    border: 1px solid #D9D9D9;
+    max-height: 40px;
+    min-height: 40px;
+}
 
-.section-{{ section.id }}-padding .collection__view-all a:not(.link):before, .collection__view-all a:not(.link):after {
+.collection__view-all a:not(.link):before, .collection__view-all a:not(.link):after {
     border-color: #d9d9d9;
     box-shadow: none;
 }
 
-.section-{{ section.id }}-padding .button:not([disabled]):hover:after {
+.button:not([disabled]):hover:after {
     box-shadow: unset;
 }
 
-.section-{{ section.id }}-padding .collection__view-all a:not(.link):hover {transition: box-shadow .1s ease;background: #212121;color: #fafafa;}
+.collection__view-all a:not(.link):hover {transition: box-shadow .1s ease;background: #212121;color: #fafafa;}
 
-.section-{{ section.id }}-padding [class*=featured_collection] {
+[class*=featured_collection] {
     background: #fafafa;
 }
 
 @media screen and (max-width: 768px) {
-.section-{{ section.id }}-padding .collection .slider-button {
+.collection .slider-button {
     display: none;
 }
 
-.section-{{ section.id }}-padding .collection__title.title-wrapper h2 {
+.collection__title.title-wrapper h2 {
     font-size: 20px;
 }
 
-.section-{{ section.id }}-padding .collection__view-all a:not(.link) {
+.collection__view-all a:not(.link) {
     font-size: 12px;
     padding: 8px 12px;
 }
 
-.section-{{ section.id }}-padding .card__inner.gradient {
+.card__inner.gradient {
     max-height: 275px;
 }
 
-.section-{{ section.id }}-padding .grid--peek.slider .grid__item {
+.grid--peek.slider .grid__item {
     max-width: 240px;
     padding: 0 !important;
 }
 
-.section-{{ section.id }}-padding .card--standard > .card__content .card__information {
+.card--standard > .card__content .card__information {
     display: flex;
     padding: 16px 0;
 }
 
-.section-{{ section.id }}-padding .grid--peek.slider .grid__item:first-of-type {
+.grid--peek.slider .grid__item:first-of-type {
     padding: 0!important;
     margin: 0;
 }
 
-.section-{{ section.id }}-padding slider-component.slider-mobile-gutter {
+slider-component.slider-mobile-gutter {
     min-width: calc(100% + 24px);
 }
 
-.section-{{ section.id }}-padding [class*=featured_collection] {
+[class*=featured_collection] {
     padding: 40px 24px;
 }
 
-.section-{{ section.id }}-padding .card--standard > .card__content .card__information {
+.card--standard > .card__content .card__information {
     padding-bottom: 0;
 }
 }
