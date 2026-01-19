@@ -207,37 +207,37 @@
 </div>
 
 <style>
-  h2.title.inline-richtext {
+  .section-{{ section.id }}-padding h2.title.inline-richtext {
     font-size: {{ section.settings.heading_size }}px;
     font-weight: 600;
     line-height: 120%;
     letter-spacing: -1px;
   }
 
-  .collection__title.title-wrapper h2 {
+  .section-{{ section.id }}-padding .collection__title.title-wrapper h2 {
     margin: 0 !important;
 }
 
-  .collection__title.title-wrapper {
+  .section-{{ section.id }}-padding .collection__title.title-wrapper {
     padding: 0;
   }
 
-  [class*=featured_collection] {
+  .section-{{ section.id }}-padding [class*=featured_collection] {
     padding: 72px 32px;
   }
 
-  .card__content {
+  .section-{{ section.id }}-padding .card__content {
     position: relative;
     transform: unset;
     top: 0;
   }
 
-  .card__heading {
+  .section-{{ section.id }}-padding .card__heading {
     color: black;
     width: 100%;
   }
 
-  .card__heading a {
+  .section-{{ section.id }}-padding .card__heading a {
     color: black;
     font-family: Sofia Sans;
     font-weight: 700;
@@ -248,19 +248,19 @@
     text-align: left;
   }
 
-  .card--standard > .card__content .card__information {
+  .section-{{ section.id }}-padding .card--standard > .card__content .card__information {
     padding: 16px 0;
     flex-direction: column;
     gap: 8px;
   }
 
-  .card__heading+.card-information {
+  .section-{{ section.id }}-padding .card__heading+.card-information {
     width: fit-content;
   }
 
 
 
-  .price .price-item {
+  .section-{{ section.id }}-padding .price .price-item {
     font-family: Sofia Sans;
     font-weight: 400;
     font-size: 16px;
@@ -270,89 +270,89 @@
     color: #212121;
   }
 
-  .card .card__inner .card__media {
+  .section-{{ section.id }}-padding .card .card__inner .card__media {
     border-radius: 16px 16px 0 0;
   }
 
-  .collection__title.title-wrapper {
+  .section-{{ section.id }}-padding .collection__title.title-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
 }
 
-.collection__view-all a:not(.link) {
-    margin: 0;
-    padding: 10px 16px;
-    font-family: Sofia Sans;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 140%;
-    letter-spacing: 0;
-    color: #212121;
-    background-color: #fafafa;
-    border: 1px solid #D9D9D9;
-    max-height: 40px;
-    min-height: 40px;
-}
+  .section-{{ section.id }}-padding .collection__view-all a:not(.link) {
+      margin: 0;
+      padding: 10px 16px;
+      font-family: Sofia Sans;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      letter-spacing: 0;
+      color: #212121;
+      background-color: #fafafa;
+      border: 1px solid #D9D9D9;
+      max-height: 40px;
+      min-height: 40px;
+  }
 
-.collection__view-all a:not(.link):before, .collection__view-all a:not(.link):after {
+.section-{{ section.id }}-padding .collection__view-all a:not(.link):before, .collection__view-all a:not(.link):after {
     border-color: #d9d9d9;
     box-shadow: none;
 }
 
-.button:not([disabled]):hover:after {
+.section-{{ section.id }}-padding .button:not([disabled]):hover:after {
     box-shadow: unset;
 }
 
-.collection__view-all a:not(.link):hover {transition: box-shadow .1s ease;background: #212121;color: #fafafa;}
+.section-{{ section.id }}-padding .collection__view-all a:not(.link):hover {transition: box-shadow .1s ease;background: #212121;color: #fafafa;}
 
-[class*=featured_collection] {
+.section-{{ section.id }}-padding [class*=featured_collection] {
     background: #fafafa;
 }
 
 @media screen and (max-width: 768px) {
-.collection .slider-button {
+.section-{{ section.id }}-padding .collection .slider-button {
     display: none;
 }
 
-.collection__title.title-wrapper h2 {
+.section-{{ section.id }}-padding .collection__title.title-wrapper h2 {
     font-size: 20px;
 }
 
-.collection__view-all a:not(.link) {
+.section-{{ section.id }}-padding .collection__view-all a:not(.link) {
     font-size: 12px;
     padding: 8px 12px;
 }
 
-.card__inner.gradient {
+.section-{{ section.id }}-padding .card__inner.gradient {
     max-height: 275px;
 }
 
-.grid--peek.slider .grid__item {
+.section-{{ section.id }}-padding .grid--peek.slider .grid__item {
     max-width: 240px;
     padding: 0 !important;
 }
 
-.card--standard > .card__content .card__information {
+.section-{{ section.id }}-padding .card--standard > .card__content .card__information {
     display: flex;
     padding: 16px 0;
 }
 
-.grid--peek.slider .grid__item:first-of-type {
+.section-{{ section.id }}-padding .grid--peek.slider .grid__item:first-of-type {
     padding: 0!important;
     margin: 0;
 }
 
-slider-component.slider-mobile-gutter {
+.section-{{ section.id }}-padding slider-component.slider-mobile-gutter {
     min-width: calc(100% + 24px);
 }
 
-[class*=featured_collection] {
+.section-{{ section.id }}-padding [class*=featured_collection] {
     padding: 40px 24px;
 }
 
-.card--standard > .card__content .card__information {
+.section-{{ section.id }}-padding .card--standard > .card__content .card__information {
     padding-bottom: 0;
 }
 }
