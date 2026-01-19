@@ -34,12 +34,6 @@
   
 }
 
-@media screen and (max-width: 768px) {
-.section-{{ section.id }} .popular-categories__wrapper {
- scroll-padding-left: 24px;
-  
-}
-}
 .section-{{ section.id }} .popular-categories__wrapper::-webkit-scrollbar {
   display: none;
 }
@@ -168,5 +162,16 @@
     padding: 0;
   }
 
+
+  .section-{{ section.id }} .popular-categories__item:first-child {
+    margin-left: 24px;
+  }
+
+  @media screen and (max-width: 768px) {
+.section-{{ section.id }} .popular-categories__wrapper {
+ scroll-padding-left: 24px;
+  
+}
+}
 }
 </style>
