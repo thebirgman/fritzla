@@ -463,18 +463,6 @@ p.buybtn-message {
         margin: 10px 0;
     }
     
-    .product__info-wrapper p.product__text.caption-with-letter-spacing {
-        display: none;
-    }
-    
-    .product__info-wrapper .product__text.caption-with-letter-spacing+.product__title {
-        display: none;
-    }
-    
-    .product__info-container>*+*:has(.price) {
-        display: none;
-    }
-    
     .product__info-container .product__description.rte.quick-add-hidden {
         margin-top: 8px;
     }
