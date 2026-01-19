@@ -12,7 +12,7 @@
   {% endif %}
 
   <div class="popular-categories__wrapper {% if section.settings.mobile_layout == 'vertical' %}vertical{% else %}carousel{% endif %} {% if section.blocks.size <= 2 %}stack-mobile{% endif %}">
-    
+    <div class="popular-categories__wrapper-track">
     {% for block in section.blocks %}
       {% assign collection = block.settings.collection %}
       {% assign image = block.settings.image %}
@@ -46,6 +46,7 @@
         {% endif %}
       </div>
     {% endfor %}
+  </div>
   </div>
 </div>
 {% render 'popular-categories.css' %}
