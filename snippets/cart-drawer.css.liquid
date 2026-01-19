@@ -210,8 +210,8 @@ quantity-popover .quantity {
 }
 
 .cart-drawer .cart__checkout-button {
-    background: #F1E9E1;
-    color: #212121;
+    background: #212121;
+    color: #FAFAFA;
     min-height: 38px;
     font-family: Sofia Sans;
     font-weight: 400;
@@ -219,6 +219,14 @@ quantity-popover .quantity {
     line-height: 140%;
     letter-spacing: 0;
     border-radius: 66px;
+    transition: .2s ease-in-out;
+    border: 1px solid #212121;
+}
+
+.cart-drawer .cart__checkout-button:hover {
+    transition: .2s ease-in-out;
+    background: #fafafa;
+    color: #212121;
 }
 
 .cart-drawer .totals {
