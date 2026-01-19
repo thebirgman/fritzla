@@ -416,6 +416,18 @@ div[data-lastpass-icon-root] {
     max-height: 100%!important;
 }
 }
+
+.newsletter-form__field-wrapper .field__input {
+    box-shadow: none!important;
+}
+
+.newsletter-form__field-wrapper .field__input:focus {
+    border-color: #000;
+}
+
+.newsletter-form__field-wrapper  input:focus + .field__label {
+    opacity: 0;
+}
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
