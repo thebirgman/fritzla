@@ -102,6 +102,17 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .header__left-icons-wrapper {
+    display: none;
+  }
+
+  @media screen and (max-width: 989px) {
+  .header__left-icons-wrapper {
+      display: flex;
+  }
+
+  }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
