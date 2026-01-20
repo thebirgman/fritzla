@@ -354,7 +354,7 @@ ul.list-unstyled.is-level-3-selected a {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 989px) {
 .header__icon--menu[aria-expanded=true]:before {
     background: transparent
 }
@@ -442,7 +442,7 @@ h3.mega-menu-title a{
     color: #767676!important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 989px) {
 div#menu-drawer {
     z-index: 99999;
 }
@@ -510,7 +510,7 @@ nav.menu-drawer__navigation {
     height: 22px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 989px) {
 .mega-menu__category-block {
     width: 100%!important;
 }
