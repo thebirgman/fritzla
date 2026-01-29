@@ -1,5 +1,6 @@
 {% assign tabs = product.metafields.custom.product_details_tab_list.value.product_details_tab.value %}
 
+{%  if tabs != blank %}
 <div class="product-details-tab">
   <div class="product-details-tab__inner page-width">
     <div class="product-details-tab__flex">
@@ -58,6 +59,8 @@
     </div>
   </div>
 </div>
+
+{% endif %}
 
 
 <style>
