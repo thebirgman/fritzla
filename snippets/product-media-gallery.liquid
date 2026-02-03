@@ -105,8 +105,8 @@
               class="product__media-item grid__item slider__slide variant-gallery-item{% if single_media_visible %} product__media-item--single{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}{% unless is_selected_variant %} hidden{% endunless %}"
               data-media-id="{{ section.id }}-{{ variant_media_id }}"
               data-variant-id="{{ variant.id }}"
-              {% assign mod = forloop.index0 | modulo: 3 %}
-              {% if mod == 0 and forloop.index0 != 0 %}
+              {% assign mod = forloop.index | minus: 1 | modulo: 3 %}
+              {% if mod == 0 %}
                 large-image
               {% endif %}
 
