@@ -104,6 +104,7 @@
               class="product__media-item grid__item slider__slide variant-gallery-item{% if single_media_visible %} product__media-item--single{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}{% unless is_selected_variant %} hidden{% endunless %}"
               data-media-id="{{ section.id }}-{{ variant_media_id }}"
               data-variant-id="{{ variant.id }}"
+              data-index="{{ forloop.index }}"
             >
               {%- liquid
                 assign lazy_load = true
