@@ -164,9 +164,10 @@ fieldset.js.product-form__input.product-form__input--swatch+div label.form__labe
 .grid__item.product__media-wrapper {
     position: relative;
 }
-.product__media-item:nth-child(3n){
+.product__media-item:nth-child(3n):not(.variant-gallery-item), product__media-item.grid__item slider__slide.variant-gallery-item[large-image]{
     max-width: 100% !important;
 }
+
 
 .product__media-list {
     gap: 8px;
