@@ -39,6 +39,44 @@
         endif
       -%}
 
+      {%- comment -%} Add variant gallery images for all variants to modal {%- endcomment -%}
+      {%- for variant in product.variants -%}
+        {%- assign variant_gallery = variant.metafields.custom.variant_gallery.value -%}
+        {%- if variant_gallery -%}
+          {%- for variant_image in variant_gallery -%}
+            {%- liquid
+              assign variant_media_id = 'variant-' | append: variant.id | append: '-' | append: forloop.index
+              assign is_selected_variant = false
+              if variant.id == product.selected_or_first_available_variant.id
+                assign is_selected_variant = true
+              endif
+            -%}
+            <img
+              class="global-media-settings global-media-settings--no-shadow variant-gallery-modal-item{% unless is_selected_variant %} hidden{% endunless %}"
+              srcset="
+                {%- if variant_image.width >= 550 -%}{{ variant_image | image_url: width: 550 }} 550w,{%- endif -%}
+                {%- if variant_image.width >= 1100 -%}{{ variant_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                {%- if variant_image.width >= 1445 -%}{{ variant_image | image_url: width: 1445 }} 1445w,{%- endif -%}
+                {%- if variant_image.width >= 1680 -%}{{ variant_image | image_url: width: 1680 }} 1680w,{%- endif -%}
+                {%- if variant_image.width >= 2048 -%}{{ variant_image | image_url: width: 2048 }} 2048w,{%- endif -%}
+                {%- if variant_image.width >= 2200 -%}{{ variant_image | image_url: width: 2200 }} 2200w,{%- endif -%}
+                {%- if variant_image.width >= 2890 -%}{{ variant_image | image_url: width: 2890 }} 2890w,{%- endif -%}
+                {%- if variant_image.width >= 4096 -%}{{ variant_image | image_url: width: 4096 }} 4096w,{%- endif -%}
+                {{ variant_image | image_url }} {{ variant_image.width }}w
+              "
+              sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+              src="{{ variant_image | image_url: width: 1445 }}"
+              alt="{{ variant_image.alt | escape }}"
+              loading="lazy"
+              width="1100"
+              height="{{ 1100 | divided_by: variant_image.aspect_ratio | ceil }}"
+              data-media-id="{{ variant_media_id }}"
+              data-variant-id="{{ variant.id }}"
+            >
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endfor -%}
+
       {%- for media in product.media -%}
         {%- liquid
           if section.settings.hide_variants and variant_images contains media.src or variant_images contains media.id

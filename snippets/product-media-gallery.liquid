@@ -51,7 +51,6 @@
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
-   <button class='st-wishlist-button' data-type='details' data-handle='{{ product.handle }}'></button>
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
   <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
     <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
@@ -86,6 +85,77 @@
           %}
         </li>
       {%- endif -%}
+      
+      {%- comment -%} Add variant gallery images for all variants {%- endcomment -%}
+      {%- for variant in product.variants -%}
+        {%- assign variant_gallery = variant.metafields.custom.variant_gallery.value -%}
+        {%- if variant_gallery -%}
+          {%- for variant_image in variant_gallery -%}
+            {%- liquid
+              assign media_position = media_position | default: 0 | plus: 1
+              assign variant_media_id = 'variant-' | append: variant.id | append: '-' | append: forloop.index
+              assign is_selected_variant = false
+              if variant.id == product.selected_or_first_available_variant.id
+                assign is_selected_variant = true
+              endif
+            -%}
+            <li
+              id="Slide-{{ section.id }}-{{ variant_media_id }}"
+              class="product__media-item grid__item slider__slide variant-gallery-item{% if single_media_visible %} product__media-item--single{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}{% unless is_selected_variant %} hidden{% endunless %}"
+              data-media-id="{{ section.id }}-{{ variant_media_id }}"
+              data-variant-id="{{ variant.id }}"
+            >
+              {%- liquid
+                assign lazy_load = true
+              -%}
+              <div
+                class="product-media-container media-type-image media-fit-{{ section.settings.media_fit }} global-media-settings gradient{% if section.settings.constrain_to_viewport %} constrain-height{% endif %}"
+                style="--ratio: {{ variant_image.aspect_ratio | default: 1.0 }}; --preview-ratio: {{ variant_image.aspect_ratio | default: 1.0 }};"
+              >
+                <modal-opener
+                  class="product__modal-opener product__modal-opener--image"
+                  data-modal="#ProductModal-{{ section.id }}"
+                >
+                  <span
+                    class="product__media-icon motion-reduce quick-add-hidden product__media-icon--{{ section.settings.image_zoom }}"
+                    aria-hidden="true"
+                  >
+                    <span class="svg-wrapper">
+                      {{- 'icon-zoom.svg' | inline_asset_content -}}
+                    </span>
+                  </span>
+                  {%- render 'loading-spinner' -%}
+                  <div class="product__media media media--transparent">
+                    {%- capture sizes -%}
+                      (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 990px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)
+                    {%- endcapture -%}
+                    {{
+                      variant_image
+                      | image_url: width: 1946
+                      | image_tag:
+                        class: 'image-magnify-hover',
+                        loading: 'lazy',
+                        sizes: sizes,
+                        widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
+                    }}
+                  </div>
+                  <button
+                    class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
+                    type="button"
+                    aria-haspopup="dialog"
+                    data-media-id="{{ variant_media_id }}"
+                  >
+                    <span class="visually-hidden">
+                      {{ 'products.product.media.open_media' | t: index: media_position }}
+                    </span>
+                  </button>
+                </modal-opener>
+              </div>
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
+      {%- endfor -%}
+      
       {%- for media in product.media -%}
         {% if media_position >= limit
           or media_position >= 1
@@ -252,6 +322,53 @@
             </button>
           </li>
         {%- endif -%}
+        
+        {%- comment -%} Add variant gallery thumbnails for all variants {%- endcomment -%}
+        {%- for variant in product.variants -%}
+          {%- assign variant_gallery = variant.metafields.custom.variant_gallery.value -%}
+          {%- if variant_gallery -%}
+            {%- for variant_image in variant_gallery -%}
+              {%- liquid
+                assign media_index = media_index | plus: 1
+                assign variant_media_id = 'variant-' | append: variant.id | append: '-' | append: forloop.index
+                assign is_selected_variant = false
+                if variant.id == product.selected_or_first_available_variant.id
+                  assign is_selected_variant = true
+                endif
+              -%}
+              <li
+                id="Slide-Thumbnails-{{ section.id }}-{{ variant_media_id }}"
+                class="thumbnail-list__item slider__slide variant-gallery-thumbnail{% unless is_selected_variant %} hidden{% endunless %}"
+                data-target="{{ section.id }}-{{ variant_media_id }}"
+                data-media-position="{{ media_index }}"
+                data-variant-id="{{ variant.id }}"
+              >
+                {%- capture thumbnail_id -%}
+                  Thumbnail-{{ section.id }}-{{ variant_media_id }}
+                {%- endcapture -%}
+                <button
+                  class="thumbnail global-media-settings global-media-settings--no-shadow"
+                  aria-label="{{ 'products.product.media.load_image' | t: index: media_index }}"
+                  aria-controls="GalleryViewer-{{ section.id }}"
+                  aria-describedby="{{ thumbnail_id }}"
+                >
+                  {{
+                    variant_image
+                    | image_url: width: 416
+                    | image_tag:
+                      loading: 'lazy',
+                      sizes: sizes,
+                      widths: '54, 74, 104, 162, 208, 324, 416',
+                      id: thumbnail_id,
+                      alt: variant_image.alt
+                    | escape
+                  }}
+                </button>
+              </li>
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endfor -%}
+        
         {%- for media in product.media -%}
           {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
             {%- liquid
