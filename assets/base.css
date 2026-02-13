@@ -4008,3 +4008,41 @@ a.card-media-link {
     height: 100%;
     z-index: 2;
 }
+
+.product-swatch-links {
+  margin-top: 1rem;
+}
+
+.product-swatch-links__label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.product-swatch-links__list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.product-swatch {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.15);
+  position: relative;
+}
+
+.product-swatch__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-swatch.is-active {
+  outline: 2px solid rgba(0,0,0,0.85);
+  outline-offset: 2px;
+}
