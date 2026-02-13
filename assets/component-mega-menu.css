@@ -523,3 +523,22 @@ nav.menu-drawer__navigation {
 .mega-menu-list-links-container a {
     font-weight: 500;
 }
+
+summary.list-menu__item {
+    padding-right: 20px;
+}
+
+.mega-menu__content {
+    flex-direction: column;
+}
+
+.mega-menu-wrapper {
+    display: flex;
+    gap: 80px;
+    justify-content: space-between;
+    /* padding: 32px; */
+}
+
+.megamenu-subfooter {
+    padding: 0;
+}
