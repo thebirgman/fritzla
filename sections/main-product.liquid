@@ -537,50 +537,9 @@
                   render 'share-button', block: block, share_link: share_url
                 %}
 
-{%- when 'variant_picker' -%}
-  {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-
-  {% assign current_group = product.metafields.custom.product_group.value %}
-  {% if current_group != blank %}
-    <div class="product-swatch-links">
-      <div class="product-swatch-links__list">
-
-        {% assign rendered_handles = '' %}
-
-        {% for collection in product.collections %}
-          {% for prod in collection.products %}
-            {% if prod.metafields.custom.product_group.value == current_group %}
-              {% unless rendered_handles contains prod.handle %}
-                {% assign rendered_handles = rendered_handles | append: prod.handle | append: ',' %}
-
-                <a
-                  href="{{ prod.url }}"
-                  class="product-swatch{% if prod.handle == product.handle %} is-active{% endif %}"
-                  title="{{ prod.title }}"
-                >
-                  {% if prod.featured_image %}
-                    <img
-                      src="{{ prod.featured_image | image_url: width: 120 }}"
-                      alt="{{ prod.title }}"
-                      class="product-swatch__img"
-                      loading="lazy"
-                      width="44"
-                      height="44"
-                    >
-                  {% endif %}
-                </a>
-
-              {% endunless %}
-            {% endif %}
-          {% endfor %}
-        {% endfor %}
-
-      </div>
-    </div>
-  {% endif %}
-
-{%- when 'buy_buttons' -%}
-
+              {%- when 'variant_picker' -%}
+                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+              {%- when 'buy_buttons' -%}
                 {%- render 'buy-buttons',
                   block: block,
                   product: product,
