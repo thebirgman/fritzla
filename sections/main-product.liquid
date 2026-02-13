@@ -18,58 +18,6 @@
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
-    <!-- START Color Swatch Links -->
-{% assign current_group = product.metafields.custom.product_group.value %}
-{% if current_group != blank %}
-  <div class="product-swatch-links" role="group" aria-label="Färgval">
-    <div class="product-swatch-links__label">Färg:</div>
-
-    {% comment %}
-      Vi letar "syskonprodukter" i produktens collections och visar de som har samma produktgrupp.
-      Tips: Lägg alla färger i en gemensam collection (t.ex. "Lykta-serien") för att detta ska bli stabilt.
-    {% endcomment %}
-
-    {% assign rendered_handles = '' %}
-    <div class="product-swatch-links__list">
-      {% for collection in product.collections %}
-        {% for prod in collection.products %}
-          {% if prod.metafields.custom.product_group.value == current_group %}
-            {% unless rendered_handles contains prod.handle %}
-              {% assign rendered_handles = rendered_handles | append: prod.handle | append: ',' %}
-
-              {% assign is_active = false %}
-              {% if prod.handle == product.handle %}
-                {% assign is_active = true %}
-              {% endif %}
-
-              <a
-                class="product-swatch{% if is_active %} is-active{% endif %}"
-                href="{{ prod.url }}"
-                aria-label="{{ prod.title }}"
-                title="{{ prod.title }}"
-              >
-                {% if prod.featured_image %}
-                  <img
-                    class="product-swatch__img"
-                    src="{{ prod.featured_image | image_url: width: 120 }}"
-                    alt="{{ prod.title }}"
-                    loading="lazy"
-                    width="44"
-                    height="44"
-                  >
-                {% else %}
-                  <span class="product-swatch__fallback">{{ prod.title }}</span>
-                {% endif %}
-              </a>
-
-            {% endunless %}
-          {% endif %}
-        {% endfor %}
-      {% endfor %}
-    </div>
-  </div>
-{% endif %}
-<!-- END Color Swatch Links -->
     {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
     {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
   {% endunless %}
@@ -590,8 +538,49 @@
                 %}
 
               {%- when 'variant_picker' -%}
-                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-              {%- when 'buy_buttons' -%}
+  {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+
+  {% assign current_group = product.metafields.custom.product_group.value %}
+  {% if current_group != blank %}
+    <div class="product-swatch-links">
+      <div class="product-swatch-links__list">
+
+        {% assign rendered_handles = '' %}
+
+        {% for collection in product.collections %}
+          {% for prod in collection.products %}
+            {% if prod.metafields.custom.product_group.value == current_group %}
+              {% unless rendered_handles contains prod.handle %}
+                {% assign rendered_handles = rendered_handles | append: prod.handle | append: ',' %}
+
+                <a
+                  href="{{ prod.url }}"
+                  class="product-swatch{% if prod.handle == product.handle %} is-active{% endif %}"
+                  title="{{ prod.title }}"
+                >
+                  {% if prod.featured_image %}
+                    <img
+                      src="{{ prod.featured_image | image_url: width: 120 }}"
+                      alt="{{ prod.title }}"
+                      class="product-swatch__img"
+                      loading="lazy"
+                      width="44"
+                      height="44"
+                    >
+                  {% endif %}
+                </a>
+
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+
+      </div>
+    </div>
+  {% endif %}
+
+{%- when 'buy_buttons' -%}
+
                 {%- render 'buy-buttons',
                   block: block,
                   product: product,
