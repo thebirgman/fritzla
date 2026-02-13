@@ -519,3 +519,7 @@ nav.menu-drawer__navigation {
     top: 0;
 }
 }
+
+.mega-menu-list-links-container a {
+    font-weight: 500;
+}
