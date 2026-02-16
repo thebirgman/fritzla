@@ -3,7 +3,7 @@
 
   Requires:
   - product_group metaobject definition with: name, products (list.product_reference), option_name
-  - Current product must be in the products list of one product_group metaobject (found by looping shop.metaobjects.product_group.values)
+  - Each product in a group must have metafield custom.product_group (metaobject_reference) pointing to its group
 
   Displays swatches for each unique option value across the group; each swatch links to a product that has that value.
   Uses Shopify native swatch (option value's swatch) for color display. Highlights current product's value as active.
@@ -14,29 +14,15 @@
     section_id: section.id,
     shape: 'circle'
   %}
-  Optional: pass product_group to avoid re-looking up (e.g. when caller already found it).
 {% endcomment %}
 {%- liquid
+  assign product_group = product.metafields.custom.product_group.value
   if product_group == blank
-    for group in shop.metaobjects.product_group.values
-      assign group_products_ref = group.products
-      if group_products_ref == blank and group.products.value != blank
-        assign group_products_ref = group.products.value
-      endif
-      for group_product in group_products_ref
-        if group_product.id == product.id
-          assign product_group = group
-          break
-        endif
-      endfor
-      if product_group != blank
-        break
-      endif
-    endfor
+    assign product_group = product.metafields.custom.product_group
   endif
 -%}
 {%- if product_group == blank -%}
-  {%- comment -%} Product not in any product_group metaobject {%- endcomment -%}
+  {%- comment -%} No group assigned; product needs metafield custom.product_group (metaobject_reference to product_group) {%- endcomment -%}
 {%- else -%}
 {%- liquid
   assign option_name = product_group.option_name
@@ -45,7 +31,6 @@
     assign group_products = product_group.products.value
   endif
 -%}
-
 {%- if option_name != blank and group_products != blank -%}
 
 {%- liquid
@@ -63,13 +48,12 @@
   assign delimiter = '|||'
 -%}
 
-{%- if group_products != blank -%}
+{%- if group_products.size > 0 -%}
   <div
     class="combined-listings combined-listings--{{ section_id }}"
     data-combined-listings
     data-option-name="{{ option_name | escape }}"
   >
-  
     <p class="combined-listings__label form__label">
       {{ option_name }}:
       <span class="combined-listings__current" data-combined-listings-current>
@@ -77,8 +61,7 @@
       </span>
     </p>
     <div class="combined-listings__swatches" role="list">
-      {%- for group_product in group_products.value -%}
-        
+      {%- for group_product in group_products -%}
         {%- for option in group_product.options_with_values -%}
           {%- assign opt_name_down = option.name | downcase -%}
           {%- assign group_opt_down = option_name | downcase -%}

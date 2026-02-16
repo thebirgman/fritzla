@@ -9,31 +9,15 @@
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
 {%- liquid
-  assign product_group_for_listings = ''
-  assign combined_listings_option_name = ''
-  for group in shop.metaobjects.product_group.values
-    assign group_products_ref = group.products.value
-    for group_product in group_products_ref
-      if group_product.id == product.id
-        assign product_group_for_listings = group
-        break
-      endif
-    endfor
-    if product_group_for_listings != blank
-      break
-    endif
-  endfor
-  if product_group_for_listings != blank and product_group_for_listings.option_name != blank
-    assign combined_listings_option_name = product_group_for_listings.option_name | strip
+  assign product_group_for_listings = product.metafields.custom.product_group.value
+  if product_group_for_listings == blank
+    assign product_group_for_listings = product.metafields.custom.product_group
   endif
 -%}
-
-
 {%- if product_group_for_listings != blank -%}
   {{ 'component-combined-listings.css' | asset_url | stylesheet_tag }}
   {% render 'combined-listings-swatches',
     product: product,
-    product_group: product_group_for_listings,
     section_id: section.id,
     shape: block.settings.swatch_shape | default: 'circle'
   %}
@@ -46,17 +30,6 @@
     {{ block.shopify_attributes }}
   >
     {%- for option in product.options_with_values -%}
-      {%- liquid
-        assign option_name_down = option.name | downcase | strip
-        assign combined_option_down = combined_listings_option_name | downcase
-        assign hide_option = false
-        if combined_option_down != blank and option_name_down == combined_option_down
-          assign hide_option = true
-        endif
-      -%}
-      {%- if hide_option -%}
-        {%- continue -%}
-      {%- endif -%}
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
         assign picker_type = block.settings.picker_type
