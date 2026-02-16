@@ -1,0 +1,129 @@
+{% comment %}
+  Combined Listings: cross-product variant swatches from product_group metaobject.
+
+  Requires:
+  - product_group metaobject definition with: name, products (list.product_reference), option_name
+  - Current product must be in the products list of one product_group metaobject (found by looping shop.metaobjects.product_group.values)
+
+  Displays swatches for each unique option value across the group; each swatch links to a product that has that value.
+  Uses Shopify native swatch (option value's swatch) for color display. Highlights current product's value as active.
+
+  Usage:
+  {% render 'combined-listings-swatches',
+    product: product,
+    section_id: section.id,
+    shape: 'circle'
+  %}
+  Optional: pass product_group to avoid re-looking up (e.g. when caller already found it).
+{% endcomment %}
+{%- liquid
+  if product_group == blank
+    for group in shop.metaobjects.product_group.values
+      assign group_products_ref = group.products
+      if group_products_ref == blank and group.products.value != blank
+        assign group_products_ref = group.products.value
+      endif
+      for group_product in group_products_ref
+        if group_product.id == product.id
+          assign product_group = group
+          break
+        endif
+      endfor
+      if product_group != blank
+        break
+      endif
+    endfor
+  endif
+-%}
+{%- if product_group == blank -%}
+  {%- comment -%} Product not in any product_group metaobject {%- endcomment -%}
+{%- else -%}
+{%- liquid
+  assign option_name = product_group.option_name
+  assign group_products = product_group.products
+  if group_products == blank and product_group.products.value != blank
+    assign group_products = product_group.products.value
+  endif
+-%}
+
+{%- if option_name != blank and group_products != blank -%}
+
+{%- liquid
+  assign current_option_value = ''
+  for option in product.options_with_values
+    assign option_name_down = option.name | downcase
+    assign group_option_down = option_name | downcase
+    if option_name_down == group_option_down
+      assign current_option_value = option.selected_value | default: option.values.first | strip
+      break
+    endif
+  endfor
+
+  assign seen_values = ''
+  assign delimiter = '|||'
+-%}
+
+{%- if group_products != blank -%}
+  <div
+    class="combined-listings combined-listings--{{ section_id }}"
+    data-combined-listings
+    data-option-name="{{ option_name | escape }}"
+  >
+  
+    <p class="combined-listings__label form__label">
+      {{ option_name }}:
+      <span class="combined-listings__current" data-combined-listings-current>
+        {{ current_option_value }}
+      </span>
+    </p>
+    <div class="combined-listings__swatches" role="list">
+      {%- for group_product in group_products.value -%}
+        
+        {%- for option in group_product.options_with_values -%}
+          {%- assign opt_name_down = option.name | downcase -%}
+          {%- assign group_opt_down = option_name | downcase -%}
+          {%- if opt_name_down != group_opt_down -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- for opt_value in option.values -%}
+            {%- assign opt_value_str = opt_value | strip -%}
+            {%- assign check_slug = delimiter | append: opt_value_str | append: delimiter -%}
+            {%- if seen_values contains check_slug -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- assign seen_values = seen_values | append: check_slug -%}
+            {%- assign product_url = group_product.url -%}
+            {%- assign is_current = false -%}
+            {%- if current_option_value == opt_value_str -%}
+              {%- assign is_current = true -%}
+            {%- endif -%}
+            <div class="combined-listings__swatch-wrap" role="listitem">
+              {%- if product.id == group_product.id -%}
+                <span
+                  class="combined-listings__swatch combined-listings__swatch--current-disabled{% if shape == 'square' %} combined-listings__swatch--square{% endif %}"
+                  aria-current="{% if is_current %}true{% else %}false{% endif %}"
+                  title="{{ opt_value | escape }}"
+                >
+                  {% render 'swatch', swatch: opt_value.swatch, shape: shape %}
+                </span>
+              {%- else -%}
+                <a
+                  href="{{ product_url }}"
+                  class="combined-listings__swatch combined-listings__swatch-link{% if is_current %} combined-listings__swatch--active{% endif %}{% if shape == 'square' %} combined-listings__swatch--square{% endif %}"
+                  title="{{ opt_value | escape }}"
+                  data-product-url="{{ product_url }}"
+                >
+                  {% render 'swatch', swatch: opt_value.swatch, shape: shape %}
+                  <span class="visually-hidden">{{ option_name }}: {{ opt_value }}</span>
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+          {%- break -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+{%- endif -%}
+{%- endif -%}
