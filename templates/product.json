@@ -153,9 +153,6 @@
     },
     "featured_collection_Efjj7C": {
       "type": "featured-collection",
-      "custom_css": [
-        "[class*=featured_collection]{background: #fff;}"
-      ],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "variant_hover": false,
