@@ -4046,3 +4046,7 @@ a.card-media-link {
   outline: 2px solid rgba(0,0,0,0.85);
   outline-offset: 2px;
 }
+
+.contact-layout__form-slot .field__input:not(:placeholder-shown)~.field__label {
+    display: none;
+}
