@@ -1,0 +1,109 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_banner_WV7fr9": {
+      "type": "image-banner",
+      "blocks": {
+        "text_L4RhML": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>404</em></p>",
+            "text_style": "body",
+            "enable_custom_font_size": true,
+            "custom_font_size": 20,
+            "enable_max_width": false,
+            "max_width": 600,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "heading_x44QJi": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Sidan kan inte hittas</strong>",
+            "text_type": "h2",
+            "heading_size": "h0",
+            "font_weight": "",
+            "enable_custom_font_size": false,
+            "custom_font_size": 24
+          }
+        },
+        "text_Vappy3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Body</p>",
+            "text_style": "body",
+            "enable_custom_font_size": false,
+            "custom_font_size": 16,
+            "enable_max_width": false,
+            "max_width": 600,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "buttons_MGPcq4": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Tillbaka till startsidan",
+            "button_link_1": "/",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "text_L4RhML",
+        "heading_x44QJi",
+        "text_Vappy3",
+        "buttons_MGPcq4"
+      ],
+      "custom_css": [
+        ".banner__text p em {font-family: Great Vibes; font-weight: 400; font-size: 20px; line-height: 140%; letter-spacing: 2px; text-align: center; color: white;}",
+        "h2 {font-size: 48px;}",
+        ".banner__box {display: flex; flex-direction: column; gap: 16px;}",
+        ".banner__box * {margin: 0 !important;}",
+        ".banner__box .button.button--primary {margin: 16px 0 !important;}",
+        "@media (max-width: 768px) {.banner__text p em {font-weight: 400; font-size: 16px; line-height: 110%; letter-spacing: 1.6px; text-align: center; } .banner__box {max-width: 287px; } a.button {min-height: 33px; }}"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_cafb3467-a116-4539-879e-2961aa77267f.png",
+        "image_overlay_opacity": 60,
+        "image_height": "large",
+        "custom_height": 500,
+        "image_behavior": "none",
+        "desktop_image_position": "middle-center",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-19e5212c-36ac-4b4b-b1b2-0d8a01f16b11",
+        "mobile_image_height": "large",
+        "custom_mobile_height": 400,
+        "mobile_image_position": "middle-center",
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_WV7fr9"
+  ]
+}
