@@ -8,20 +8,6 @@
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
-{%- liquid
-  assign product_group_for_listings = product.metafields.custom.product_group.value
-  if product_group_for_listings == blank
-    assign product_group_for_listings = product.metafields.custom.product_group
-  endif
--%}
-{%- if product_group_for_listings != blank -%}
-  {{ 'component-combined-listings.css' | asset_url | stylesheet_tag }}
-  {% render 'combined-listings-swatches',
-    product: product,
-    section_id: section.id,
-    shape: block.settings.swatch_shape | default: 'circle'
-  %}
-{%- endif -%}
 {%- unless product.has_only_default_variant -%}
   <div class='new-variant_cont'>
   <variant-selects
