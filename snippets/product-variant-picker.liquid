@@ -14,7 +14,9 @@
 {% for group in shop.metaobjects.product_group.values %}
   {% assign group_products_ref = group.products.value %}
 
+
   {% for group_product in group_products_ref %}
+    {{ group.name }}
     {{ group_product.id }} == {{ product.id }}
     {% if group_product.id == product.id %}
       {% assign product_group_for_listings = group %}
