@@ -17,8 +17,9 @@
 
   {% for group_product in group_products_ref %}
     {{ group.product_name }}
-    {{ group_product.id }} == {{ product.id }}
+    
     {% if group_product.id == product.id %}
+      testing
       {% assign product_group_for_listings = group %}
       {% break %}
     {% endif %}
