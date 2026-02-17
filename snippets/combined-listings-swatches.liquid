@@ -16,31 +16,6 @@
   %}
   Optional: pass product_group to avoid re-looking up (e.g. when caller already found it).
 {% endcomment %}
- {{ product_group }}
-{% if product_group == blank %}
-  test
-  {% for group in shop.metaobjects.product_group.values %}
-    {% assign group_products_ref = group.products %}
-    testing
-
-    {% if group_products_ref == blank and group.products.value != blank %}
-      {% assign group_products_ref = group.products.value %}
-    {% endif %}
-
-    {% for group_product in group_products_ref %}
-      {{ group_product.id }} == {{ product.id }}
-      {% if group_product.id == product.id %}
-        {% assign product_group = group %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
-
-    {% if product_group != blank %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
-
 
 
 {%- if product_group == blank -%}
