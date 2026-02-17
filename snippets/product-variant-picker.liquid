@@ -27,7 +27,7 @@
     assign combined_listings_option_name = product_group_for_listings.option_name | strip
   endif
 -%}
-test {{ product_group_for_listings }}
+
 
 {%- if product_group_for_listings != blank -%}
   {{ 'component-combined-listings.css' | asset_url | stylesheet_tag }}
