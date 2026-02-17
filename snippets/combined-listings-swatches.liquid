@@ -23,7 +23,7 @@
 {%- else -%}
   {% assign option_name = product_group.option_name %}
   {% assign group_products = product_group.products %}
-  {{ option_name }}
+  
 
   {% if group_products == blank and product_group.products.value != blank %}
     {% assign group_products = product_group.products.value %}
