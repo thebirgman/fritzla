@@ -21,13 +21,15 @@
 {%- if product_group == blank -%}
   {%- comment -%} Product not in any product_group metaobject {%- endcomment -%}
 {%- else -%}
-{%- liquid
-  assign option_name = product_group.option_name
-  assign group_products = product_group.products
-  if group_products == blank and product_group.products.value != blank
-    assign group_products = product_group.products.value
-  endif
--%}
+  {% assign option_name = product_group.option_name %}
+  {% assign group_products = product_group.products %}
+  {{ option_name }}
+
+  {% if group_products == blank and product_group.products.value != blank %}
+    {% assign group_products = product_group.products.value %}
+  {% endif %}
+{%- endif -%}
+
 
 {%- if option_name != blank and group_products != blank -%}
 
@@ -108,6 +110,5 @@
       {%- endfor -%}
     </div>
   </div>
-{%- endif -%}
 {%- endif -%}
 {%- endif -%}
