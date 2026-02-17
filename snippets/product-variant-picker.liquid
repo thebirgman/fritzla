@@ -16,10 +16,9 @@
 
 
   {% for group_product in group_products_ref %}
-    {{ group.product_name }}
+    
     
     {% if group_product.id == product.id %}
-      testing
       {% assign product_group_for_listings = group %}
       {% break %}
     {% endif %}
@@ -34,6 +33,7 @@
   {% assign combined_listings_option_name = product_group_for_listings.option_name | strip %}
 {% endif %}
 
+{{ product_group_for_listings.product_name }}
 
 
 {%- if product_group_for_listings != blank -%}
