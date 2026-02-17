@@ -8,38 +8,7 @@
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
-{%- liquid
-  assign product_group_for_listings = ''
-  assign combined_listings_option_name = ''
-  for group in shop.metaobjects.product_group.values
-    assign group_products_ref = group.products.value
-    for group_product in group_products_ref
-      if group_product.id == product.id
-        assign product_group_for_listings = group
-        break
-      endif
-    endfor
-    if product_group_for_listings != blank
-      break
-    endif
-  endfor
-  if product_group_for_listings != blank and product_group_for_listings.option_name != blank
-    assign combined_listings_option_name = product_group_for_listings.option_name | strip
-  endif
--%}
-
-
-{%- if product_group_for_listings != blank -%}
-  {{ 'component-combined-listings.css' | asset_url | stylesheet_tag }}
-  {% render 'combined-listings-swatches',
-    product: product,
-    product_group: product_group_for_listings,
-    section_id: section.id,
-    shape: block.settings.swatch_shape | default: 'circle'
-  %}
-{%- endif -%}
 {%- unless product.has_only_default_variant -%}
-  <div class='new-variant_cont'>
   <variant-selects
     id="variant-selects-{{ section.id }}"
     data-section="{{ section.id }}"
@@ -47,19 +16,11 @@
   >
     {%- for option in product.options_with_values -%}
       {%- liquid
-        assign option_name_down = option.name | downcase | strip
-        assign combined_option_down = combined_listings_option_name | downcase
-        assign hide_option = false
-        if combined_option_down != blank and option_name_down == combined_option_down
-          assign hide_option = true
-        endif
-      -%}
-      {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
         assign picker_type = block.settings.picker_type
 
         if swatch_count > 0 and block.settings.swatch_shape != 'none'
-          if block.settings.picker_type == 'dropdown' and option.name != 'Color'
+          if block.settings.picker_type == 'dropdown'
             assign picker_type = 'swatch_dropdown'
           else
             assign picker_type = 'swatch'
@@ -67,7 +28,7 @@
         endif
       -%}
       {%- if picker_type == 'swatch' -%}
-        <fieldset class="js product-form__input product-form__input--swatch" data-show="{{hide_option}}">
+        <fieldset class="js product-form__input product-form__input--swatch">
           <legend class="form__label">
             {{ option.name }}:
             <span data-selected-value>
@@ -82,7 +43,7 @@
           %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
-        <fieldset class="js product-form__input product-form__input--pill" data-show="{{hide_option}}">
+        <fieldset class="js product-form__input product-form__input--pill">
           <legend class="form__label">{{ option.name }}</legend>
           {% render 'product-variant-options',
             product: product,
@@ -92,11 +53,10 @@
           %}
         </fieldset>
       {%- else -%}
-        <div class="product-form__input product-form__input--dropdown" data-show="{{hide_option}}">
+        <div class="product-form__input product-form__input--dropdown">
           <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
             {{ option.name }}
           </label>
-          <div class='new-select__container'>
           <div class="select">
             {%- if picker_type == 'swatch_dropdown' -%}
               <span
@@ -123,10 +83,6 @@
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
           </div>
-          {% render 'buy-buttons' %}
-
-          </div>
-          
         </div>
       {%- endif -%}
     {%- endfor -%}
@@ -135,5 +91,4 @@
       {{ product.selected_or_first_available_variant | json }}
     </script>
   </variant-selects>
-</div>
 {%- endunless -%}
