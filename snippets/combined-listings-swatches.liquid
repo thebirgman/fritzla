@@ -26,6 +26,7 @@
     {% endif %}
 
     {% for group_product in group_products_ref %}
+      {{ group_product.id }} == {{ product.id }}
       {% if group_product.id == product.id %}
         {% assign product_group = group %}
         {% break %}
