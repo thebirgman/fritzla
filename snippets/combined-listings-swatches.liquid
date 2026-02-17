@@ -18,8 +18,10 @@
 {% endcomment %}
  
 {% if product_group == blank %}
+  test
   {% for group in shop.metaobjects.product_group.values %}
     {% assign group_products_ref = group.products %}
+    testing
 
     {% if group_products_ref == blank and group.products.value != blank %}
       {% assign group_products_ref = group.products.value %}
