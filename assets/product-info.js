@@ -179,10 +179,12 @@ if (!customElements.get('product-info')) {
 
           const updateSourceFromDestination = (id, shouldHide = (source) => false) => {
             const source = html.getElementById(`${id}-${this.sectionId}`);
-            const destination = this.querySelector(`#${id}-${this.dataset.section}`);
-            if (source && destination) {
-              destination.innerHTML = source.innerHTML;
-              destination.classList.toggle('hidden', shouldHide(source));
+            const destinations = this.querySelectorAll(`[id="${id}-${this.dataset.section}"]`);
+            if (source && destinations.length) {
+              destinations.forEach((destination) => {
+                destination.innerHTML = source.innerHTML;
+                destination.classList.toggle('hidden', shouldHide(source));
+              });
             }
           };
 
