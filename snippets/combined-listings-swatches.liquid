@@ -16,7 +16,7 @@
   %}
   Optional: pass product_group to avoid re-looking up (e.g. when caller already found it).
 {% endcomment %}
- 
+ {{ product_group }}
 {%- liquid
   if product_group == blank
     for group in shop.metaobjects.product_group.values
