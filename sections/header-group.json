@@ -103,11 +103,45 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "1771532475bfbbac03": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c0d6bef_JnVytX": {
+          "type": "ai_gen_block_c0d6bef",
+          "settings": {
+            "video_shopify": "shopify://files/videos/16-9_New-Client-01.mp4",
+            "video_url": "",
+            "preheader": "",
+            "heading": "Welcome to our store",
+            "body_text": "<p>Discover our amazing collection of products</p>",
+            "cta_text": "Shop now",
+            "cta_link": "",
+            "min_height_desktop": 600,
+            "min_height_mobile": 400,
+            "content_max_width": 700,
+            "preheader_size": 14,
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "cta_bg_color": "#ffffff",
+            "cta_text_color": "#000000",
+            "cta_hover_bg_color": "#f0f0f0",
+            "cta_hover_text_color": "#000000"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c0d6bef_JnVytX"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "announcement-bar",
     "header",
-    "177093414734b260b4"
+    "177093414734b260b4",
+    "1771532475bfbbac03"
   ]
 }
