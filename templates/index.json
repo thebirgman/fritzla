@@ -27,6 +27,7 @@
           "type": "ai_gen_block_3c211f1",
           "settings": {
             "video_desktop": "shopify://files/videos/16-9_New-Client-01.mp4",
+            "video_mobile": "shopify://files/videos/9-16_New-Client-02.mp4",
             "desktop_width_percent": 100,
             "border_radius": 0,
             "overlay_color": "#000000",
