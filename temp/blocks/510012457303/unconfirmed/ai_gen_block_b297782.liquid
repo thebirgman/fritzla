@@ -1,6 +1,387 @@
+{% doc %}
+  @prompt
+    A full width hero section with option to add a video in the background. Need also option to set a centered preheader, headline body copy and cta, want the option to upload the video aswell, the typography need to follow the theme
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-hero-video-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    min-height: {{ block.settings.min_height_desktop }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: {{ block.settings.overlay_color }};
+  }
+
+  .ai-hero-video__background-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .ai-hero-video__video-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+
+  .ai-hero-video__image-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-hero-video__image-placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-hero-video__image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  .ai-hero-video__overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.overlay_color }};
+    opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 2;
+  }
+
+  .ai-hero-video__content-{{ ai_gen_id }} {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: {{ block.settings.content_max_width }}px;
+    padding: 40px 20px;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-hero-video__preheader-{{ ai_gen_id }} {
+    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    font-weight: {{ settings.type_body_font.weight }};
+    font-size: {{ block.settings.preheader_size }}px;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .ai-hero-video__heading-{{ ai_gen_id }} {
+    font-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+    font-weight: {{ settings.type_header_font.weight }};
+    font-size: calc({{ settings.desktop_heading_hxl_size }}px * {{ settings.heading_scale | divided_by: 100.0 }});
+    margin: 0 0 20px;
+    line-height: 1.2;
+  }
+
+  .ai-hero-video__body-{{ ai_gen_id }} {
+    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    font-weight: {{ settings.type_body_font.weight }};
+    font-size: calc(16px * {{ settings.body_scale | divided_by: 100.0 }});
+    margin: 0 0 32px;
+    line-height: 1.6;
+  }
+
+  .ai-hero-video__cta-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: {{ block.settings.cta_bg_color }};
+    color: {{ block.settings.cta_text_color }};
+    text-decoration: none;
+    border-radius: {{ settings.buttons_radius }}px;
+    font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    font-weight: {{ settings.type_body_font.weight }};
+    font-size: calc(16px * {{ settings.body_scale | divided_by: 100.0 }});
+    transition: all 0.3s ease;
+  }
+
+  .ai-hero-video__cta-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.cta_hover_bg_color }};
+    color: {{ block.settings.cta_hover_text_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-hero-video-{{ ai_gen_id }} {
+      min-height: {{ block.settings.min_height_mobile }}px;
+    }
+
+    .ai-hero-video__heading-{{ ai_gen_id }} {
+      font-size: calc({{ settings.mobile_heading_hxl_size }}px * {{ settings.heading_scale | divided_by: 100.0 }});
+    }
+
+    .ai-hero-video__content-{{ ai_gen_id }} {
+      padding: 30px 16px;
+    }
+  }
+{% endstyle %}
+
+<hero-video-{{ ai_gen_id }} class="ai-hero-video-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-hero-video__background-{{ ai_gen_id }}">
+    {% if block.settings.video_shopify != blank %}
+      {{ block.settings.video_shopify | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'ai-hero-video__video-' | append: ai_gen_id }}
+    {% elsif block.settings.video_url != blank %}
+      <video
+        class="ai-hero-video__video-{{ ai_gen_id }}"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source src="{{ block.settings.video_url }}" type="video/mp4">
+      </video>
+    {% elsif block.settings.fallback_image %}
+      <img
+        src="{{ block.settings.fallback_image | image_url: width: 2000 }}"
+        alt="{{ block.settings.fallback_image.alt | escape }}"
+        class="ai-hero-video__image-{{ ai_gen_id }}"
+        loading="lazy"
+        width="{{ block.settings.fallback_image.width }}"
+        height="{{ block.settings.fallback_image.height }}"
+      >
+    {% else %}
+      <div class="ai-hero-video__image-placeholder-{{ ai_gen_id }}">
+        {{ 'hero-apparel-1' | placeholder_svg_tag }}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="ai-hero-video__overlay-{{ ai_gen_id }}"></div>
+
+  <div class="ai-hero-video__content-{{ ai_gen_id }}">
+    {% if block.settings.preheader != blank %}
+      <div class="ai-hero-video__preheader-{{ ai_gen_id }}">
+        {{ block.settings.preheader }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.heading != blank %}
+      <h1 class="ai-hero-video__heading-{{ ai_gen_id }}">
+        {{ block.settings.heading }}
+      </h1>
+    {% endif %}
+
+    {% if block.settings.body_text != blank %}
+      <div class="ai-hero-video__body-{{ ai_gen_id }}">
+        {{ block.settings.body_text }}
+      </div>
+    {% endif %}
+
+    {% if block.settings.cta_text != blank and block.settings.cta_link != blank %}
+      <a href="{{ block.settings.cta_link }}" class="ai-hero-video__cta-{{ ai_gen_id }}">
+        {{ block.settings.cta_text }}
+      </a>
+    {% endif %}
+  </div>
+</hero-video-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class HeroVideo{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        const video = this.querySelector('.ai-hero-video__video-{{ ai_gen_id }}');
+        if (video) {
+          video.play().catch(error => {
+            console.log('Video autoplay failed:', error);
+          });
+        }
+      }
+    }
+
+    customElements.define('hero-video-{{ ai_gen_id }}', HeroVideo{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Video hero",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "video",
+      "id": "video_shopify",
+      "label": "Upload video"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "preheader",
+      "label": "Preheader"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Welcome to our store"
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "<p>Discover our amazing collection of products</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "min_height_desktop",
+      "label": "Minimum height (desktop)",
+      "min": 300,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "min_height_mobile",
+      "label": "Minimum height (mobile)",
+      "min": 200,
+      "max": 700,
+      "step": 50,
+      "unit": "px",
+      "default": 400
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content max width",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "default": 700
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "preheader_size",
+      "label": "Preheader size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "Text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "cta_hover_bg_color",
+      "label": "Hover background",
+      "default": "#f0f0f0"
+    },
+    {
+      "type": "color",
+      "id": "cta_hover_text_color",
+      "label": "Hover text",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video hero"
+    }
+  ]
+}
 {% endschema %}
