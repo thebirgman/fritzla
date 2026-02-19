@@ -1,6 +1,612 @@
+{% doc %}
+  @prompt
+    Utgå från video sektionen jag skapade.
+    Men generera ett block som kan autospela video med möjlighet att ladda upp video för desktop 16:9 och mobil 4:5
+    
+    Vill även kunna addera preheader, rubrik, body copy och cta., Vill kunna ladda upp videon direkt i shopify samt addera fallback bild om videon inte laddas in correct
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-autoplay-video-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-autoplay-video__container-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+  }
+
+  .ai-autoplay-video__video-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-autoplay-video__video-wrapper-{{ ai_gen_id }} {
+      padding-bottom: 125%;
+    }
+  }
+
+  .ai-autoplay-video__video-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-autoplay-video__fallback-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-autoplay-video__fallback-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-autoplay-video__content-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: {{ block.settings.content_position }};
+    align-items: {{ block.settings.content_alignment }};
+    padding: 40px;
+    z-index: 2;
+    text-align: {{ block.settings.text_alignment }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-autoplay-video__content-{{ ai_gen_id }} {
+      padding: 24px;
+    }
+  }
+
+  .ai-autoplay-video__overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.overlay_color }};
+    opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 1;
+  }
+
+  .ai-autoplay-video__preheader-{{ ai_gen_id }} {
+    font-size: {{ block.settings.preheader_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .ai-autoplay-video__heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 16px;
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+    line-height: 1.2;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-autoplay-video__heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.7 }}px;
+    }
+  }
+
+  .ai-autoplay-video__body-{{ ai_gen_id }} {
+    font-size: {{ block.settings.body_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 24px;
+    max-width: 600px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-autoplay-video__body-{{ ai_gen_id }} {
+      font-size: {{ block.settings.body_size | times: 0.9 }}px;
+    }
+  }
+
+  .ai-autoplay-video__cta-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_font_size }}px;
+    transition: all 0.3s ease;
+    border: {{ block.settings.button_border_width }}px solid {{ block.settings.button_border_color }};
+  }
+
+  .ai-autoplay-video__cta-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_bg_color }};
+    color: {{ block.settings.button_hover_text_color }};
+  }
+
+  .ai-autoplay-video__placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-autoplay-video__placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    opacity: 0.3;
+  }
+
+  .ai-autoplay-video__empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-autoplay-video__video-hidden-{{ ai_gen_id }} {
+    display: none;
+  }
+{% endstyle %}
+
+<autoplay-video-{{ ai_gen_id }}
+  class="ai-autoplay-video-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-autoplay-video__container-{{ ai_gen_id }}">
+    <div class="ai-autoplay-video__video-wrapper-{{ ai_gen_id }}">
+      {% if block.settings.video_desktop != blank or block.settings.video_mobile != blank %}
+        {% if block.settings.video_desktop != blank %}
+          <video
+            class="ai-autoplay-video__video-{{ ai_gen_id }} ai-autoplay-video__video-desktop-{{ ai_gen_id }}"
+            autoplay
+            muted
+            loop
+            playsinline
+            data-video-type="desktop"
+          >
+            <source src="{{ block.settings.video_desktop.sources[1].url }}" type="{{ block.settings.video_desktop.sources[1].mime_type }}">
+          </video>
+        {% endif %}
+        
+        {% if block.settings.video_mobile != blank %}
+          <video
+            class="ai-autoplay-video__video-{{ ai_gen_id }} ai-autoplay-video__video-mobile-{{ ai_gen_id }} ai-autoplay-video__video-hidden-{{ ai_gen_id }}"
+            autoplay
+            muted
+            loop
+            playsinline
+            data-video-type="mobile"
+          >
+            <source src="{{ block.settings.video_mobile.sources[1].url }}" type="{{ block.settings.video_mobile.sources[1].mime_type }}">
+          </video>
+        {% endif %}
+
+        {% if block.settings.fallback_image != blank %}
+          <div class="ai-autoplay-video__fallback-{{ ai_gen_id }} ai-autoplay-video__video-hidden-{{ ai_gen_id }}">
+            <img
+              src="{{ block.settings.fallback_image | image_url: width: 2000 }}"
+              alt="{{ block.settings.fallback_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.fallback_image.width }}"
+              height="{{ block.settings.fallback_image.height }}"
+            >
+          </div>
+        {% endif %}
+      {% else %}
+        <div class="ai-autoplay-video__placeholder-{{ ai_gen_id }}">
+          {{ 'hero-apparel-1' | placeholder_svg_tag }}
+          <div class="ai-autoplay-video__empty-state-{{ ai_gen_id }}">
+            Ladda upp en video för desktop och mobil
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ai-autoplay-video__overlay-{{ ai_gen_id }}"></div>
+
+    <div class="ai-autoplay-video__content-{{ ai_gen_id }}">
+      {% if block.settings.preheader != blank %}
+        <div class="ai-autoplay-video__preheader-{{ ai_gen_id }}">
+          {{ block.settings.preheader }}
+        </div>
+      {% endif %}
+
+      {% if block.settings.heading != blank %}
+        <h2 class="ai-autoplay-video__heading-{{ ai_gen_id }}">
+          {{ block.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if block.settings.body_text != blank %}
+        <div class="ai-autoplay-video__body-{{ ai_gen_id }}">
+          {{ block.settings.body_text }}
+        </div>
+      {% endif %}
+
+      {% if block.settings.cta_text != blank and block.settings.cta_link != blank %}
+        <a
+          href="{{ block.settings.cta_link }}"
+          class="ai-autoplay-video__cta-{{ ai_gen_id }}"
+        >
+          {{ block.settings.cta_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</autoplay-video-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AutoplayVideo{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.desktopVideo = this.querySelector('.ai-autoplay-video__video-desktop-{{ ai_gen_id }}');
+        this.mobileVideo = this.querySelector('.ai-autoplay-video__video-mobile-{{ ai_gen_id }}');
+        this.fallbackImage = this.querySelector('.ai-autoplay-video__fallback-{{ ai_gen_id }}');
+      }
+
+      connectedCallback() {
+        this.handleResponsiveVideo();
+        window.addEventListener('resize', () => this.handleResponsiveVideo());
+        this.setupVideoErrorHandling();
+      }
+
+      handleResponsiveVideo() {
+        const isMobile = window.innerWidth <= 749;
+        
+        if (this.desktopVideo && this.mobileVideo) {
+          if (isMobile) {
+            this.desktopVideo.classList.add('ai-autoplay-video__video-hidden-{{ ai_gen_id }}');
+            this.mobileVideo.classList.remove('ai-autoplay-video__video-hidden-{{ ai_gen_id }}');
+            this.mobileVideo.play().catch(() => this.showFallback());
+          } else {
+            this.mobileVideo.classList.add('ai-autoplay-video__video-hidden-{{ ai_gen_id }}');
+            this.desktopVideo.classList.remove('ai-autoplay-video__video-hidden-{{ ai_gen_id }}');
+            this.desktopVideo.play().catch(() => this.showFallback());
+          }
+        } else if (this.desktopVideo) {
+          this.desktopVideo.play().catch(() => this.showFallback());
+        } else if (this.mobileVideo) {
+          this.mobileVideo.play().catch(() => this.showFallback());
+        }
+      }
+
+      setupVideoErrorHandling() {
+        if (this.desktopVideo) {
+          this.desktopVideo.addEventListener('error', () => this.showFallback());
+        }
+        if (this.mobileVideo) {
+          this.mobileVideo.addEventListener('error', () => this.showFallback());
+        }
+      }
+
+      showFallback() {
+        if (this.fallbackImage) {
+          if (this.desktopVideo) {
+            this.desktopVideo.classList.add('ai-autoplay-video__video-hidden-{{ ai_gen_id }}');
+          }
+          if (this.mobileVideo) {
+            this.mobileVideo.classList.add('ai-autoplay-video__video-hidden-{{ ai_gen_id }}');
+          }
+          this.fallbackImage.classList.remove('ai-autoplay-video__video-hidden-{{ ai_gen_id }}');
+        }
+      }
+    }
+
+    customElements.define('autoplay-video-{{ ai_gen_id }}', AutoplayVideo{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Autoplay video",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "video",
+      "id": "video_desktop",
+      "label": "Desktop video (16:9)"
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Mobil video (4:5)"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback bild"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop bredd",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Hörnradie",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay färg",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacitet",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Innehåll"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "preheader",
+      "label": "Preheader"
+    },
+    {
+      "type": "range",
+      "id": "preheader_size",
+      "label": "Preheader storlek",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Rubrik",
+      "default": "Din rubrik här"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Rubrik typsnitt",
+      "default": "source_serif_4_n4"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Rubrik storlek",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "Brödtext",
+      "default": "<p>Din brödtext här</p>"
+    },
+    {
+      "type": "range",
+      "id": "body_size",
+      "label": "Brödtext storlek",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfärg",
+      "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Innehåll position (vertikal)",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Topp"
+        },
+        {
+          "value": "center",
+          "label": "Mitten"
+        },
+        {
+          "value": "flex-end",
+          "label": "Botten"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Innehåll justering (horisontell)",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Vänster"
+        },
+        {
+          "value": "center",
+          "label": "Mitten"
+        },
+        {
+          "value": "flex-end",
+          "label": "Höger"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text justering",
+      "options": [
+        {
+          "value": "left",
+          "label": "Vänster"
+        },
+        {
+          "value": "center",
+          "label": "Mitten"
+        },
+        {
+          "value": "right",
+          "label": "Höger"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Knapptext",
+      "default": "Handla nu"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Knapplänk"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Knapp textstorlek",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Knapp bakgrundsfärg",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Knapp textfärg",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Knapp hover bakgrund",
+      "default": "#f0f0f0"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Knapp hover text",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Knapp hörnradie",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "label": "Knapp kantbredd",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Knapp kantfärg",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Bakgrund"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Bakgrundsfärg",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Autoplay video"
+    }
+  ]
+}
 {% endschema %}
