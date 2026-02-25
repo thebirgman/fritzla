@@ -128,7 +128,12 @@
     "product_details_tab_YfrtqG": {
       "type": "product-details-tab",
       "name": "Product Details Tab",
-      "settings": {}
+      "settings": {
+        "heading_description": "Beskrivning",
+        "heading_material": "Detaljer",
+        "heading_details": "Material",
+        "heading_shipping_delivery": "Frakt & Leverans"
+      }
     },
     "1759318997bfffe1c7": {
       "type": "apps",
@@ -154,7 +159,7 @@
     "featured_collection_Efjj7C": {
       "type": "featured-collection",
       "custom_css": [
-        "[class*=featured_collection]{background: #fff;}"
+        "[class*=\"featured_collection\"] {background: #fff;}"
       ],
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
