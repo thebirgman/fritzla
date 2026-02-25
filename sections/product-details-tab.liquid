@@ -1,65 +1,118 @@
-{% assign tabs = product.metafields.custom.product_details_tab_list.value.product_details_tab.value %}
+{% comment %}
+  Product details tabs from metafields: Beskrivning, Material, Detaljer, Frakt & Leverans.
+  Each section uses a rich text metafield and an optional image metafield.
+{% endcomment %}
+{% assign mf_beskrivning = product.metafields.custom.beskrivning %}
+{% assign mf_material = product.metafields.custom.material %}
+{% assign mf_detaljer = product.metafields.custom.detaljer %}
+{% assign mf_frakt = product.metafields.custom.frakt_leverans %}
+{% assign has_any_tab = mf_beskrivning | default: mf_material | default: mf_detaljer | default: mf_frakt %}
 
-{%  if tabs != blank %}
+{% assign first_tab_image = product.metafields.custom.beskrivning_image | default: product.metafields.custom.material_image | default: product.metafields.custom.detaljer_image | default: product.metafields.custom.frakt_leverans_image %}
+
+{% if has_any_tab != blank %}
 <div class="product-details-tab">
   <div class="product-details-tab__inner page-width">
     <div class="product-details-tab__flex">
       <div class="product-details-tab__tabs">
-        {% for tab in tabs %}
-          <button
-            class="product-details-tab__tab-button{% if forloop.first %} is-active{% endif %}"
-            data-tab-index="{{ forloop.index0 }}"
-          >
-            {{ tab.heading | escape }}
-          </button>
-        {% endfor %}
+        {% assign tab_index = 0 %}
+        {% if mf_beskrivning != blank %}
+          <button class="product-details-tab__tab-button{% if tab_index == 0 %} is-active{% endif %}" data-tab-index="{{ tab_index }}">{{ section.settings.heading_description | escape }}</button>
+          {% assign tab_index = tab_index | plus: 1 %}
+        {% endif %}
+        {% if mf_material != blank %}
+          <button class="product-details-tab__tab-button{% if tab_index == 0 %} is-active{% endif %}" data-tab-index="{{ tab_index }}">{{ section.settings.heading_material | escape }}</button>
+          {% assign tab_index = tab_index | plus: 1 %}
+        {% endif %}
+        {% if mf_detaljer != blank %}
+          <button class="product-details-tab__tab-button{% if tab_index == 0 %} is-active{% endif %}" data-tab-index="{{ tab_index }}">{{ section.settings.heading_details | escape }}</button>
+          {% assign tab_index = tab_index | plus: 1 %}
+        {% endif %}
+        {% if mf_frakt != blank %}
+          <button class="product-details-tab__tab-button{% if tab_index == 0 %} is-active{% endif %}" data-tab-index="{{ tab_index }}">{{ section.settings.heading_shipping_delivery | escape }}</button>
+        {% endif %}
       </div>
 
       <div class="product-details-tab__content-wrapper">
-        {% for tab in tabs %}
-          <div
-            class="product-details-tab__content-block{% if forloop.first %} is-active{% endif %}"
-            data-tab-content-index="{{ forloop.index0 }}"
-          >
-            <div class="product-details-tab__text">
-              {{ tab.content | metafield_tag }}
-            </div>
+        {% assign tab_index = 0 %}
+        {% if mf_beskrivning != blank %}
+          <div class="product-details-tab__content-block{% if tab_index == 0 %} is-active{% endif %}" data-tab-content-index="{{ tab_index }}">
+            <div class="product-details-tab__text">{{ mf_beskrivning | metafield_tag }}</div>
           </div>
-        {% endfor %}
+          {% assign tab_index = tab_index | plus: 1 %}
+        {% endif %}
+        {% if mf_material != blank %}
+          <div class="product-details-tab__content-block{% if tab_index == 0 %} is-active{% endif %}" data-tab-content-index="{{ tab_index }}">
+            <div class="product-details-tab__text">{{ mf_material | metafield_tag }}</div>
+          </div>
+          {% assign tab_index = tab_index | plus: 1 %}
+        {% endif %}
+        {% if mf_detaljer != blank %}
+          <div class="product-details-tab__content-block{% if tab_index == 0 %} is-active{% endif %}" data-tab-content-index="{{ tab_index }}">
+            <div class="product-details-tab__text">{{ mf_detaljer | metafield_tag }}</div>
+          </div>
+          {% assign tab_index = tab_index | plus: 1 %}
+        {% endif %}
+        {% if mf_frakt != blank %}
+          <div class="product-details-tab__content-block{% if tab_index == 0 %} is-active{% endif %}" data-tab-content-index="{{ tab_index }}">
+            <div class="product-details-tab__text">{{ mf_frakt | metafield_tag }}</div>
+          </div>
+        {% endif %}
       </div>
 
       <div class="product-details-tab__image-wrapper">
-        
-        {% for tab in tabs %}
-            {% if forloop.first %}
-                    {% assign firstTab = tab %}
-            {% endif %}
-            <div
-              class="product-details-tab__image-block{% if forloop.first %} is-active{% endif %}"
-              data-tab-image-index="{{ forloop.index0 }}"
-            >
-                    {% if tab.image %}
-                    <img
-                        src="{{ tab.image | image_url: width: 800 }}"
-                        alt="{{ tab.image.alt | escape }}"
-                        class="product-details-tab__image"
-                        loading="lazy"
-                    />
-                {% else %}
-                    <img
-                        src="{{ firstTab.image | image_url: width: 800 }}"
-                        alt="{{firstTab.image.alt | escape }}"
-                        class="product-details-tab__image"
-                        loading="lazy"
-                    />
-          {% endif %}
-            </div>
-        {% endfor %}
+        {% assign tab_index = 0 %}
+        {% if mf_beskrivning != blank %}
+          <div class="product-details-tab__image-block{% if tab_index == 0 %} is-active{% endif %}" data-tab-image-index="{{ tab_index }}">
+            {% assign img = product.metafields.custom.beskrivning_image %}
+            <img
+              src="{% if img != blank %}{{ img | image_url: width: 800 }}{% else %}{{ first_tab_image | image_url: width: 800 }}{% endif %}"
+              alt="{% if img != blank %}{{ img.alt | escape }}{% else %}{{ first_tab_image.alt | escape }}{% endif %}"
+              class="product-details-tab__image"
+              loading="lazy"
+            />
+          </div>
+          {% assign tab_index = tab_index | plus: 1 %}
+        {% endif %}
+        {% if mf_material != blank %}
+          <div class="product-details-tab__image-block{% if tab_index == 0 %} is-active{% endif %}" data-tab-image-index="{{ tab_index }}">
+            {% assign img = product.metafields.custom.material_image %}
+            <img
+              src="{% if img != blank %}{{ img | image_url: width: 800 }}{% else %}{{ first_tab_image | image_url: width: 800 }}{% endif %}"
+              alt="{% if img != blank %}{{ img.alt | escape }}{% else %}{{ first_tab_image.alt | escape }}{% endif %}"
+              class="product-details-tab__image"
+              loading="lazy"
+            />
+          </div>
+          {% assign tab_index = tab_index | plus: 1 %}
+        {% endif %}
+        {% if mf_detaljer != blank %}
+          <div class="product-details-tab__image-block{% if tab_index == 0 %} is-active{% endif %}" data-tab-image-index="{{ tab_index }}">
+            {% assign img = product.metafields.custom.detaljer_image %}
+            <img
+              src="{% if img != blank %}{{ img | image_url: width: 800 }}{% else %}{{ first_tab_image | image_url: width: 800 }}{% endif %}"
+              alt="{% if img != blank %}{{ img.alt | escape }}{% else %}{{ first_tab_image.alt | escape }}{% endif %}"
+              class="product-details-tab__image"
+              loading="lazy"
+            />
+          </div>
+          {% assign tab_index = tab_index | plus: 1 %}
+        {% endif %}
+        {% if mf_frakt != blank %}
+          <div class="product-details-tab__image-block{% if tab_index == 0 %} is-active{% endif %}" data-tab-image-index="{{ tab_index }}">
+            {% assign img = product.metafields.custom.frakt_leverans_image %}
+            <img
+              src="{% if img != blank %}{{ img | image_url: width: 800 }}{% else %}{{ first_tab_image | image_url: width: 800 }}{% endif %}"
+              alt="{% if img != blank %}{{ img.alt | escape }}{% else %}{{ first_tab_image.alt | escape }}{% endif %}"
+              class="product-details-tab__image"
+              loading="lazy"
+            />
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
 </div>
-
 {% endif %}
 
 
@@ -325,6 +378,32 @@ document.addEventListener("DOMContentLoaded", function () {
 {% schema %}
 {
   "name": "Product Details Tab",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_description",
+      "label": "Description heading",
+      "default": "Description"
+    },
+    {
+      "type": "text",
+      "id": "heading_material",
+      "label": "Material heading",
+      "default": "Material"
+    },
+    {
+      "type": "text",
+      "id": "heading_details",
+      "label": "Details heading",
+      "default": "Details"
+    },
+    {
+      "type": "text",
+      "id": "heading_shipping_delivery",
+      "label": "Shipping & Delivery heading",
+      "default": "Shipping & Delivery"
+    }
+  ],
   "presets": [
     {
       "name": "Product Details Tab"

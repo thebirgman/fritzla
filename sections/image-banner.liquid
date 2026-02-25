@@ -3,6 +3,8 @@
 {%- liquid
   assign desktop_image = section.settings.image
   assign mobile_image = section.settings.image_mobile | default: section.settings.image
+  assign desktop_video = section.settings.video_desktop
+  assign mobile_video = section.settings.video_mobile | default: section.settings.video_desktop
 -%}
 
 {%- if section.settings.image_height == 'adapt' and desktop_image != blank -%}
@@ -84,26 +86,70 @@
 -%}
 
 {%- style -%}
+  /* Background image layer - fills media area */
+  #Banner-{{ section.id }} .banner__media picture {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  #Banner-{{ section.id }} .banner__media picture img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
   @media screen and (min-width: 750px) {
     #Banner-{{ section.id }} .banner__media img {
       object-fit: cover;
       object-position: {{ desktop_object_position }};
-      height: 100%;
-      width: 100%;
     }
   }
-  
   @media screen and (max-width: 749px) {
     #Banner-{{ section.id }} .banner__media img {
       object-fit: cover;
       object-position: {{ mobile_object_position }};
-      height: 100%;
-      width: 100%;
     }
   }
-{%- endstyle -%}
-
-{%- style -%}
+  /* Poster layer when video only (no image) */
+  #Banner-{{ section.id }} .banner__media-poster {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  /* Background video layer - on top of image */
+  #Banner-{{ section.id }} .banner__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  #Banner-{{ section.id }} .banner__video--desktop {
+    display: none;
+  }
+  #Banner-{{ section.id }} .banner__video--mobile {
+    display: none;
+  }
+  @media screen and (min-width: 750px) {
+    #Banner-{{ section.id }} .banner__video--desktop {
+      display: block;
+    }
+    #Banner-{{ section.id }} .banner__video--mobile {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 749px) {
+    #Banner-{{ section.id }} .banner__video--desktop {
+      display: none;
+    }
+    #Banner-{{ section.id }} .banner__video--mobile {
+      display: block;
+    }
+  }
+  
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
@@ -176,33 +222,74 @@
   class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.image_height == 'adapt' and desktop_image != blank %} banner--adapt{% endif %} banner--mobile-{{ section.settings.mobile_image_height }}{% if section.settings.mobile_image_height == 'adapt' and mobile_image != blank %} banner--mobile-adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
   style= 'cursor: pointer;'
   >
-  {%- if desktop_image != blank -%}
-    <div class="banner__media media{% if desktop_image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {%- liquid
-        assign image_height = desktop_image.width | divided_by: desktop_image.aspect_ratio
-        assign sizes = stacked_sizes
-      -%}
-      <picture>
-        {%- if mobile_image != blank and mobile_image != desktop_image -%}
-          <source
-            media="(max-width: 749px)"
-            srcset="{{ mobile_image | image_url: width: 375 }} 375w,
-                    {{ mobile_image | image_url: width: 550 }} 550w,
-                    {{ mobile_image | image_url: width: 750 }} 750w"
-            sizes="100vw"
-          >
+  {%- if desktop_image != blank or desktop_video != blank or mobile_video != blank -%}
+    <div class="banner__media media{% if desktop_image == blank and desktop_video == blank and mobile_video == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {%- comment -%} Layer 1: Background image (fallback when no video, or underneath video) {%- endcomment -%}
+      {%- if desktop_image != blank -%}
+        {%- liquid
+          assign image_height = desktop_image.width | divided_by: desktop_image.aspect_ratio
+          assign sizes = stacked_sizes
+        -%}
+        <picture>
+          {%- if mobile_image != blank and mobile_image != desktop_image -%}
+            <source
+              media="(max-width: 749px)"
+              srcset="{{ mobile_image | image_url: width: 375 }} 375w,
+                      {{ mobile_image | image_url: width: 550 }} 550w,
+                      {{ mobile_image | image_url: width: 750 }} 750w"
+              sizes="100vw"
+            >
+          {%- endif -%}
+          {{
+            desktop_image
+            | image_url: width: 3840
+            | image_tag:
+              width: desktop_image.width,
+              height: image_height,
+              sizes: sizes,
+              widths: widths,
+              fetchpriority: fetch_priority
+          }}
+        </picture>
+      {%- elsif desktop_video == blank and mobile_video == blank -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+      {%- if desktop_image == blank -%}
+        {%- if desktop_video != blank or mobile_video != blank -%}
+          <div class="banner__media-poster">
+            {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
         {%- endif -%}
-        {{
-          desktop_image
-          | image_url: width: 3840
-          | image_tag:
-            width: desktop_image.width,
-            height: image_height,
-            sizes: sizes,
-            widths: widths,
-            fetchpriority: fetch_priority
-        }}
-      </picture>
+      {%- endif -%}
+      {%- comment -%} Layer 2: Background videos (on top of image, autoplay muted loop) {%- endcomment -%}
+      {%- if desktop_video != blank -%}
+        <video
+          class="banner__video banner__video--desktop"
+          autoplay
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+        >
+          {%- for source in desktop_video.sources -%}
+            <source src="{{ source.url }}" type="{{ source.mime_type }}">
+          {%- endfor -%}
+        </video>
+      {%- endif -%}
+      {%- if mobile_video != blank -%}
+        <video
+          class="banner__video banner__video--mobile"
+          autoplay
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+        >
+          {%- for source in mobile_video.sources -%}
+            <source src="{{ source.url }}" type="{{ source.mime_type }}">
+          {%- endfor -%}
+        </video>
+      {%- endif -%}
     </div>
   {%- else -%}
     <div class="banner__media media placeholder{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
@@ -310,6 +397,22 @@
       "id": "image_mobile",
       "label": "Mobile image",
       "info": "Optional. If not set, the desktop image will be used on mobile."
+    },
+    {
+      "type": "header",
+      "content": "Background video"
+    },
+    {
+      "type": "video",
+      "id": "video_desktop",
+      "label": "Desktop video",
+      "info": "Optional. Plays on top of the background image on desktop. Uses image when not set."
+    },
+    {
+      "type": "video",
+      "id": "video_mobile",
+      "label": "Mobile video",
+      "info": "Optional. Plays on top of the background image on mobile. If not set, desktop video is used when available."
     },
     {
       "type": "range",
