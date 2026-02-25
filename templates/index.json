@@ -61,6 +61,7 @@
       "block_order": [
         "ai_gen_block_3c211f1_BWcBYU"
       ],
+      "disabled": true,
       "settings": {}
     },
     "image_banner_kjicXz": {
@@ -103,6 +104,7 @@
       "settings": {
         "image": "shopify://shop_images/030cb445614c233141a12f7986bb34210919c8a0_1.png",
         "image_mobile": "shopify://shop_images/Mobile.png",
+        "video_desktop": "shopify://files/videos/Startsida 2026 video.mp4",
         "image_overlay_opacity": 40,
         "image_height": "custom",
         "custom_height": 650,
