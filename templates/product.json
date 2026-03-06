@@ -106,25 +106,6 @@
         "padding_bottom": 12
       }
     },
-    "related-products": {
-      "type": "related-products",
-      "disabled": true,
-      "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 28
-      }
-    },
     "product_details_tab_YfrtqG": {
       "type": "product-details-tab",
       "name": "Product Details Tab",
@@ -133,6 +114,24 @@
         "heading_material": "Detaljer",
         "heading_details": "Material",
         "heading_shipping_delivery": "Frakt & Leverans"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 28
       }
     },
     "1759318997bfffe1c7": {
@@ -193,8 +192,8 @@
   },
   "order": [
     "main",
-    "related-products",
     "product_details_tab_YfrtqG",
+    "related-products",
     "1759318997bfffe1c7",
     "featured_collection_Efjj7C"
   ]
