@@ -127,9 +127,9 @@
         "category_kxRmJA": {
           "type": "category",
           "settings": {
-            "collection": "",
+            "collection": "sovrum",
             "image": "shopify://shop_images/f48ae081981ff495b1147e90fda375e159a81406.png",
-            "title": "Hemtextil",
+            "title": "Sovrum",
             "subheading": "",
             "url": "shopify://collections",
             "button_label": "Handla nu"
@@ -138,7 +138,7 @@
         "category_EpgGmn": {
           "type": "category",
           "settings": {
-            "collection": "",
+            "collection": "mobler",
             "image": "shopify://shop_images/303d333850d985cd77c6fd8c400fc8f51b619ec4.png",
             "title": "Möbler",
             "subheading": "",
