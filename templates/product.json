@@ -52,7 +52,7 @@
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true,
-            "btn_message": "Smidiga betalningar & leveranser • Fria byten & enkla returer"
+            "btn_message": "Smidiga betalningar & leveranser"
           }
         },
         "share": {
