@@ -396,7 +396,7 @@
           "type": "button",
           "settings": {
             "button_label": "Kontakta oss",
-            "button_link": "#",
+            "button_link": "shopify://pages/somnad",
             "button_style_secondary": false
           }
         }
