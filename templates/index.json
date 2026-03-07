@@ -396,7 +396,7 @@
           "type": "button",
           "settings": {
             "button_label": "Kontakta oss",
-            "button_link": "shopify://pages/somnad",
+            "button_link": "#",
             "button_style_secondary": false
           }
         }
@@ -436,7 +436,7 @@
             "image": "shopify://shop_images/c27ba727610bc90b58cf7bcc54f49b148cb0e7ea.png",
             "title": "Artwood",
             "subheading": "",
-            "url": "shopify://pages/homestyling",
+            "url": "shopify://collections/artwood",
             "button_label": "Handla nu"
           }
         },
